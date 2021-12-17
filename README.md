@@ -18,7 +18,8 @@ following lines to the file plugins/plugins.js:
 
     RULESETS["Hellfrost Campaign Setting using the Savage Worlds Deluxe Edition rules"] = {
       url:'plugins/Hellfrost.js',
-      group:'Savage Worlds'
+      group:'Savage Worlds',
+      require:'SWDE.js'
     };
 
 ### Usage
