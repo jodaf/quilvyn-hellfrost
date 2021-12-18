@@ -34,11 +34,8 @@ function Hellfrost(baseRules) {
     baseRules && !baseRules.match(/deluxe/i) && window.SWADE != null;
 
   var rules = new QuilvynRules(
-    'Hellfrost - SW ' + (useSwade ? 'Deluxe' : 'Adventure') + ' Edition',
-     Hellfrost.VERSION
+    'Hellfrost - SW ' + (useSwade ? 'Adventure' : 'Deluxe'), Hellfrost.VERSION
   );
-
-  var rules = new QuilvynRules('Savage Worlds', Hellfrost.VERSION);
   Hellfrost.rules = rules;
   rules.basePlugin = useSwade ? SWADE : SWDE;
 
@@ -57,8 +54,8 @@ function Hellfrost(baseRules) {
     'edges', 'edgePoints', 'hindrances', 'sanityNotes', 'validationNotes'
   );
   rules.defineChoice('preset',
-    'race:Race,select-one,races', 'era:Era,select-one,eras',
-    'advances:Advances,text,4', 'arcaneFocus:Arcane Focus?,checkbox,',
+    'race:Race,select-one,races', 'advances:Advances,text,4',
+    'arcaneFocus:Arcane Focus?,checkbox,',
     'focusType:Focus Type,select-one,arcanas'
   );
 
@@ -66,7 +63,7 @@ function Hellfrost(baseRules) {
   Hellfrost.combatRules
     (rules, Hellfrost.ARMORS, Hellfrost.SHIELDS, Hellfrost.WEAPONS);
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
-  Hellfrost.identityRules(rules, Hellfrost.RACES, Hellfrost.ERAS);
+  Hellfrost.identityRules(rules, Hellfrost.RACES);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS);
@@ -97,20 +94,606 @@ Hellfrost.EDGES_ADDED = {
   'Noble':'Type=background',
   'Old Family':'Type=background Require="Arcane Background (Heahwisardry)"',
   'Styrimathr':'Type=background Require="skills.Boating >= 8"',
-  'Warm Blooded':'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'"'
+  'Warm Blooded':'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'"',
   // Combat
+  'Blood And Guts':
+    'Type=combat ' +
+    'Require="advances >= 8","skills.Fighting >= 10 || skills.Shooting >= 10"',
+  'Courageous':'Type=combat Require="spirit >= 8"',
+  'Double Shot':
+    'Type=combat ' +
+    'Require="advances >= 4","race =~ \'Elf\'","skills.Shooting >= 8"',
+  'Improved Double Shot':
+    'Type=combat Require="advances >= 12","features.Double Shot"',
+  'Favored Foe':
+    'Type=combat ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"smarts >= 8",' +
+      '"skills.Fighting >= 8 || skills.Shooting >= 8"',
+  'Improved Giant Killer':
+    'Type=combat ' +
+    'Require=' +
+      '"advances >= 12",' +
+      '"smarts >= 8",' +
+      '"skills.Fighting >= 8 || skills.Shooting >= 8"',
+  'Mighty Shot':
+    'Type=combat ' +
+    'Require="advances >= 8","strength >= 8","skills.Shooting >= 10"',
+  'Mighty Throw':
+    'Type=combat ' +
+    'Require="advances >= 8","strength >= 8","skills.Fighting >= 10"',
+  'Necromantic Severing':
+    'Type=combat ' +
+    'Require="advances >= 8","spirit >= 8","skills.Fighting >= 10"',
+  'Oversized Weapon Master':
+    'Type=combat ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"strength >= 10",' +
+      '"skills.Fighting >= 10",' +
+      '"size >= 0"',
+  'Scamper':
+    'Type=combat ' +
+    'Require="advances >= 4","race == \'Engro\'","agility >= 8"',
+  'Shieldwall':
+    'Type=combat ' +
+    'Require="advances >= 4",features.Block,"shield =~ \'Medium|Large\'"',
+  'Snow Walker':'Type=combat Require="agility >= 6"',
+  'Improved Snow Walker':
+    'Type=combat Require="advances >= 4","features.Snow Walker"',
+  'Sunder':
+    'Type=combat ' +
+    'Require="advances >= 4","race == \'Frost Dwarf\'","strength >= 8"',
+  'Improved Sunder':'Type=combat Require="advances >= 8",features.Sunder',
+  'Wall Of Steel':
+    'Type=combat ' +
+    'Require="advances >= 8","skills.Fighting >= 8","skills.Intimidation >= 8"',
+  'War Cry':
+    'Type=combat ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"race =~ \'Dwarf|Saxa\'",' +
+      '"skills.Intimidation >= 8"',
   // Disciple
+  'Disciple Of The Unkowable One':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 8",' +
+      '"smarts >= 8",' +
+      '"skills.Faith >= 6",' +
+      '"skills.Taunt >= 8",' +
+      '"deity == \'The Unknowable One\'"',
+  'Disciple Of Dargar':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"strength >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"skills.Intimidation >= 8",' +
+      '"deity == \'Dargar\'"',
+  'Disciple Of Eira':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Healing >= 6",' +
+      '"deity == \'Eira\'"',
+  'Disciple Of The Unkowable One':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 8",' +
+      '"smarts >= 8",' +
+      '"skills.Faith >= 6",' +
+      '"skills.Taunt >= 8",' +
+      '"deity == \'The Unknowable One\'"',
+  'Disciple Of Eostre Animalmother':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Taunt >= 8",' +
+      '"features.Beast Bond",' +
+      '"deity == \'Eostre\'"',
+  'Disciple Of Eostre Plantmother':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 8",' +
+      '"spirit >= 8",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Taunt >= 8",' +
+      '"deity == \'Eostre\'"',
+  'Disciple Of Ertha':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"vigor >= 8",' +
+      '"skills.Athletics >= 6",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Survival >= 6",' +
+      '"deity == \'Ertha\'"',
+  'Disciple Of Freo':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 8",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Freo\'"',
+  'Disciple Of Hela':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Hela\'"',
+  'Disciple Of Hoenir':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"smarts >= 10",' +
+      '"skills.Faith >= 8",' +
+      'features.Scholar,' +
+      '"deity == \'The Unknowable One\'"',
+  'Disciple Of Hothar':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"smarts >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Notice >= 6",' +
+      'features.Investigator,' +
+      '"deity == \'Hothar\'"',
+  'Disciple Of Kenaz':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Kenaz\'"',
+  'Disciple Of Maera':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"smarts >= 8",' +
+      '"spirit >= 6",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Maera\'"',
+  'Disciple Of Nauthiz':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 10",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Gambling >= 8",' +
+      '"skills.Thievery",' +
+      '"deity == \'Nauthiz\'"',
+  'Disciple Of Neorthe':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"skills.Boating >= 6",' +
+      '"skills.Faith >= 6",' +
+      '"skills.Swimming >= 6",' +
+      '"deity == \'Neorthe\'"',
+  'Disciple Of Niht':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Notice >= 8",' +
+      '"skills.Stealth >= 8",' +
+      '"deity == \'Niht\'"',
+  'Disciple Of The Norns':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"smarts >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'The Norns\'"',
+  'Disciple Of Rigr':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Notice >= 8",' +
+      'features.Alertness,' +
+      '"deity == \'Rigr\'"',
+  'Disciple Of Scaetha':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 6",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"deity == \'Scaetha\'"',
+  'Disciple Of Sigel':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Notice >= 8",' +
+      '"deity == \'Sigel\'"',
+  'Disciple Of Thunor':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Thunor\'"',
+  'Disciple Of Tiw':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"strength >= 8",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Fighting >= 10",' +
+      '"deity == \'Tiw\'"',
+  'Disciple Of Ullr':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Shooting >= 8",' +
+      '"skills.Stealth >= 6",' +
+      '"skills.Tracking >= 6",' +
+      'features.Marksman,' +
+      '"deity == \'Ullr\'"',
+  'Disciple Of The Unkowable One':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"agility >= 8",' +
+      '"smarts >= 8",' +
+      '"skills.Faith >= 6",' +
+      '"skills.Taunt >= 8",' +
+      '"deity == \'The Unknowable One\'"',
   // Leadership
-  // Legendary
+  'A Few Good Men':
+    'Type=leadership ' +
+    'Require=' +
+      '"advances >= 12",' +
+      '"smarts >= 8",' +
+      '"skills.Battle >= 10",' +
+      'features.Command,' +
+      'features.Inspire',
+  'Coordinated Firepower':
+    'Type=leadership ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"smarts >= 6",' +
+      '"skills.Shooting >= 8",' +
+      '"skills.Fighting >= 8",' +
+      'features.Command',
+  'Cry Havoc!':
+    'Type=leadership ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"spirit >= 8",' +
+      '"skills.Battle >= 10",' +
+      'features.Command,' +
+      'features.Fervor',
+  'Death Before Dishonor':
+    'Type=leadership ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"spirit >= 8",' +
+      '"skills.Battle >= 8",' +
+      'features.Command,' +
+      '"features.Hold The Line"',
+  'Fanaticism':
+    'Type=leadership Require="advances >= 4",features.Command,features.Fervor',
+  'Siege Breaker':
+    'Type=leadership ' +
+    'Require="advances >= 4","smarts >= 8","skills.Battle >= 8"',
+  'Siege Mentality':
+    'Type=leadership ' +
+    'Require="advances >= 4","smarts >= 8","skills.Battle >= 8"',
   // Power
+  'Alchemy':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      'powerCount,' +
+      '"arcaneSkill >= 6",' +
+      '"skills.Knowledge (Alchemy) >= 6"',
+  'Augment Staff (Aura)':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Heahwisardry)",' +
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Occult >= 8"',
+  'Augment Staff (Damage)':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Heahwisardry)",' +
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Occult >= 8"',
+  'Augment Staff (Deflect)':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Heahwisardry)",' +
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Occult >= 8"',
+  'Augment Staff (Spell Store)':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Heahwisardry)",' +
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Occult >= 8"',
+  'Combine Spells':
+    'Type=power ' +
+    'Require=' +
+       '"advances >= 8",' +
+       'powerCount,' +
+       '"arcaneSkill >= 10",' +
+       '"skills.Occult >= 10"',
+  'Concentration':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      'powerCount,' +
+      '"smarts >= 6",' +
+      '"spirit >= 6",' +
+      '"vigor >= 6"',
+  'Improved Concentration':
+    'Type=power Require="advances >= 8",features.Concentration',
+  'Elemental Mastery':
+    'Type=power ' +
+    'Require="advances >= 4","features.Arcane Background (Elementalism)"',
+  'Focus':'Type=power Require="advances >= 4","spirit >= 6","arcaneSkill >= 8"',
+  'Improved Focus':'Type=power Require="advances >= 8",features.Focus',
+  'Hellfreeze':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 8",' +
+      'powerCount,' +
+      '"arcaneSkill >= 10",' +
+      '"skills.Occult >= 10"',
+  'Power Surge':
+    'Type=power Require="advances >= 4",powerCount,"arcaneSkill >= 10"',
+  'Runic Insight':
+    'Type=power ' +
+    'Require="features.Arcane Background (Rune Magic)","arcaneSkill >= 8"',
+  'Spell Finesse':
+    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
   // Professional
+  'Bladedancer':
+    'Type=professional ' +
+    'Require=' +
+      '"race =~ \'Elf\'",' +
+      '"agility >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"features.Two-Fisted"',
+  'Bludgeoner':
+    'Type=professional ' +
+    'Require=' +
+      '"race == \'Engro\'",' +
+      '"spirit >= 8",' +
+      '"strength >= 6",' +
+      '"skills.Intimidation >= 6",' +
+      '"skills.Shooting >= 8"',
+  'Gray Legionary':
+    'Type=professional ' +
+    'Require=' +
+      '"spirit >= 8",' +
+      '"skills.Fighting >= 8"',
+  'Guild Thief':
+    'Type=professional ' +
+    'Require=' +
+      '"skills.Thievery"',
+  'Hearth Knight':
+    'Type=professional ' +
+    'Require=' +
+      '"spirit >= 8",' +
+      '"vigor >= 8",' +
+      '"skills.Fighting >= 6",' +
+      '"skills.Riding >= 6",' +
+      '"skills.Survival >= 8"',
+  'Hedge Magic':
+    'Type=professional ' +
+    'Require=' +
+      '"smarts >= 8",' +
+      '"skills.Occult >= 6",' +
+      '"skills.Survival >= 6"',
+  'Holy/Unholy Warrior':
+    'Type=professional ' +
+    'Require=' +
+      '"features.Arcane Background (Miracles)",' +
+      '"spirit >= 6",' +
+      '"skills.Faith >= 6"',
+  'Iron Guild Mercenary':
+    'Type=professional ' +
+    'Require=' +
+      '"strength >= 8",' +
+      '"spirit >= 6",' +
+      '"skills.fighting >= 6"',
+  'Knight Hfrafn':
+    'Type=professional ' +
+    'Require=' +
+      '"smarts >= 6",' +
+      '"spirit >= 6",' +
+      '"skills.Battle >= 8",' +
+      'features.Command,' +
+      '"leadershipEdgeCount >= 2"',
+  'Lorekeeper':
+    'Type=professional ' +
+    'Require=' +
+      '"smarts >= 8",' +
+      '"skills.Investigation >= 6",' +
+      '"features.Illiterate == 0"',
+  'Reliquary (Arcanologist)':
+    'Type=professional ' +
+    'Require=' +
+      '"smarts >= 8",' +
+      '"Occult >= 8",' +
+      '"skills.Notice >= 6"',
+  'Reliquary (Reliqus)':
+    'Type=professional ' +
+    'Require=' +
+      '"agility >= 8",' +
+      '"skills.Thievery >= 6",' +
+      '"skills.Notice >= 6"',
+  'Roadwarden':
+    'Type=professional ' +
+    'Require=' +
+      '"vigor >= 6",' +
+      '"skills.Fighting >= 8",' +
+      '"skills.Riding >= 6",' +
+      '"skills.Survival >= 6",' +
+      '"skills.Tracking >= 6"',
+  'Sister Of Mercy':
+    'Type=professional ' +
+    'Require=' +
+      '"skills.Healing >= 8",' +
+      '"gender == \'Female\'",' +
+      '"features.Pacifist || features.Pacifist+"',
+  'Wood Warden':
+    'Type=professional ' +
+    'Require=' +
+      '"skills.Shooting >= 8",' +
+      '"features.Arcane Background (Druidism) || features.Woodsman"',
   // Social
+  'Master Storyteller':
+    'Type=background ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"skills.Common Knowledge >= 8",' +
+      '"skills.Persuasion >= 8"',
+  'Legendary Storyteller':
+    'Type=background Require="advances >= 12","features.Master Storyteller"'
 };
-Hellfrost.EDGES = Object.assign({}, SWADE.EDGES);
+Hellfrost.EDGES = Object.assign({}, SWADE.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
 delete Hellfrost.EDGES['Elan'];
 delete Hellfrost.EDGES['Natural Leader'];
 Hellfrost.FEATURES_ADDED = {
+
+  // Edges
+  'A Few Good Men':'Section=feature Note="TODO"',
+  'Alchemy':'Section=feature Note="TODO"',
+  'Augment Staff (Aura)':'Section=feature Note="TODO"',
+  'Augment Staff (Damage)':'Section=feature Note="TODO"',
+  'Augment Staff (Deflect)':'Section=feature Note="TODO"',
+  'Augment Staff (Spell Store)':'Section=feature Note="TODO"',
+  'Bladedancer':'Section=feature Note="TODO"',
+  'Blood And Guts':'Section=feature Note="TODO"',
+  'Bludgeoner':'Section=feature Note="TODO"',
+  'Combine Spells':'Section=feature Note="TODO"',
+  'Concentration':'Section=feature Note="TODO"',
+  'Coordinated Firepower':'Section=feature Note="TODO"',
+  'Courageous':'Section=feature Note="TODO"',
+  'Cry Havoc!':'Section=feature Note="TODO"',
+  'Death Before Dishonor':'Section=feature Note="TODO"',
+  'Disciple Of Dargar':'Section=feature Note="TODO"',
+  'Disciple Of Eira':'Section=feature Note="TODO"',
+  'Disciple Of Eostre Animalmother':'Section=feature Note="TODO"',
+  'Disciple Of Eostre Plantmother':'Section=feature Note="TODO"',
+  'Disciple Of Ertha':'Section=feature Note="TODO"',
+  'Disciple Of Freo':'Section=feature Note="TODO"',
+  'Disciple Of Hela':'Section=feature Note="TODO"',
+  'Disciple Of Hoenir':'Section=feature Note="TODO"',
+  'Disciple Of Hothar':'Section=feature Note="TODO"',
+  'Disciple Of Kenaz':'Section=feature Note="TODO"',
+  'Disciple Of Maera':'Section=feature Note="TODO"',
+  'Disciple Of Nauthiz':'Section=feature Note="TODO"',
+  'Disciple Of Neorthe':'Section=feature Note="TODO"',
+  'Disciple Of Niht':'Section=feature Note="TODO"',
+  'Disciple Of Rigr':'Section=feature Note="TODO"',
+  'Disciple Of Scaetha':'Section=feature Note="TODO"',
+  'Disciple Of Sigel':'Section=feature Note="TODO"',
+  'Disciple Of The Norns':'Section=feature Note="TODO"',
+  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
+  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
+  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
+  'Disciple Of Thunor':'Section=feature Note="TODO"',
+  'Disciple Of Tiw':'Section=feature Note="TODO"',
+  'Disciple Of Ullr':'Section=feature Note="TODO"',
+  'Double Shot':'Section=feature Note="TODO"',
+  'Elemental Mastery':'Section=feature Note="TODO"',
+  'Fanaticism':'Section=feature Note="TODO"',
+  'Favored Foe':'Section=feature Note="TODO"',
+  'Focus':'Section=feature Note="TODO"',
+  'Gray Legionary':'Section=feature Note="TODO"',
+  'Guild Thief':'Section=feature Note="TODO"',
+  'Hearth Knight':'Section=feature Note="TODO"',
+  'Hedge Magic':'Section=feature Note="TODO"',
+  'Hellfreeze':'Section=feature Note="TODO"',
+  'Holy/Unholy Warrior':'Section=feature Note="TODO"',
+  'Improved Concentration':'Section=feature Note="TODO"',
+  'Improved Double Shot':'Section=feature Note="TODO"',
+  'Improved Focus':'Section=feature Note="TODO"',
+  'Improved Giant Killer':'Section=feature Note="TODO"',
+  'Improved Snow Walker':'Section=feature Note="TODO"',
+  'Improved Sunder':'Section=feature Note="TODO"',
+  'Iron Guild Mercenary':'Section=feature Note="TODO"',
+  'Knight Hfrafn':'Section=feature Note="TODO"',
+  'Legendary Storyteller':'Section=feature Note="TODO"',
+  'Library':'Section=feature Note="TODO"',
+  'Linguist':'Section=feature Note="TODO"',
+  'Lorekeeper':'Section=feature Note="TODO"',
+  'Master Storyteller':'Section=feature Note="TODO"',
+  'Mighty Shot':'Section=feature Note="TODO"',
+  'Mighty Throw':'Section=feature Note="TODO"',
+  'Necromantic Severing':'Section=feature Note="TODO"',
+  'Noble':'Section=feature Note="TODO"',
+  'Old Family':'Section=feature Note="TODO"',
+  'Oversized Weapon Master':'Section=feature Note="TODO"',
+  'Power Surge':'Section=feature Note="TODO"',
+  'Reliquary (Arcanologist)':'Section=feature Note="TODO"',
+  'Reliquary (Reliqus)':'Section=feature Note="TODO"',
+  'Roadwarden':'Section=feature Note="TODO"',
+  'Runic Insight':'Section=feature Note="TODO"',
+  'Scamper':'Section=feature Note="TODO"',
+  'Shieldwall':'Section=feature Note="TODO"',
+  'Siege Breaker':'Section=feature Note="TODO"',
+  'Siege Mentality':'Section=feature Note="TODO"',
+  'Sister Of Mercy':'Section=feature Note="TODO"',
+  'Snow Walker':'Section=feature Note="TODO"',
+  'Spell Finesse':'Section=feature Note="TODO"',
+  'Styrimathr':'Section=feature Note="TODO"',
+  'Sunder':'Section=feature Note="TODO"',
+  'Wall Of Steel':'Section=feature Note="TODO"',
+  'War Cry':'Section=feature Note="TODO"',
+  'Warm Blooded':'Section=feature Note="TODO"',
+  'Wood Warden':'Section=feature Note="TODO"',
 
   // Hindrances
   'Apprentice/Novitiate':
@@ -149,8 +732,8 @@ Hellfrost.FEATURES =
   Object.assign({}, SWADE.FEATURES, Hellfrost.FEATURES_ADDED);
 Hellfrost.GOODIES = Object.assign({}, SWADE.GOODIES);
 Hellfrost.HINDRANCES_ADDED = {
-  'Apprentice/Novitiate':'Severity=Minor Require=powerPoints',
-  'Apprentice/Novitiate+':'Severity=Major Require=powerPoints',
+  'Apprentice/Novitiate':'Severity=Minor Require=powerCount',
+  'Apprentice/Novitiate+':'Severity=Major Require=powerCount',
   'Black Sheep':'Severity=Minor',
   'Cold Blooded':'Severity=Minor',
   'God Cursed+':'Severity=Major',
@@ -214,8 +797,8 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 };
 
 /* Defines rules related to basic character identity. */
-Hellfrost.identityRules = function(rules, races, eras) {
-  rules.basePlugin.identityRules(rules, races, eras);
+Hellfrost.identityRules = function(rules, races) {
+  rules.basePlugin.identityRules(rules, races, {});
   // No changes needed to the rules defined by base method
 };
 
@@ -245,7 +828,6 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     );
   else if(type == 'Armor')
     Hellfrost.armorRules(rules, name,
-      QuilvynUtils.getAttrValueArray(attrs, 'Era'),
       QuilvynUtils.getAttrValueArray(attrs, 'Area'),
       QuilvynUtils.getAttrValue(attrs, 'Armor'),
       QuilvynUtils.getAttrValue(attrs, 'MinStr'),
@@ -258,9 +840,7 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Type')
     );
     Hellfrost.edgeRulesExtra(rules, name);
-  } else if(type == 'Era')
-    Hellfrost.eraRules(rules, name);
-  else if(type == 'Feature')
+  } else if(type == 'Feature')
     Hellfrost.featureRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Section'),
       QuilvynUtils.getAttrValueArray(attrs, 'Note')
@@ -297,7 +877,6 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     Hellfrost.raceRulesExtra(rules, name);
   } else if(type == 'Shield')
     Hellfrost.shieldRules(rules, name,
-      QuilvynUtils.getAttrValueArray(attrs, 'Era'),
       QuilvynUtils.getAttrValue(attrs, 'Parry'),
       QuilvynUtils.getAttrValue(attrs, 'Cover'),
       QuilvynUtils.getAttrValue(attrs, 'MinStr'),
@@ -307,11 +886,9 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     Hellfrost.skillRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Attribute'),
       QuilvynUtils.getAttrValue(attrs, 'Core'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Era')
     );
   else if(type == 'Weapon')
     Hellfrost.weaponRules(rules, name,
-      QuilvynUtils.getAttrValueArray(attrs, 'Era'),
       QuilvynUtils.getAttrValue(attrs, 'Damage'),
       QuilvynUtils.getAttrValue(attrs, 'MinStr'),
       QuilvynUtils.getAttrValue(attrs, 'Weight'),
@@ -342,13 +919,13 @@ Hellfrost.arcanaRules = function(rules, name, skill) {
 };
 
 /*
- * Defines in #rules# the rules associated with armor #name#, found during era
- * #eras#, which covers the body areas listed in #areas#, adds #armor# to the
- * character's Toughness, requires a strength of #minStr# to use effectively,
- * and weighs #weight#.
+ * Defines in #rules# the rules associated with armor #name#, which covers the
+ * body areas listed in #areas#, adds #armor# to the character's Toughness,
+ * requires a strength of #minStr# to use effectively, and weighs #weight#.
  */
-Hellfrost.armorRules = function(rules, name, eras, areas, armor, minStr, weight) {
-  rules.basePlugin.armorRules(rules, name, eras, areas, armor, minStr, weight);
+Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
+  rules.basePlugin.armorRules
+    (rules, name, ['Medieval'], areas, armor, minStr, weight);
   // No changes needed to the rules defined by base method
 };
 
@@ -369,12 +946,6 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
 Hellfrost.edgeRulesExtra = function(rules, name) {
   // TODO
   rules.basePlugin.edgeRulesExtra(rules, name);
-};
-
-/* Defines in #rules# the rules associated with language #name#. */
-Hellfrost.eraRules = function(rules, name) {
-  rules.basePlugin.eraRules(rules, name);
-  // No changes needed to the rules defined by base method
 };
 
 /*
@@ -458,49 +1029,49 @@ Hellfrost.raceRules = function(rules, name, requires, features, languages) {
  */
 Hellfrost.raceRulesExtra = function(rules, name) {
   if(name == 'Engro') {
-    rules.defineRule('skillPoints', 'skillNotes.sneaky', '+=', '1');
+    rules.defineRule('skillPoints', 'skillNotes.sneaky', '+', '1');
   } else if(name.match(/Human/)) {
     rules.defineRule
-      ('improvementPoints', 'descriptionNotes.diverse', '+=', '2');
+      ('improvementPoints', 'descriptionNotes.diverse', '+', '2');
   }
 };
 
 /*
- * Defines in #rules# the rules associated with shield #name#, found during
- * eras #eras#, which adds #parry# to the character's Parry, provides #cover#
- * cover, requires #minStr# to handle, and weighs #weight#.
+ * Defines in #rules# the rules associated with shield #name#, which adds
+ * #parry# to the character's Parry, provides #cover# cover, requires #minStr#
+ * to handle, and weighs #weight#.
  */
-Hellfrost.shieldRules = function(rules, name, eras, parry, cover, minStr, weight) {
-  rules.basePlugin.shieldRules(rules, name, eras, parry, cover, minStr, weight);
+Hellfrost.shieldRules = function(rules, name, parry, cover, minStr, weight) {
+  rules.basePlugin.shieldRules
+    (rules, name, ['Medieval'], parry, cover, minStr, weight);
   // No changes needed to the rules defined by base method
 };
 
 /*
  * Defines in #rules# the rules associated with skill #name#, associated with
- * #attribute# (one of 'agility', 'spirit', etc.). If specified, the skill is
- * available only in the eras listed in #eras#.
+ * #attribute# (one of 'agility', 'spirit', etc.).
  */
-Hellfrost.skillRules = function(rules, name, attribute, core, eras) {
-  rules.basePlugin.skillRules(rules, name, attribute, core, eras);
+Hellfrost.skillRules = function(rules, name, attribute, core) {
+  rules.basePlugin.skillRules(rules, name, attribute, core, []);
   // No changes needed to the rules defined by base method
 };
 
 /*
- * Defines in #rules# the rules associated with weapon #name#, found during
- * eras #eras#, which belongs to category #category#, requires #minStr# to use
- * effectively, and weighs #weight#. The weapon does #damage# HP on a
- * successful attack. If specified, the weapon bypasses #armorPiercing# points
- * of armor. Also if specified, the weapon can be used as a ranged weapon with
- * a range increment of #range# feet, firing #rateOfFire# per round. Parry, if
- * specified, indicates the parry bonus from wielding the weapon.
+ * Defines in #rules# the rules associated with weapon #name#, which belongs
+ * to category #category#, requires #minStr# to use effectively, and weighs
+ * #weight#. The weapon does #damage# HP on a successful attack. If specified,
+ * the weapon bypasses #armorPiercing# points of armor. Also if specified, the
+ * weapon can be used as a ranged weapon with a range increment of #range#
+ * feet, firing #rateOfFire# per round. Parry, if specified, indicates the
+ * parry bonus from wielding the weapon.
  */
 Hellfrost.weaponRules = function(
-  rules, name, eras, damage, minStr, weight, category, armorPiercing, range,
+  rules, name, damage, minStr, weight, category, armorPiercing, range,
   rateOfFire, parry
 ) {
   rules.basePlugin.weaponRules(
-    rules, name, eras, damage, minStr, weight, category, armorPiercing, range,
-    rateOfFire, parry
+    rules, name, ['Medieval'], damage, minStr, weight, category, armorPiercing,
+    range, rateOfFire, parry
   );
   // No changes needed to the rules defined by base method
 };
