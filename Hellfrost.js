@@ -78,36 +78,111 @@ function Hellfrost(baseRules) {
 Hellfrost.VERSION = '2.3.1.0';
 
 Hellfrost.ARCANAS = {
-  'Gifted':'Skill=Focus',
-  'Magic':'Skill=Spellcasting',
-  'Miracles':'Skill=Faith'
+  'Druidism':'Skill=Druidism',
+  'Elementalism':'Skill=Elementalism',
+  'Heahwisardry':'Skill=Hehwisardry',
+  'Hrimwisardry':'Skill=Hrimwisardry',
+  'Rune Magic':'Skill=Special',
+  'Song Magic':'Skill="Song Magic"'
 };
 Hellfrost.ARMORS = {};
 for(var a in SWADE.ARMORS) {
   if(SWADE.ARMORS[a].match(/medieval/i))
     Hellfrost.ARMORS[a] = SWADE.ARMORS[a];
 }
+Hellfrost.EDGES_ADDED = {
+  // Background
+  'Library':'Type=background Require="features.Rich||features.Lorekeeper"',
+  'Linguist':'Type=background Require="smarts >= 6"',
+  'Noble':'Type=background',
+  'Old Family':'Type=background Require="Arcane Background (Heahwisardry)"',
+  'Styrimathr':'Type=background Require="skills.Boating >= 8"',
+  'Warm Blooded':'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'"'
+  // Combat
+  // Disciple
+  // Leadership
+  // Legendary
+  // Power
+  // Professional
+  // Social
+};
 Hellfrost.EDGES = Object.assign({}, SWADE.EDGES);
 delete Hellfrost.EDGES['Ace'];
 delete Hellfrost.EDGES['Elan'];
 delete Hellfrost.EDGES['Natural Leader'];
-Hellfrost.FEATURES = Object.assign({}, SWADE.FEATURES);
+Hellfrost.FEATURES_ADDED = {
+
+  // Hindrances
+  'Apprentice/Novitiate':
+    'Section=skill Note="Maximum starting arcane skill d6"',
+  'Apprentice/Novitiate+':'Section=arcana Note="-1 Power Count"',
+  'Black Sheep':'Section=skill Note="-2 Persuasion (heahwisards)"',
+  'Cold Blooded':'Section=attribute Note="-2 Vigor vs. code"',
+  'God Cursed+':
+    'Section=feature ' +
+    'Note="Beneficial spells from god\'s cleric fail, harmful spells do +2 damage"',
+  'Magic Forbiddance+':'Section=feature Note="Cannot use magic items"',
+  'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
+  'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
+  'Orders':'Section=feature Note="Takes orders from outside power"',
+
+  // Races
+  'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
+  'Forest-Born':'Section=combat Note="No difficult terrain penalty in forests"',
+  'Frigit Form':
+    'Section=arcana ' +
+    'Note="Innate casting of cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i>"',
+  'Heat Lethargy':
+    'Section=attribute,skill ' +
+    'Note="-1 attribute rolls at temperatures above 52",' +
+         '"-1 skill rolls at temperatures above 52"',
+  'Mountain-Born':
+    'Section=combat Note="No difficult terrain penalty in hills and mountains"',
+  'Natural Realms':'Section=feature Note="Treat Elfhomes and wilds"',
+  'Sneaky':'Section=skill Note="+1 choice of Stealth or Thievery"',
+  'Winter Soul':
+    'Section=attribute,combat ' +
+    'Note="+2 Vigor (cold resistance)",' +
+         '"+2 Armor vs. cold attacks"'
+};
+Hellfrost.FEATURES =
+  Object.assign({}, SWADE.FEATURES, Hellfrost.FEATURES_ADDED);
 Hellfrost.GOODIES = Object.assign({}, SWADE.GOODIES);
-Hellfrost.HINDRANCES = Object.assign({}, SWADE.HINDRANCES);
+Hellfrost.HINDRANCES_ADDED = {
+  'Apprentice/Novitiate':'Severity=Minor Require=powerPoints',
+  'Apprentice/Novitiate+':'Severity=Major Require=powerPoints',
+  'Black Sheep':'Severity=Minor',
+  'Cold Blooded':'Severity=Minor',
+  'God Cursed+':'Severity=Major',
+  'Magic Forbiddance+':'Severity=Major',
+  'Necromantic Weakness':'Severity=Minor',
+  'Necromantic Weakness+':'Severity=Major',
+  'Orders':'Severity=Minor'
+};
+Hellfrost.HINDRANCES =
+  Object.assign({}, SWADE.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
 Hellfrost.POWERS = Object.assign({}, SWADE.POWERS);
 Hellfrost.RACES = {
-  'Engro':SWADE.RACES['Half-Folk'],
-  'Frost Dwarf':SWADE.RACES['Dwarf'],
+  'Engro':
+    'Features=' +
+      'Luck,Outsider,Small,Sneaky,Spirited',
+  'Frost Dwarf':
+    'Features=' +
+      '"Heat Lethargy",Outsider,"Low Light Vision",Mountain-Born,Slow,' +
+      'Tough,"Winter Soul"',
   'Frostborn':
     'Features=' +
       '"Frigid Form","Heat Lethargy",Outsider,"Winter Soul"',
-  'Anari Human':SWADE.RACES['Human'],
-  'Finnar Human':SWADE.RACES['Human'],
-  'Saxa Human':SWADE.RACES['Human'],
-  'Tuomi Human':SWADE.RACES['Human'],
+  'Hearth Elf':
+    'Features=' +
+      'Agile,"All Thumbs","Forest-Born","Low Light Vision","Natural Realms"',
+  'Anari Human':'Features=Diverse',
+  'Finnar Human':'Features=Diverse',
+  'Saxa Human':'Features=Diverse',
+  'Tuomi Human':'Features=Diverse',
   'Taiga Elf':
     'Features=' +
-      'Agile,"All Thumbs","Forest-Born","Heat Lethargy",Insular,' +
+      'Agile,"All Thumbs","Forest-Born","Heat Lethargy",Outsider,' +
       '"Low Light Vision","Natural Realms","Winter Soul"'
 };
 Hellfrost.LANGUAGES = {};
@@ -201,6 +276,7 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     );
   else if(type == 'Hindrance') {
     Hellfrost.hindranceRules(rules, name,
+      QuilvynUtils.getAttrValueArray(attrs, 'Require'),
       QuilvynUtils.getAttrValue(attrs, 'Severity')
     );
     Hellfrost.hindranceRulesExtra(rules, name);
@@ -332,11 +408,12 @@ Hellfrost.goodyRules = function(
 };
 
 /*
- * Defines in #rules#A the rules associated with hindrance #name#, which has
- * level #severity# (Major or Minor).
+ * Defines in #rules# the rules associated with hindrance #name#, which has
+ * the list of hard prerequisites #requires# and level #severity# (Major or
+ * Minor).
  */
-Hellfrost.hindranceRules = function(rules, name, severity) {
-  rules.basePlugin.hindranceRules(rules, name, severity);
+Hellfrost.hindranceRules = function(rules, name, requires, severity) {
+  rules.basePlugin.hindranceRules(rules, name, requires, severity);
   // No changes needed to the rules defined by base method
 };
 
@@ -380,8 +457,12 @@ Hellfrost.raceRules = function(rules, name, requires, features, languages) {
  * derived directly from the attributes passed to raceRules.
  */
 Hellfrost.raceRulesExtra = function(rules, name) {
-  // TODO
-  rules.basePlugin.raceRulesExtra(rules, name);
+  if(name == 'Engro') {
+    rules.defineRule('skillPoints', 'skillNotes.sneaky', '+=', '1');
+  } else if(name.match(/Human/)) {
+    rules.defineRule
+      ('improvementPoints', 'descriptionNotes.diverse', '+=', '2');
+  }
 };
 
 /*
