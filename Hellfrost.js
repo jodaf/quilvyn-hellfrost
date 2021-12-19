@@ -90,11 +90,13 @@ for(var a in SWADE.ARMORS) {
 Hellfrost.EDGES_ADDED = {
   // Background
   'Library':'Type=background Require="features.Rich||features.Lorekeeper"',
-  'Linguist':'Type=background Require="smarts >= 6"',
+  'Linguist':'Type=background Require="smarts >= 6","features.Illiterate==0"',
   'Noble':'Type=background',
-  'Old Family':'Type=background Require="Arcane Background (Heahwisardry)"',
+  'Old Family':
+    'Type=background Require="features.Arcane Background (Heahwisardry)"',
   'Styrimathr':'Type=background Require="skills.Boating >= 8"',
-  'Warm Blooded':'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'"',
+  'Warm Blooded':
+    'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'","vigor >= 8"',
   // Combat
   'Blood And Guts':
     'Type=combat ' +
@@ -112,11 +114,7 @@ Hellfrost.EDGES_ADDED = {
       '"smarts >= 8",' +
       '"skills.Fighting >= 8 || skills.Shooting >= 8"',
   'Improved Giant Killer':
-    'Type=combat ' +
-    'Require=' +
-      '"advances >= 12",' +
-      '"smarts >= 8",' +
-      '"skills.Fighting >= 8 || skills.Shooting >= 8"',
+    'Type=combat Require="advances >= 12","features.Giant Killer"',
   'Mighty Shot':
     'Type=combat ' +
     'Require="advances >= 8","strength >= 8","skills.Shooting >= 10"',
@@ -148,12 +146,16 @@ Hellfrost.EDGES_ADDED = {
   'Improved Sunder':'Type=combat Require="advances >= 8",features.Sunder',
   'Wall Of Steel':
     'Type=combat ' +
-    'Require="advances >= 8","skills.Fighting >= 8","skills.Intimidation >= 8"',
+    'Require=' +
+      '"advances >= 8",' +
+      '"agility >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"skills.Notice >= 8"',
   'War Cry':
     'Type=combat ' +
     'Require=' +
       '"advances >= 4",' +
-      '"race =~ \'Dwarf|Saxa\'",' +
+      '"race =~ \'Frost Dwarf|Saxa\' || features.Disciple Of Dargar",' +
       '"skills.Intimidation >= 8"',
   // Disciple
   'Disciple Of The Unkowable One':
@@ -202,7 +204,6 @@ Hellfrost.EDGES_ADDED = {
       '"features.Arcane Background (Miracles)",' +
       '"spirit >= 8",' +
       '"skills.Faith >= 8",' +
-      '"skills.Taunt >= 8",' +
       '"features.Beast Bond",' +
       '"deity == \'Eostre\'"',
   'Disciple Of Eostre Plantmother':
@@ -214,7 +215,6 @@ Hellfrost.EDGES_ADDED = {
       '"spirit >= 8",' +
       '"vigor >= 8",' +
       '"skills.Faith >= 8",' +
-      '"skills.Taunt >= 8",' +
       '"deity == \'Eostre\'"',
   'Disciple Of Ertha':
     'Type=disciple ' +
@@ -603,6 +603,7 @@ Hellfrost.EDGES_ADDED = {
 Hellfrost.EDGES = Object.assign({}, SWADE.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
 delete Hellfrost.EDGES['Elan'];
+delete Hellfrost.EDGES['Filthy Rich'];
 delete Hellfrost.EDGES['Natural Leader'];
 Hellfrost.FEATURES_ADDED = {
 
@@ -614,20 +615,32 @@ Hellfrost.FEATURES_ADDED = {
   'Augment Staff (Deflect)':'Section=feature Note="TODO"',
   'Augment Staff (Spell Store)':'Section=feature Note="TODO"',
   'Bladedancer':'Section=feature Note="TODO"',
-  'Blood And Guts':'Section=feature Note="TODO"',
+  'Blood And Guts':
+    'Section=combat ' +
+    'Note="Halve negative difference between tokens in mass battle"',
   'Bludgeoner':'Section=feature Note="TODO"',
   'Combine Spells':'Section=feature Note="TODO"',
   'Concentration':'Section=feature Note="TODO"',
   'Coordinated Firepower':'Section=feature Note="TODO"',
-  'Courageous':'Section=feature Note="TODO"',
+  'Courageous':'Section=attribute Note="+2 Spirit (fear), -2 Fear Table roll"',
   'Cry Havoc!':'Section=feature Note="TODO"',
   'Death Before Dishonor':'Section=feature Note="TODO"',
-  'Disciple Of Dargar':'Section=feature Note="TODO"',
-  'Disciple Of Eira':'Section=feature Note="TODO"',
-  'Disciple Of Eostre Animalmother':'Section=feature Note="TODO"',
-  'Disciple Of Eostre Plantmother':'Section=feature Note="TODO"',
-  'Disciple Of Ertha':'Section=feature Note="TODO"',
-  'Disciple Of Freo':'Section=feature Note="TODO"',
+  'Disciple Of Dargar':
+    'Section=combat ' +
+    'Note="Single blow that incapacitates foe makes adjacent foes Shaken (Spi neg)"',
+  'Disciple Of Eira':
+    'Section=skill Note="+2 Healing/5 companions +2 natural Healing"',
+  'Disciple Of Eostre Animalmother':
+    'Section=feature Note="Beast Master with Wild Card companion animal"',
+  'Disciple Of Eostre Plantmother':
+    'Section=combat,feature,skill ' +
+    'Note=' +
+      '"Normal movement through vegetated difficult terrain",' +
+      '"Use Champion and Holy Warrior edges with plant creatures",' +
+      '"+1 Faith (vegetated areas)"',
+  'Disciple Of Ertha':
+    'Section=combat,skill Note="+1 Toughness","+2 Survival (underground)"',
+  'Disciple Of Freo':'Section=combat Note="Treat all terrain as normal ground"',
   'Disciple Of Hela':'Section=feature Note="TODO"',
   'Disciple Of Hoenir':'Section=feature Note="TODO"',
   'Disciple Of Hothar':'Section=feature Note="TODO"',
@@ -646,10 +659,12 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Thunor':'Section=feature Note="TODO"',
   'Disciple Of Tiw':'Section=feature Note="TODO"',
   'Disciple Of Ullr':'Section=feature Note="TODO"',
-  'Double Shot':'Section=feature Note="TODO"',
+  'Double Shot':'Section=combat Note="Fire two arrows at one target%V"',
   'Elemental Mastery':'Section=feature Note="TODO"',
   'Fanaticism':'Section=feature Note="TODO"',
-  'Favored Foe':'Section=feature Note="TODO"',
+  'Favored Foe':
+    'Section=combat ' +
+    'Note="+1 Parry and d8 attack raise against chosen creature"',
   'Focus':'Section=feature Note="TODO"',
   'Gray Legionary':'Section=feature Note="TODO"',
   'Guild Thief':'Section=feature Note="TODO"',
@@ -658,42 +673,51 @@ Hellfrost.FEATURES_ADDED = {
   'Hellfreeze':'Section=feature Note="TODO"',
   'Holy/Unholy Warrior':'Section=feature Note="TODO"',
   'Improved Concentration':'Section=feature Note="TODO"',
-  'Improved Double Shot':'Section=feature Note="TODO"',
+  'Improved Double Shot':'Section=feature Note="Increased Double Shot effects"',
   'Improved Focus':'Section=feature Note="TODO"',
-  'Improved Giant Killer':'Section=feature Note="TODO"',
-  'Improved Snow Walker':'Section=feature Note="TODO"',
-  'Improved Sunder':'Section=feature Note="TODO"',
+  'Improved Giant Killer':
+    'Section=combat ' +
+    'Note="Ignore Armor or Size benefits of creatures of Size %{size+3}"',
+  'Improved Snow Walker':'Section=combat Note="Increased Snow Walker effects"',
+  'Improved Sunder':'Section=feature Note="Increased Sunder effects"',
   'Iron Guild Mercenary':'Section=feature Note="TODO"',
   'Knight Hfrafn':'Section=feature Note="TODO"',
   'Legendary Storyteller':'Section=feature Note="TODO"',
-  'Library':'Section=feature Note="TODO"',
-  'Linguist':'Section=feature Note="TODO"',
+  'Library':
+    'Section=skill ' +
+    'Note="Owns Tomes of Lore that give %V knowledge skill points"',
+  'Linguist':'Section=feature Note="Knows %{smarts} languages"',
   'Lorekeeper':'Section=feature Note="TODO"',
   'Master Storyteller':'Section=feature Note="TODO"',
-  'Mighty Shot':'Section=feature Note="TODO"',
-  'Mighty Throw':'Section=feature Note="TODO"',
-  'Necromantic Severing':'Section=feature Note="TODO"',
+  'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
+  'Mighty Throw':
+    'Section=combat ' +
+    'Note="Increase throw range by 1/2/4, +1 Strength die for short throws"',
+  'Necromantic Severing':'Section=combat Note="Make Called Shots vs. undead"',
   'Noble':'Section=feature Note="TODO"',
-  'Old Family':'Section=feature Note="TODO"',
-  'Oversized Weapon Master':'Section=feature Note="TODO"',
+  'Old Family':'Section=skill Note="+2 Occult"',
+  'Oversized Weapon Master':
+    'Section=combat Note="Use two-handed weapons with one hand"',
   'Power Surge':'Section=feature Note="TODO"',
   'Reliquary (Arcanologist)':'Section=feature Note="TODO"',
   'Reliquary (Reliqus)':'Section=feature Note="TODO"',
   'Roadwarden':'Section=feature Note="TODO"',
   'Runic Insight':'Section=feature Note="TODO"',
-  'Scamper':'Section=feature Note="TODO"',
-  'Shieldwall':'Section=feature Note="TODO"',
+  'Scamper':'Section=combat Note="Larger foes -1 attack"',
+  'Shieldwall':'Section=combat Note="Shield benefit apples to adjacent ally"',
   'Siege Breaker':'Section=feature Note="TODO"',
   'Siege Mentality':'Section=feature Note="TODO"',
   'Sister Of Mercy':'Section=feature Note="TODO"',
-  'Snow Walker':'Section=feature Note="TODO"',
+  'Snow Walker':'Section=combat Note="Move %V over snow and ice"',
   'Spell Finesse':'Section=feature Note="TODO"',
-  'Styrimathr':'Section=feature Note="TODO"',
-  'Sunder':'Section=feature Note="TODO"',
-  'Wall Of Steel':'Section=feature Note="TODO"',
-  'War Cry':'Section=feature Note="TODO"',
-  'Warm Blooded':'Section=feature Note="TODO"',
+  'Styrimathr':'Section=feature Note="Owns a Smabyrding with no ice rig"',
+  'Sunder':'Section=feature Note="Attacks ignore %V Armor points"',
+  'Wall Of Steel':'Section=combat Note="Foes gin no Gang Up bonus"',
+  'War Cry':
+    'Section=combat Note="Force Intimidation Test against all in 40 yd radius"',
+  'Warm Blooded':'Section=attribute Note="+2 Vigor (resist cold)"',
   'Wood Warden':'Section=feature Note="TODO"',
+  'Very Rich':'Section=feature Note="Increased Rich effects"',
 
   // Hindrances
   'Apprentice/Novitiate':
@@ -944,8 +968,48 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  * derived directly from the attributes passed to edgeRules.
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
-  // TODO
-  rules.basePlugin.edgeRulesExtra(rules, name);
+  if(name == 'Arcane Background (Miracles)') {
+    rules.defineRule('features.Connections',
+      'features.Arcane Background (Miracles)', '=', '1'
+    );
+    rules.defineRule
+      ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
+  } else if(name == 'Disciple Of Eostre Animalmother') {
+    rules.defineRule('features.Beast Master',
+      'features.Disciple Of Eostre Animalmother', '=', '1'
+    );
+  } else if(name == 'Double Shot') {
+    rules.defineRule('combatNotes.doubleShot',
+      '', '=', '" at -2 attack"',
+      'combatNotes.improvedDoubleShot', '=', '""'
+    );
+  } else if(name == 'Library') {
+    rules.defineRule
+      ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
+    rules.defineRule('skillPoints', 'skillNotes.library', '+', null);
+  } else if(name == 'Mighty Shot') {
+    rules.defineRule('combatNotes.mightyShot', 'strength', '=', '"d" + source');
+    rules.defineRule('combatNotes.mightyShot.1',
+      'strengthModifier', '=', 'source>0 ? "+"+source : source<0 ? source : ""'
+    );
+  } else if(name == 'Snow Walker') {
+    rules.defineRule('combatNotes.snowWalker',
+      '', '=', '"3/4 speed"',
+      'combatNotes.improvedSnowWalker', '=', '"full speed"'
+    );
+  } else if(name == 'Sunder') {
+    rules.defineRule('combatNotes.sunder',
+      '', '=', '1',
+      'combatNotes.improvedSunder', '+', '1'
+    );
+  } else if(name == 'Very Rich') {
+    rules.defineRule('featureNotes.rich',
+      '', '=', '3',
+      'featureNotes.veryRich', '^', '5'
+    );
+  } else {
+    rules.basePlugin.edgeRulesExtra(rules, name);
+  }
 };
 
 /*
