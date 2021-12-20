@@ -158,16 +158,6 @@ Hellfrost.EDGES_ADDED = {
       '"race =~ \'Frost Dwarf|Saxa\' || features.Disciple Of Dargar",' +
       '"skills.Intimidation >= 8"',
   // Disciple
-  'Disciple Of The Unkowable One':
-    'Type=disciple ' +
-    'Require=' +
-      '"advances >= 4",' +
-      '"features.Arcane Background (Miracles)",' +
-      '"agility >= 8",' +
-      '"smarts >= 8",' +
-      '"skills.Faith >= 6",' +
-      '"skills.Taunt >= 8",' +
-      '"deity == \'The Unknowable One\'"',
   'Disciple Of Dargar':
     'Type=disciple ' +
     'Require=' +
@@ -187,16 +177,6 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"skills.Healing >= 6",' +
       '"deity == \'Eira\'"',
-  'Disciple Of The Unkowable One':
-    'Type=disciple ' +
-    'Require=' +
-      '"advances >= 4",' +
-      '"features.Arcane Background (Miracles)",' +
-      '"agility >= 8",' +
-      '"smarts >= 8",' +
-      '"skills.Faith >= 6",' +
-      '"skills.Taunt >= 8",' +
-      '"deity == \'The Unknowable One\'"',
   'Disciple Of Eostre Animalmother':
     'Type=disciple ' +
     'Require=' +
@@ -251,7 +231,7 @@ Hellfrost.EDGES_ADDED = {
       '"smarts >= 10",' +
       '"skills.Faith >= 8",' +
       'features.Scholar,' +
-      '"deity == \'The Unknowable One\'"',
+      '"deity == \'Hoenir\'"',
   'Disciple Of Hothar':
     'Type=disciple ' +
     'Require=' +
@@ -294,9 +274,9 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
+      '"skills.Athletics >= 6",' +
       '"skills.Boating >= 6",' +
       '"skills.Faith >= 6",' +
-      '"skills.Swimming >= 6",' +
       '"deity == \'Neorthe\'"',
   'Disciple Of Niht':
     'Type=disciple ' +
@@ -342,6 +322,13 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"skills.Notice >= 8",' +
       '"deity == \'Sigel\'"',
+  'Disciple Of Thrym':
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"vigor >= 8",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Thrym\'"',
   'Disciple Of Thunor':
     'Type=disciple ' +
     'Require=' +
@@ -371,7 +358,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Tracking >= 6",' +
       'features.Marksman,' +
       '"deity == \'Ullr\'"',
-  'Disciple Of The Unkowable One':
+  'Disciple Of The Unknowable One':
     'Type=disciple ' +
     'Require=' +
       '"advances >= 4",' +
@@ -381,6 +368,23 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 6",' +
       '"skills.Taunt >= 8",' +
       '"deity == \'The Unknowable One\'"',
+  'Disciple Of Vali':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"vigor >= 6",' +
+      '"skills.Faith >= 8",' +
+      '"deity == \'Vali\'"',
+  'Disciple Of Var':
+    'Type=disciple ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"skills.Faith >= 8",' +
+      '"skills.Persuasion >= 8",' +
+      'features.Streetwise,' +
+      '"deity == \'Var\'"',
   // Leadership
   'A Few Good Men':
     'Type=leadership ' +
@@ -608,7 +612,8 @@ delete Hellfrost.EDGES['Natural Leader'];
 Hellfrost.FEATURES_ADDED = {
 
   // Edges
-  'A Few Good Men':'Section=feature Note="TODO"',
+  'A Few Good Men':
+    'Section=combat Note="Add one token to army in mass battles"',
   'Alchemy':'Section=feature Note="TODO"',
   'Augment Staff (Aura)':'Section=feature Note="TODO"',
   'Augment Staff (Damage)':'Section=feature Note="TODO"',
@@ -621,10 +626,14 @@ Hellfrost.FEATURES_ADDED = {
   'Bludgeoner':'Section=feature Note="TODO"',
   'Combine Spells':'Section=feature Note="TODO"',
   'Concentration':'Section=feature Note="TODO"',
-  'Coordinated Firepower':'Section=feature Note="TODO"',
+  'Coordinated Firepower':
+    'Section=combat ' +
+    'Note="R%{commandRange} Commanded extras fire at single foe simultaneously at +2"',
   'Courageous':'Section=attribute Note="+2 Spirit (fear), -2 Fear Table roll"',
-  'Cry Havoc!':'Section=feature Note="TODO"',
-  'Death Before Dishonor':'Section=feature Note="TODO"',
+  'Cry Havoc!':
+    'Section=combat Note="Charge during Battle Roll 1/mass battle"',
+  'Death Before Dishonor':
+    'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Disciple Of Dargar':
     'Section=combat ' +
     'Note="Single blow that incapacitates foe makes adjacent foes Shaken (Spi neg)"',
@@ -641,27 +650,67 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Ertha':
     'Section=combat,skill Note="+1 Toughness","+2 Survival (underground)"',
   'Disciple Of Freo':'Section=combat Note="Treat all terrain as normal ground"',
-  'Disciple Of Hela':'Section=feature Note="TODO"',
-  'Disciple Of Hoenir':'Section=feature Note="TODO"',
-  'Disciple Of Hothar':'Section=feature Note="TODO"',
-  'Disciple Of Kenaz':'Section=feature Note="TODO"',
-  'Disciple Of Maera':'Section=feature Note="TODO"',
-  'Disciple Of Nauthiz':'Section=feature Note="TODO"',
-  'Disciple Of Neorthe':'Section=feature Note="TODO"',
-  'Disciple Of Niht':'Section=feature Note="TODO"',
-  'Disciple Of Rigr':'Section=feature Note="TODO"',
-  'Disciple Of Scaetha':'Section=feature Note="TODO"',
-  'Disciple Of Sigel':'Section=feature Note="TODO"',
-  'Disciple Of The Norns':'Section=feature Note="TODO"',
-  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
-  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
-  'Disciple Of The Unkowable One':'Section=feature Note="TODO"',
-  'Disciple Of Thunor':'Section=feature Note="TODO"',
-  'Disciple Of Tiw':'Section=feature Note="TODO"',
-  'Disciple Of Ullr':'Section=feature Note="TODO"',
+  'Disciple Of Hela':
+    'Section=power,skill ' +
+    'Note="Dbl Raise on <i>Zombie</i> creates permanent undead",' +
+         '"+1 Faith (graveyards)"',
+  'Disciple Of Hoenir':
+    'Section=skill Note="+1 Common Knowledge/Make untrained Knowlege skills"',
+  'Disciple Of Hothar':'Section=attribute Note="+2 vs. mind effects"',
+  'Disciple Of Kenaz':
+    'Section=attribute,combat ' +
+    'Note=' +
+      '"+2 Vigor (resist heat)",' +
+      '"+4 Armor vs. heat damage, magically heat metal weapon for +2 damage"',
+  'Disciple Of Maera':
+    'Section=power Note="Learn any spell at -2 casting, +2 <i>Dispel</i>"',
+  'Disciple Of Nauthiz':
+    'Section=skill ' +
+    'Note="Reroll 1s on Gambling, Stealth, and Thievery, suffer Fatigue if reroll is 1"',
+  'Disciple Of Neorthe':
+    'Section=feature ' +
+    'Note="Survive on half water, survive drowning for %{vigor} rd"',
+  'Disciple Of Niht':
+    'Section=feature Note="No penalty in Dim and Dark, -2 in Pitch"',
+  'Disciple Of The Norns':
+    'Section=power Note="Give augury in exchange for benny"',
+  'Disciple Of Rigr':
+    'Section=feature ' +
+    'Note="Nead only 3 hrs sleep, half penalty for missed sleep, counts as active guard when sleeping"',
+  'Disciple Of Scaetha':
+    'Section=combat,power ' +
+    'Note="Use Champion edge vs.undead",' +
+         '"+1 casting vs. undead"',
+  'Disciple Of Sigel':
+    'Section=combat,feature,skill ' +
+    'Note="+2 vs. invisible foes",' +
+         '"Halve Darkness penalty vs. heat-producing foes",' +
+         '"+2 Notice (detect hidden objects and creatures)"',
+  'Disciple Of The Uknowable One':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"+1 on Tricks/+1 vs. Tricks",' +
+      '"+1 Taunt/+1 vs. Taunt"',
+  'Disciple Of Thrym':
+    'Section=power Note="More effective casting in cold environment"',
+  'Disciple Of Thunor':
+    'Section=attribute Note="+1 vs. hot and cold, halve falling damage"',
+  'Disciple Of Tiw':
+    'Section=feature,power ' +
+    'Note="+1 Rank for acquiring combat edges",' +
+         '"Cast and attack as single action"',
+  'Disciple Of Ullr':
+    'Section=combat,skill ' +
+    'Note="Use Marksman edge with bow after moving half Pace",' +
+         '"+2 Stealth (wilderness)/+2 Survival (wilderness)"',
+  'Disciple Of Vali':'Section=feature Note="Immune to disease and poison"',
+  'Disciple Of Var':
+    'Section=feature Note="Sell goods at 50% price (Raise 75%)"',
   'Double Shot':'Section=combat Note="Fire two arrows at one target%V"',
   'Elemental Mastery':'Section=feature Note="TODO"',
-  'Fanaticism':'Section=feature Note="TODO"',
+  'Fanaticism':
+    'Section=combat ' +
+    'Note="R%{commandRange} yd Commanded extras +2 vs fear, -2 Fear Table"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 attack raise against chosen creature"',
@@ -705,8 +754,12 @@ Hellfrost.FEATURES_ADDED = {
   'Runic Insight':'Section=feature Note="TODO"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Shieldwall':'Section=combat Note="Shield benefit apples to adjacent ally"',
-  'Siege Breaker':'Section=feature Note="TODO"',
-  'Siege Mentality':'Section=feature Note="TODO"',
+  'Siege Breaker':
+    'Section=combat ' +
+    'Note="During mass battle, -1 fortification siege bonus, Battle test for -2 (Raise -3)"',
+  'Siege Mentality':
+    'Section=combat ' +
+    'Note="During mass battle, +1 fortification siege bonus, Battle test for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=feature Note="TODO"',
   'Snow Walker':'Section=combat Note="Move %V over snow and ice"',
   'Spell Finesse':'Section=feature Note="TODO"',
