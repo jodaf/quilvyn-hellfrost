@@ -465,7 +465,7 @@ Hellfrost.EDGES_ADDED = {
   'Combine Spells':
     'Type=power ' +
     'Require=' +
-       '"advances >= 8",' +
+       '"advances >= 12",' +
        'powerCount,' +
        '"arcaneSkill >= 10",' +
        '"skills.Occult >= 10"',
@@ -482,8 +482,9 @@ Hellfrost.EDGES_ADDED = {
   'Elemental Mastery':
     'Type=power ' +
     'Require="advances >= 4","features.Arcane Background (Elementalism)"',
-  'Focus':'Type=power Require="advances >= 4","spirit >= 6","arcaneSkill >= 8"',
-  'Improved Focus':'Type=power Require="advances >= 8",features.Focus',
+  'Focus':
+    'Type=power Require="advances >= 4",powerCount,"spirit >= 6","arcaneSkill >= 8"',
+  'Improved Focus':'Type=power Require="advances >= 12",features.Focus',
   'Hellfreeze':
     'Type=power ' +
     'Require=' +
@@ -496,7 +497,15 @@ Hellfrost.EDGES_ADDED = {
   'Runic Insight':
     'Type=power ' +
     'Require="features.Arcane Background (Rune Magic)","arcaneSkill >= 8"',
-  'Spell Finesse':
+  'Spell Finesse (Arcane)':
+    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+  'Spell Finesse (Armor Penetration)':
+    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+  'Spell Finesse (Heavy Weapon)':
+    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+  'Spell Finesse (Range)':
+    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+  'Spell Finesse (Selective)':
     'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
   // Professional
   'Bladedancer':
@@ -599,6 +608,7 @@ Hellfrost.EDGES_ADDED = {
     'Type=background ' +
     'Require=' +
       '"advances >= 4",' +
+      '"smarts >= 8",' +
       '"skills.Common Knowledge >= 8",' +
       '"skills.Persuasion >= 8"',
   'Legendary Storyteller':
@@ -614,18 +624,21 @@ Hellfrost.FEATURES_ADDED = {
   // Edges
   'A Few Good Men':
     'Section=combat Note="Add one token to army in mass battles"',
-  'Alchemy':'Section=feature Note="TODO"',
-  'Augment Staff (Aura)':'Section=feature Note="TODO"',
-  'Augment Staff (Damage)':'Section=feature Note="TODO"',
-  'Augment Staff (Deflect)':'Section=feature Note="TODO"',
-  'Augment Staff (Spell Store)':'Section=feature Note="TODO"',
+  'Alchemy':'Section=power Note="Create arcane devices for known spells"',
+  'Augment Staff (Aura)':
+    'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
+  'Augment Staff (Damage)':
+    'Section=combat Note="Staff does d%{strength}%1+d%2 damage and AP %3"',
+  'Augment Staff (Deflect)':'Section=combat Note="Foe ranged attacks -%1"',
+  'Augment Staff (Spell Store)':
+    'Section=power Note="Staff can store 1 known spell, cast at +2"',
   'Bladedancer':'Section=feature Note="TODO"',
   'Blood And Guts':
     'Section=combat ' +
     'Note="Halve negative difference between tokens in mass battle"',
   'Bludgeoner':'Section=feature Note="TODO"',
-  'Combine Spells':'Section=feature Note="TODO"',
-  'Concentration':'Section=feature Note="TODO"',
+  'Combine Spells':'Section=power Note="Cast two spells simultaneously"',
+  'Concentration':'Section=power Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
     'Note="R%{commandRange} Commanded extras fire at single foe simultaneously at +2"',
@@ -707,23 +720,27 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Var':
     'Section=feature Note="Sell goods at 50% price (Raise 75%)"',
   'Double Shot':'Section=combat Note="Fire two arrows at one target%V"',
-  'Elemental Mastery':'Section=feature Note="TODO"',
+  'Elemental Mastery':'Section=power Note="+%1 elements, cast at %2"',
   'Fanaticism':
     'Section=combat ' +
     'Note="R%{commandRange} yd Commanded extras +2 vs fear, -2 Fear Table"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 attack raise against chosen creature"',
-  'Focus':'Section=feature Note="TODO"',
+  'Focus':
+    'Section=power ' +
+    'Note="Immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
   'Gray Legionary':'Section=feature Note="TODO"',
   'Guild Thief':'Section=feature Note="TODO"',
   'Hearth Knight':'Section=feature Note="TODO"',
   'Hedge Magic':'Section=feature Note="TODO"',
-  'Hellfreeze':'Section=feature Note="TODO"',
+  'Hellfreeze':
+    'Section=power ' +
+    'Note="Cold spells do normal damage to resistant, half to immune, dbl to vulnerable, and dbl+4 to targets with weakness"',
   'Holy/Unholy Warrior':'Section=feature Note="TODO"',
-  'Improved Concentration':'Section=feature Note="TODO"',
+  'Improved Concentration':'Section=power Note="Increased Concentration effects"',
   'Improved Double Shot':'Section=feature Note="Increased Double Shot effects"',
-  'Improved Focus':'Section=feature Note="TODO"',
+  'Improved Focus':'Section=power Note="Increased Focus effects"',
   'Improved Giant Killer':
     'Section=combat ' +
     'Note="Ignore Armor or Size benefits of creatures of Size %{size+3}"',
@@ -731,13 +748,15 @@ Hellfrost.FEATURES_ADDED = {
   'Improved Sunder':'Section=feature Note="Increased Sunder effects"',
   'Iron Guild Mercenary':'Section=feature Note="TODO"',
   'Knight Hfrafn':'Section=feature Note="TODO"',
-  'Legendary Storyteller':'Section=feature Note="TODO"',
+  'Legendary Storyteller':'Section=feature Note="Increased Master Storyteller effects"',
   'Library':
     'Section=skill ' +
     'Note="Owns Tomes of Lore that give %V knowledge skill points"',
   'Linguist':'Section=feature Note="Knows %{smarts} languages"',
   'Lorekeeper':'Section=feature Note="TODO"',
-  'Master Storyteller':'Section=feature Note="TODO"',
+  'Master Storyteller':
+    'Section=feature ' +
+    'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
@@ -747,11 +766,11 @@ Hellfrost.FEATURES_ADDED = {
   'Old Family':'Section=skill Note="+2 Occult"',
   'Oversized Weapon Master':
     'Section=combat Note="Use two-handed weapons with one hand"',
-  'Power Surge':'Section=feature Note="TODO"',
+  'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
   'Reliquary (Arcanologist)':'Section=feature Note="TODO"',
   'Reliquary (Reliqus)':'Section=feature Note="TODO"',
   'Roadwarden':'Section=feature Note="TODO"',
-  'Runic Insight':'Section=feature Note="TODO"',
+  'Runic Insight':'Section=power Note="+1 arcane skill die for chosen spell"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Shieldwall':'Section=combat Note="Shield benefit apples to adjacent ally"',
   'Siege Breaker':
@@ -762,7 +781,14 @@ Hellfrost.FEATURES_ADDED = {
     'Note="During mass battle, +1 fortification siege bonus, Battle test for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=feature Note="TODO"',
   'Snow Walker':'Section=combat Note="Move %V over snow and ice"',
-  'Spell Finesse':'Section=feature Note="TODO"',
+  'Spell Finesse (Arcane)':'Section=power Note="+1 Wild Die die on chosen spell"',
+  'Spell Finesse (Armor Penetration)':'Section=power Note="Chosen spell has AP 2"',
+  'Spell Finesse (Heavy Weapon)':
+    'Section=power Note="Chosen spell counts as heavy weapon"',
+  'Spell Finesse (Range)':'Section=power Note="Selected spell has extended range"',
+  'Spell Finesse (Selective)':
+    'Section=power ' +
+    'Note="Protects %{arcaneSkill//2} creatures from effects of chosen area spell"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding with no ice rig"',
   'Sunder':'Section=feature Note="Attacks ignore %V Armor points"',
   'Wall Of Steel':'Section=combat Note="Foes gin no Gang Up bonus"',
@@ -821,7 +847,181 @@ Hellfrost.HINDRANCES_ADDED = {
 };
 Hellfrost.HINDRANCES =
   Object.assign({}, SWADE.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
-Hellfrost.POWERS = Object.assign({}, SWADE.POWERS);
+Hellfrost.SPELLS_ADDED = {
+  'Aim':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Description="Touched +2 attack (Raise +4) w/thrown or missile weapon for conc"',
+  'Altered Senses':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Description="Touched gains Infravision or Low Light Vision (Raise both) for conc"',
+  'Analyze Foe':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Description="TODO"',
+  'Animate War Tree':
+    'Advances=12 ' +
+    'PowerPoints=8 ' +
+    'Description="TODO"',
+  'Battle Song':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Becalm':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Bladebreaker':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Bless/Panic':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Bridge':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Description="TODO"',
+  'Champion Of The Faith':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Description="TODO"',
+  'Charismatic Aura':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Disease':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Elemental Form':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Mimic':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Mind Reader':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Negate Arcana':
+    'Advances=8 ' +
+    'PowerPoints=5 ' +
+    'Description="TODO"',
+  'Nightmare':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Precognition':
+    'Advances=8 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Prolonged Blast':
+    'Advances=8 ' +
+    'PowerPoints=6 ' +
+    'Description="TODO"',
+  'Quake':
+    'Advances=8 ' +
+    'PowerPoints=6 ' +
+    'Description="TODO"',
+  'Refuge':
+    'Advances=4 ' +
+    'PowerPoints=4 ' +
+    'Description="TODO"',
+  'Regenerate':
+    'Advances=12 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Sacrifice':
+    'Advances=8 ' +
+    'PowerPoints=1 ' +
+    'Description="TODO"',
+  'Sanctuary':
+    'Advances=0 ' +
+    'PowerPoints=4 ' +
+    'Description="TODO"',
+  'Sentry':
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Sluggish Reflexes':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Sphere Of Might':
+    'Advances=8 ' +
+    'PowerPoints=4 ' +
+    'Description="TODO"',
+  'Storm':
+    'Advances=4 ' +
+    'PowerPoints=5 ' +
+    'Description="TODO"',
+  'Strength Of The Undead':
+    'Advances=8 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Summon Beast':
+    'Advances=8 ' +
+    'PowerPoints=Special ' +
+    'Description="TODO"',
+  'Summon Demon':
+    'Advances=0 ' +
+    'PowerPoints=Special ' +
+    'Description="TODO"',
+  'Summon Elemental':
+    'Advances=8 ' +
+    'PowerPoints=4 ' +
+    'Description="TODO"',
+  'Summon Herald':
+    'Advances=12 ' +
+    'PowerPoints=8 ' +
+    'Description="TODO"',
+  'Summon Spirit':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Viper Weapon':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Voice On The Wind':
+    'Advances=0 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Wandering Senses':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Warding':
+    'Advances=4 ' +
+    'PowerPoints=5 ' +
+    'Description="TODO"',
+  'Water Walk':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Weaken Undead':
+    'Advances=8 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"',
+  'Weapon Immunity':
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Description="TODO"',
+  'Wilderness Step':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Description="TODO"',
+  'Zephyr':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Description="TODO"'
+};
+Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.SPELLS_ADDED);
 Hellfrost.RACES = {
   'Engro':
     'Features=' +
@@ -1027,6 +1227,26 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
+  } else if(name == 'Augment Staff (Damage)') {
+    rules.defineRule('combatNotes.augmentStaff(Damage).1',
+      'features.Augment Staff (Damage)', '?', null,
+      'strengthModifier', '=', 'source<0 ? source : source>0 ? "+" + source : ""'
+    );
+    rules.defineRule('combatNotes.augmentStaff(Damage).2',
+      'features.Augment Staff (Damage)', '=', '4 + source * 2'
+    );
+    rules.defineRule('combatNotes.augmentStaff(Damage).3',
+      'features.Augment Staff (Damage)', '=', null
+    );
+  } else if(name == 'Augment Staff (Deflect)') {
+    rules.defineRule('combatNotes.augmentStaff(Deflect).1',
+      'features.Augment Staff (Deflect)', '=', '-source'
+    );
+  } else if(name == 'Concentation') {
+    rules.defineRule('powerNotes.concentration',
+      '', '=', '2',
+      'powerNotes.improvedConcentration', '+', '2'
+    );
   } else if(name == 'Disciple Of Eostre Animalmother') {
     rules.defineRule('features.Beast Master',
       'features.Disciple Of Eostre Animalmother', '=', '1'
@@ -1036,10 +1256,26 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       '', '=', '" at -2 attack"',
       'combatNotes.improvedDoubleShot', '=', '""'
     );
+  } else if(name == 'Elemental Mastery') {
+    rules.defineRule
+      ('powerNotes.elementalMastery.1', 'features.Elemental Mastery', '=', null);
+    rules.defineRule('powerNotes.elementalMastery.2',
+      'features.Elemental Mastery', '=', '"-" + source'
+    );
+  } else if(name == 'Focus') {
+    rules.defineRule('powerNotes.focus',
+      '', '=', '"-2 "',
+      'powerNotes.improvedFocus', '=', '""'
+    );
   } else if(name == 'Library') {
     rules.defineRule
       ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
     rules.defineRule('skillPoints', 'skillNotes.library', '+', null);
+  } else if(name == 'Master Storyteller') {
+    rules.defineRule('featureNotes.masterStoryteller.1',
+      '', '=', '""',
+      'featureNotes.legendaryStoryteller', '=', '" (Raise +1d8 each)"'
+    );
   } else if(name == 'Mighty Shot') {
     rules.defineRule('combatNotes.mightyShot', 'strength', '=', '"d" + source');
     rules.defineRule('combatNotes.mightyShot.1',
