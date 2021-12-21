@@ -82,11 +82,24 @@ Hellfrost.ARCANAS = {
   'Rune Magic':'Skill=Special',
   'Song Magic':'Skill="Song Magic"'
 };
-Hellfrost.ARMORS = {};
-for(var a in SWADE.ARMORS) {
-  if(SWADE.ARMORS[a].match(/medieval/i))
-    Hellfrost.ARMORS[a] = SWADE.ARMORS[a];
-}
+Hellfrost.ARMORS = {
+  'None':'Area=Body Armor=0 MinStr=4 Weight=0',
+  'Hide':'Area=Body Armor=1 MinStr=4 Weight=15',
+  'Leather Suit':'Area=Body Armor=1 MinStr=4 Weight=10',
+  'Chain Hauberk':'Area=Body Armor=2 MinStr=4 Weight=20',
+  'Chain Shirt':'Area=Torso Armor=2 MinStr=4 Weight=10',
+  'Chain Leggings':'Area=Legs Armor=2 MinStr=4 Weight=8',
+  'Chain Sleeves':'Area=Arms Armor=2 MinStr=4 Weight=6',
+  'Scale Hauberk':'Area=Body Armor=2 MinStr=4 Weight=25',
+  'Plate Corselet':'Area=Torso Armor=3 MinStr=4 Weight=20',
+  'Plate Bracers':'Area=Arms Armor=3 MinStr=4 Weight=8',
+  'Plate Greaves':'Area=Legs Armor=3 MinStr=4 Weight=12',
+  'Chain Coif':'Area=Head Armor=2 MinStr=4 Weight=3',
+  'Pot Helm':'Area=Head Armor=3 MinStr=4 Weight=4',
+  'Full Helmet':'Area=Head Armor=3 MinStr=4 Weight=8',
+  'Blessed Robes':'Area=Body Armor=1 MinStr=4 Weight=8',
+  'Blessed Armor':'Area=Body Armor=3 MinStr=4 Weight=30'
+};
 Hellfrost.DEITIES = {
   'None':'',
   'Dargar':'',
@@ -795,7 +808,7 @@ Hellfrost.FEATURES_ADDED = {
   'Library':
     'Section=skill ' +
     'Note="Owns Tomes of Lore that give %V knowledge skill points"',
-  'Linguist':'Section=feature Note="Knows %{smarts} languages"',
+  'Linguist':'Section=skill Note="Knows %V languages"',
   'Lorekeeper':'Section=skill Note="Used untrained Smarts skills at d4"',
   'Master Storyteller':
     'Section=feature ' +
@@ -838,7 +851,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=power ' +
     'Note="Protects %{arcaneSkill//2} creatures from effects of chosen area spell"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding with no ice rig"',
-  'Sunder':'Section=feature Note="Attacks ignore %V Armor points"',
+  'Sunder':'Section=combat Note="Attacks ignore %V Armor points"',
   'Wall Of Steel':'Section=combat Note="Foes gin no Gang Up bonus"',
   'War Cry':
     'Section=combat Note="Force Intimidation Test against all in 40 yd radius"',
@@ -1098,17 +1111,44 @@ Hellfrost.LANGUAGES = {};
 for(var r in Hellfrost.RACES) {
   Hellfrost.LANGUAGES[r] = '';
 }
-Hellfrost.SHIELDS = {};
-for(a in SWADE.SHIELDS) {
-  if(SWADE.SHIELDS[a].match(/medieval/i))
-    Hellfrost.SHIELDS[a] = SWADE.SHIELDS[a];
-}
+Hellfrost.SHIELDS = {
+  'None':'Parry=0 Cover=0 MinStr=4 Weight=0',
+  'Small Shield':'Parry=1 Cover=0 MinStr=4 Weight=8',
+  'Medium Shield':'Parry=1 Cover=2 MinStr=4 Weight=12',
+  'Large Shield':'Parry=2 Cover=2 MinStr=4 Weight=20'
+};
 Hellfrost.SKILLS = Object.assign({}, SWADE.SKILLS);
-Hellfrost.WEAPONS = {};
-for(a in SWADE.WEAPONS) {
-  if(SWADE.WEAPONS[a].match(/medieval/i))
-    Hellfrost.WEAPONS[a] = SWADE.WEAPONS[a];
-}
+Hellfrost.WEAPONS = {
+  'Unarmed':'Damage=0 MinStr=4 Weight=0 Category=Un',
+  'Antler Staff':'Damage=d6 MinStr=4 Weight=10 Category=2h Parry=1',
+  'Bear Claw':'Damage=d4 MinStr=4 Weight=8 Category=1h Parry=1',
+  'Double Toothpick':'Damage=d6 MinStr=4 Weight=5 Category=1h',
+  'Twin Toothpick':'Damage=d8 MinStr=4 Weight=5 Category=1h',
+  'Boot Spikes':'Damage=d4 MinStr=4 Weight=3 Category=Un',
+  'Dagger':'Damage=d4 MinStr=4 Weight=1 Category=1h',
+  'Flail':'Damage=d6 MinStr=4 Weight=8 Category=1h',
+  'Great Sword':'Damage=d10 MinStr=4 Weight=12 Category=2h Parry=-1',
+  'Long Sword':'Damage=d8 MinStr=4 Weight=8 Category=1h',
+  'Short Sword':'Damage=d6 MinStr=4 Weight=4 Category=1h',
+  'Axe':'Damage=d6 MinStr=4 Weight=2 Category=1h',
+  'Battle Axe':'Damage=d8 MinStr=4 Weight=10 Category=1h',
+  'Great Axe':'Damage=d10 MinStr=4 Weight=15 Category=2h Parry=-1',
+  'Mace':'Damage=d6 MinStr=4 Weight=4 Category=1h',
+  'Maul':'Damage=d8 MinStr=4 Weight=20 Category=2h Parry=-1 AP=2',
+  'Warhammer':'Damage=d6 MinStr=4 Weight=8 Category=1h AP=1',
+  'Halberd':'Damage=d8 MinStr=4 Weight=15 Category=2h',
+  'Lance':'Damage=d8 MinStr=4 Weight=10 Category=2h AP=2',
+  'Pike':'Damage=d8 MinStr=4 Weight=25 Category=2h',
+  'Long Spear':'Damage=d6 MinStr=4 Weight=5 Category=2h Parry=1',
+  'Short Spear':'Damage=d6 MinStr=6 Weight=3 Category=1h Range=3',
+  'Staff':'Damage=d4 MinStr=4 Weight=8 Category=2h Parry=1',
+  'Throwing Axe':'Damage=d6 MinStr=4 Weight=2 Category=1h Range=3',
+  'Bow':'Damage=2d6 MinStr=6 Weight=3 Category=R Range=12',
+  'Long Bow':'Damage=2d6 MinStr=8 Weight=5 Category=R Range=15',
+  'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=R Range=15 AP=2',
+  'Sling':'Damage=d4 MinStr=4 Weight=1 Category=1h Range=4',
+  'Throwing Knife':'Damage=d4 MinStr=4 Weight=1 Category=1h Range=4'
+};
 
 /* Defines the rules related to character attributes and description. */
 Hellfrost.attributeRules = function(rules) {
@@ -1336,6 +1376,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule
       ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
     rules.defineRule('skillPoints', 'skillNotes.library', '+', null);
+  } else if(name == 'Linguist') {
+    rules.defineRule('skillNotes.linguist', 'smarts', '=', null);
   } else if(name == 'Master Storyteller') {
     rules.defineRule('featureNotes.masterStoryteller.1',
       '', '=', '""',
