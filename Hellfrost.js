@@ -45,7 +45,7 @@ function Hellfrost(baseRules) {
   rules.editorElements = rules.basePlugin.initialEditorElements();
   rules.getFormats = rules.basePlugin.getFormats;
   rules.makeValid = rules.basePlugin.makeValid;
-  rules.randomizeOneAttribute = rules.basePlugin.randomizeOneAttribute;
+  rules.randomizeOneAttribute = Hellfrost.randomizeOneAttribute;
   rules.defineChoice('random', rules.basePlugin.RANDOMIZABLE_ATTRIBUTES);
   rules.ruleNotes = Hellfrost.ruleNotes;
 
@@ -877,6 +877,7 @@ Hellfrost.FEATURES_ADDED = {
   // Races
   'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
   'Forest-Born':'Section=combat Note="No difficult terrain penalty in forests"',
+  'Engro Luck':'Section=feature Note="+1 Benny each session"',
   'Frigid Form':
     'Section=arcana ' +
     'Note="Innate casting of cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i>"',
@@ -886,8 +887,8 @@ Hellfrost.FEATURES_ADDED = {
          '"-1 skill rolls at temperatures above 52"',
   'Mountain-Born':
     'Section=combat Note="No difficult terrain penalty in hills and mountains"',
-  'Natural Realms':'Section=feature Note="Treat Elfhomes and wilds"',
-  'Sneaky':'Section=skill Note="+1 choice of Stealth or Thievery"',
+  'Natural Realms':'Section=feature Note="Treat Elfhomes as wilds"',
+  'Sneaky':'Section=skill Note="+2 skill step (choice of Stealth or Thievery)"',
   'Winter Soul':
     'Section=attribute,combat ' +
     'Note="+2 Vigor (cold resistance)",' +
@@ -1087,7 +1088,7 @@ Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.SPELLS_ADDED);
 Hellfrost.RACES = {
   'Engro':
     'Features=' +
-      'Luck,Outsider,Small,Sneaky,Spirited',
+      '"Engro Luck",Outsider,"Size -1",Sneaky,Spirited',
   'Frost Dwarf':
     'Features=' +
       '"Heat Lethargy",Outsider,"Low Light Vision",Mountain-Born,Slow,' +
@@ -1536,6 +1537,24 @@ Hellfrost.weaponRules = function(
     range, rateOfFire, parry
   );
   // No changes needed to the rules defined by base method
+};
+
+/* Sets #attributes#'s #attribute# attribute to a random value. */
+Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
+  var attrs = this.applyRules(attributes);
+  if(attribute == 'skills' &&
+     attrs['features.Sneaky'] != null &&
+     !attributes['skillAllocation.Stealth'] &&
+     !attributes['skillAllocation.Thievery']) {
+    attributes['skillAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Stealth' : 'Thievery')] = 2;
+  }
+  if(attribute == 'improvements' &&
+     attrs['features.Diverse'] &&
+     !attributes['improvementPointsAllocation.Edge'] &&
+     !attributes['improvementPointsAllocation.Skills']) {
+    attributes['improvementPointsAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Edge' : 'Skills')] = 2;
+  }
+  this.basePlugin.randomizeOneAttribute.apply(this, [attributes, attribute]);
 };
 
 /* Returns HTML body content for user notes associated with this rule set. */
