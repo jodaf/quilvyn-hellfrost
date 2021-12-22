@@ -17,7 +17,7 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
 
 /*jshint esversion: 6 */
 /* jshint forin: false */
-/* globals ObjectViewer, Quilvyn, QuilvynRules, QuilvynUtils */
+/* globals Quilvyn, QuilvynRules, QuilvynUtils, SWADE, SWDE */
 "use strict";
 
 /*
@@ -1289,7 +1289,7 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
   else if(type == 'Skill')
     Hellfrost.skillRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Attribute'),
-      QuilvynUtils.getAttrValue(attrs, 'Core'),
+      QuilvynUtils.getAttrValue(attrs, 'Core')
     );
   else if(type == 'Weapon')
     Hellfrost.weaponRules(rules, name,
