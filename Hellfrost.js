@@ -931,9 +931,9 @@ Hellfrost.HINDRANCES_ADDED = {
   'God Cursed+':'Severity=Major',
   'Magic Forbiddance+':'Severity=Major',
   'Necromantic Weakness':
-    'Severity=Minor "Require="features.Necromantic Weakness+ == 0"',
+    'Severity=Minor Require="features.Necromantic Weakness+ == 0"',
   'Necromantic Weakness+':
-    'Severity=Major "Require="features.Necromantic Weakness == 0"',
+    'Severity=Major Require="features.Necromantic Weakness == 0"',
   'Orders':'Severity=Minor'
 };
 Hellfrost.HINDRANCES =
@@ -942,175 +942,254 @@ Hellfrost.SPELLS_ADDED = {
   'Aim':
     'Advances=0 ' +
     'PowerPoints=1 ' +
-    'Description="Touched +2 attack (Raise +4) w/thrown or missile weapon for conc"',
+    'Description="Touched +2 attack (Raise +4) w/thrown or missile weapon for 5 rd"',
   'Altered Senses':
     'Advances=0 ' +
     'PowerPoints=1 ' +
-    'Description="Touched gains Infravision or Low Light Vision (Raise both) for conc"',
+    'Description="Touched gains Infravision or Low Light Vision (Raise both) for 10 min"',
   'Analyze Foe':
     'Advances=4 ' +
     'PowerPoints=1 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Self knows number of edges and highest attack skill of target (Raise names of edges and attack skill dice)"',
   'Animate War Tree':
     'Advances=12 ' +
     'PowerPoints=8 ' +
-    'Description="TODO"',
+    'Description="Touched 30\' tree animates for 5 rd"',
   'Battle Song':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Creatures in 4%{in} gain Berserk edge for conc (Spirit neg) for 5 rd"',
   'Becalm':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="Target ship suffers half speed for 1 dy"',
   'Bladebreaker':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts}%{in} Target weapon destroyed (Weapon die type neg)"',
   'Bless/Panic':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Allies in %{spirit}%{in} gain +2 Spirit vs. fear (Raise +4) for 10 min"',
   'Bridge':
     'Advances=4 ' +
     'PowerPoints=1 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Creates horizontal surface 0.5%{in} wide by 2%{in} long for 5 rd"',
   'Champion Of The Faith':
     'Advances=4 ' +
     'PowerPoints=1 ' +
-    'Description="TODO"',
+    'Description="Self gains Champion or Holy Warrior edge for 5 rd"',
   'Charismatic Aura':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="Self gains +1 Persuasion (Raise +2) for 10 min"',
   'Disease':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="R%{spirit}%{in} Target suffers disease (Vigor neg)"',
   'Elemental Form':
     'Advances=8 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description="Self gains elemental form abilities for 5 rd"',
+  'Energy Immunity':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Description=' +
+      '"Touched takes half damage (Raise no damage) from chosen energy attack for 5 rd"',
+  'Enhance Undead':
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Description="R%{smarts}%{in} Undead targets gain advance benefit"',
+  'Fatigue':
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Description=' +
+      '"R12/24/48 4%{in} radius (Raise 6%{in}) inflicts Fatigue (Vigor neg)"',
+  'Feast':
+    'Advances=0 ' +
+    'PowerPoints=5 ' +
+    'Description="$%{smarts} Creates %{((advances//4)+1)*5} lb of basic food"',
+  'Fog Cloud':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description=' +
+      '"%{(advances//4)+1} mile fog reduces lighting 2 levels for 1 hr"',
+  "Fortune's Favored":
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Description="Target can reroll failed benny-purchased reroll for 5 rd"',
+  'Gift Of Battle':
+    'Advances=0 ' +
+    'PowerPoints=4 ' +
+    'Description="Touched gains leadership edge (Raise 2 edges) for 1 hr"',
+  'Glyph':
+    'Advances=8 ' +
+    'PowerPoints=4 ' +
+    'Description="Glyph stores spell effects until triggered"',
+  'Gravespeak':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Description="Self can ask spirit %{spirit} questions"',
+  'Greater Zombie':
+    'Advances=12 ' +
+    'PowerPoints=4 ' +
+    'Description="R%{smarts}%{in} Animates and controls corpse for 1 hr"',
+  'Heat Mask':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Description="Touched invisible to infravision for 1 h4"',
+  'Leaping':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Description="Touched gains dbl jumping distance (Raise x4) for 5 rd"',
+  'Lock/Unlock':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Description=' +
+      '"Locks touched w/-2 pick penalty and +2 Toughness (Raise -4 and +4) or unlocks touched normal lock"',
+  'Luck/Jinx':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description="Touched takes the best/worst of two Trait rolls for 5 rd"',
+  'Mend':
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Description="Repairs damage done to touched wooden vehicle w/in past hr"',
   'Mimic':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
-  'Mind Reader':
+    'Description=' +
+      '"R%{spirit}%{in} Self knows spell used by another for use w/in 1 hr"',
+  'Mind Rider':
     'Advances=8 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description="Self can use target\'s senses for 1 hr (Spirit neg)"',
   'Negate Arcana':
     'Advances=8 ' +
     'PowerPoints=5 ' +
-    'Description="TODO"',
+    'Description="R%{smarts}%{in} 4%{in} radius suppresses magic for 1 hr"',
   'Nightmare':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts} miles Target loses benefit of sleep, becomes frightened (Spirit neg)"',
   'Precognition':
     'Advances=8 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="Self can rearrange two Action Cards (Raise 4) next rd"',
   'Prolonged Blast':
     'Advances=8 ' +
     'PowerPoints=6 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) for 5 rd"',
   'Quake':
     'Advances=8 ' +
     'PowerPoints=6 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*3}%{in} 6%{in} radius inflicts 2d10 damage (Agility neg)"',
   'Refuge':
     'Advances=4 ' +
     'PowerPoints=4 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts}%{in} 10\'x6\' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
   'Regenerate':
     'Advances=12 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description="Touched gains free -2 Soak roll (Raise -0) for 5 rd"',
   'Sacrifice':
     'Advances=8 ' +
     'PowerPoints=1 ' +
-    'Description="TODO"',
+    'Description="Self gains +1 arcane skill per victim Spirit die for 5 rd"',
   'Sanctuary':
     'Advances=0 ' +
     'PowerPoints=4 ' +
-    'Description="TODO"',
+    'Description="Self returns to safe location"',
   'Sentry':
     'Advances=4 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Creates overnight ghostly sentry or object alarm"',
   'Sluggish Reflexes':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Target draws 1 fewer Action Card or takes the worst of 2 cards for 5 rd"',
   'Sphere Of Might':
     'Advances=8 ' +
     'PowerPoints=4 ' +
-    'Description="TODO"',
+    'Description="$%{smarts}%{in} 1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Creates or dissipates 10 mile lightning storm or blizzard for 1 hr"',
   'Strength Of The Undead':
     'Advances=8 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Self mimics touched undead\'s power (Raise 2 powers) for 5 rd"',
   'Summon Beast':
     'Advances=8 ' +
     'PowerPoints=Special ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Self controls summoned beast actions for 10 min"',
   'Summon Demon':
     'Advances=0 ' +
     'PowerPoints=Special ' +
-    'Description="TODO"',
+    'Description="R%{smarts*2}%{in} Brings demon from the Abyss for 1 hr"',
   'Summon Elemental':
     'Advances=8 ' +
     'PowerPoints=4 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Self controls summoned elemental actions for 5 rd"',
   'Summon Herald':
     'Advances=12 ' +
     'PowerPoints=8 ' +
-    'Description="TODO"',
-  'Summon Spirit':
-    'Advances=8 ' +
-    'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description="R%{smarts*2} Brings herald of deity for support"',
   'Viper Weapon':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*2}%{in} Transforms target weapon into viper until slain"',
   'Voice On The Wind':
     'Advances=0 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"R%{smarts*50} miles Transmits %{advances//4*10}-word message to known target"',
   'Wandering Senses':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="R%{smarts*10}%{in} Self senses remotely for 10 min"',
   'Warding':
     'Advances=4 ' +
     'PowerPoints=5 ' +
-    'Description="TODO"',
+    'Description=' +
+      '"Bars specified creature type from 4%{in} radius (Raise 6%{in} radius) for 1 hr"',
   'Water Walk':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="Touched can traverse calm water for 10 min"',
   'Weaken Undead':
     'Advances=8 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"',
+    'Description="R%{spirit}%{in} Target undead loses undead ability for 5 rd"',
   'Weapon Immunity':
     'Advances=4 ' +
     'PowerPoints=3 ' +
-    'Description="TODO"',
+    'Description="Touched takes half damage (Raise no damage) from specified weapon for 5 rd"',
   'Wilderness Step':
     'Advances=0 ' +
     'PowerPoints=1 ' +
-    'Description="TODO"',
+    'Description="Touched treats all terrain as normal for 1 h4"',
   'Zephyr':
     'Advances=0 ' +
     'PowerPoints=2 ' +
-    'Description="TODO"'
+    'Description="Creates moderate wind for 1 dy"'
 };
 Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.SPELLS_ADDED);
 Hellfrost.RACES = {
@@ -1382,14 +1461,14 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
   } else if(name == 'Arcane Background (Rune Magic)') {
     rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Rune Magic)', '+=', '1');
+      ('powerCount', 'arcanaNotes.arcaneBackground(RuneMagic)', '+=', '1');
     rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Rune Magic)', '+=', '10');
+      ('powerPoints', 'arcanaNotes.arcaneBackground(RuneMagic)', '+=', '10');
   } else if(name == 'Arcane Background (Song Magic)') {
     rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Song Magic)', '+=', '3');
+      ('powerCount', 'arcanaNotes.arcaneBackground(SongMagic)', '+=', '3');
     rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Song Magic)', '+=', '10');
+      ('powerPoints', 'arcanaNotes.arcaneBackground(SongMagic)', '+=', '10');
   } else if(name == 'Augment Staff (Damage)') {
     rules.defineRule('combatNotes.augmentStaff(Damage).1',
       'features.Augment Staff (Damage)', '?', null,
