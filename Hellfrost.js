@@ -75,12 +75,106 @@ function Hellfrost(baseRules) {
 Hellfrost.VERSION = '2.3.1.0';
 
 Hellfrost.ARCANAS_ADDED = {
-  'Druidism':'Skill=Druidism',
-  'Elementalism':'Skill=Elementalism',
-  'Heahwisardry':'Skill=Heahwisardry',
-  'Hrimwisardry':'Skill=Hrimwisardry',
-  'Rune Magic':'Skill=Special',
-  'Song Magic':'Skill="Song Magic"'
+  'Druidism':
+    'Skill=Druidism ' +
+    'Powers=' +
+      '"Animate War Tree",Protection,Barrier,"Beast Friend",Bolt,' +
+      '"Boost/Lower Trait",Bridge,Burrow,Deflection,"Detect/Conceal Arcana",' +
+      '"Elemental Form","Elemental Manipulation",Entangle,' +
+      '"Environmental Protection",Farsight,Feast,"Fog Cloud",Growth/Shrink,' +
+      'Healing,Havoc,Leaping,Light/Darkness,Light/Darkness,Quake,Refuge,' +
+      'Sanctuary,Sentry,"Shape Change",Sound/Silence,Smite,"Sphere Of Might",' +
+      'Storm,"Summon Beast","Summon Elemental","Viper Weapon",' +
+      '"Voice On The Wind","Wall Walker",Warding,Havoc,"Wilderness Step"',
+  'Elementalism (Eir)':
+    'Skill=Elementalism ' +
+    'Powers=' +
+      'Aim,Banish,Becalm,"Beast Friend",Bolt,Deflection,' +
+      '"Detect/Conceal Arcana","Elemental Form","Elemental Manipulation",' +
+      '"Energy Immunity","Environmental Protection",Intangibility,' +
+      'Farsight,Fatigue,Fly,Glyph,Invisibility,Havoc,Leaping,Light/Darkness,' +
+      'Sloth/Speed,Sanctuary,Sentry,Sound/Silence,Slumber,"Speak Language",' +
+      '"Sphere Of Might",Storm,"Summon Elemental",Telekinesis,Teleport,' +
+      '"Voice On The Wind","Wandering Senses",Warding,Havoc,Zephyr',
+  'Elementalism (Ertha)':
+    'Skill=Elementalism ' +
+    'Powers=' +
+      'Protection,Banish,Barrier,"Beast Friend",Bladebreaker,Blast,Bolt,' +
+      'Bridge,Burrow,"Detect/Conceal Arcana","Elemental Form",' +
+      '"Elemental Manipulation","Energy Immunity",Entangle,Glyph,' +
+      'Growth/Shrink,Havoc,Lock/Unlock,Mend,"Prolonged Blast",Quake,' +
+      'Refuge,Sanctuary,"Sphere Of Might","Summon Elemental","Viper Weapon",' +
+      '"Wall Walker",Warding,"Weapon Immunity","Wilderness Step"',
+  'Elementalism (Fyr)':
+    'Skill=Elementalism ' +
+    'Powers=' +
+      '"Damage Field",Banish,Barrier,Bladebreaker,Blast,Bolt,Burst,' +
+      'Deflection,"Detect/Conceal Arcana","Elemental Form",' +
+      '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
+      'Fatigue,Glyph,"Heat Mask",Light/Darkness,"Prolonged Blast",Sanctuary,' +
+      'Smite,"Sphere Of Might","Summon Elemental",Warding',
+  'Elementalism (Waeter)':
+    'Skill=Elementalism ' +
+    'Powers=' +
+      'Banish,"Beast Friend",Bolt,"Detect/Conceal Arcana","Elemental Form",' +
+      '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
+      'Fatigue,"Fog Cloud",Glyph,Healing,Havoc,Sanctuary,Sloth/Speed,' +
+      '"Sphere Of Might",Storm,Stun,Relief,"Summon Elemental",Warding,' +
+      '"Water Walk"',
+  'Heahwisardry':
+    'Skill=Heahwisardry ' +
+    'Powers=' +
+      '"Arcane Protection",Protection,"Damage Field",Banish,Barrier,' +
+      'Bladebreaker,Blast,"Summon Ally",Bolt,"Boost/Lower Trait",Burst,' +
+      'Deflection,"Detect/Conceal Arcana",Dispel,"Energy Immunity",Entangle,' +
+      '"Environmental Protection",Farsight,Fatigue,Fear,"Fog Cloud",Glyph,' +
+      'Havoc,Mimic,"Negate Arcana","Prolonged Blast",Puppet,Refuge,' +
+      'Sanctuary,Slumber,Sound/Silence,Smite,Sloth/Speed,"Sphere Of Might",' +
+      'Storm,Stun,"Summon Elemental",Telekinesis,Teleport,Warding,' +
+      '"Weapon Immunity"',
+  'Hrimwisardry':
+    'Skill=Hrimwisardry ' +
+    'Powers=' +
+      'Protection,"Damage Field",Barrier,Bladebreaker,Blast,Bolt,Bridge,' +
+      'Burrow,Burst,Deflection,"Detect/Conceal Arcana",Dispel,' +
+      '"Elemental Form","Energy Immunity","Environmental Protection",Fatigue,' +
+      'Invisibility,Havoc,Light/Darkness,"Prolonged Blast",Refuge,Sanctuary,' +
+      '"Sluggish Reflexes",Smite,"Sphere Of Might",Storm,Stun,' +
+      '"Summon Elemental","Voice On The Wind",Warding,Havoc,' +
+      '"Wilderness Step"',
+  'Rune Magic':
+    'Skill=Special ' +
+    'Powers=' +
+      'Protection,Bladebreaker,"Weapon Immunity",' +
+      'Aim,Bolt,"Boost/Lower Trait",' +
+      '"Boost/Lower Trait","Gift Of Battle","Warrior\'s Gift",' +
+      '"Beast Friend","Summon Beast","Viper Weapon",' +
+      '"Arcane Protection","Fortune\'s Favored",Luck/Jinx,' +
+      'Becalm,Bless/Panic,Slumber,' +
+      'Intangibility,Growth/Shrink,"Shape Change",' +
+      '"Boost/Lower Trait","Charismatic Aura",Puppet,' +
+      'Burst,"Environmental Protection","Sluggish Reflexes",' +
+      'Confusion,Disease,Fatigue,' +
+      '"Boost/Lower Trait","Battle Song",Smite,' +
+      'Dispel,"Negate Arcana",Sound/Silence,' +
+      'Bridge,Burrow,Quake,' +
+      '"Elemental Form","Elemental Manipulation","Summon Elemental",' +
+      '"Altered Senses","Heat Mask",Light/Darkness,' +
+      '"Boost/Lower Trait",Healing,Relief,' +
+      '"Detect/Conceal Arcana","Object Reading",Invisibility,' +
+      'Barrier,Deflection,Warding,' +
+      '"Gravespeak","Speak Language","Voice On The Wind",' +
+      'Sloth/Speed,"Wilderness Step",' +
+      '"Fog Cloud",Storm,Havoc',
+  'Song Magic':
+    'Skill="Song Magic" ' +
+    'Powers=' +
+      '"Arcane Protection",Banish,"Battle Song","Beast Friend",Bless/Panic,' +
+      '"Boost/Lower Trait","Charismatic Aura",Confusion,' +
+      '"Detect/Conceal Arcana",Dispel,"Elemental Manipulation",Fatigue,Fear,' +
+      'Healing,Lock/Unlock,Mimic,"Negate Arcana",Nightmare,Puppet,Sanctuary,' +
+      'Sound/Silence,Slumber,"Speak Language",Stun,Relief,"Summon Beast",' +
+      '"Voice On The Wind",Warding,"Warrior\'s Gift","Wilderness Step"'
 };
 Hellfrost.ARCANAS = Object.assign({}, SWADE.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS['Magic'];
@@ -523,6 +617,7 @@ Hellfrost.EDGES_ADDED = {
       '"vigor >= 6"',
   'Improved Concentration':
     'Type=power Require="advances >= 8",features.Concentration',
+  // TODO
   'Elemental Mastery':
     'Type=power ' +
     'Require="advances >= 4","features.Arcane Background (Elementalism)"',
@@ -671,7 +766,13 @@ Hellfrost.FEATURES_ADDED = {
   'Alchemy':'Section=arcana Note="Create arcane devices for known spells"',
   'Arcane Background (Druidism)':
     'Section=arcana Note="Power Count 3/Power Points 10"',
-  'Arcane Background (Elementalism)':
+  'Arcane Background (Elementalism (Eir))':
+    'Section=arcana Note="Power Count 3/Power Points 10"',
+  'Arcane Background (Elementalism (Ertha))':
+    'Section=arcana Note="Power Count 3/Power Points 10"',
+  'Arcane Background (Elementalism (Fyr))':
+    'Section=arcana Note="Power Count 3/Power Points 10"',
+  'Arcane Background (Elementalism (Waeter))':
     'Section=arcana Note="Power Count 3/Power Points 10"',
   'Arcane Background (Heahwisardry)':
     'Section=arcana Note="Power Count 3/Power Points 10"',
@@ -1013,7 +1114,7 @@ Hellfrost.SPELLS_ADDED = {
   'Feast':
     'Advances=0 ' +
     'PowerPoints=5 ' +
-    'Description="$%{smarts} Creates %{((advances//4)+1)*5} lb of basic food"',
+    'Description="R%{smarts} Creates %{((advances//4)+1)*5} lb of basic food"',
   'Fog Cloud':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1305,7 +1406,8 @@ Hellfrost.talentRules = function(
 Hellfrost.choiceRules = function(rules, type, name, attrs) {
   if(type == 'Arcana')
     Hellfrost.arcanaRules(rules, name,
-      QuilvynUtils.getAttrValue(attrs, 'Skill')
+      QuilvynUtils.getAttrValue(attrs, 'Skill'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Powers')
     );
   else if(type == 'Armor')
     Hellfrost.armorRules(rules, name,
@@ -1394,9 +1496,10 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
 
 /*
  * Defines in #rules# the rules associated with arcane power source #name#,
- * which draws on skill #skill# when casting.
+ * which draws on skill #skill# when casting and allows access to the list of
+ * powers #powers#.
  */
-Hellfrost.arcanaRules = function(rules, name, skill) {
+Hellfrost.arcanaRules = function(rules, name, skill, powers) {
   rules.basePlugin.arcanaRules(rules, name, skill);
   // No changes needed to the rules defined by base method
 };
@@ -1433,16 +1536,16 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  * derived directly from the attributes passed to edgeRules.
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
+  var note;
   if(name == 'Arcane Background (Druidism)') {
     rules.defineRule
       ('powerCount', 'arcanaNotes.arcaneBackground(Druidism)', '+=', '3');
     rules.defineRule
       ('powerPoints', 'arcanaNotes.arcaneBackground(Druidism)', '+=', '10');
-  } else if(name == 'Arcane Background (Elementalism)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Elementalism)', '+=', '3');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Elementalism)', '+=', '10');
+  } else if(name.match(/Arcane Background .Elementalism/)) {
+    note = 'arcanaNotes.a' + name.substring(1).replaceAll(' ', '');
+    rules.defineRule('powerCount', note, '+=', '3');
+    rules.defineRule('powerPoints', note, '+=', '10');
   } else if(name == 'Arcane Background (Heahwisardry)') {
     rules.defineRule
       ('powerCount', 'arcanaNotes.arcaneBackground(Heahwisardry)', '+=', '3');
@@ -1602,7 +1705,6 @@ Hellfrost.hindranceRules = function(rules, name, requires, severity) {
  * derived directly from the attributes passed to hindranceRules.
  */
 Hellfrost.hindranceRulesExtra = function(rules, name) {
-  // TODO
   rules.basePlugin.hindranceRulesExtra(rules, name);
 };
 
