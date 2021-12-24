@@ -74,9 +74,10 @@ function Hellfrost(baseRules) {
 
 Hellfrost.VERSION = '2.3.1.0';
 
+// Individual Arcane Background skill replaced with Spellcasting
 Hellfrost.ARCANAS_ADDED = {
   'Druidism':
-    'Skill=Druidism ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       '"Animate War Tree",Protection,Barrier,"Beast Friend",Bolt,' +
       '"Boost/Lower Trait",Bridge,Burrow,Deflection,"Detect/Conceal Arcana",' +
@@ -87,7 +88,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Storm,"Summon Beast","Summon Elemental","Viper Weapon",' +
       '"Voice On The Wind","Wall Walker",Warding,Havoc,"Wilderness Step"',
   'Elementalism (Eir)':
-    'Skill=Elementalism ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       'Aim,Banish,Becalm,"Beast Friend",Bolt,Deflection,' +
       '"Detect/Conceal Arcana","Elemental Form","Elemental Manipulation",' +
@@ -97,7 +98,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Sphere Of Might",Storm,"Summon Elemental",Telekinesis,Teleport,' +
       '"Voice On The Wind","Wandering Senses",Warding,Havoc,Zephyr',
   'Elementalism (Ertha)':
-    'Skill=Elementalism ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       'Protection,Banish,Barrier,"Beast Friend",Bladebreaker,Blast,Bolt,' +
       'Bridge,Burrow,"Detect/Conceal Arcana","Elemental Form",' +
@@ -106,7 +107,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Refuge,Sanctuary,"Sphere Of Might","Summon Elemental","Viper Weapon",' +
       '"Wall Walker",Warding,"Weapon Immunity","Wilderness Step"',
   'Elementalism (Fyr)':
-    'Skill=Elementalism ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       '"Damage Field",Banish,Barrier,Bladebreaker,Blast,Bolt,Burst,' +
       'Deflection,"Detect/Conceal Arcana","Elemental Form",' +
@@ -114,7 +115,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Fatigue,Glyph,"Heat Mask",Light/Darkness,"Prolonged Blast",Sanctuary,' +
       'Smite,"Sphere Of Might","Summon Elemental",Warding',
   'Elementalism (Waeter)':
-    'Skill=Elementalism ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       'Banish,"Beast Friend",Bolt,"Detect/Conceal Arcana","Elemental Form",' +
       '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
@@ -122,7 +123,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Sphere Of Might",Storm,Stun,Relief,"Summon Elemental",Warding,' +
       '"Water Walk"',
   'Heahwisardry':
-    'Skill=Heahwisardry ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       '"Arcane Protection",Protection,"Damage Field",Banish,Barrier,' +
       'Bladebreaker,Blast,"Summon Ally",Bolt,"Boost/Lower Trait",Burst,' +
@@ -133,7 +134,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Storm,Stun,"Summon Elemental",Telekinesis,Teleport,Warding,' +
       '"Weapon Immunity"',
   'Hrimwisardry':
-    'Skill=Hrimwisardry ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       'Protection,"Damage Field",Barrier,Bladebreaker,Blast,Bolt,Bridge,' +
       'Burrow,Burst,Deflection,"Detect/Conceal Arcana",Dispel,' +
@@ -143,7 +144,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Summon Elemental","Voice On The Wind",Warding,Havoc,' +
       '"Wilderness Step"',
   'Rune Magic':
-    'Skill=Special ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       'Protection,Bladebreaker,"Weapon Immunity",' +
       'Aim,Bolt,"Boost/Lower Trait",' +
@@ -167,7 +168,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Sloth/Speed,"Wilderness Step",' +
       '"Fog Cloud",Storm,Havoc',
   'Song Magic':
-    'Skill="Song Magic" ' +
+    'Skill=Spellcasting ' +
     'Powers=' +
       '"Arcane Protection",Banish,"Battle Song","Beast Friend",Bless/Panic,' +
       '"Boost/Lower Trait","Charismatic Aura",Confusion,' +
@@ -765,7 +766,9 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="Add one token to army in mass battles"',
   'Alchemy':'Section=arcana Note="Create arcane devices for known spells"',
   'Arcane Background (Druidism)':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana,skill ' +
+    'Note="Power Count 3/Power Points 10",' +
+         '"+1 arcane skill in natural environments, -1 in urban environmonts"',
   'Arcane Background (Elementalism (Eir))':
     'Section=arcana Note="Power Count 3/Power Points 10"',
   'Arcane Background (Elementalism (Ertha))':
@@ -775,13 +778,21 @@ Hellfrost.FEATURES_ADDED = {
   'Arcane Background (Elementalism (Waeter))':
     'Section=arcana Note="Power Count 3/Power Points 10"',
   'Arcane Background (Heahwisardry)':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana,skill ' +
+    'Note="Power Count 3/Power Points 10",' +
+         '"-2 arcane skill, +1 per extra round taken (+%{smarts//2} max)"',
   'Arcane Background (Hrimwisardry)':
-    'Section=arcana Note="Power Count 2/Power Points 10"',
+    'Section=arcana,combat,feature,skill ' +
+    'Note="Power Count 2/Power Points 10",' +
+         '"-4 damage from cold, +4 from heat",' +
+         '"Treated with deep suspicion",' +
+         '"Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
     'Section=arcana Note="Power Count 1/Power Points 10"',
   'Arcane Background (Song Magic)':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana,skill ' +
+    'Note="Power Count 3/Power Points 10",' +
+         '"+1 Common Knowledge/+1 Persuasion/+1 Knowledge (folklore)"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
@@ -1327,11 +1338,7 @@ Hellfrost.SHIELDS = {
   'Large Shield':'Parry=2 Cover=2 MinStr=4 Weight=20'
 };
 Hellfrost.SKILLS_ADDED = {
-  'Druidism':'Attribute=smarts',
-  'Elementalism':'Attribute=smarts',
-  'Heahwisardry':'Attribute=smarts',
-  'Hrimwisardry':'Attribute=smarts',
-  'Song Magic':'Attribute=smarts'
+  // Individual Arcane Background skill replaced with Spellcasting
 };
 Hellfrost.SKILLS = Object.assign({}, SWADE.SKILLS, Hellfrost.SKILLS_ADDED);
 Hellfrost.WEAPONS = {

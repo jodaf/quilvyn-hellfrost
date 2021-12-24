@@ -8,8 +8,11 @@
 var attributes = {
   "_path":"ztest/hellfrost/edges/power", 
   "advances":12, "agilityAllocation":0, "arcaneFocus":"true", "deity":"Neorthe", 
-  "edges.Alchemy":1, "edges.Arcane Background (Elementalism)":1, 
-  "edges.Arcane Background (Heahwisardry)":1, "edges.Arcane Background (Rune Magic)":1, "edges.Augment Staff (Aura)":1, 
+  "edges.Alchemy":1, "edges.Arcane Background (Druidism)":1, 
+  "edges.Arcane Background (Elementalism (Eir))":1, "edges.Arcane Background (Elementalism (Ertha))":1, 
+  "edges.Arcane Background (Elementalism (Fyr))":1, "edges.Arcane Background (Elementalism (Waeter))":1, 
+  "edges.Arcane Background (Heahwisardry)":1, "edges.Arcane Background (Hrimwisardry)":1, 
+  "edges.Arcane Background (Rune Magic)":1, "edges.Arcane Background (Song Magic)":1, "edges.Augment Staff (Aura)":1, 
   "edges.Augment Staff (Damage)":1, "edges.Augment Staff (Deflect)":1, "edges.Augment Staff (Spell Store)":1, 
   "edges.Combine Spells":1, "edges.Concentration":1, "edges.Elemental Mastery":1, "edges.Focus":1, 
   "edges.Hellfreeze":1, "edges.Improved Concentration":1, "edges.Improved Focus":1, 
@@ -66,30 +69,38 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Academics: (sma) d4</td>
-      <td>Notice: (sma) d6</td>
-      <td>Spellcasting: (sma) d4</td>
-    </tr><tr style="text-align:left">
-      <td>Athletics: (agi) d4</td>
       <td>Occult: (sma) d10</td>
       <td>Stealth: (agi) d6</td>
     </tr><tr style="text-align:left">
-      <td>Common Knowledge: (sma) d4</td>
+      <td>Athletics: (agi) d4</td>
       <td>Performance: (spi) d6</td>
       <td>Survival: (sma) d4</td>
     </tr><tr style="text-align:left">
-      <td>Faith: (spi) d4</td>
-      <td>Persuasion: (spi) d8</td>
+      <td>Common Knowledge: (sma) d4+1</td>
+      <td>Persuasion: (spi) d8+1</td>
       <td>Weird Science: (sma) d6</td>
     </tr><tr style="text-align:left">
-      <td>Heahwisardry: (sma) d10</td>
+      <td>Faith: (spi) d4</td>
       <td>Science: (sma) d4</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Notice: (sma) d6</td>
+      <td>Spellcasting: (sma) d4</td>
       <td></td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
+      <td><i>Arcane Background (Song Magic): +1 Common Knowledge/+1 Persuasion/+1 Knowledge (folklore)</i></td>
+    </tr><tr style="text-align:center">
       <td><i>Sneaky: +2 skill step (choice of Stealth or Thievery)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Druidism): +1 arcane skill in natural environments, -1 in urban environmonts</td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Heahwisardry): -2 arcane skill, +1 per extra round taken (+5 max)</td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Hrimwisardry): Arcane skill modified by temperature</td>
     </tr><tr style="text-align:center">
       <td>Augment Staff (Aura): Staff gives +2 Intimidation or +2 Persuasion</td>
     </tr><tr style="text-align:center">
@@ -122,7 +133,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (6 points): Alchemy; Arcane Background (Elementalism); Arcane Background (Heahwisardry); Arcane Background (Rune Magic); Augment Staff (Aura); Augment Staff (Damage); Augment Staff (Deflect); Augment Staff (Spell Store); Combine Spells; Concentration; Elemental Mastery; Focus; Hellfreeze; Improved Concentration; Improved Focus; Power Surge; Runic Insight; Spell Finesse (Arcane); Spell Finesse (Armor Penetration); Spell Finesse (Heavy Weapon); Spell Finesse (Range); Spell Finesse (Selective)</td>
+      <td><b>Edges</b> (6 points): Alchemy; Arcane Background (Druidism); Arcane Background (Elementalism (Eir)); Arcane Background (Elementalism (Ertha)); Arcane Background (Elementalism (Fyr)); Arcane Background (Elementalism (Waeter)); Arcane Background (Heahwisardry); Arcane Background (Hrimwisardry); Arcane Background (Rune Magic); Arcane Background (Song Magic); Augment Staff (Aura); Augment Staff (Damage); Augment Staff (Deflect); Augment Staff (Spell Store); Combine Spells; Concentration; Elemental Mastery; Focus; Hellfreeze; Improved Concentration; Improved Focus; Power Surge; Runic Insight; Spell Finesse (Arcane); Spell Finesse (Armor Penetration); Spell Finesse (Heavy Weapon); Spell Finesse (Range); Spell Finesse (Selective)</td>
       <td><b>Hindrances</b>: Necromantic Weakness; Stubborn; Thin Skinned</td>
       <td><b>Engro Features</b>: Engro Luck; Outsider; Size -1; Sneaky; Spirited</td>
     </tr></table>
@@ -130,6 +141,8 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
     <tr style="text-align:center">
+      <td>Arcane Background (Hrimwisardry): Treated with deep suspicion</td>
+    </tr><tr style="text-align:center">
       <td>Engro Luck: +1 Benny each session</td>
     </tr><tr style="text-align:center">
       <td>Stubborn: Never admits error</td>
@@ -164,6 +177,8 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Vigor Toughness Modifier: +3</i></td>
       </tr><tr style="text-align:center">
+        <td>Arcane Background (Hrimwisardry): -4 damage from cold, +4 from heat</td>
+      </tr><tr style="text-align:center">
         <td>Augment Staff (Damage): Staff does d8+d6 damage and AP 1</td>
       </tr><tr style="text-align:center">
         <td>Augment Staff (Deflect): Foe ranged attacks -1</td>
@@ -180,18 +195,30 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="PowerStats" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Power Count</b>: 7</td>
-      <td><b>Power Points</b>: 30</td>
+      <td><b>Power Count</b>: 24</td>
+      <td><b>Power Points</b>: 90</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
     <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Arcane Background (Elementalism): Power Count 3/Power Points 10</i></td>
+      <td><i>Arcane Background (Druidism): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Eir)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Ertha)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Fyr)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Waeter)): Power Count 3/Power Points 10</i></td>
     </tr><tr style="text-align:center">
       <td><i>Arcane Background (Heahwisardry): Power Count 3/Power Points 10</i></td>
     </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Hrimwisardry): Power Count 2/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
       <td><i>Arcane Background (Rune Magic): Power Count 1/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Song Magic): Power Count 3/Power Points 10</i></td>
     </tr><tr style="text-align:center">
       <td><i>Improved Concentration: Increased Concentration effects</i></td>
     </tr><tr style="text-align:center">
@@ -221,7 +248,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Spell Finesse (Range): Selected spell has extended range</td>
     </tr><tr style="text-align:center">
-      <td>Spell Finesse (Selective): Protects 5 creatures from effects of chosen area spell</td>
+      <td>Spell Finesse (Selective): Protects 2 creatures from effects of chosen area spell</td>
     </tr></table>
 </td>
   </tr></table>
@@ -231,7 +258,43 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Edge Points Allocation: 6 available vs. 22 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Alchemy Edge: Requires advances (currently 12) >= 4, power count (currently 24), arcane skill (currently 4) >= 6 and weird science skill (currently 6) >= 6</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Aura) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Damage) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Deflect) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Spell Store) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Combine Spells Edge: Requires advances (currently 12) >= 12, power count (currently 24), arcane skill (currently 4) >= 10 and occult skill (currently 10) >= 10</td>
+      </tr><tr style="text-align:center">
+        <td>Edge Points Allocation: 6 available vs. 28 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Elemental Mastery Edge: Requires advances (currently 12) >= 4 and arcane background (elementalism) feature</td>
+      </tr><tr style="text-align:center">
+        <td>Focus Edge: Requires advances (currently 12) >= 4, power count (currently 24), spirit (currently 12) >= 6 and arcane skill (currently 4) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Hellfreeze Edge: Requires advances (currently 12) >= 8, power count (currently 24), arcane skill (currently 4) >= 10 and occult skill (currently 10) >= 10</td>
+      </tr><tr style="text-align:center">
+        <td>Power Surge Edge: Requires advances (currently 12) >= 4, power count (currently 24) and arcane skill (currently 4) >= 10</td>
+      </tr><tr style="text-align:center">
+        <td>Runic Insight Edge: Requires arcane background (rune magic) feature (currently 1) and arcane skill (currently 4) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Spell Finesse (Arcane) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Spell Finesse (Armor Penetration) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Spell Finesse (Heavy Weapon) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Spell Finesse (Range) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Spell Finesse (Selective) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>
