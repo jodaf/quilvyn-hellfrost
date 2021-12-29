@@ -17,7 +17,7 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
 
 /*jshint esversion: 6 */
 /* jshint forin: false */
-/* globals Quilvyn, QuilvynRules, QuilvynUtils, SWADE, SWDE */
+/* globals Quilvyn, QuilvynRules, QuilvynUtils, SWADE, SWD */
 "use strict";
 
 /*
@@ -31,19 +31,20 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
 function Hellfrost(baseRules) {
 
   var useSwade =
-    baseRules && !baseRules.match(/deluxe/i) && window.SWADE != null;
+    baseRules && !baseRules.match(/deluxe|swd/i) && window.SWADE != null;
 
   var rules = new QuilvynRules(
-    'Hellfrost - SW ' + (useSwade ? 'Adventure' : 'Deluxe'), Hellfrost.VERSION
+    'Hellfrost - SW' + (useSwade ? 'ADE' : 'D'), Hellfrost.VERSION
   );
   Hellfrost.rules = rules;
-  rules.basePlugin = useSwade ? SWADE : SWDE;
+  rules.basePlugin = useSwade ? SWADE : SWD;
 
   rules.defineChoice('choices', rules.basePlugin.CHOICES);
   rules.choiceEditorElements = rules.basePlugin.choiceEditorElements;
   rules.choiceRules = Hellfrost.choiceRules;
   rules.editorElements = rules.basePlugin.initialEditorElements();
   rules.getFormats = rules.basePlugin.getFormats;
+  rules.getPlugins = Hellfrost.getPlugins;
   rules.makeValid = rules.basePlugin.makeValid;
   rules.randomizeOneAttribute = Hellfrost.randomizeOneAttribute;
   rules.defineChoice('random', rules.basePlugin.RANDOMIZABLE_ATTRIBUTES);
@@ -1810,6 +1811,13 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     attributes['improvementPointsAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Edge' : 'Skills')] = 2;
   }
   this.basePlugin.randomizeOneAttribute.apply(this, [attributes, attribute]);
+};
+
+/* Returns an array of plugins upon which this one depends. */
+Hellfrost.getPlugins = function() {
+  var result = [this.basePlugin].concat(this.basePlugin.getPlugins());
+  console.log(result);
+  return result;
 };
 
 /* Returns HTML body content for user notes associated with this rule set. */

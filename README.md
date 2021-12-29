@@ -16,10 +16,10 @@ To use quilvyn-hellfrost, unbundle the release package into a plugins/
 subdirectory within the Quilvyn installation directory, then append the
 following lines to the file plugins/plugins.js:
 
-    RULESETS["Hellfrost Campaign Setting using the Savage Worlds Deluxe Edition rules"] = {
+    RULESETS["Hellfrost Campaign Setting using the SWADE rules"] = {
       url:'plugins/Hellfrost.js',
       group:'Savage Worlds',
-      require:'SWDE.js'
+      require:'SWADE.js'
     };
 
 ### Usage
