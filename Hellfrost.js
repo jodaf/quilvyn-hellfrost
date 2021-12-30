@@ -166,7 +166,8 @@ Hellfrost.ARCANAS_ADDED = {
       '"Detect/Conceal Arcana","Object Reading",Invisibility,' +
       'Barrier,Deflection,Warding,' +
       '"Gravespeak","Speak Language","Voice On The Wind",' +
-      'Sloth/Speed,"Wilderness Step",' +
+      // Quickness replaced with Sanctuary per SWADE conversion guide
+      'Sanctuary,Sloth/Speed,"Wilderness Step",' +
       '"Fog Cloud",Storm,Havoc',
   'Song Magic':
     'Skill=Spellcasting ' +
@@ -566,6 +567,9 @@ Hellfrost.EDGES_ADDED = {
   'Siege Mentality':
     'Type=leadership ' +
     'Require="advances >= 4","smarts >= 8","skills.Battle >= 8"',
+  'Tactician':
+    'Type=leadership ' +
+    'Require="advances >= 4","smarts >= 8","skills.Battle >= 6",features.Command',
   // Power
   'Alchemy':
     'Type=power ' +
@@ -757,8 +761,12 @@ Hellfrost.EDGES_ADDED = {
 };
 Hellfrost.EDGES = Object.assign({}, SWADE.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
+delete Hellfrost.EDGES['Brave'];
 delete Hellfrost.EDGES['Elan'];
 delete Hellfrost.EDGES['Filthy Rich'];
+delete Hellfrost.EDGES['Martial Artist'];
+delete Hellfrost.EDGES['Martial Warrior'];
+delete Hellfrost.EDGES['Master Tactician'];
 delete Hellfrost.EDGES['Natural Leader'];
 Hellfrost.FEATURES_ADDED = {
 
@@ -815,7 +823,8 @@ Hellfrost.FEATURES_ADDED = {
   'Coordinated Firepower':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded extras fire at single foe simultaneously at +2"',
-  'Courageous':'Section=attribute Note="+2 Spirit (fear), -2 Fear Table roll"',
+  'Courageous':
+    'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Cry Havoc!':
     'Section=combat Note="Charge during Battle Roll 1/mass battle"',
   'Death Before Dishonor':
@@ -932,6 +941,10 @@ Hellfrost.FEATURES_ADDED = {
   'Iron Guild Mercenary':
     'Section=combat,feature ' +
     'Note="Member of Iron Guild mercenary company","+1 using Gang Up"',
+  // Override SW Brave prerequisite with Hellfrost's Courageous
+  'Iron Will':
+    'Type=social ' +
+    'Require="advances >= 4","features.Courageous","features.Strong Willed"',
   'Knight Hrafn':
     'Section=combat,feature ' +
     'Note="Increased Command effects","Member of tactician order"',
@@ -988,6 +1001,9 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Protects %{arcaneSkill//2} creatures from effects of chosen area spell"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding with no ice rig"',
   'Sunder':'Section=combat Note="Attacks ignore %V Armor points"',
+  'Tactician':
+    'Section=combat ' +
+    'Note="R%{commandRange}%{in} Make Battle test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
     'Section=combat Note="Force Intimidation Test against all in 40 yd radius"',
@@ -1656,6 +1672,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       '', '=', '1',
       'combatNotes.improvedSunder', '+', '1'
     );
+  } else if(name == 'Tactician') {
+    ; // empty; overrides basePlugin computation
   } else if(name == 'Very Rich') {
     rules.defineRule('featureNotes.rich',
       '', '=', '3',
@@ -1848,3 +1866,5 @@ Hellfrost.ruleNotes = function() {
     'Hellfrost Player\'s Guide © 2009 Triple Ace Games.\n' +
     '</p>\n';
 };
+// https://drive.google.com/file/d/1XalBepGyW5GRts_8hsYE_UPLVnwnkU1I/view
+// https://drive.google.com/file/d/10BnsW6778l1XwLB93p52AwBcrrSJmpsL/view
