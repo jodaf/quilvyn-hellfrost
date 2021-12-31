@@ -17,21 +17,21 @@ var attributes = {
   "powers.Analyze Foe":1, "powers.Animate War Tree":1, "powers.Battle Song":1, "powers.Becalm":1, 
   "powers.Bladebreaker":1, "powers.Bless/Panic":1, "powers.Bridge":1, "powers.Champion Of The Faith":1, 
   "powers.Charismatic Aura":1, "powers.Disease":1, "powers.Elemental Form":1, "powers.Energy Immunity":1, 
-  "powers.Enhance Undead":1, "powers.Fatigue":1, "powers.Fog Cloud":1, "powers.Fortune's Favored":1, 
-  "powers.Gift Of Battle":1, "powers.Glyph":1, "powers.Gravespeak":1, "powers.Greater Zombie":1, 
-  "powers.Leaping":1, "powers.Lock/Unlock":1, "powers.Luck/Jinx":1, "powers.Mend":1, 
-  "powers.Mimic":1, "powers.Mind Rider":1, "powers.Negate Arcana":1, "powers.Nightmare":1, 
-  "powers.Precognition":1, "powers.Prolonged Blast":1, "powers.Quake":1, "powers.Refuge":1, 
-  "powers.Regenerate":1, "powers.Sacrifice":1, "powers.Sanctuary":1, "powers.Sentry":1, 
-  "powers.Sluggish Reflexes":1, "powers.Sphere Of Might":1, "powers.Storm":1, 
-  "powers.Strength Of The Undead":1, "powers.Summon Beast":1, "powers.Summon Demon":1, 
-  "powers.Summon Elemental":1, "powers.Summon Herald":1, "powers.Viper Weapon":1, 
-  "powers.Voice On The Wind":1, "powers.Wandering Senses":1, "powers.Warding":1, "powers.Water Walk":1, 
-  "powers.Weaken Undead":1, "powers.Weapon Immunity":1, "powers.Wilderness Step":1, "powers.Zephyr":1, 
-  "race":"Tuomi Human", "shield":"None", "skillAllocation.Athletics":2, "skillAllocation.Battle":1, 
-  "skillAllocation.Boating":1, "skillAllocation.Common Knowledge":1, "skillAllocation.Gambling":1, 
-  "skillAllocation.Hrimwisardry":1, "skillAllocation.Language (Tuomi Human)":1, "skillAllocation.Psionics":1, 
-  "skillAllocation.Research":1, "skillAllocation.Shooting":1, "skillAllocation.Song Magic":4, 
+  "powers.Enhance Undead":1, "powers.Fatigue":1, "powers.Feast":1, "powers.Fog Cloud":1, 
+  "powers.Fortune's Favored":1, "powers.Gift Of Battle":1, "powers.Glyph":1, "powers.Gravespeak":1, 
+  "powers.Greater Zombie":1, "powers.Heat Mask":1, "powers.Leaping":1, "powers.Lock/Unlock":1, 
+  "powers.Luck/Jinx":1, "powers.Mend":1, "powers.Mimic":1, "powers.Mind Rider":1, 
+  "powers.Negate Arcana":1, "powers.Nightmare":1, "powers.Precognition":1, "powers.Prolonged Blast":1, 
+  "powers.Quake":1, "powers.Refuge":1, "powers.Regenerate":1, "powers.Sacrifice":1, 
+  "powers.Sanctuary":1, "powers.Sentry":1, "powers.Sluggish Reflexes":1, "powers.Sphere Of Might":1, 
+  "powers.Storm":1, "powers.Strength Of The Undead":1, "powers.Summon Beast":1, 
+  "powers.Summon Demon":1, "powers.Summon Elemental":1, "powers.Summon Herald":1, 
+  "powers.Viper Weapon":1, "powers.Voice On The Wind":1, "powers.Wandering Senses":1, 
+  "powers.Warding":1, "powers.Water Walk":1, "powers.Weaken Undead":1, "powers.Weapon Immunity":1, 
+  "powers.Wilderness Step":1, "powers.Zephyr":1, "race":"Tuomi Human", "shield":"None", 
+  "skillAllocation.Athletics":2, "skillAllocation.Battle":1, "skillAllocation.Boating":1, 
+  "skillAllocation.Common Knowledge":1, "skillAllocation.Hrimwisardry":1, "skillAllocation.Research":1, 
+  "skillAllocation.Shooting":1, "skillAllocation.Song Magic":4, "skillAllocation.Spellcasting":3, 
   "skillAllocation.Thievery":1, "smartsAllocation":2, "spiritAllocation":1, "strengthAllocation":2, 
   "vigorAllocation":3
 };
@@ -70,23 +70,19 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Athletics: (agi) d8</td>
-      <td>Language (Tuomi Human): (sma) d4</td>
-      <td>Shooting: (agi) d4</td>
+      <td>Notice: (sma) d4</td>
+      <td>Spellcasting: (sma) d8</td>
     </tr><tr style="text-align:left">
       <td>Battle: (sma) d4</td>
-      <td>Notice: (sma) d4</td>
+      <td>Persuasion: (spi) d4+1</td>
       <td>Stealth: (agi) d4</td>
     </tr><tr style="text-align:left">
       <td>Boating: (agi) d4</td>
-      <td>Persuasion: (spi) d4+1</td>
+      <td>Research: (sma) d4</td>
       <td>Thievery: (agi) d4</td>
     </tr><tr style="text-align:left">
       <td>Common Knowledge: (sma) d6+1</td>
-      <td>Psionics: (sma) d4</td>
-      <td></td>
-    </tr><tr style="text-align:left">
-      <td>Gambling: (sma) d4</td>
-      <td>Research: (sma) d4</td>
+      <td>Shooting: (agi) d4</td>
       <td></td>
     </tr></table>
 </td>
@@ -196,107 +192,111 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Analyze Foe: (1 PP) Self knows number of edges and highest attack skill of target (Raise names of edges and attack skill dice)</td>
     </tr><tr style="text-align:left">
-      <td>Animate War Tree: (8 PP) Touched 30' tree animates for 5 rd</td>
+      <td>Animate War Tree: (8 PP) Touched 30' tree animates (Raise as wild card) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Battle Song: (2 PP) Creatures in 4" gain Berserk edge for conc (Spirit neg) for 5 rd</td>
+      <td>Battle Song: (2 PP) Creatures in 2" gain Berserk features for 5 rd (Spirit neg)</td>
     </tr><tr style="text-align:left">
       <td>Becalm: (2 PP) Target ship suffers half speed for 1 dy</td>
     </tr><tr style="text-align:left">
       <td>Bladebreaker: (2 PP) R8" Target weapon destroyed (Weapon die type neg)</td>
     </tr><tr style="text-align:left">
-      <td>Bless/Panic: (2 PP) Allies in 6" gain +2 Spirit vs. fear (Raise +4) for 10 min</td>
+      <td>Bless/Panic: (2 PP) Allies in 6" gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) for 10 min</td>
     </tr><tr style="text-align:left">
       <td>Bridge: (1 PP) Creates horizontal surface 0.5" wide by 2" long for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Champion Of The Faith: (1 PP) Self gains Champion or Holy Warrior edge for 5 rd</td>
+      <td>Champion Of The Faith: (1 PP) Self gains Champion or Holy Warrior features for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Charismatic Aura: (2 PP) Self gains +1 Persuasion (Raise +2) for 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Disease: (2 PP) R6" Target suffers disease (Vigor neg)</td>
+      <td>Disease: (2 PP) R6" Target suffers disease and fatigue (Vigor neg)</td>
     </tr><tr style="text-align:left">
-      <td>Elemental Form: (3 PP) Self gains elemental form abilities for 5 rd</td>
+      <td>Elemental Form: (3 PP) Self gains elemental form special abilities for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Energy Immunity: (2 PP) Touched takes half damage (Raise no damage) from chosen energy attack for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Enhance Undead: (3 PP) R8" Undead targets gain advance benefit</td>
+      <td>Enhance Undead: (3 PP) R8" Undead targets gain advance benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)</td>
     </tr><tr style="text-align:left">
-      <td>Fatigue: (3 PP) R12/24/48 4" radius (Raise 6") inflicts Fatigue (Vigor neg)</td>
+      <td>Fatigue: (3 PP) R12 2" radius (Raise 3") inflicts fatigue (Vigor neg)</td>
     </tr><tr style="text-align:left">
-      <td>Fog Cloud: (3 PP) 4 mile fog reduces lighting 2 levels for 1 hr</td>
+      <td>Feast: (5 PP) R8" Creates 20 lb of basic food</td>
+    </tr><tr style="text-align:left">
+      <td>Fog Cloud: (3 PP) 4 mile fog reduces lighting 1 step (Raise 2 steps) for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Fortune's Favored: (3 PP) Target can reroll failed benny-purchased reroll for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Gift Of Battle: (4 PP) Touched gains leadership edge (Raise 2 edges) for 1 hr</td>
+      <td>Gift Of Battle: (4 PP) Touched gains leadership edge features (Raise 2 edges) for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Glyph: (4 PP) Glyph stores spell effects until triggered</td>
     </tr><tr style="text-align:left">
       <td>Gravespeak: (1 PP) Self can ask spirit 6 questions</td>
     </tr><tr style="text-align:left">
-      <td>Greater Zombie: (4 PP) R8" Animates and controls corpse for 1 hr</td>
+      <td>Greater Zombie: (4 PP) R12" Animates and controls corpse for 1 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Heat Mask: (1 PP) Touched invisible to infravision for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Leaping: (1 PP) Touched gains dbl jumping distance (Raise x4) for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Lock/Unlock: (1 PP) Locks touched w/-2 pick penalty and +2 Toughness (Raise -4 and +4) or unlocks touched normal lock</td>
     </tr><tr style="text-align:left">
-      <td>Luck/Jinx: (3 PP) Touched takes the best/worst of two Trait rolls for 5 rd</td>
+      <td>Luck/Jinx: (3 PP) Touched takes the best/worst of two trait rolls for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Mend: (3 PP) Repairs damage done to touched wooden vehicle w/in past hr</td>
     </tr><tr style="text-align:left">
-      <td>Mimic: (2 PP) R6" Self knows spell used by another for use w/in 1 hr</td>
+      <td>Mimic: (2 PP) R6" Self can cast spell used by another w/in 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Mind Rider: (3 PP) Self can use target's senses for 1 hr (Spirit neg)</td>
     </tr><tr style="text-align:left">
-      <td>Negate Arcana: (5 PP) R8" 4" radius suppresses magic for 1 hr</td>
+      <td>Negate Arcana: (5 PP) R8" 2" radius suppresses magic for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Nightmare: (2 PP) R8 miles Target loses benefit of sleep, becomes frightened (Spirit neg)</td>
     </tr><tr style="text-align:left">
-      <td>Precognition: (2 PP) Self can rearrange two Action Cards (Raise 4) next rd</td>
+      <td>Precognition: (2 PP) Self can rearrange 2 Action Cards (Raise 4) next rd</td>
     </tr><tr style="text-align:left">
-      <td>Prolonged Blast: (6 PP) R16" Choice of 1" or 2" radius inflicts 2d6 damage (Raise 3d6) for 5 rd</td>
+      <td>Prolonged Blast: (6 PP) R24" Choice of 1" or 2" radius inflicts 2d6 damage (Raise 3d6) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Quake: (6 PP) R24" 6" radius inflicts 2d10 damage (Agility neg)</td>
+      <td>Quake: (6 PP) R24" 3" radius inflicts 2d10 damage (Agility neg)</td>
     </tr><tr style="text-align:left">
       <td>Refuge: (4 PP) R8" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
     </tr><tr style="text-align:left">
       <td>Regenerate: (3 PP) Touched gains free -2 Soak roll (Raise -0) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Sacrifice: (1 PP) Self gains +1 arcane skill per victim Spirit die for 5 rd</td>
+      <td>Sacrifice: (1 PP) Self gains +1 arcane skill per victim Spirit die step for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Sanctuary: (4 PP) Self returns to safe location</td>
     </tr><tr style="text-align:left">
       <td>Sentry: (3 PP) R16" Creates overnight ghostly sentry or object alarm</td>
     </tr><tr style="text-align:left">
-      <td>Sluggish Reflexes: (2 PP) R16" Target draws 1 fewer Action Card or takes the worst of 2 cards for 5 rd</td>
+      <td>Sluggish Reflexes: (2 PP) R16" Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Sphere Of Might: (4 PP) $8" 1" sphere around target inflicts -1 attacks (Raise -2), attacks as dundefined Fighting doing dundefined+d4 damge (Raise dundefined+d8)</td>
+      <td>Sphere Of Might: (4 PP) R8" 1" sphere around target inflicts -1 attacks (Raise -2), attacks as d8 Fighting doing d8+d4 damge (Raise d8+d8)</td>
     </tr><tr style="text-align:left">
       <td>Storm: (5 PP) Creates or dissipates 10 mile lightning storm or blizzard for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Strength Of The Undead: (2 PP) Self mimics touched undead's power (Raise 2 powers) for 5 rd</td>
+      <td>Strength Of The Undead: (2 PP) Self mimics touched undead's trait or special ability (Raise 2) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Summon Beast: (Special PP) R16" Self controls summoned beast actions for 10 min</td>
+      <td>Summon Beast: (Special PP) R40" Self controls summoned beast's actions for 10 min</td>
     </tr><tr style="text-align:left">
       <td>Summon Demon: (Special PP) R16" Brings demon from the Abyss for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Summon Elemental: (4 PP) R16" Self controls summoned elemental actions for 5 rd</td>
+      <td>Summon Elemental: (4 PP) R16" Self controls summoned elemental's actions for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Summon Herald: (8 PP) R16 Brings herald of deity for support</td>
     </tr><tr style="text-align:left">
-      <td>Viper Weapon: (2 PP) R16" Transforms target weapon into viper until slain</td>
+      <td>Viper Weapon: (2 PP) R16" Transforms target weapon into viper for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Voice On The Wind: (3 PP) R400 miles Transmits 30-word message to known target</td>
     </tr><tr style="text-align:left">
       <td>Wandering Senses: (2 PP) R80" Self senses remotely for 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Warding: (5 PP) Bars specified creature type from 4" radius (Raise 6" radius) for 1 hr</td>
+      <td>Warding: (5 PP) Bars specified creature type from 2" radius (Raise 3" radius) for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Water Walk: (2 PP) Touched can traverse calm water for 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Weaken Undead: (2 PP) R6" Target undead loses undead ability for 5 rd</td>
+      <td>Weaken Undead: (2 PP) R6" Target undead loses undead ability (Spirit neg) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Weapon Immunity: (3 PP) Touched takes half damage (Raise no damage) from specified weapon for 5 rd</td>
+      <td>Weapon Immunity: (3 PP) Touched takes half damage (Raise no damage) from specified weapon type for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Wilderness Step: (1 PP) Touched treats all terrain as normal for 1 h4</td>
+      <td>Wilderness Step: (1 PP) Touched treats all terrain as normal for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Zephyr: (2 PP) Creates moderate wind for 1 dy</td>
     </tr></table>
