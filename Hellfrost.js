@@ -845,7 +845,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill Note="+2 Healing/5 companions +2 natural Healing"',
   'Disciple Of Eostre Animalmother':
     'Section=feature ' +
-    'Note="Has Beast Master feature with Wild Card companion animal"',
+    'Note="Has Beast Master feature with wild card companion animal"',
   'Disciple Of Eostre Plantmother':
     'Section=combat,feature,skill ' +
     'Note=' +
@@ -873,7 +873,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana Note="Can cast off-list spell at -2, +2 <i>Dispel</i>"',
   'Disciple Of Nauthiz':
     'Section=skill ' +
-    'Note="Can reroll 1s on Gambling, Stealth, and Thievery; suffers Fatigue for 1 dy if reroll is 1"',
+    'Note="Can reroll 1s on Gambling, Stealth, and Thievery; suffers fatigue for 1 dy if reroll is 1"',
   'Disciple Of Neorthe':
     'Section=feature ' +
     'Note="Can survive on half water, can survive drowning for %{vigor} rd"',
@@ -1103,12 +1103,18 @@ Hellfrost.SPELLS_ADDED = {
   'Animate War Tree':
     'Advances=12 ' +
     'PowerPoints=8 ' +
-    'Description="Touched 30\' tree animates for 5 rd"',
+    'Description="Touched 30\' tree animates (Raise as wild card) for 5 rd"',
+  // Arcane Resistance -> SWADE Arcane Protection
+  // Armor -> SWADE Protection
+  // Aura -> SWADE Damage Field
+  // Banish -> SWADE
+  // Barrier -> SWADE
   'Battle Song':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"Creatures in 4%{in} gain Berserk edge for conc (Spirit neg) for 5 rd"',
+      '"Creatures in 2%{in} gain Berserk features for 5 rd (Spirit neg)"',
+  // Beast Friend -> SWADE
   'Becalm':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -1118,32 +1124,44 @@ Hellfrost.SPELLS_ADDED = {
     'PowerPoints=2 ' +
     'Description=' +
       '"R%{smarts}%{in} Target weapon destroyed (Weapon die type neg)"',
+  // Blast -> SWADE
   'Bless/Panic':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"Allies in %{spirit}%{in} gain +2 Spirit vs. fear (Raise +4) for 10 min"',
+      '"Allies in %{spirit}%{in} gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) for 10 min"',
+  // Bodygard -> SWADE Summon Ally
+  // Bolt -> SWADE
+  // Boost/Lower Trait -> SWADE
   'Bridge':
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Description=' +
       '"Creates horizontal surface 0.5%{in} wide by 2%{in} long for 5 rd"',
+  // Burrow -> SWADE
+  // Burst -> SWADE
   'Champion Of The Faith':
     'Advances=4 ' +
     'PowerPoints=1 ' +
-    'Description="Self gains Champion or Holy Warrior edge for 5 rd"',
+    'Description="Self gains Champion or Holy Warrior features for 5 rd"',
   'Charismatic Aura':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Description="Self gains +1 Persuasion (Raise +2) for 10 min"',
+  // Confusion -> SWADE
+  // Corpse Senses -> SWADE Zombie Power
+  // Deflection -> SWADE
+  // Detect/Conceal -> SWADE Detect/Conceal Aura
   'Disease':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Description="R%{spirit}%{in} Target suffers disease (Vigor neg)"',
+    'Description="R%{spirit}%{in} Target suffers disease and fatigue (Vigor neg)"',
+  // Dispel -> SWADE
   'Elemental Form':
     'Advances=8 ' +
     'PowerPoints=3 ' +
-    'Description="Self gains elemental form abilities for 5 rd"',
+    'Description="Self gains elemental form special abilities for 5 rd"',
+  // Elemental Manipulation -> SWADE
   'Energy Immunity':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -1152,21 +1170,29 @@ Hellfrost.SPELLS_ADDED = {
   'Enhance Undead':
     'Advances=4 ' +
     'PowerPoints=3 ' +
-    'Description="R%{smarts}%{in} Undead targets gain advance benefit"',
+    'Description=' +
+      '"R%{smarts}%{in} Undead targets gain advance benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)"',
+  // Entangle -> SWADE
+  // Environmental Protection -> SWADE
+  // Ethereal/Corporeal -> SWADE Intangibility
+  // Farsight -> SWADE
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Description=' +
-      '"R12/24/48 4%{in} radius (Raise 6%{in}) inflicts Fatigue (Vigor neg)"',
+      '"R12 2%{in} radius (Raise 3%{in}) inflicts fatigue (Vigor neg)"',
+  // Fear -> SWADE
   'Feast':
     'Advances=0 ' +
     'PowerPoints=5 ' +
-    'Description="R%{smarts} Creates %{((advances//4)+1)*5} lb of basic food"',
+    'Description=' +
+      '"R%{smarts}%{in} Creates %{((advances//4)+1)*5} lb of basic food"',
+  // Fly -> SWADE
   'Fog Cloud':
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Description=' +
-      '"%{(advances//4)+1} mile fog reduces lighting 2 levels for 1 hr"',
+      '"%{(advances//4)+1} mile fog reduces lighting 1 step (Raise 2 steps) for 1 hr"',
   "Fortune's Favored":
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -1174,7 +1200,8 @@ Hellfrost.SPELLS_ADDED = {
   'Gift Of Battle':
     'Advances=0 ' +
     'PowerPoints=4 ' +
-    'Description="Touched gains leadership edge (Raise 2 edges) for 1 hr"',
+    'Description=' +
+      '"Touched gains leadership edge features (Raise 2 edges) for 1 hr"',
   'Glyph':
     'Advances=8 ' +
     'PowerPoints=4 ' +
@@ -1183,18 +1210,26 @@ Hellfrost.SPELLS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Description="Self can ask spirit %{spirit} questions"',
+  // Greater Healing -> SWADE
   'Greater Zombie':
     'Advances=12 ' +
     'PowerPoints=4 ' +
-    'Description="R%{smarts}%{in} Animates and controls corpse for 1 hr"',
+    'Description="R%{spirit*2}%{in} Animates and controls corpse for 1 hr"',
+  // Growth/Shrink -> SWADE
+  // TODO Hamper Movement
+  // Healing -> SWADE
   'Heat Mask':
     'Advances=4 ' +
     'PowerPoints=1 ' +
-    'Description="Touched invisible to infravision for 1 h4"',
+    'Description="Touched invisible to infravision for 1 hr"',
+  // Insight -> SWADE Object Reading
+  // Invisibility -> SWADE
+  // Knockdown -> SWADE Havok
   'Leaping':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Description="Touched gains dbl jumping distance (Raise x4) for 5 rd"',
+  // Light -> SWADE Light/Darkness
   'Lock/Unlock':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -1203,7 +1238,7 @@ Hellfrost.SPELLS_ADDED = {
   'Luck/Jinx':
     'Advances=8 ' +
     'PowerPoints=3 ' +
-    'Description="Touched takes the best/worst of two Trait rolls for 5 rd"',
+    'Description="Touched takes the best/worst of two trait rolls for 5 rd"',
   'Mend':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1212,7 +1247,7 @@ Hellfrost.SPELLS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"R%{spirit}%{in} Self knows spell used by another for use w/in 1 hr"',
+      '"R%{spirit}%{in} Self can cast spell used by another w/in 1 hr"',
   'Mind Rider':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1220,26 +1255,28 @@ Hellfrost.SPELLS_ADDED = {
   'Negate Arcana':
     'Advances=8 ' +
     'PowerPoints=5 ' +
-    'Description="R%{smarts}%{in} 4%{in} radius suppresses magic for 1 hr"',
+    'Description="R%{smarts}%{in} 2%{in} radius suppresses magic for 1 hr"',
   'Nightmare':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Description=' +
       '"R%{smarts} miles Target loses benefit of sleep, becomes frightened (Spirit neg)"',
+  // Obscure -> SWADE Light/Darkness
   'Precognition':
     'Advances=8 ' +
     'PowerPoints=2 ' +
-    'Description="Self can rearrange two Action Cards (Raise 4) next rd"',
+    'Description="Self can rearrange 2 Action Cards (Raise 4) next rd"',
   'Prolonged Blast':
     'Advances=8 ' +
     'PowerPoints=6 ' +
     'Description=' +
-      '"R%{smarts*2}%{in} Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) for 5 rd"',
+      '"R24%{in} Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) for 5 rd"',
+  // Puppet -> SWADE
   'Quake':
     'Advances=8 ' +
     'PowerPoints=6 ' +
     'Description=' +
-      '"R%{smarts*3}%{in} 6%{in} radius inflicts 2d10 damage (Agility neg)"',
+      '"R%{smarts*3}%{in} 3%{in} radius inflicts 2d10 damage (Agility neg)"',
   'Refuge':
     'Advances=4 ' +
     'PowerPoints=4 ' +
@@ -1252,7 +1289,7 @@ Hellfrost.SPELLS_ADDED = {
   'Sacrifice':
     'Advances=8 ' +
     'PowerPoints=1 ' +
-    'Description="Self gains +1 arcane skill per victim Spirit die for 5 rd"',
+    'Description="Self gains +1 arcane skill per victim Spirit die step for 5 rd"',
   'Sanctuary':
     'Advances=0 ' +
     'PowerPoints=4 ' +
@@ -1262,15 +1299,18 @@ Hellfrost.SPELLS_ADDED = {
     'PowerPoints=3 ' +
     'Description=' +
       '"R%{smarts*2}%{in} Creates overnight ghostly sentry or object alarm"',
+  // Shape Change -> SWADE
+  // Silence -> SWADE Sound/Silence
   'Sluggish Reflexes':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"R%{smarts*2}%{in} Target draws 1 fewer Action Card or takes the worst of 2 cards for 5 rd"',
+      '"R%{smarts*2}%{in} Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) for 5 rd"',
+  // Slumber -> SWADE
   'Sphere Of Might':
     'Advances=8 ' +
     'PowerPoints=4 ' +
-    'Description="$%{smarts}%{in} 1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
+    'Description="R%{smarts}%{in} 1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
@@ -1280,12 +1320,14 @@ Hellfrost.SPELLS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"Self mimics touched undead\'s power (Raise 2 powers) for 5 rd"',
+      '"Self mimics touched undead\'s trait or special ability (Raise 2) for 5 rd"',
+  // Stun -> SWADE
+  // Succor -> SWADE Relief
   'Summon Beast':
     'Advances=8 ' +
     'PowerPoints=Special ' +
     'Description=' +
-      '"R%{smarts*2}%{in} Self controls summoned beast actions for 10 min"',
+      '"R%{smarts*5}%{in} Self controls summoned beast\'s actions for 10 min"',
   'Summon Demon':
     'Advances=0 ' +
     'PowerPoints=Special ' +
@@ -1294,21 +1336,24 @@ Hellfrost.SPELLS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=4 ' +
     'Description=' +
-      '"R%{smarts*2}%{in} Self controls summoned elemental actions for 5 rd"',
+      '"R%{smarts*2}%{in} Self controls summoned elemental\'s actions for 5 rd"',
   'Summon Herald':
     'Advances=12 ' +
     'PowerPoints=8 ' +
     'Description="R%{smarts*2} Brings herald of deity for support"',
+  // Tempest -> SWADE
+  // Teleport -> SWADE
   'Viper Weapon':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Description=' +
-      '"R%{smarts*2}%{in} Transforms target weapon into viper until slain"',
+      '"R%{smarts*2}%{in} Transforms target weapon into viper for 5 rd"',
   'Voice On The Wind':
     'Advances=0 ' +
     'PowerPoints=3 ' +
     'Description=' +
       '"R%{smarts*50} miles Transmits %{advances//4*10}-word message to known target"',
+  // Wall Walker -> SWADE
   'Wandering Senses':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -1317,7 +1362,8 @@ Hellfrost.SPELLS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Description=' +
-      '"Bars specified creature type from 4%{in} radius (Raise 6%{in} radius) for 1 hr"',
+      '"Bars specified creature type from 2%{in} radius (Raise 3%{in} radius) for 1 hr"',
+  // Warrior's Gift -> SWADE
   'Water Walk':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -1325,19 +1371,21 @@ Hellfrost.SPELLS_ADDED = {
   'Weaken Undead':
     'Advances=8 ' +
     'PowerPoints=2 ' +
-    'Description="R%{spirit}%{in} Target undead loses undead ability for 5 rd"',
+    'Description="R%{spirit}%{in} Target undead loses undead ability (Spirit neg) for 5 rd"',
   'Weapon Immunity':
     'Advances=4 ' +
     'PowerPoints=3 ' +
-    'Description="Touched takes half damage (Raise no damage) from specified weapon for 5 rd"',
+    'Description="Touched takes half damage (Raise no damage) from specified weapon type for 5 rd"',
+  // Whirlwind -> SWADE Havok
   'Wilderness Step':
     'Advances=0 ' +
     'PowerPoints=1 ' +
-    'Description="Touched treats all terrain as normal for 1 h4"',
+    'Description="Touched treats all terrain as normal for 1 hr"',
   'Zephyr':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Description="Creates moderate wind for 1 dy"'
+  // Zombie -> SWADE
 };
 Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.SPELLS_ADDED);
 Hellfrost.RACES = {
