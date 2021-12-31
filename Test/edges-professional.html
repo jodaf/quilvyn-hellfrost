@@ -17,7 +17,7 @@ var attributes = {
   "hindrances.Orders":1, "hindrances.Pacifist":1, "improvementPointsAllocation.Attribute":16, 
   "improvementPointsAllocation.Skill":19, "name":"Edges-Professional", "race":"Taiga Elf", "shield":"None", 
   "skillAllocation.Battle":3, "skillAllocation.Faith":2, "skillAllocation.Fighting":3, 
-  "skillAllocation.Healing":3, "skillAllocation.Language (Frost Dwarf)":2, "skillAllocation.Notice":1, 
+  "skillAllocation.Healing":3, "skillAllocation.Intimidation":2, "skillAllocation.Notice":1, 
   "skillAllocation.Occult":3, "skillAllocation.Research":2, "skillAllocation.Riding":2, 
   "skillAllocation.Shooting":3, "skillAllocation.Survival":3, "skillAllocation.Thievery":2, 
   "skillAllocation.Weird Science":2, "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, 
@@ -54,7 +54,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Heat Lethargy: -1 attribute rolls at temperatures above 52</td>
     </tr><tr style="text-align:center">
-      <td>Winter Soul: +2 Vigor (cold resistance)</td>
+      <td>Reliquary (Reliqus): Test Agility-2 to avoid trap effects</td>
+    </tr><tr style="text-align:center">
+      <td>Winter Soul: +2 Vigor (resist cold)</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -66,10 +68,10 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Athletics: (agi) d4</td>
-      <td>Language (Frost Dwarf): (sma) d6</td>
+      <td>Intimidation: (spi) d6</td>
       <td>Shooting: (agi) d8</td>
     </tr><tr style="text-align:left">
-      <td>Battle: (sma) d8</td>
+      <td>Battle: (sma) d8+1</td>
       <td>Notice: (sma) d6</td>
       <td>Stealth: (agi) d4</td>
     </tr><tr style="text-align:left">
@@ -93,6 +95,8 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
+      <td><i>Knight Hrafn: +1 Battle</i></td>
+    </tr><tr style="text-align:center">
       <td><i>Roadwarden: +2 Survival/+2 Notice (ambushes, traps, concealed weapons)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Sister Of Mercy: +2 Healing/+1 Persuasion</i></td>
@@ -101,23 +105,23 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>All Thumbs: -2 using mechanical and electrical devices, critical failure breaks device</td>
     </tr><tr style="text-align:center">
-      <td>Bludgeoner: +1 Persuasion (engro)</td>
+      <td>Bludgeoner: +1 Persuasion (engros)</td>
     </tr><tr style="text-align:center">
       <td>Guild Thief: +2 Common Knowledge (home country)/d8 Wild Die choice of Athletics (climbing), Stealth (urban) or Thievery</td>
     </tr><tr style="text-align:center">
-      <td>Hearth Knight: +1 Parry and +2 Called Shots vs. cold-resistant and -immune creatures</td>
+      <td>Hearth Knight: +1 Parry and +2 called shots vs. cold-resistant and -immune creatures</td>
     </tr><tr style="text-align:center">
       <td>Heat Lethargy: -1 skill rolls at temperatures above 52</td>
     </tr><tr style="text-align:center">
-      <td>Hedge Magic: Identify plants for herbal remedies</td>
+      <td>Hedge Magic: Can identify plants for herbal remedies</td>
     </tr><tr style="text-align:center">
-      <td>Lorekeeper: Used untrained Smarts skills at d4</td>
+      <td>Lorekeeper: d4 on untrained Smarts skills</td>
     </tr><tr style="text-align:center">
       <td>Outsider: -2 Persuasion (other races)</td>
     </tr><tr style="text-align:center">
-      <td>Reliquary (Arcanologist): +2 Common Knowledge (relics), use Occult to learn unattuned relic powers</td>
+      <td>Reliquary (Arcanologist): +2 Common Knowledge (relics)/+2 Knowledge (relics)/Can use Occult to learn unattuned relic powers</td>
     </tr><tr style="text-align:center">
-      <td>Reliquary (Reliqus): +2 Notice (traps)</td>
+      <td>Reliquary (Reliqus): +2 Notice (traps)/+2 disarm traps</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -152,7 +156,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Command Presence: Increased Command effects</i></td>
     </tr><tr style="text-align:center">
-      <td>Command: R10" Extras +1 to recover from Shaken or Stunned</td>
+      <td>Command: R11" Extras +1 to recover from Shaken or Stunned</td>
     </tr><tr style="text-align:center">
       <td>Connections: Call in favors from acquaintance or organization</td>
     </tr><tr style="text-align:center">
@@ -164,7 +168,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
     </tr><tr style="text-align:center">
-      <td>Natural Realms: Treat Elfhomes as wilds</td>
+      <td>Natural Realms: Treats Elfhomes as wilds</td>
     </tr><tr style="text-align:center">
       <td>Orders: Takes orders from outside power</td>
     </tr></table>
@@ -201,7 +205,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Vigor Toughness Modifier: +4</i></td>
       </tr><tr style="text-align:center">
-        <td>Bladedancer: -2 attack on every target adjacent to running path</td>
+        <td>Bladedancer: Can make -2 attack on every creature adjacent to running path</td>
       </tr><tr style="text-align:center">
         <td>Bludgeoner: +4 sling range, sling does d8+d6 damage at short range</td>
       </tr><tr style="text-align:center">
@@ -245,7 +249,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill >= 6 and shooting skill (currently 8) >= 8</td>
+        <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill (currently 6) >= 6 and shooting skill (currently 8) >= 8</td>
       </tr><tr style="text-align:center">
         <td>Edge Points Allocation: 1 available vs. 20 allocated</td>
       </tr><tr style="text-align:center">

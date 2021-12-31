@@ -9,16 +9,16 @@ var attributes = {
   "_path":"ztest/hellfrost/edges/background", 
   "advances":12, "agilityAllocation":2, "arcaneFocus":"true", "armor.None":1, "deity":"Freo", 
   "edges.Arcane Background (Heahwisardry)":1, "edges.Library":1, "edges.Linguist":1, "edges.Noble":1, 
-  "edges.Old Family":1, "edges.Rich":1, "edges.Styrimathr":1, "edges.Warm Blooded":1, 
-  "focusType":"Heahwisardry", "gender":"Female", "hindrances.Big Mouth":1, "hindrances.Black Sheep":1, 
-  "hindrances.Quirk":1, "hindrances.Ugly":1, "improvementPointsAllocation.Attribute":16, 
-  "improvementPointsAllocation.Edge":14, "name":"Edges-Background", "race":"Anari Human", "shield":"None", 
-  "skillAllocation.Athletics":1, "skillAllocation.Battle":1, "skillAllocation.Boating":3, 
-  "skillAllocation.Common Knowledge":1, "skillAllocation.Faith":1, "skillAllocation.Focus":1, 
-  "skillAllocation.Intimidation":2, "skillAllocation.Language (Engro)":1, "skillAllocation.Psionics":3, 
-  "skillAllocation.Repair":1, "skillAllocation.Research":1, "smartsAllocation":2, "spiritAllocation":4, 
-  "strengthAllocation":3, "vigorAllocation":2, "weapons.Flail":1, "weapons.Great Sword":1, 
-  "weapons.Throwing Axe":1
+  "edges.Old Family":1, "edges.Styrimathr":1, "edges.Warm Blooded":1, "focusType":"Heahwisardry", 
+  "gender":"Female", "hindrances.Big Mouth":1, "hindrances.Black Sheep":1, "hindrances.Quirk":1, 
+  "hindrances.Ugly":1, "improvementPointsAllocation.Attribute":16, 
+  "improvementPointsAllocation.Edge":12, "improvementPointsAllocation.Skill":2, "name":"Edges-Background", 
+  "race":"Anari Human", "shield":"None", "skillAllocation.Athletics":1, "skillAllocation.Battle":1, 
+  "skillAllocation.Boating":3, "skillAllocation.Common Knowledge":1, "skillAllocation.Faith":1, 
+  "skillAllocation.Focus":1, "skillAllocation.Intimidation":2, "skillAllocation.Language (Engro)":1, 
+  "skillAllocation.Psionics":3, "skillAllocation.Repair":1, "skillAllocation.Research":1, 
+  "skillAllocation.Stealth":2, "smartsAllocation":2, "spiritAllocation":4, "strengthAllocation":3, 
+  "vigorAllocation":2, "weapons.Flail":1, "weapons.Great Sword":1, "weapons.Throwing Axe":1
 };
   </script>
 </head>
@@ -47,7 +47,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Attribute Notes</b>: Warm Blooded: +2 Vigor (resist cold)</td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (16 Points):</td>
+    <td><b>Skills</b> (18 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -68,7 +68,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Common Knowledge: (sma) d6</td>
       <td>Notice: (sma) d4</td>
-      <td>Stealth: (agi) d4</td>
+      <td>Stealth: (agi) d8</td>
     </tr><tr style="text-align:left">
       <td>Faith: (spi) d4</td>
       <td>Persuasion: (spi) d4+1</td>
@@ -78,7 +78,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Library: Owns Tomes of Lore that give 4 knowledge skill points</i></td>
+      <td><i>Library: +4 Skill Points (choice of Knowledge)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Noble: +2 Persuasion</i></td>
     </tr><tr style="text-align:center">
@@ -105,7 +105,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Advances</b>: 12</td>
       <td><b>Improvement Points</b>: 30</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 16; Edge: 14</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 16; Edge: 12; Skill: 2</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -117,7 +117,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (8 points): Arcane Background (Heahwisardry); Library; Linguist; Noble; Old Family; Rich; Styrimathr; Warm Blooded</td>
+      <td><b>Edges</b> (7 points): Arcane Background (Heahwisardry); Library; Linguist; Noble; Old Family; Styrimathr; Warm Blooded</td>
       <td><b>Hindrances</b>: Big Mouth; Black Sheep; Quirk; Ugly</td>
       <td><b>Anari Human Features</b>: Diverse</td>
     </tr></table>
@@ -125,15 +125,17 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Noble: Gain Rich edge</i></td>
+      <td><i>Noble: Has Rich feature</i></td>
     </tr><tr style="text-align:center">
       <td>Big Mouth: Cannot keep secrets</td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: Ostracized by magocratic nobility</td>
     </tr><tr style="text-align:center">
       <td>Quirk: Has minor compulsion that occasionally causes trouble</td>
     </tr><tr style="text-align:center">
       <td>Rich: 3x starting funds</td>
     </tr><tr style="text-align:center">
-      <td>Styrimathr: Owns a Smabyrding with no ice rig</td>
+      <td>Styrimathr: Owns a Smabyrding</td>
     </tr></table>
 </td>
   </tr></table>

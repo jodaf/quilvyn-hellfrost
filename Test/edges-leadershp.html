@@ -8,17 +8,17 @@
 var attributes = {
   "_path":"ztest/hellfrost/edges/leadership", 
   "advances":12, "agilityAllocation":2, "armor.None":1, "deity":"Kenaz", 
-  "edges.A Few Good Men":1, "edges.Command":1, "edges.Coordinated Firepower":1, "edges.Cry Havoc!":1, 
-  "edges.Death Before Dishonor":1, "edges.Fanaticism":1, "edges.Fervor":1, "edges.Hold The Line!":1, 
-  "edges.Inspire":1, "edges.Siege Breaker":1, "edges.Siege Mentality":1, "focusType":"Druidism", 
-  "gender":"Female", "hindrances.Black Sheep":1, "hindrances.Mean":1, "hindrances.Slow":1, 
-  "improvementPointsAllocation.Attribute":10, "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":9, 
-  "name":"Edges-Leadershp", "race":"Hearth Elf", "shield":"None", "skillAllocation.Battle":4, 
-  "skillAllocation.Fighting":3, "skillAllocation.Gambling":2, "skillAllocation.Healing":1, 
-  "skillAllocation.Intimidation":1, "skillAllocation.Performance":1, "skillAllocation.Persuasion":2, 
-  "skillAllocation.Repair":1, "skillAllocation.Research":1, "skillAllocation.Shooting":3, 
-  "skillAllocation.Taunt":2, "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":1, 
-  "vigorAllocation":2
+  "edges.A Few Good Men":1, "edges.Command":1, "edges.Command Presence":1, 
+  "edges.Coordinated Firepower":1, "edges.Cry Havoc!":1, "edges.Death Before Dishonor":1, "edges.Fanaticism":1, 
+  "edges.Fervor":1, "edges.Hold The Line!":1, "edges.Inspire":1, "edges.Siege Breaker":1, 
+  "edges.Siege Mentality":1, "focusType":"Druidism", "gender":"Female", "hindrances.Black Sheep":1, 
+  "hindrances.Mean":1, "hindrances.Slow":1, "improvementPointsAllocation.Attribute":10, 
+  "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":9, "name":"Edges-Leadershp", 
+  "race":"Hearth Elf", "shield":"None", "skillAllocation.Battle":4, "skillAllocation.Fighting":3, 
+  "skillAllocation.Gambling":2, "skillAllocation.Healing":1, "skillAllocation.Intimidation":1, 
+  "skillAllocation.Performance":1, "skillAllocation.Persuasion":2, "skillAllocation.Repair":1, 
+  "skillAllocation.Research":1, "skillAllocation.Shooting":3, "skillAllocation.Taunt":2, 
+  "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":1, "vigorAllocation":2
 };
   </script>
 </head>
@@ -90,7 +90,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Black Sheep: -2 Persuasion (heahwisards)</td>
     </tr><tr style="text-align:center">
-      <td>Inspire: R5" Support all Extras on any trait using Battle 1/rd</td>
+      <td>Inspire: R10" Support all Extras on any trait using Battle 1/rd</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -115,7 +115,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (5 points): A Few Good Men; Command; Coordinated Firepower; Cry Havoc!; Death Before Dishonor; Fanaticism; Fervor; Hold The Line!; Inspire; Siege Breaker; Siege Mentality</td>
+      <td><b>Edges</b> (5 points): A Few Good Men; Command Presence; Command; Coordinated Firepower; Cry Havoc!; Death Before Dishonor; Fanaticism; Fervor; Hold The Line!; Inspire; Siege Breaker; Siege Mentality</td>
       <td><b>Hindrances</b>: Black Sheep; Mean; Slow</td>
       <td><b>Hearth Elf Features</b>: Agile; All Thumbs; Forest-Born; Low Light Vision; Natural Realms</td>
     </tr></table>
@@ -123,13 +123,17 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
     <tr style="text-align:center">
-      <td>Command: R5" Extras +1 to recover from Shaken or Stunned</td>
+      <td><i>Command Presence: Increased Command effects</i></td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: Ostracized by magocratic nobility</td>
+    </tr><tr style="text-align:center">
+      <td>Command: R10" Extras +1 to recover from Shaken or Stunned</td>
     </tr><tr style="text-align:center">
       <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
     </tr><tr style="text-align:center">
       <td>Mean: Ill-tempered and disagreeable</td>
     </tr><tr style="text-align:center">
-      <td>Natural Realms: Treat Elfhomes as wilds</td>
+      <td>Natural Realms: Treats Elfhomes as wilds</td>
     </tr></table>
 </td>
   </tr></table>
@@ -164,23 +168,23 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Vigor Toughness Modifier: +4</i></td>
       </tr><tr style="text-align:center">
-        <td>A Few Good Men: Add one token to army in mass battles</td>
+        <td>A Few Good Men: Adds one token to army in mass battles</td>
       </tr><tr style="text-align:center">
-        <td>Coordinated Firepower: R5" Commanded extras fire at single foe simultaneously at +2</td>
+        <td>Coordinated Firepower: R10" Commanded extras fire at single foe simultaneously at +2, doing cumulative damage</td>
       </tr><tr style="text-align:center">
-        <td>Cry Havoc!: Charge during Battle Roll 1/mass battle</td>
+        <td>Cry Havoc!: Can charge during Battle roll 1/mass battle, success removes 1 foe token</td>
       </tr><tr style="text-align:center">
-        <td>Fanaticism: R5" Commanded extras +2 vs fear, -2 Fear Table</td>
+        <td>Fanaticism: R10" Commanded extras +2 vs fear, -2 fear table</td>
       </tr><tr style="text-align:center">
-        <td>Fervor: R5" Extras +1 Fighting damage</td>
+        <td>Fervor: R10" Extras +1 Fighting damage</td>
       </tr><tr style="text-align:center">
         <td>Forest-Born: No difficult terrain penalty in forests</td>
       </tr><tr style="text-align:center">
         <td>Hold The Line!: Commanded Extras +1 Toughness</td>
       </tr><tr style="text-align:center">
-        <td>Siege Breaker: During mass battle, -1 fortification siege bonus, Battle test for -2 (Raise -3)</td>
+        <td>Siege Breaker: -1 fortification siege bonus during mass battle, test Battle for -2 (Raise -3)</td>
       </tr><tr style="text-align:center">
-        <td>Siege Mentality: During mass battle, +1 fortification siege bonus, Battle test for +2 (Raise +3)</td>
+        <td>Siege Mentality: +1 fortification siege bonus during mass battle, test Battle for +2 (Raise +3)</td>
       </tr></table>
 </td>
     </tr></table>
@@ -192,7 +196,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Edge Points Allocation: 5 available vs. 11 allocated</td>
+      <td><b>Validation Errors</b>: Edge Points Allocation: 5 available vs. 12 allocated</td>
     </tr></table>
 </td>
   </tr></table>

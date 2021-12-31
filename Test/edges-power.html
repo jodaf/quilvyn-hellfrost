@@ -13,20 +13,20 @@ var attributes = {
   "edges.Arcane Background (Elementalism (Fyr))":1, "edges.Arcane Background (Elementalism (Waeter))":1, 
   "edges.Arcane Background (Heahwisardry)":1, "edges.Arcane Background (Hrimwisardry)":1, 
   "edges.Arcane Background (Rune Magic)":1, "edges.Arcane Background (Song Magic)":1, "edges.Augment Staff (Aura)":1, 
-  "edges.Augment Staff (Damage)":1, "edges.Augment Staff (Deflect)":1, "edges.Augment Staff (Spell Store)":1, 
-  "edges.Combine Spells":1, "edges.Concentration":1, "edges.Elemental Mastery":1, "edges.Focus":1, 
+  "edges.Augment Staff (Damage)":2, "edges.Augment Staff (Deflect)":2, "edges.Augment Staff (Spell Store)":2, 
+  "edges.Combine Spells":1, "edges.Concentration":1, "edges.Elemental Mastery":3, "edges.Focus":1, 
   "edges.Hellfreeze":1, "edges.Improved Concentration":1, "edges.Improved Focus":1, 
-  "edges.Power Surge":1, "edges.Runic Insight":1, "edges.Spell Finesse (Arcane)":1, 
+  "edges.Power Surge":1, "edges.Runic Insight":3, "edges.Spell Finesse (Arcane)":1, 
   "edges.Spell Finesse (Armor Penetration)":1, "edges.Spell Finesse (Heavy Weapon)":1, "edges.Spell Finesse (Range)":1, 
   "edges.Spell Finesse (Selective)":1, "focusType":"Elementalism", "gender":"Male", 
   "hindrances.Necromantic Weakness":1, "hindrances.Stubborn":1, "hindrances.Thin Skinned":1, 
   "improvementPointsAllocation.Attribute":8, "improvementPointsAllocation.Edge":10, 
   "improvementPointsAllocation.Skill":9, "name":"Edges-Power", "race":"Engro", "shield":"None", 
-  "skillAllocation.Academics":1, "skillAllocation.Faith":1, "skillAllocation.Heahwisardry":4, 
-  "skillAllocation.Notice":1, "skillAllocation.Occult":4, "skillAllocation.Performance":2, 
-  "skillAllocation.Persuasion":2, "skillAllocation.Science":1, "skillAllocation.Spellcasting":1, 
-  "skillAllocation.Stealth":2, "skillAllocation.Survival":1, "skillAllocation.Weird Science":2, 
-  "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, "vigorAllocation":1
+  "skillAllocation.Academics":1, "skillAllocation.Heahwisardry":4, "skillAllocation.Notice":1, 
+  "skillAllocation.Occult":4, "skillAllocation.Performance":1, "skillAllocation.Persuasion":2, 
+  "skillAllocation.Science":1, "skillAllocation.Spellcasting":4, "skillAllocation.Stealth":2, 
+  "skillAllocation.Survival":1, "skillAllocation.Weird Science":2, "smartsAllocation":3, 
+  "spiritAllocation":3, "strengthAllocation":2, "vigorAllocation":1
 };
   </script>
 </head>
@@ -61,7 +61,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (22 Points):</td>
+    <td><b>Skills</b> (23 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -70,23 +70,19 @@ var attributes = {
     <tr style="text-align:left">
       <td>Academics: (sma) d4</td>
       <td>Occult: (sma) d10</td>
-      <td>Stealth: (agi) d6</td>
+      <td>Spellcasting: (sma) d10</td>
     </tr><tr style="text-align:left">
       <td>Athletics: (agi) d4</td>
-      <td>Performance: (spi) d6</td>
-      <td>Survival: (sma) d4</td>
+      <td>Performance: (spi) d4</td>
+      <td>Stealth: (agi) d6</td>
     </tr><tr style="text-align:left">
       <td>Common Knowledge: (sma) d4+1</td>
       <td>Persuasion: (spi) d8+1</td>
-      <td>Weird Science: (sma) d6</td>
-    </tr><tr style="text-align:left">
-      <td>Faith: (spi) d4</td>
-      <td>Science: (sma) d4</td>
-      <td></td>
+      <td>Survival: (sma) d4</td>
     </tr><tr style="text-align:left">
       <td>Notice: (sma) d6</td>
-      <td>Spellcasting: (sma) d4</td>
-      <td></td>
+      <td>Science: (sma) d4</td>
+      <td>Weird Science: (sma) d6</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -94,7 +90,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Arcane Background (Song Magic): +1 Common Knowledge/+1 Persuasion/+1 Knowledge (folklore)</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Sneaky: +2 skill step (choice of Stealth or Thievery)</i></td>
+      <td><i>Sneaky: +2 Skill Points (choice of Stealth or Thievery)</i></td>
     </tr><tr style="text-align:center">
       <td>Arcane Background (Druidism): +1 arcane skill in natural environments, -1 in urban environmonts</td>
     </tr><tr style="text-align:center">
@@ -133,7 +129,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (6 points): Alchemy; Arcane Background (Druidism); Arcane Background (Elementalism (Eir)); Arcane Background (Elementalism (Ertha)); Arcane Background (Elementalism (Fyr)); Arcane Background (Elementalism (Waeter)); Arcane Background (Heahwisardry); Arcane Background (Hrimwisardry); Arcane Background (Rune Magic); Arcane Background (Song Magic); Augment Staff (Aura); Augment Staff (Damage); Augment Staff (Deflect); Augment Staff (Spell Store); Combine Spells; Concentration; Elemental Mastery; Focus; Hellfreeze; Improved Concentration; Improved Focus; Power Surge; Runic Insight; Spell Finesse (Arcane); Spell Finesse (Armor Penetration); Spell Finesse (Heavy Weapon); Spell Finesse (Range); Spell Finesse (Selective)</td>
+      <td><b>Edges</b> (6 points): Alchemy: 1; Arcane Background (Druidism): 1; Arcane Background (Elementalism (Eir)): 1; Arcane Background (Elementalism (Ertha)): 1; Arcane Background (Elementalism (Fyr)): 1; Arcane Background (Elementalism (Waeter)): 1; Arcane Background (Heahwisardry): 1; Arcane Background (Hrimwisardry): 1; Arcane Background (Rune Magic): 1; Arcane Background (Song Magic): 1; Augment Staff (Aura): 1; Augment Staff (Damage): 2; Augment Staff (Deflect): 2; Augment Staff (Spell Store): 2; Combine Spells: 1; Concentration: 1; Elemental Mastery: 3; Focus: 1; Hellfreeze: 1; Improved Concentration: 1; Improved Focus: 1; Power Surge: 1; Runic Insight: 3; Spell Finesse (Arcane): 1; Spell Finesse (Armor Penetration): 1; Spell Finesse (Heavy Weapon): 1; Spell Finesse (Range): 1; Spell Finesse (Selective): 1</td>
       <td><b>Hindrances</b>: Necromantic Weakness; Stubborn; Thin Skinned</td>
       <td><b>Engro Features</b>: Engro Luck; Outsider; Size -1; Sneaky; Spirited</td>
     </tr></table>
@@ -180,9 +176,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Arcane Background (Hrimwisardry): -4 damage from cold, +4 from heat</td>
       </tr><tr style="text-align:center">
-        <td>Augment Staff (Damage): Staff does d8+d6 damage and AP 1</td>
+        <td>Augment Staff (Damage): Staff does d8+d8 damage and AP 2</td>
       </tr><tr style="text-align:center">
-        <td>Augment Staff (Deflect): Foe ranged attacks -1</td>
+        <td>Augment Staff (Deflect): Foe ranged attacks -2</td>
       </tr><tr style="text-align:center">
         <td>Power Surge: Dbl damage from arcane skill attack</td>
       </tr></table>
@@ -225,31 +221,31 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><i>Improved Focus: Increased Focus effects</i></td>
     </tr><tr style="text-align:center">
-      <td>Alchemy: Create arcane devices for known spells</td>
+      <td>Alchemy: Can create arcane devices for known spells</td>
     </tr><tr style="text-align:center">
-      <td>Augment Staff (Spell Store): Staff can store 1 known spell, cast at +2</td>
+      <td>Augment Staff (Spell Store): Staff can store 2 known spell(s), cast at +2</td>
     </tr><tr style="text-align:center">
-      <td>Combine Spells: Cast two spells simultaneously</td>
+      <td>Combine Spells: Can cast two spells simultaneously</td>
     </tr><tr style="text-align:center">
       <td>Concentration: +4 to resist spell disruption</td>
     </tr><tr style="text-align:center">
-      <td>Elemental Mastery: +1 elements, cast at -1</td>
+      <td>Elemental Mastery: Know 4 elements, cast at -0</td>
     </tr><tr style="text-align:center">
       <td>Focus: Immediate Spirit roll to recover from Shaken due to spell failure or siphoning</td>
     </tr><tr style="text-align:center">
       <td>Hellfreeze: Cold spells do normal damage to resistant, half to immune, dbl to vulnerable, and dbl+4 to targets with weakness</td>
     </tr><tr style="text-align:center">
-      <td>Runic Insight: +1 arcane skill die for chosen spell</td>
+      <td>Runic Insight: +1 arcane skill die for spells of 3 chosen runes</td>
     </tr><tr style="text-align:center">
-      <td>Spell Finesse (Arcane): +1 Wild Die die on chosen spell</td>
+      <td>Spell Finesse (Arcane): +1 Wild Die die on chosen spell skill</td>
     </tr><tr style="text-align:center">
       <td>Spell Finesse (Armor Penetration): Chosen spell has AP 2</td>
     </tr><tr style="text-align:center">
       <td>Spell Finesse (Heavy Weapon): Chosen spell counts as heavy weapon</td>
     </tr><tr style="text-align:center">
-      <td>Spell Finesse (Range): Selected spell has extended range</td>
+      <td>Spell Finesse (Range): Chosen spell has extended range</td>
     </tr><tr style="text-align:center">
-      <td>Spell Finesse (Selective): Protects 2 creatures from effects of chosen area spell</td>
+      <td>Spell Finesse (Selective): Can exclude 5 creatures from effects of chosen area spell</td>
     </tr></table>
 </td>
   </tr></table>
@@ -259,43 +255,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
-      <tr style="text-align:center">
-        <td>Alchemy Edge: Requires advances (currently 12) >= 4, power count (currently 24), arcane skill (currently 4) >= 6 and weird science skill (currently 6) >= 6</td>
-      </tr><tr style="text-align:center">
-        <td>Augment Staff (Aura) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Augment Staff (Damage) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Augment Staff (Deflect) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Augment Staff (Spell Store) Edge: Requires advances (currently 12) >= 4, arcane background (heahwisardry) feature (currently 1), heahwisardry skill >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Combine Spells Edge: Requires advances (currently 12) >= 12, power count (currently 24), arcane skill (currently 4) >= 10 and occult skill (currently 10) >= 10</td>
-      </tr><tr style="text-align:center">
-        <td>Edge Points Allocation: 6 available vs. 28 allocated</td>
-      </tr><tr style="text-align:center">
-        <td>Elemental Mastery Edge: Requires advances (currently 12) >= 4 and arcane background (elementalism) feature</td>
-      </tr><tr style="text-align:center">
-        <td>Focus Edge: Requires advances (currently 12) >= 4, power count (currently 24), spirit (currently 12) >= 6 and arcane skill (currently 4) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Hellfreeze Edge: Requires advances (currently 12) >= 8, power count (currently 24), arcane skill (currently 4) >= 10 and occult skill (currently 10) >= 10</td>
-      </tr><tr style="text-align:center">
-        <td>Power Surge Edge: Requires advances (currently 12) >= 4, power count (currently 24) and arcane skill (currently 4) >= 10</td>
-      </tr><tr style="text-align:center">
-        <td>Runic Insight Edge: Requires arcane background (rune magic) feature (currently 1) and arcane skill (currently 4) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Spell Finesse (Arcane) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Spell Finesse (Armor Penetration) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Spell Finesse (Heavy Weapon) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Spell Finesse (Range) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
-      </tr><tr style="text-align:center">
-        <td>Spell Finesse (Selective) Edge: Requires power count (currently 24), arcane skill (currently 4) >= 8 and occult skill (currently 10) >= 8</td>
-      </tr></table>
-</td>
+      <td><b>Validation Errors</b>: Edge Points Allocation: 6 available vs. 35 allocated</td>
     </tr></table>
 </td>
   </tr></table>
