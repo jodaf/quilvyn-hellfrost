@@ -1091,12 +1091,14 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="+2 attack (Raise +4) w/thrown or missile weapon for 5 rd"',
+    'Description=' +
+      '"Gives +2 attack (Raise +4) w/thrown or missile weapon for 5 rd"',
   'Altered Senses':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target gains Infravision or Low Light Vision (Raise both) for 10 min"',
+    'Description=' +
+      '"Target gains Infravision or Low Light Vision (Raise both) for 10 min"',
   'Analyze Foe':
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -1285,7 +1287,7 @@ Hellfrost.POWERS_ADDED = {
   'Nightmare':
     'Advances=4 ' +
     'PowerPoints=2 ' +
-    'Range=smarts ' +
+    'Range=smarts ' + // TODO miles
     'Description=' +
       '"Target loses benefit of sleep, becomes frightened (Spirit neg)"',
   // Obscure -> SWADE Light/Darkness
@@ -1345,7 +1347,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=4 ' +
     'Range=smarts ' +
-    'Description="1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
+    'Description=' +
+      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
@@ -1390,7 +1393,7 @@ Hellfrost.POWERS_ADDED = {
   'Voice On The Wind':
     'Advances=0 ' +
     'PowerPoints=3 ' +
-    'Range=smarts*50 ' +
+    'Range=smarts*50 ' + // TODO miles
     'Description="Transmits %{advances//4*10}-word message to known target"',
   // Wall Walker -> SWADE
   'Wandering Senses':
@@ -1403,7 +1406,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=5 ' +
     'Range=self ' +
     'Description=' +
-      '"Bars specified creature type from 2%{in} radius (Raise 3%{in} radius) for 1 hr"',
+      '"2%{in} radius (Raise 3%{in} radius) bars specified creature type for 1 hr"',
   // Warrior's Gift -> SWADE
   'Water Walk':
     'Advances=0 ' +
