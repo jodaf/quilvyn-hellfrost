@@ -12,14 +12,15 @@ var attributes = {
   "edges.Command Presence":1, "edges.Gray Legionary":1, "edges.Guild Thief":1, "edges.Hearth Knight":1, 
   "edges.Hedge Magic":1, "edges.Holy/Unholy Warrior":1, "edges.Iron Guild Mercenary":1, 
   "edges.Knight Hrafn":1, "edges.Lorekeeper":1, "edges.Reliquary (Arcanologist)":1, 
-  "edges.Reliquary (Reliqus)":1, "edges.Roadwarden":1, "edges.Sister Of Mercy":1, "edges.Two-Fisted":1, 
-  "edges.Wood Warden":1, "edges.Woodsman":1, "focusType":"Hrimwisardry", "gender":"Female", 
-  "hindrances.Orders":1, "hindrances.Pacifist":1, "improvementPointsAllocation.Attribute":16, 
-  "improvementPointsAllocation.Skill":19, "name":"Edges-Professional", "race":"Taiga Elf", "shield":"None", 
-  "skillAllocation.Battle":3, "skillAllocation.Faith":2, "skillAllocation.Fighting":3, 
-  "skillAllocation.Healing":3, "skillAllocation.Intimidation":2, "skillAllocation.Notice":1, 
-  "skillAllocation.Occult":3, "skillAllocation.Research":2, "skillAllocation.Riding":2, 
-  "skillAllocation.Shooting":3, "skillAllocation.Survival":3, "skillAllocation.Thievery":2, 
+  "edges.Reliquary (Reliqus)":1, "edges.Roadwarden":1, "edges.Sister Of Mercy":1, "edges.Thief":1, 
+  "edges.Two-Fisted":1, "edges.Wood Warden":1, "edges.Woodsman":1, "focusType":"Hrimwisardry", 
+  "gender":"Female", "hindrances.Orders":1, "hindrances.Pacifist":1, 
+  "improvementPointsAllocation.Attribute":16, "improvementPointsAllocation.Skill":22, "name":"Edges-Professional", 
+  "race":"Taiga Elf", "shield":"None", "skillAllocation.Battle":3, "skillAllocation.Faith":2, 
+  "skillAllocation.Fighting":3, "skillAllocation.Healing":3, "skillAllocation.Intimidation":2, 
+  "skillAllocation.Knowledge (Alchemy)":2, "skillAllocation.Notice":1, "skillAllocation.Occult":3, 
+  "skillAllocation.Research":2, "skillAllocation.Riding":2, "skillAllocation.Shooting":3, 
+  "skillAllocation.Stealth":1, "skillAllocation.Survival":3, "skillAllocation.Thievery":2, 
   "skillAllocation.Weird Science":2, "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, 
   "vigorAllocation":2
 };
@@ -60,7 +61,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (31 Points):</td>
+    <td><b>Skills</b> (34 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -69,27 +70,27 @@ var attributes = {
     <tr style="text-align:left">
       <td>Athletics: (agi) d4</td>
       <td>Intimidation: (spi) d6</td>
-      <td>Shooting: (agi) d8</td>
+      <td>Riding: (agi) d6</td>
     </tr><tr style="text-align:left">
       <td>Battle: (sma) d8+1</td>
-      <td>Notice: (sma) d6</td>
-      <td>Stealth: (agi) d4</td>
+      <td>Knowledge (Alchemy): (sma) d6</td>
+      <td>Shooting: (agi) d8</td>
     </tr><tr style="text-align:left">
       <td>Common Knowledge: (sma) d4</td>
+      <td>Notice: (sma) d6</td>
+      <td>Stealth: (agi) d6</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d6</td>
       <td>Occult: (sma) d8</td>
       <td>Survival: (sma) d8+4</td>
     </tr><tr style="text-align:left">
-      <td>Faith: (spi) d6</td>
-      <td>Persuasion: (spi) d4+1</td>
-      <td>Thievery: (agi) d6</td>
-    </tr><tr style="text-align:left">
       <td>Fighting: (agi) d8</td>
-      <td>Research: (sma) d6</td>
-      <td>Weird Science: (sma) d6</td>
+      <td>Persuasion: (spi) d4+1</td>
+      <td>Thievery: (agi) d6+1</td>
     </tr><tr style="text-align:left">
       <td>Healing: (sma) d8+2</td>
-      <td>Riding: (agi) d6</td>
-      <td></td>
+      <td>Research: (sma) d6</td>
+      <td>Weird Science: (sma) d6</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -100,6 +101,8 @@ var attributes = {
       <td><i>Roadwarden: +2 Survival/+2 Notice (ambushes, traps, concealed weapons)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Sister Of Mercy: +2 Healing/+1 Persuasion</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Thief: +1 Climb (urban)/+1 Stealth (urban)/+1 Thievery</i></td>
     </tr><tr style="text-align:center">
       <td><i>Woodsman: +2 Survival/+2 Stealth (nature)</i></td>
     </tr><tr style="text-align:center">
@@ -136,7 +139,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Advances</b>: 12</td>
       <td><b>Improvement Points</b>: 26</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 16; Skill: 19</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 16; Skill: 22</td>
     </tr></table>
 </td>
   </tr></table>
@@ -146,7 +149,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (1 points): Arcane Background (Miracles); Bladedancer; Bludgeoner; Command Presence; Command; Gray Legionary; Guild Thief; Hearth Knight; Hedge Magic; Holy/Unholy Warrior; Iron Guild Mercenary; Knight Hrafn; Lorekeeper; Reliquary (Arcanologist); Reliquary (Reliqus); Roadwarden; Sister Of Mercy; Two-Fisted; Wood Warden; Woodsman</td>
+      <td><b>Edges</b> (1 points): Arcane Background (Miracles); Bladedancer; Bludgeoner; Command Presence; Command; Gray Legionary; Guild Thief; Hearth Knight; Hedge Magic; Holy/Unholy Warrior; Iron Guild Mercenary; Knight Hrafn; Lorekeeper; Reliquary (Arcanologist); Reliquary (Reliqus); Roadwarden; Sister Of Mercy; Thief; Two-Fisted; Wood Warden; Woodsman</td>
       <td><b>Hindrances</b>: Orders; Pacifist</td>
       <td><b>Taiga Elf Features</b>: Agile; All Thumbs; Forest-Born; Heat Lethargy; Low Light Vision; Natural Realms; Outsider; Winter Soul</td>
     </tr></table>
@@ -156,7 +159,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Command Presence: Increased Command effects</i></td>
     </tr><tr style="text-align:center">
-      <td>Command: R11" Extras +1 to recover from Shaken or Stunned</td>
+      <td>Command: R11" Commanded +1 to recover from Shaken or Stunned</td>
     </tr><tr style="text-align:center">
       <td>Connections: Call in favors from acquaintance or organization</td>
     </tr><tr style="text-align:center">
@@ -251,9 +254,11 @@ var attributes = {
       <tr style="text-align:center">
         <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill (currently 6) >= 6 and shooting skill (currently 8) >= 8</td>
       </tr><tr style="text-align:center">
-        <td>Edge Points Allocation: 1 available vs. 20 allocated</td>
+        <td>Edge Points Allocation: 1 available vs. 21 allocated</td>
       </tr><tr style="text-align:center">
-        <td>Improvement Points Allocation: 26 available vs. 35 allocated</td>
+        <td>Improvement Points Allocation: 26 available vs. 38 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Roadwarden Edge: Requires vigor (currently 8) >= 6, fighting skill (currently 8) >= 8, riding skill (currently 6) >= 6, survival skill (currently 8) >= 6 and survival skill (currently 8) >= 6</td>
       </tr></table>
 </td>
     </tr></table>

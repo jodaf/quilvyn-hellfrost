@@ -18,16 +18,16 @@ var attributes = {
   "edges.Disciple Of The Unknowable One":1, "edges.Disciple Of Thrym":1, "edges.Disciple Of Thunor":1, 
   "edges.Disciple Of Tiw":1, "edges.Disciple Of Ullr":1, "edges.Disciple Of Vali":1, 
   "edges.Disciple Of Var":1, "edges.Investigator":1, "edges.Marksman":1, "edges.Scholar (Academics)":1, 
-  "focusType":"Gifted", "gender":"Female", "hindrances.Cautious":1, "hindrances.Cold Blooded":1, 
-  "hindrances.Shamed":1, "hindrances.Vow":1, "improvementPointsAllocation.Attribute":14, 
-  "improvementPointsAllocation.Skill":16, "name":"Edges-Disciple", "notes":"+IGNORE-DEITY-EDGE-PREREQ", 
-  "powers.Burrow":1, "powers.Burst":1, "powers.Havoc":1, "powers.Refuge":1, 
+  "edges.Thief":1, "focusType":"Gifted", "gender":"Female", "hindrances.Cautious":1, 
+  "hindrances.Cold Blooded":1, "hindrances.Shamed":1, "hindrances.Vow":1, 
+  "improvementPointsAllocation.Attribute":14, "improvementPointsAllocation.Skill":16, "name":"Edges-Disciple", 
+  "notes":"+IGNORE-DEITY-EDGE-PREREQ", "powers.Burrow":1, "powers.Burst":1, "powers.Havoc":1, "powers.Refuge":1, 
   "powers.Voice On The Wind":1, "powers.Wilderness Step":1, "race":"Finnar Human", "shield":"Large Shield", 
   "skillAllocation.Athletics":1, "skillAllocation.Boating":2, "skillAllocation.Faith":3, 
   "skillAllocation.Fighting":4, "skillAllocation.Gambling":3, "skillAllocation.Healing":2, 
   "skillAllocation.Intimidation":3, "skillAllocation.Notice":2, "skillAllocation.Persuasion":2, 
   "skillAllocation.Research":3, "skillAllocation.Shooting":3, "skillAllocation.Stealth":2, 
-  "skillAllocation.Survival":2, "skillAllocation.Taunt":3, "skillAllocation.Thievery":1, 
+  "skillAllocation.Survival":2, "skillAllocation.Taunt":3, "skillAllocation.Thievery":2, 
   "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":2, "vigorAllocation":2, 
   "weapons.Long Bow":1, "weapons.Short Sword":1, "weapons.Sling":1
 };
@@ -89,7 +89,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Faith: (spi) d8</td>
       <td>Persuasion: (spi) d8</td>
-      <td>Thievery: (agi) d4</td>
+      <td>Thievery: (agi) d6+1</td>
     </tr><tr style="text-align:left">
       <td>Fighting: (agi) d10</td>
       <td>Research: (sma) d8+2</td>
@@ -114,6 +114,8 @@ var attributes = {
       <td><i>Investigator: +2 Research/+2 Notice (sifting for information)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Scholar (Academics): +2 Academics</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Thief: +1 Climb (urban)/+1 Stealth (urban)/+1 Thievery</i></td>
     </tr><tr style="text-align:center">
       <td>Disciple Of Eostre Plantmother: +1 Faith (vegetated areas)</td>
     </tr><tr style="text-align:center">
@@ -152,7 +154,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (1 points): Alertness; Arcane Background (Miracles); Beast Bond; Disciple Of Dargar; Disciple Of Eira; Disciple Of Eostre Animalmother; Disciple Of Eostre Plantmother; Disciple Of Ertha; Disciple Of Freo; Disciple Of Hela; Disciple Of Hoenir; Disciple Of Hothar; Disciple Of Kenaz; Disciple Of Maera; Disciple Of Nauthiz; Disciple Of Neorthe; Disciple Of Niht; Disciple Of Rigr; Disciple Of Scaetha; Disciple Of Sigel; Disciple Of The Norns; Disciple Of The Unknowable One; Disciple Of Thrym; Disciple Of Thunor; Disciple Of Tiw; Disciple Of Ullr; Disciple Of Vali; Disciple Of Var; Investigator; Marksman; Scholar (Academics)</td>
+      <td><b>Edges</b> (1 points): Alertness; Arcane Background (Miracles); Beast Bond; Disciple Of Dargar; Disciple Of Eira; Disciple Of Eostre Animalmother; Disciple Of Eostre Plantmother; Disciple Of Ertha; Disciple Of Freo; Disciple Of Hela; Disciple Of Hoenir; Disciple Of Hothar; Disciple Of Kenaz; Disciple Of Maera; Disciple Of Nauthiz; Disciple Of Neorthe; Disciple Of Niht; Disciple Of Rigr; Disciple Of Scaetha; Disciple Of Sigel; Disciple Of The Norns; Disciple Of The Unknowable One; Disciple Of Thrym; Disciple Of Thunor; Disciple Of Tiw; Disciple Of Ullr; Disciple Of Vali; Disciple Of Var; Investigator; Marksman; Scholar (Academics); Thief</td>
       <td><b>Hindrances</b>: Cautious; Cold Blooded; Shamed; Vow</td>
       <td><b>Finnar Human Features</b>: Diverse</td>
     </tr></table>
@@ -253,17 +255,17 @@ var attributes = {
   <tr style="text-align:center">
     <td><b>Powers</b>:     <table id="Powers" style="width:100%">
     <tr style="text-align:left">
-      <td>Burrow: (2 PP) R10" Target can merge into earth for 5 rd</td>
+      <td>Burrow: (2 PP) R10" Allows merging into earth for 5 rd</td>
     </tr><tr style="text-align:left">
       <td>Burst: (2 PP) R9" Cone inflicts 2d6 damage (Raise 3d6)</td>
     </tr><tr style="text-align:left">
-      <td>Havoc: (2 PP) R10" Distracts and throws creatures in 2" radius or 9" cone 2d6" (Strength neg) (Raise Strength -2)</td>
+      <td>Havoc: (2 PP) R10" Distracts and throws creatures in 2" radius or 9" cone 2d6" (Strength neg)</td>
     </tr><tr style="text-align:left">
-      <td>Refuge: (4 PP) R10" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
+      <td>Refuge: (3 PP) R10" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
     </tr><tr style="text-align:left">
-      <td>Voice On The Wind: (3 PP) R500" Transmits 30-word message to known target</td>
+      <td>Voice On The Wind: (2 PP) RSelf Transmits 30-word message up to 500 miles to known target</td>
     </tr><tr style="text-align:left">
-      <td>Wilderness Step: (1 PP) RTouch Target treats all terrain as normal for 1 hr</td>
+      <td>Wilderness Step: (1 PP) RTouch Target treats all terrain as normal while maintained</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -299,9 +301,9 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Edge Points Allocation: 1 available vs. 31 allocated</td>
+        <td>Edge Points Allocation: 1 available vs. 32 allocated</td>
       </tr><tr style="text-align:center">
-        <td>Skill Points Allocation: 28 available vs. 36 allocated</td>
+        <td>Skill Points Allocation: 28 available vs. 37 allocated</td>
       </tr></table>
 </td>
     </tr></table>

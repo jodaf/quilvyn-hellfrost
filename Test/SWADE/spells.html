@@ -14,20 +14,26 @@ var attributes = {
   "hindrances.Necromantic Weakness":1, "hindrances.Obligation":1, "hindrances.Ruthless":1, 
   "improvementPointsAllocation.Attribute":14, "improvementPointsAllocation.Edge":12, 
   "improvementPointsAllocation.Skill":4, "name":"Spells", "powers.Aim":1, "powers.Altered Senses":1, 
-  "powers.Analyze Foe":1, "powers.Animate War Tree":1, "powers.Battle Song":1, "powers.Becalm":1, 
-  "powers.Bladebreaker":1, "powers.Bless/Panic":1, "powers.Bridge":1, "powers.Champion Of The Faith":1, 
-  "powers.Charismatic Aura":1, "powers.Disease":1, "powers.Elemental Form":1, "powers.Energy Immunity":1, 
-  "powers.Enhance Undead":1, "powers.Fatigue":1, "powers.Feast":1, "powers.Fog Cloud":1, 
-  "powers.Fortune's Favored":1, "powers.Gift Of Battle":1, "powers.Glyph":1, "powers.Gravespeak":1, 
-  "powers.Greater Zombie":1, "powers.Heat Mask":1, "powers.Leaping":1, "powers.Lock/Unlock":1, 
-  "powers.Luck/Jinx":1, "powers.Mend":1, "powers.Mimic":1, "powers.Mind Rider":1, 
-  "powers.Negate Arcana":1, "powers.Nightmare":1, "powers.Precognition":1, "powers.Prolonged Blast":1, 
-  "powers.Quake":1, "powers.Refuge":1, "powers.Regenerate":1, "powers.Sacrifice":1, 
-  "powers.Sanctuary":1, "powers.Sentry":1, "powers.Sluggish Reflexes":1, "powers.Sphere Of Might":1, 
-  "powers.Storm":1, "powers.Strength Of The Undead":1, "powers.Summon Beast":1, 
-  "powers.Summon Demon":1, "powers.Summon Elemental":1, "powers.Summon Herald":1, 
-  "powers.Viper Weapon":1, "powers.Voice On The Wind":1, "powers.Wandering Senses":1, 
-  "powers.Warding":1, "powers.Water Walk":1, "powers.Weaken Undead":1, "powers.Weapon Immunity":1, 
+  "powers.Analyze Foe":1, "powers.Animate War Tree":1, "powers.Arcane Resistance":1, "powers.Aura":1, 
+  "powers.Banish":1, "powers.Battle Song":1, "powers.Beast Friend":1, "powers.Becalm":1, 
+  "powers.Bladebreaker":1, "powers.Blast":1, "powers.Bless/Panic":1, "powers.Bodygard":1, 
+  "powers.Bolt":1, "powers.Bridge":1, "powers.Champion Of The Faith":1, 
+  "powers.Charismatic Aura":1, "powers.Confusion":1, "powers.Corpse Senses":1, "powers.Detect/Conceal":1, 
+  "powers.Disease":1, "powers.Elemental Form":1, "powers.Energy Immunity":1, 
+  "powers.Enhance Undead":1, "powers.Entangle":1, "powers.Farsight":1, "powers.Fatigue":1, 
+  "powers.Feast":1, "powers.Fog Cloud":1, "powers.Fortune's Favored":1, 
+  "powers.Gift Of Battle":1, "powers.Glyph":1, "powers.Gravespeak":1, "powers.Greater Zombie":1, 
+  "powers.Growth/Shrink":1, "powers.Heat Mask":1, "powers.Insight":1, "powers.Knockdown":1, 
+  "powers.Leaping":1, "powers.Lock/Unlock":1, "powers.Luck/Jinx":1, "powers.Mend":1, 
+  "powers.Mimic":1, "powers.Mind Rider":1, "powers.Negate Arcana":1, "powers.Nightmare":1, 
+  "powers.Precognition":1, "powers.Prolonged Blast":1, "powers.Quake":1, "powers.Refuge":1, 
+  "powers.Regenerate":1, "powers.Sacrifice":1, "powers.Sanctuary":1, "powers.Sentry":1, 
+  "powers.Shape Change":1, "powers.Silence":1, "powers.Sluggish Reflexes":1, "powers.Slumber":1, 
+  "powers.Sphere Of Might":1, "powers.Storm":1, "powers.Strength Of The Undead":1, "powers.Succor":1, 
+  "powers.Summon Beast":1, "powers.Summon Demon":1, "powers.Summon Elemental":1, 
+  "powers.Summon Herald":1, "powers.Teleport":1, "powers.Viper Weapon":1, "powers.Voice On The Wind":1, 
+  "powers.Wall Walker":1, "powers.Wandering Senses":1, "powers.Warding":1, "powers.Warrior's Gift":1, 
+  "powers.Water Walk":1, "powers.Weaken Undead":1, "powers.Weapon Immunity":1, "powers.Whirlwind":1, 
   "powers.Wilderness Step":1, "powers.Zephyr":1, "race":"Tuomi Human", "shield":"None", 
   "skillAllocation.Athletics":2, "skillAllocation.Battle":1, "skillAllocation.Boating":1, 
   "skillAllocation.Common Knowledge":1, "skillAllocation.Hrimwisardry":1, "skillAllocation.Research":1, 
@@ -84,6 +90,10 @@ var attributes = {
       <td>Common Knowledge: (sma) d6+1</td>
       <td>Shooting: (agi) d4</td>
       <td></td>
+    </tr><tr style="text-align:left">
+      <td>Hrimwisardry: (sma) d4</td>
+      <td>Song Magic: (sma) d8</td>
+      <td></td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -94,8 +104,6 @@ var attributes = {
       <td>Attractive: +1 Performance (attracted target)/+1 Persuasion (attracted target)</td>
     </tr><tr style="text-align:center">
       <td>Bad Eyes+: -2 on visual trait rolls</td>
-    </tr><tr style="text-align:center">
-      <td>Streetwise: +2 Intimidation (criminal network)/+2 Persuasion (criminal network)/+2 Common Knowledge (criminals)</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -186,119 +194,165 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Powers</b>:     <table id="Powers" style="width:100%">
     <tr style="text-align:left">
-      <td>Aim: (1 PP) RTouch Gives +2 attack (Raise +4) w/thrown or missile weapon for 5 rd</td>
+      <td>Aim: (1 PP) RTouch Gives +2 attack (Raise +4) w/thrown or missile weapon while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Altered Senses: (1 PP) RTouch Target gains Infravision or Low Light Vision (Raise both) for 10 min</td>
+      <td>Altered Senses: (1 PP) RTouch Target gains Infravision or Low Light Vision (Raise both) while maintained</td>
     </tr><tr style="text-align:left">
       <td>Analyze Foe: (1 PP) RSight Self knows number of edges and highest attack skill of target (Raise names of edges and attack skill dice)</td>
     </tr><tr style="text-align:left">
-      <td>Animate War Tree: (8 PP) RTouch 30' tree animates (Raise as wild card) for 5 rd</td>
+      <td>Animate War Tree: (8 PP) RTouch 30' tree animates (Raise as wild card) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Battle Song: (2 PP) R2" Creatures in range gain Berserk features for 5 rd (Spirit neg)</td>
+      <td>Arcane Resistance: (1 PP) RTouch Foes suffer -2 (Raise -4) on arcane attacks and damage against target while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Becalm: (2 PP) RSight Target ship suffers half speed for 1 dy</td>
+      <td>Aura: (4 PP) RTouch Creatures adjacent to target suffer 2d6 damage while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Banish: (3 PP) R6" Target returns to native plane (Spirit neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Battle Song: (2 PP) R2" Creatures in range gain Berserk features (Spirit neg) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Beast Friend: (1/Size PP) R8" Target can speak with and control beast actions for 10 min</td>
+    </tr><tr style="text-align:left">
+      <td>Becalm: (3 PP) RSight Target ship suffers half speed while maintained</td>
     </tr><tr style="text-align:left">
       <td>Bladebreaker: (2 PP) R8" Target weapon destroyed (Weapon die type neg)</td>
     </tr><tr style="text-align:left">
-      <td>Bless/Panic: (2 PP) R6" Allies in range gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) for 10 min</td>
+      <td>Blast: (3 PP) R16" 2" radius inflicts 2d6 damage (Raise 3d6)</td>
     </tr><tr style="text-align:left">
-      <td>Bridge: (1 PP) R8" Creates horizontal surface 0.5" wide by 2" long for 5 rd</td>
+      <td>Bless/Panic: (1 PP) R6" Allies in range gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Champion Of The Faith: (1 PP) RSelf Gives Champion or Holy Warrior features for 5 rd</td>
+      <td>Bodygard: (3 PP) R8" Creates obedient servant until wounded</td>
     </tr><tr style="text-align:left">
-      <td>Charismatic Aura: (2 PP) RSelf Gives +1 Persuasion (Raise +2) for 10 min</td>
+      <td>Bolt: (1 PP) R16" Inflicts 2d6 damage (Raise 3d6)</td>
     </tr><tr style="text-align:left">
-      <td>Disease: (2 PP) R6" Target suffers disease and fatigue (Vigor neg)</td>
+      <td>Bridge: (1/Section PP) R8" Creates sections of 1" horizontal surface while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Elemental Form: (3 PP) RSelf Gives elemental form special abilities for 5 rd</td>
+      <td>Champion Of The Faith: (2 PP) RSelf Gives Champion or Holy Warrior features while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Energy Immunity: (2 PP) RTouch Target takes half damage (Raise no damage) from chosen energy attack for 5 rd</td>
+      <td>Charismatic Aura: (1 PP) RSelf Gives +1 Persuasion (Raise +2) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Confusion: (1 PP) R16" Target suffers -2 Trait rolls (Raise -4) (Smarts neg) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Corpse Senses: (2 PP) R400" Self use corpse senses while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Detect/Conceal: (2 PP) R16" Target can detect supernatural effects or conceals target aura while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Disease: (3 PP) R6" Target suffers disease and fatigue, may die (Vigor neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Elemental Form: (5 PP) RSelf Gives elemental form special abilities while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Energy Immunity: (2 PP) RTouch Target takes half damage (Raise no damage) from chosen energy attack while maintained</td>
     </tr><tr style="text-align:left">
       <td>Enhance Undead: (3 PP) RTouch Undead targets gain advance benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)</td>
     </tr><tr style="text-align:left">
+      <td>Entangle: (2 PP) R8" Restrains target (Raise binds)</td>
+    </tr><tr style="text-align:left">
+      <td>Farsight: (3 PP) RTouch Target +2 Notice within smarts*2" and see 5 miles while maintained</td>
+    </tr><tr style="text-align:left">
       <td>Fatigue: (3 PP) R12" 2" radius (Raise 3") inflicts fatigue (Vigor neg)</td>
     </tr><tr style="text-align:left">
-      <td>Feast: (5 PP) R8" Creates 20 lb of basic food</td>
+      <td>Feast: (2 PP) R8" Creates 20 lb of basic food</td>
     </tr><tr style="text-align:left">
-      <td>Fog Cloud: (3 PP) RSelf 4 mile fog reduces lighting 1 step (Raise 2 steps) for 1 hr</td>
+      <td>Fog Cloud: (3 PP) RSelf 4 mile fog reduces lighting 1 step (Raise 2 steps) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Fortune's Favored: (3 PP) RTouch Target can reroll failed benny-purchased reroll for 5 rd</td>
+      <td>Fortune's Favored: (1 PP) RTouch Target can reroll failed benny-purchased reroll while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Gift Of Battle: (4 PP) RTouch Gives leadership edge features (Raise 2 edges) for 1 hr</td>
+      <td>Gift Of Battle: (2 PP) RTouch Gives leadership edge features (Raise 2 edges) while maintained</td>
     </tr><tr style="text-align:left">
       <td>Glyph: (4 PP) RTouch Glyph stores spell effects until triggered</td>
     </tr><tr style="text-align:left">
-      <td>Gravespeak: (1 PP) RTouch Gives ability to ask spirit 6 questions</td>
+      <td>Gravespeak: (3 PP) RTouch Gives ability to ask spirit 6 questions</td>
     </tr><tr style="text-align:left">
       <td>Greater Zombie: (4 PP) R12" Animates and controls corpse for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Heat Mask: (1 PP) RTouch Gives invisibility to infravision for 1 hr</td>
+      <td>Growth/Shrink: (2 PP) R8" Target gains or loses Toughness and Strength step (Spirit neg) for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Leaping: (1 PP) RTouch Gives dbl jumping distance (Raise x4) for 5 rd</td>
+      <td>Heat Mask: (1 PP) RTouch Gives invisibility to infravision while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Insight: (1 PP) RTouch Shows 1 event that occurred recently to touched object</td>
+    </tr><tr style="text-align:left">
+      <td>Knockdown: (2 PP) R9" Cone pushes creatures 1d4" and knocks prone (Strength neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Leaping: (1 PP) RTouch Gives dbl jumping distance (Raise x4) while maintained</td>
     </tr><tr style="text-align:left">
       <td>Lock/Unlock: (1 PP) RTouch Gives lock w/-2 pick penalty and +2 Toughness (Raise -4 and +4) until unlocked or unlocks normal lock</td>
     </tr><tr style="text-align:left">
-      <td>Luck/Jinx: (3 PP) RTouch Target takes the best/worst of two trait rolls for 5 rd</td>
+      <td>Luck/Jinx: (3 PP) RTouch Target takes the best/worst of two trait rolls while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Mend: (3 PP) RTouch Repairs damage done to wooden vehicle w/in past hr</td>
+      <td>Mend: (3 PP) RTouch Repairs 1 wound (Raise 2) inflicted on wooden vehicle w/in past hr</td>
     </tr><tr style="text-align:left">
-      <td>Mimic: (2 PP) R6" Self can cast spell used by another w/in 1 hr</td>
+      <td>Mimic: (3 PP) R6" Self can cast spell used by another while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Mind Rider: (3 PP) R8" Self can use target's senses for 1 hr (Spirit neg)</td>
+      <td>Mind Rider: (3 PP) R8" Self can use target's senses (Spirit neg) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Negate Arcana: (5 PP) R8" 2" radius suppresses magic for 1 hr</td>
+      <td>Negate Arcana: (5 PP) R8" 2" radius dispels all magic while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Nightmare: (2 PP) R8" Target loses benefit of sleep, becomes frightened (Spirit neg)</td>
+      <td>Nightmare: (3 PP) RSelf Target w/in 8 miles loses benefit of sleep, becomes frightened (Spirit neg)</td>
     </tr><tr style="text-align:left">
       <td>Precognition: (2 PP) RSelf Allows rearranging 2 Action Cards (Raise 4) next rd</td>
     </tr><tr style="text-align:left">
-      <td>Prolonged Blast: (6 PP) R24" Choice of 1" or 2" radius inflicts 2d6 damage (Raise 3d6) for 5 rd</td>
+      <td>Prolonged Blast: (5 PP) R24" Choice of 1" or 2" radius inflicts 2d6 damage (Raise 3d6) while maintained</td>
     </tr><tr style="text-align:left">
       <td>Quake: (6 PP) R24" 3" radius inflicts 2d10 damage (Agility neg)</td>
     </tr><tr style="text-align:left">
-      <td>Refuge: (4 PP) R8" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
+      <td>Refuge: (3 PP) R8" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
     </tr><tr style="text-align:left">
-      <td>Regenerate: (3 PP) RTouch Gives free -2 Soak roll (Raise -0) for 5 rd</td>
+      <td>Regenerate: (3 PP) RTouch Gives free -2 Soak roll (Raise -0) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Sacrifice: (1 PP) RSelf Gives +1 arcane skill per victim Spirit die step for 5 rd</td>
+      <td>Sacrifice: (5 PP) RSelf Gives +1 arcane skill per victim Spirit die step while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Sanctuary: (4 PP) RSelf Teleports to safe location</td>
+      <td>Sanctuary: (3 PP) RSelf Teleports to safe location</td>
     </tr><tr style="text-align:left">
       <td>Sentry: (3 PP) R16" Creates overnight ghostly sentry or object alarm</td>
     </tr><tr style="text-align:left">
-      <td>Sluggish Reflexes: (2 PP) R16" Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) for 5 rd</td>
+      <td>Shape Change: (3+ PP) RSelf Transforms into animal form for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Sphere Of Might: (4 PP) R8" 1" sphere around target inflicts -1 attacks (Raise -2), attacks as d8 Fighting doing d8+d4 damge (Raise d8+d8)</td>
+      <td>Silence: (1 PP) RTouch Mutes 2" radius while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Storm: (5 PP) RSelf Creates or dissipates 10 mile lightning storm or blizzard for 1 hr</td>
+      <td>Sluggish Reflexes: (2 PP) R16" Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Strength Of The Undead: (2 PP) RTouch Self mimics undead target's trait or special ability (Raise 2) for 5 rd</td>
+      <td>Slumber: (2 PP) R16" Target sleeps for 1 hr (Spirit neg)</td>
     </tr><tr style="text-align:left">
-      <td>Summon Beast: (Special PP) R40" Self controls summoned beast's actions for 10 min</td>
+      <td>Sphere Of Might: (4 PP) R8" 1" sphere around target inflicts -1 attacks (Raise -2), attacks as d8 Fighting doing d8+d4 damge (Raise d8+d8) while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Summon Demon: (Special PP) R16" Brings demon from the Abyss for 1 hr</td>
+      <td>Storm: (5 PP) RSelf Creates or dissipates 10 mile lightning storm or blizzard while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Summon Elemental: (4 PP) R16" Self controls summoned elemental's actions for 5 rd</td>
+      <td>Strength Of The Undead: (4 PP) RTouch Self mimics undead target's trait or special ability (Raise 2) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Succor: (1 PP) RTouch Removes 1 level of fatigue (Raise 2 levels)</td>
+    </tr><tr style="text-align:left">
+      <td>Summon Beast: (2+ PP) R30" Self controls summoned beast's actions while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Summon Demon: (5+ PP) R16" Brings demon from the Abyss while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Summon Elemental: (4 PP) R16" Self controls summoned elemental's actions while maintained</td>
     </tr><tr style="text-align:left">
       <td>Summon Herald: (8 PP) R16" Brings herald of deity for support</td>
     </tr><tr style="text-align:left">
-      <td>Viper Weapon: (2 PP) R16" Transforms target weapon into viper for 5 rd</td>
+      <td>Teleport: (2 PP) R8" Target teleports 12" (Raise 24")</td>
     </tr><tr style="text-align:left">
-      <td>Voice On The Wind: (3 PP) R400" Transmits 30-word message to known target</td>
+      <td>Viper Weapon: (2 PP) R16" Transforms target weapon into viper while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Wandering Senses: (2 PP) R80" Self senses remotely for 10 min</td>
+      <td>Voice On The Wind: (2 PP) RSelf Transmits 30-word message up to 400 miles to known target</td>
     </tr><tr style="text-align:left">
-      <td>Warding: (5 PP) RSelf 2" radius (Raise 3" radius) bars specified creature type for 1 hr</td>
+      <td>Wall Walker: (2 PP) R8" Target moves at full Pace on vertical and inverted surfaces while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Water Walk: (2 PP) RTouch Gives ability to traverse calm water for 10 min</td>
+      <td>Wandering Senses: (2 PP) R80" Self senses remotely while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Weaken Undead: (2 PP) R6" Target undead loses undead ability (Spirit neg) for 5 rd</td>
+      <td>Warding: (5 PP) RSelf 2" radius (Raise 3" radius) bars specified creature type while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Weapon Immunity: (3 PP) RTouch Target takes half damage (Raise no damage) from specified weapon type for 5 rd</td>
+      <td>Warrior's Gift: (4 PP) R8" Target gains combat edge effects for 5 rd</td>
     </tr><tr style="text-align:left">
-      <td>Wilderness Step: (1 PP) RTouch Target treats all terrain as normal for 1 hr</td>
+      <td>Water Walk: (2 PP) RTouch Gives ability to traverse calm water while maintained</td>
     </tr><tr style="text-align:left">
-      <td>Zephyr: (2 PP) RSelf Creates moderate wind for 1 dy</td>
+      <td>Weaken Undead: (3 PP) R6" Target undead loses undead ability (Spirit neg) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Weapon Immunity: (3 PP) RTouch Target takes half damage (Raise no damage) from specified weapon type while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Whirlwind: (2 PP) R8" Knocks prone creatures in 2" radius (Strength neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Wilderness Step: (1 PP) RTouch Target treats all terrain as normal while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Zephyr: (2 PP) RSelf Creates moderate wind while maintained</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
