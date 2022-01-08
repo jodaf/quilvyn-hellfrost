@@ -60,6 +60,35 @@ function Hellfrost(baseRules) {
     'focusType:Focus Type,select-one,arcanas'
   );
 
+  Hellfrost.ARCANAS =
+    Object.assign({}, rules.basePlugin.ARCANAS, Hellfrost.ARCANAS_ADDED);
+  delete Hellfrost.ARCANAS['Magic'];
+  delete Hellfrost.ARCANAS['Psionics'];
+  delete Hellfrost.ARCANAS['Super Powers'];
+  delete Hellfrost.ARCANAS['Weird Science'];
+  Hellfrost.EDGES =
+    Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
+  delete Hellfrost.EDGES['Ace'];
+  Hellfrost.FEATURES =
+    Object.assign({}, rules.basePlugin.FEATURES, Hellfrost.FEATURES_ADDED);
+  Hellfrost.GOODIES = Object.assign({}, rules.basePlugin.GOODIES);
+  Hellfrost.HINDRANCES =
+    Object.assign({}, rules.basePlugin.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
+  Hellfrost.POWERS =
+    Object.assign({}, rules.basePlugin.POWERS, Hellfrost.POWERS_ADDED);
+  Hellfrost.SKILLS =
+    Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
+
+  if(useSwade) {
+    Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
+    Hellfrost.EDGES = Hellfrost.SWD2SWADE(Hellfrost.EDGES);
+    Hellfrost.FEATURES = Hellfrost.SWD2SWADE(Hellfrost.FEATURES);
+    Hellfrost.GOODIES = Hellfrost.SWD2SWADE(Hellfrost.GOODIES);
+    Hellfrost.HINDRANCES = Hellfrost.SWD2SWADE(Hellfrost.HINDRANCES);
+    Hellfrost.POWERS = Hellfrost.SWD2SWADE(Hellfrost.POWERS);
+    Hellfrost.SKILLS = Hellfrost.SWD2SWADE(Hellfrost.SKILLS);
+  }
+
   Hellfrost.attributeRules(rules);
   Hellfrost.combatRules
     (rules, Hellfrost.ARMORS, Hellfrost.SHIELDS, Hellfrost.WEAPONS);
@@ -78,110 +107,109 @@ Hellfrost.VERSION = '2.3.1.0';
 // Individual Arcane Background skill replaced with Spellcasting
 Hellfrost.ARCANAS_ADDED = {
   'Druidism':
-    'Skill=Spellcasting ' +
+    'Skill=Druidism ' +
     'Powers=' +
-      '"Animate War Tree",Protection,Barrier,"Beast Friend",Bolt,' +
-      '"Boost/Lower Trait",Bridge,Burrow,Deflection,"Detect/Conceal Arcana",' +
+      '"Animate War Tree",Armor,Barrier,"Beast Friend",Bolt,' +
+      '"Boost/Lower Trait",Bridge,Burrow,Deflection,Detect/Conceal,' +
       '"Elemental Form","Elemental Manipulation",Entangle,' +
-      '"Environmental Protection",Farsight,Feast,"Fog Cloud",Growth/Shrink,' +
-      'Healing,Havoc,Leaping,Light/Darkness,Light/Darkness,Quake,Refuge,' +
-      'Sanctuary,Sentry,"Shape Change",Sound/Silence,Smite,"Sphere Of Might",' +
-      'Storm,"Summon Beast","Summon Elemental","Viper Weapon",' +
-      '"Voice On The Wind","Wall Walker",Warding,Havoc,"Wilderness Step"',
+      '"Environmental Protection",Farsight,Fatigue,Feast,"Fog Cloud",' +
+      'Growth/Shrink,Healing,Knockdown,Leaping,Light/Obscure,Obscure,Quake,' +
+      'Refuge,Sanctuary,Sentry,"Shape Change",Silence,Smite,' +
+      '"Sphere Of Might",Storm,"Summon Beast","Summon Elemental",' +
+      '"Viper Weapon","Voice On The Wind","Wall Walker",Warding,Whirlwind,' +
+      '"Wilderness Step"',
   'Elementalism (Eir)':
-    'Skill=Spellcasting ' +
+    'Skill=Elementalism ' +
     'Powers=' +
-      'Aim,Banish,Becalm,"Beast Friend",Bolt,Deflection,' +
-      '"Detect/Conceal Arcana","Elemental Form","Elemental Manipulation",' +
-      '"Energy Immunity","Environmental Protection",Intangibility,' +
-      'Farsight,Fatigue,Fly,Glyph,Invisibility,Havoc,Leaping,Light/Darkness,' +
-      'Sloth/Speed,Sanctuary,Sentry,Sound/Silence,Slumber,"Speak Language",' +
-      '"Sphere Of Might",Storm,"Summon Elemental",Telekinesis,Teleport,' +
-      '"Voice On The Wind","Wandering Senses",Warding,Havoc,Zephyr',
+      'Aim,Banish,Becalm,"Beast Friend",Bolt,Deflection,Detect/Conceal,' +
+      '"Elemental Form","Elemental Manipulation","Energy Immunity",' +
+      '"Environmental Protection",Etherealness/Corporealness,Farsight,' +
+      'Fatigue,Fly,Glyph,Invisibility,Knockdown,Leaping,Obscure,Quickness,' +
+      'Sanctuary,Sentry,Silence,Slumber,"Speak Language","Sphere Of Might",' +
+      'Storm,"Summon Elemental",Telekinesis,Teleport,"Voice On The Wind",' +
+      '"Wandering Senses",Warding,Whirlwind,Zephyr',
   'Elementalism (Ertha)':
-    'Skill=Spellcasting ' +
+    'Skill=Elementalism ' +
     'Powers=' +
-      'Protection,Banish,Barrier,"Beast Friend",Bladebreaker,Blast,Bolt,' +
-      'Bridge,Burrow,"Detect/Conceal Arcana","Elemental Form",' +
-      '"Elemental Manipulation","Energy Immunity",Entangle,Glyph,' +
-      'Growth/Shrink,Havoc,Lock/Unlock,Mend,"Prolonged Blast",Quake,' +
-      'Refuge,Sanctuary,"Sphere Of Might","Summon Elemental","Viper Weapon",' +
-      '"Wall Walker",Warding,"Weapon Immunity","Wilderness Step"',
+      'Armor,Banish,Barrier,"Beast Friend",Bladebreaker,Blast,Bolt,Bridge,' +
+      'Burrow,Detect/Conceal,"Elemental Form","Elemental Manipulation",' +
+      '"Energy Immunity",Entangle,Glyph,Growth/Shrink,Knockdown,Lock/Unlock,' +
+      'Mend,"Prolonged Blast",Quake,Refuge,Sanctuary,"Sphere Of Might",' +
+      '"Summon Elemental","Viper Weapon","Wall Walker",Warding,' +
+      '"Weapon Immunity","Wilderness Step"',
   'Elementalism (Fyr)':
-    'Skill=Spellcasting ' +
+    'Skill=Elementalism ' +
     'Powers=' +
-      '"Damage Field",Banish,Barrier,Bladebreaker,Blast,Bolt,Burst,' +
-      'Deflection,"Detect/Conceal Arcana","Elemental Form",' +
-      '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
-      'Fatigue,Glyph,"Heat Mask",Light/Darkness,"Prolonged Blast",Sanctuary,' +
-      'Smite,"Sphere Of Might","Summon Elemental",Warding',
+      'Aura,Banish,Barrier,Bladebreaker,Blast,Bolt,Burst,Deflection,' +
+      'Detect/Conceal,"Elemental Form","Elemental Manipulation",' +
+      '"Energy Immunity","Environmental Protection",Fatigue,Glyph,' +
+      '"Heat Mask",Light/Obscure,"Prolonged Blast",Sanctuary,Smite,' +
+      '"Sphere Of Might","Summon Elemental",Warding',
   'Elementalism (Waeter)':
-    'Skill=Spellcasting ' +
+    'Skill=Elementalism ' +
     'Powers=' +
-      'Banish,"Beast Friend",Bolt,"Detect/Conceal Arcana","Elemental Form",' +
+      'Banish,"Beast Friend",Bolt,Detect/Conceal,"Elemental Form",' +
       '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
-      'Fatigue,"Fog Cloud",Glyph,Healing,Havoc,Sanctuary,Sloth/Speed,' +
-      '"Sphere Of Might",Storm,Stun,Relief,"Summon Elemental",Warding,' +
+      'Fatigue,"Fog Cloud",Glyph,Healing,Knockdown,Quickness,Sanctuary,Speed,' +
+      '"Sphere Of Might",Storm,Stun,Succor,"Summon Elemental",Warding,' +
       '"Water Walk"',
   'Heahwisardry':
-    'Skill=Spellcasting ' +
+    'Skill=Heahwisardry ' +
     'Powers=' +
-      '"Arcane Protection",Protection,"Damage Field",Banish,Barrier,' +
-      'Bladebreaker,Blast,"Summon Ally",Bolt,"Boost/Lower Trait",Burst,' +
-      'Deflection,"Detect/Conceal Arcana",Dispel,"Energy Immunity",Entangle,' +
-      '"Environmental Protection",Farsight,Fatigue,Fear,"Fog Cloud",Glyph,' +
-      'Havoc,Mimic,"Negate Arcana","Prolonged Blast",Puppet,Refuge,' +
-      'Sanctuary,Slumber,Sound/Silence,Smite,Sloth/Speed,"Sphere Of Might",' +
-      'Storm,Stun,"Summon Elemental",Telekinesis,Teleport,Warding,' +
-      '"Weapon Immunity"',
+      '"Arcane Resistance",Armor,Aura,Banish,Barrier,Bladebreaker,Blast,' +
+      'Bodyguard,Bolt,"Boost/Lower Trait",Burst,Deflection,Detect/Conceal,' +
+      'Dispel,"Energy Immunity",Entangle,"Environmental Protection",Farsight,' +
+      'Fatigue,Fear,"Fog Cloud",Glyph,Knockdown,Mimic,"Negate Arcana",' +
+      '"Prolonged Blast",Puppet,Quickness,Refuge,Sanctuary,Slumber,Silence,' +
+      'Smite,Speed,"Sphere Of Might",Storm,Stun,"Summon Elemental",' +
+      'Telekinesis,Teleport,Warding,"Weapon Immunity"',
   'Hrimwisardry':
-    'Skill=Spellcasting ' +
+    'Skill=Hrimwisardry ' +
     'Powers=' +
-      'Protection,"Damage Field",Barrier,Bladebreaker,Blast,Bolt,Bridge,' +
-      'Burrow,Burst,Deflection,"Detect/Conceal Arcana",Dispel,' +
-      '"Elemental Form","Energy Immunity","Environmental Protection",Fatigue,' +
-      'Invisibility,Havoc,Light/Darkness,"Prolonged Blast",Refuge,Sanctuary,' +
-      '"Sluggish Reflexes",Smite,"Sphere Of Might",Storm,Stun,' +
-      '"Summon Elemental","Voice On The Wind",Warding,Havoc,' +
-      '"Wilderness Step"',
+      'Armor,Aura,Barrier,Bladebreaker,Blast,Bolt,Bridge,Burrow,Burst,' +
+      'Deflection,Detect/Conceal,Dispel,"Elemental Form","Energy Immunity",' +
+      '"Environmental Protection",Fatigue,Invisibility,Knockdown,Obscure,' +
+      '"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
+      '"Sphere Of Might",Storm,Stun,"Summon Elemental","Voice On The Wind",' +
+      'Warding,Whirlwind,"Wilderness Step"',
   'Rune Magic':
     'Skill=Spellcasting ' +
     'Powers=' +
-      'Protection,Bladebreaker,"Weapon Immunity",' +
+      'Armor,Bladebreaker,"Weapon Immunity",' +
       'Aim,Bolt,"Boost/Lower Trait",' +
       '"Boost/Lower Trait","Gift Of Battle","Warrior\'s Gift",' +
       '"Beast Friend","Summon Beast","Viper Weapon",' +
-      '"Arcane Protection","Fortune\'s Favored",Luck/Jinx,' +
+      '"Arcane Resistance","Fortune\'s Favored",Luck/Jinx,' +
       'Becalm,Bless/Panic,Slumber,' +
-      'Intangibility,Growth/Shrink,"Shape Change",' +
+      'Etherealness/Corporealness,Growth/Shrink,"Shape Change",' +
       '"Boost/Lower Trait","Charismatic Aura",Puppet,' +
       'Burst,"Environmental Protection","Sluggish Reflexes",' +
       'Confusion,Disease,Fatigue,' +
       '"Boost/Lower Trait","Battle Song",Smite,' +
-      'Dispel,"Negate Arcana",Sound/Silence,' +
+      'Dispel,"Negate Arcana",Silence,' +
       'Bridge,Burrow,Quake,' +
       '"Elemental Form","Elemental Manipulation","Summon Elemental",' +
-      '"Altered Senses","Heat Mask",Light/Darkness,' +
-      '"Boost/Lower Trait",Healing,Relief,' +
-      '"Detect/Conceal Arcana","Object Reading",Invisibility,' +
+      '"Altered Senses","Heat Mask",Light/Obscure,' +
+      '"Boost/Lower Trait",Healing,Succor,' +
+      'Detect/Conceal,Insight,Invisibility,' +
       'Barrier,Deflection,Warding,' +
       '"Gravespeak","Speak Language","Voice On The Wind",' +
-      // Quickness replaced with Sanctuary per SWADE conversion guide
-      'Sanctuary,Sloth/Speed,"Wilderness Step",' +
-      '"Fog Cloud",Storm,Havoc',
+      'Quickness,Speed,"Wilderness Step",' +
+      '"Fog Cloud",Storm,Whirlwind',
   'Song Magic':
-    'Skill=Spellcasting ' +
+    'Skill="Song Magic" ' +
     'Powers=' +
-      '"Arcane Protection",Banish,"Battle Song","Beast Friend",Bless/Panic,' +
-      '"Boost/Lower Trait","Charismatic Aura",Confusion,' +
-      '"Detect/Conceal Arcana",Dispel,"Elemental Manipulation",Fatigue,Fear,' +
-      'Healing,Lock/Unlock,Mimic,"Negate Arcana",Nightmare,Puppet,Sanctuary,' +
-      'Sound/Silence,Slumber,"Speak Language",Stun,Relief,"Summon Beast",' +
-      '"Voice On The Wind",Warding,"Warrior\'s Gift","Wilderness Step"'
+      '"Arcane Resistance",Banish,"Battle Song","Beast Friend",Bless/Panic,' +
+      '"Boost/Lower Trait","Charismatic Aura",Confusion,Detect/Conceal,' +
+      'Dispel,"Elemental Manipulation",Fatigue,Fear,Healing,Lock/Unlock,' +
+      'Mimic,"Negate Arcana",Nightmare,Puppet,Sanctuary,Silence,Slumber,' +
+      '"Speak Language",Stun,Succor,"Summon Beast","Voice On The Wind",' +
+      'Warding,"Warrior\'s Gift","Wilderness Step"'
 };
 Hellfrost.ARCANAS = Object.assign({}, SWADE.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS['Magic'];
 delete Hellfrost.ARCANAS['Psionics'];
+delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
 Hellfrost.ARMORS = {
   'None':'Area=Body Armor=0 MinStr=4 Weight=0',
@@ -230,8 +258,10 @@ Hellfrost.DEITIES = {
 };
 Hellfrost.EDGES_ADDED = {
   // Background
-  'Library':'Type=background Require="features.Rich||features.Lorekeeper"',
-  'Linguist':'Type=background Require="smarts >= 6","features.Illiterate==0"',
+  'Library':
+    'Type=background ' +
+    'Require="features.Rich || features.Lorekeeper","features.Illiterate == 0"',
+  'Linguist':'Type=background Require="smarts >= 6","features.Illiterate == 0"',
   'Noble':'Type=background',
   'Old Family':
     'Type=background Require="features.Arcane Background (Heahwisardry)"',
@@ -241,7 +271,9 @@ Hellfrost.EDGES_ADDED = {
   // Combat
   'Blood And Guts':
     'Type=combat ' +
-    'Require="advances >= 8","skills.Fighting >= 10 || skills.Shooting >= 10"',
+    'Require=' +
+      '"advances >= 8",' +
+      '"skills.Fighting>=10 || skills.Shooting>=10 || skills.Throwing>=10"',
   'Courageous':'Type=combat Require="spirit >= 8"',
   'Double Shot':
     'Type=combat ' +
@@ -253,7 +285,7 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
-      '"skills.Fighting >= 8 || skills.Shooting >= 8"',
+      '"skills.Fighting >= 8 || skills.Shooting >= 8 || skills.Throwing >= 8"',
   'Improved Giant Killer':
     'Type=combat Require="advances >= 12","features.Giant Killer"',
   'Mighty Shot':
@@ -261,7 +293,7 @@ Hellfrost.EDGES_ADDED = {
     'Require="advances >= 8","strength >= 8","skills.Shooting >= 10"',
   'Mighty Throw':
     'Type=combat ' +
-    'Require="advances >= 8","strength >= 8","skills.Fighting >= 10"',
+    'Require="advances >= 8","strength >= 8","skills.Throwing >= 10"',
   'Necromantic Severing':
     'Type=combat ' +
     'Require="advances >= 8","spirit >= 8","skills.Fighting >= 10"',
@@ -343,7 +375,7 @@ Hellfrost.EDGES_ADDED = {
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
       '"vigor >= 8",' +
-      '"skills.Athletics >= 6",' +
+      '"skills.Climbing >= 6",' +
       '"skills.Faith >= 8",' +
       '"skills.Survival >= 6",' +
       '"deity == \'Ertha\'"',
@@ -408,16 +440,17 @@ Hellfrost.EDGES_ADDED = {
       '"agility >= 10",' +
       '"skills.Faith >= 8",' +
       '"skills.Gambling >= 8",' +
-      '"skills.Thievery",' +
+      '"features.Thief",' +
       '"deity == \'Nauthiz\'"',
   'Disciple Of Neorthe':
     'Type=disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
-      '"skills.Athletics >= 6",' +
+      '"vigor >= 8",' +
       '"skills.Boating >= 6",' +
       '"skills.Faith >= 6",' +
+      '"skills.Swimming >= 6",' +
       '"deity == \'Neorthe\'"',
   'Disciple Of Niht':
     'Type=disciple ' +
@@ -496,7 +529,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"skills.Shooting >= 8",' +
       '"skills.Stealth >= 6",' +
-      '"skills.Survival >= 6",' +
+      '"skills.Tracking >= 6",' +
       'features.Marksman,' +
       '"deity == \'Ullr\'"',
   'Disciple Of The Unknowable One':
@@ -524,7 +557,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Arcane Background (Miracles)",' +
       '"skills.Faith >= 8",' +
       '"skills.Persuasion >= 8",' +
-      'features.Streetwise,' +
+      '"skills.Streetwise >= 8",' + // quoted for SWD2SWADE (Common Knowledge)
       '"deity == \'Var\'"',
   // Leadership
   'A Few Good Men':
@@ -532,7 +565,7 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"advances >= 12",' +
       '"smarts >= 8",' +
-      '"skills.Battle >= 10",' +
+      '"skills.Knowledge (Battle) >= 10",' +
       'features.Command,' +
       'features.Inspire',
   'Coordinated Firepower':
@@ -541,14 +574,14 @@ Hellfrost.EDGES_ADDED = {
       '"advances >= 8",' +
       '"smarts >= 6",' +
       '"skills.Shooting >= 8",' +
-      '"skills.Fighting >= 8",' +
+      '"skills.Throwing >= 8",' +
       'features.Command',
   'Cry Havoc!':
     'Type=leadership ' +
     'Require=' +
       '"advances >= 8",' +
       '"spirit >= 8",' +
-      '"skills.Battle >= 10",' +
+      '"skills.Knowledge (Battle) >= 10",' +
       'features.Command,' +
       'features.Fervor',
   'Death Before Dishonor':
@@ -556,20 +589,24 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"advances >= 8",' +
       '"spirit >= 8",' +
-      '"skills.Battle >= 8",' +
+      '"skills.Knowledge (Battle) >= 8",' +
       'features.Command,' +
       '"features.Hold The Line!"',
   'Fanaticism':
     'Type=leadership Require="advances >= 4",features.Command,features.Fervor',
   'Siege Breaker':
     'Type=leadership ' +
-    'Require="advances >= 4","smarts >= 8","skills.Battle >= 8"',
+    'Require="advances >= 4","smarts >= 8","skills.Knowledge (Battle) >= 8"',
   'Siege Mentality':
     'Type=leadership ' +
-    'Require="advances >= 4","smarts >= 8","skills.Battle >= 8"',
+    'Require="advances >= 4","smarts >= 8","skills.Knowledge (Battle) >= 8"',
   'Tactician':
     'Type=leadership ' +
-    'Require="advances >= 4","smarts >= 8","skills.Battle >= 6",features.Command',
+    'Require=' +
+      '"advances >= 4",' +
+      '"smarts >= 8",' +
+      '"skills.Knowledge (Battle) >= 6",' +
+      'features.Command',
   // Power
   'Alchemy':
     'Type=power ' +
@@ -577,42 +614,42 @@ Hellfrost.EDGES_ADDED = {
       '"advances >= 4",' +
       'powerCount,' +
       '"arcaneSkill >= 6",' +
-      '"skills.Weird Science >= 6"',
+      '"skills.Knowledge (Weird Science) >= 6"',
   'Augment Staff (Aura)':
     'Type=power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
-      '"skills.Spellcasting >= 8",' +
-      '"skills.Occult >= 8"',
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Damage)':
     'Type=power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
-      '"skills.Spellcasting >= 8",' +
-      '"skills.Occult >= 8"',
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Deflect)':
     'Type=power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
-      '"skills.Spellcasting >= 8",' +
-      '"skills.Occult >= 8"',
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Spell Store)':
     'Type=power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
-      '"skills.Spellcasting >= 8",' +
-      '"skills.Occult >= 8"',
+      '"skills.Heahwisardry >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
   'Combine Spells':
     'Type=power ' +
     'Require=' +
        '"advances >= 12",' +
        'powerCount,' +
        '"arcaneSkill >= 10",' +
-       '"skills.Occult >= 10"',
+       '"skills.Knowledge (Arcana) >= 10"',
   'Concentration':
     'Type=power ' +
     'Require=' +
@@ -638,22 +675,27 @@ Hellfrost.EDGES_ADDED = {
       '"advances >= 8",' +
       'powerCount,' +
       '"arcaneSkill >= 10",' +
-      '"skills.Occult >= 10"',
+      '"skills.Knowledge (Arcana) >= 10"',
   'Power Surge':
     'Type=power Require="advances >= 4",powerCount,"arcaneSkill >= 10"',
   'Runic Insight':
     'Type=power ' +
     'Require="features.Arcane Background (Rune Magic)","arcaneSkill >= 8"',
   'Spell Finesse (Arcane)':
-    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Armor Penetration)':
-    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Heavy Weapon)':
-    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Range)':
-    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Selective)':
-    'Type=power Require=powerCount,"arcaneSkill >= 8","skills.Occult >= 8"',
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   // Professional
   'Bladedancer':
     'Type=professional ' +
@@ -675,11 +717,11 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"spirit >= 8",' +
       '"skills.Fighting >= 8",' +
-      '"skills.Shooting >= 6"',
+      '"skills.Shooting >= 6 || skills.Throwing >= 6"',
   'Guild Thief':
     'Type=professional ' +
     'Require=' +
-      '"skills.Thievery"',
+      '"features.Thief"',
   'Hearth Knight':
     'Type=professional ' +
     'Require=' +
@@ -692,7 +734,7 @@ Hellfrost.EDGES_ADDED = {
     'Type=professional ' +
     'Require=' +
       '"smarts >= 8",' +
-      '"skills.Occult >= 6",' +
+      '"skills.Knowledge (Alchemy) >= 6",' +
       '"skills.Survival >= 6"',
   'Holy/Unholy Warrior':
     'Type=professional ' +
@@ -711,26 +753,26 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"smarts >= 6",' +
       '"spirit >= 6",' +
-      '"skills.Battle >= 8",' +
+      '"skills.Knowledge (Battle) >= 8",' +
       'features.Command,' +
       '"leadershipEdgeCount >= 2"',
   'Lorekeeper':
     'Type=professional ' +
     'Require=' +
       '"smarts >= 8",' +
-      '"skills.Research >= 6",' +
+      '"skills.Investigation >= 6",' +
       '"features.Illiterate == 0"',
   'Reliquary (Arcanologist)':
     'Type=professional ' +
     'Require=' +
       '"smarts >= 8",' +
-      '"skills.Occult >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8",' +
       '"skills.Notice >= 6"',
   'Reliquary (Reliqus)':
     'Type=professional ' +
     'Require=' +
       '"agility >= 8",' +
-      '"skills.Thievery >= 6",' +
+      '"skills.Lockpicking >= 6",' +
       '"skills.Notice >= 6"',
   'Roadwarden':
     'Type=professional ' +
@@ -738,7 +780,8 @@ Hellfrost.EDGES_ADDED = {
       '"vigor >= 6",' +
       '"skills.Fighting >= 8",' +
       '"skills.Riding >= 6",' +
-      '"skills.Survival >= 6"',
+      '"skills.Survival >= 6",' +
+      '"skills.Tracking >= 6"',
   'Sister Of Mercy':
     'Type=professional ' +
     'Require=' +
@@ -751,29 +794,20 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Shooting >= 8",' +
       '"features.Arcane Background (Druidism) || features.Woodsman"',
   // Social
-  // Override SW Brave prerequisite with Hellfrost's Courageous
-  'Iron Will':
-    'Type=social ' +
-    'Require="advances >= 4","features.Courageous","features.Strong Willed"',
   'Master Storyteller':
     'Type=background ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
-      '"skills.Common Knowledge >= 8",' +
+      '"skills.Knowledge (Folklore) >= 8",' +
       '"skills.Persuasion >= 8"',
   'Legendary Storyteller':
     'Type=background Require="advances >= 12","features.Master Storyteller"'
 };
 Hellfrost.EDGES = Object.assign({}, SWADE.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
-delete Hellfrost.EDGES['Brave'];
-delete Hellfrost.EDGES['Elan'];
-delete Hellfrost.EDGES['Filthy Rich'];
-delete Hellfrost.EDGES['Martial Artist'];
-delete Hellfrost.EDGES['Martial Warrior'];
-delete Hellfrost.EDGES['Master Tactician'];
-delete Hellfrost.EDGES['Natural Leader'];
+// Forbidden Arcane Backgrounds handled with ARCANAS
+// Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
 Hellfrost.FEATURES_ADDED = {
 
   // Edges
@@ -826,13 +860,12 @@ Hellfrost.FEATURES_ADDED = {
     'Note=' +
       '"+%V sling range, sling does d%{strength}%1+d6 damage at short range",' +
       '"+1 Persuasion (engros)"',
+  'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="Can cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded extras fire at single foe simultaneously at +2, doing cumulative damage"',
-  'Courageous':
-    'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Cry Havoc!':
     'Section=combat ' +
     'Note="Can charge during Battle roll 1/mass battle, success removes 1 foe token"',
@@ -1026,7 +1059,6 @@ Hellfrost.FEATURES_ADDED = {
   'Wood Warden':
     'Section=arcana ' +
     'Note="Can speak with normal beasts, cast <i>Beast Friend</i>"',
-  'Very Rich':'Section=feature Note="Increased Rich effects"',
 
   // Hindrances
   'Apprentice/Novitiate':
@@ -1051,7 +1083,7 @@ Hellfrost.FEATURES_ADDED = {
   'Engro Luck':'Section=feature Note="+1 Benny each session"',
   'Frigid Form':
     'Section=arcana ' +
-    'Note="Innate casting on self of cold <i>Environmental Protection</i>, <i>Protection</i>, <i>Smite</i>, and <i>Speed</i>"',
+    'Note="Innate casting on self of cold <i>Environmental Protection</i>, <i>Armor</i>, <i>Smite</i>, and <i>Speed</i>"',
   'Heat Lethargy':
     'Section=attribute,skill ' +
     'Note="-1 attribute rolls at temperatures above 52",' +
@@ -1092,13 +1124,13 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Gives +2 attack (Raise +4) w/thrown or missile weapon for 5 rd"',
+      '"Gives +2 attack (Raise +4) w/thrown or missile weapon while maintained"',
   'Altered Senses':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target gains Infravision or Low Light Vision (Raise both) for 10 min"',
+      '"Target gains Infravision or Low Light Vision (Raise both) while maintained"',
   'Analyze Foe':
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -1109,117 +1141,146 @@ Hellfrost.POWERS_ADDED = {
     'Advances=12 ' +
     'PowerPoints=8 ' +
     'Range=touch ' +
-    'Description="30\' tree animates (Raise as wild card) for 5 rd"',
-  // Arcane Resistance -> SWADE Arcane Protection
-  // Armor -> SWADE Protection
-  // Aura -> SWADE Damage Field
-  // Banish -> SWADE
-  // Barrier -> SWADE
+    'Description="30\' tree animates (Raise as wild card) while maintained"',
+  'Arcane Resistance': // ref Arcane Protection
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Foes suffer -2 (Raise -4) on arcane attacks and damage against target while maintained"',
+  'Aura': // ref Damage Field
+    'Advances=4 ' +
+    'PowerPoints=4 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Creatures adjacent to target suffer 2d6 damage while maintained"',
+  'Banish': // ref Banish
+    'Advances=8 ' +
+    'PowerPoints=3 ' +
+    'Range=spirit ' +
+    'Description="Target returns to native plane (Spirit neg)"',
   'Battle Song':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=2 ' +
     'Description=' +
-      '"Creatures in range gain Berserk features for 5 rd (Spirit neg)"',
-  // Beast Friend -> SWADE
+      '"Creatures in range gain Berserk features (Spirit neg) while maintained"',
   'Becalm':
     'Advances=0 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=3 ' +
     'Range=sight ' +
-    'Description="Target ship suffers half speed for 1 dy"',
+    'Description="Target ship suffers half speed while maintained"',
   'Bladebreaker':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
     'Description="Target weapon destroyed (Weapon die type neg)"',
-  // Blast -> SWADE
   'Bless/Panic':
     'Advances=4 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=1 ' +
     'Range=spirit ' +
     'Description=' +
-      '"Allies in range gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) for 10 min"',
-  // Bodygard -> SWADE Summon Ally
-  // Bolt -> SWADE
-  // Boost/Lower Trait -> SWADE
-  'Bridge':
+      '"Allies in range gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) while maintained"',
+  'Bodygard': // ref Summon Ally
+    'Advances=0 ' +
+    'PowerPoints=3 ' +
+    'Range=smarts ' +
+    'Description="Creates obedient servant until wounded"',
+  'Bridge': // ref Barrier
     'Advances=4 ' +
-    'PowerPoints=1 ' +
+    'PowerPoints=1/Section ' +
     'Range=smarts ' +
     'Description=' +
-      '"Creates horizontal surface 0.5%{in} wide by 2%{in} long for 5 rd"',
-  // Burrow -> SWADE
-  // Burst -> SWADE
+      '"Creates sections of 1%{in} horizontal surface while maintained"',
   'Champion Of The Faith':
     'Advances=4 ' +
-    'PowerPoints=1 ' +
+    'PowerPoints=2 ' +
     'Range=self ' +
-    'Description="Gives Champion or Holy Warrior features for 5 rd"',
+    'Description="Gives Champion or Holy Warrior features while maintained"',
   'Charismatic Aura':
     'Advances=0 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=1 ' +
     'Range=self ' +
-    'Description="Gives +1 Persuasion (Raise +2) for 10 min"',
-  // Confusion -> SWADE
-  // Corpse Senses -> SWADE Zombie Power
-  // Deflection -> SWADE
-  // Detect/Conceal -> SWADE Detect/Conceal Aura
+    'Description="Gives +1 Persuasion (Raise +2) while maintained"',
+  'Confusion': // ref Confusion
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Range=smarts*2 ' +
+    'Description=' +
+      '"Target suffers -2 Trait rolls (Raise -4) (Smarts neg) while maintained"',
+  'Corpse Senses':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*50 ' +
+    'Description="Self use corpse senses while maintained"',
+  'Detect/Conceal': // ref Detect/Conceal Arcana
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*2 ' +
+    'Description=' +
+      '"Target can detect supernatural effects or conceals target aura while maintained"',
   'Disease':
     'Advances=4 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=3 ' +
     'Range=spirit ' +
-    'Description="Target suffers disease and fatigue (Vigor neg)"',
-  // Dispel -> SWADE
+    'Description="Target suffers disease and fatigue, may die (Vigor neg)"',
   'Elemental Form':
     'Advances=8 ' +
-    'PowerPoints=3 ' +
+    'PowerPoints=5 ' +
     'Range=self ' +
-    'Description="Gives elemental form special abilities for 5 rd"',
-  // Elemental Manipulation -> SWADE
+    'Description="Gives elemental form special abilities while maintained"',
   'Energy Immunity':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target takes half damage (Raise no damage) from chosen energy attack for 5 rd"',
+      '"Target takes half damage (Raise no damage) from chosen energy attack while maintained"',
   'Enhance Undead':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
       '"Undead targets gain advance benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)"',
-  // Entangle -> SWADE
-  // Environmental Protection -> SWADE
-  // Ethereal/Corporeal -> SWADE Intangibility
-  // Farsight -> SWADE
+  'Etherealness/Corporealness': // ref Intangibility
+    'Advances=4 ' +
+    'PowerPoints=5 ' +
+    'Range=smarts ' +
+    'Description=' +
+      '"Target becomes unaffected by physical world or ethereal creature becomes effected (Spirit neg) while maintained"',
+  'Farsight': // ref Farsight
+    'Advances=0 ' +
+    'PowerPoints=3 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Target +2 Notice within smarts*2%{in} and see 5 miles while maintained"',
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=12 ' +
     'Description="2%{in} radius (Raise 3%{in}) inflicts fatigue (Vigor neg)"',
-  // Fear -> SWADE
   'Feast':
     'Advances=0 ' +
-    'PowerPoints=5 ' +
+    'PowerPoints=2 ' +
     'Range=smarts ' +
     'Description="Creates %{((advances//4)+1)*5} lb of basic food"',
-  // Fly -> SWADE
   'Fog Cloud':
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Range=self ' +
     'Description=' +
-      '"%{(advances//4)+1} mile fog reduces lighting 1 step (Raise 2 steps) for 1 hr"',
+      '"%{(advances//4)+1} mile fog reduces lighting 1 step (Raise 2 steps) while maintained"',
   "Fortune's Favored":
     'Advances=4 ' +
-    'PowerPoints=3 ' +
+    'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target can reroll failed benny-purchased reroll for 5 rd"',
+    'Description=' +
+      '"Target can reroll failed benny-purchased reroll while maintained"',
   'Gift Of Battle':
     'Advances=0 ' +
-    'PowerPoints=4 ' +
+    'PowerPoints=2 ' +
     'Range=touch ' +
-    'Description="Gives leadership edge features (Raise 2 edges) for 1 hr"',
+    'Description=' +
+      '"Gives leadership edge features (Raise 2 edges) while maintained"',
   'Glyph':
     'Advances=8 ' +
     'PowerPoints=4 ' +
@@ -1227,32 +1288,37 @@ Hellfrost.POWERS_ADDED = {
     'Description="Glyph stores spell effects until triggered"',
   'Gravespeak':
     'Advances=4 ' +
-    'PowerPoints=1 ' +
+    'PowerPoints=3 ' +
     'Range=touch ' +
     'Description="Gives ability to ask spirit %{spirit} questions"',
-  // Greater Healing -> SWADE
-  'Greater Zombie':
+  'Greater Zombie': // ref Zombie
     'Advances=12 ' +
     'PowerPoints=4 ' +
     'Range=spirit*2 ' +
     'Description="Animates and controls corpse for 1 hr"',
-  // Growth/Shrink -> SWADE
   // TODO Hamper Movement
-  // Healing -> SWADE
   'Heat Mask':
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Gives invisibility to infravision for 1 hr"',
-  // Insight -> SWADE Object Reading
-  // Invisibility -> SWADE
-  // Knockdown -> SWADE Havok
+    'Description="Gives invisibility to infravision while maintained"',
+  'Insight': // ref Object reading
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Shows 1 event that occurred recently to touched object"',
+  'Knockdown':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Range=9 ' +
+    'Description=' +
+      '"Cone pushes creatures 1d4%{in} and knocks prone (Strength neg)"',
   'Leaping':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Gives dbl jumping distance (Raise x4) for 5 rd"',
-  // Light -> SWADE Light/Darkness
+    'Description="Gives dbl jumping distance (Raise x4) while maintained"',
   'Lock/Unlock':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -1263,34 +1329,35 @@ Hellfrost.POWERS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Target takes the best/worst of two trait rolls for 5 rd"',
+    'Description=' +
+      '"Target takes the best/worst of two trait rolls while maintained"',
   'Mend':
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Repairs damage done to wooden vehicle w/in past hr"',
+    'Description=' +
+      '"Repairs 1 wound (Raise 2) inflicted on wooden vehicle w/in past hr"',
   'Mimic':
     'Advances=0 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=3 ' +
     'Range=spirit ' +
-    'Description="Self can cast spell used by another w/in 1 hr"',
+    'Description="Self can cast spell used by another while maintained"',
   'Mind Rider':
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Range=smarts ' +
-    'Description="Self can use target\'s senses for 1 hr (Spirit neg)"',
+    'Description="Self can use target\'s senses (Spirit neg) while maintained"',
   'Negate Arcana':
     'Advances=8 ' +
     'PowerPoints=5 ' +
     'Range=smarts ' +
-    'Description="2%{in} radius suppresses magic for 1 hr"',
+    'Description="2%{in} radius dispels all magic while maintained"',
   'Nightmare':
     'Advances=4 ' +
-    'PowerPoints=2 ' +
-    'Range=smarts ' + // TODO miles
+    'PowerPoints=3 ' +
+    'Range=self ' +
     'Description=' +
-      '"Target loses benefit of sleep, becomes frightened (Spirit neg)"',
-  // Obscure -> SWADE Light/Darkness
+      '"Target w/in %{smarts} miles loses benefit of sleep, becomes frightened (Spirit neg)"',
   'Precognition':
     'Advances=8 ' +
     'PowerPoints=2 ' +
@@ -1298,11 +1365,10 @@ Hellfrost.POWERS_ADDED = {
     'Description="Allows rearranging 2 Action Cards (Raise 4) next rd"',
   'Prolonged Blast':
     'Advances=8 ' +
-    'PowerPoints=6 ' +
+    'PowerPoints=5 ' +
     'Range=24 ' +
     'Description=' +
-      '"Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) for 5 rd"',
-  // Puppet -> SWADE
+      '"Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) while maintained"',
   'Quake':
     'Advances=8 ' +
     'PowerPoints=6 ' +
@@ -1310,7 +1376,7 @@ Hellfrost.POWERS_ADDED = {
     'Description="3%{in} radius inflicts 2d10 damage (Agility neg)"',
   'Refuge':
     'Advances=4 ' +
-    'PowerPoints=4 ' +
+    'PowerPoints=3 ' +
     'Range=smarts ' +
     'Description=' +
       '"10\'x6\' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
@@ -1318,15 +1384,16 @@ Hellfrost.POWERS_ADDED = {
     'Advances=12 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Gives free -2 Soak roll (Raise -0) for 5 rd"',
+    'Description="Gives free -2 Soak roll (Raise -0) while maintained"',
   'Sacrifice':
     'Advances=8 ' +
-    'PowerPoints=1 ' +
+    'PowerPoints=5 ' +
     'Range=self ' +
-    'Description="Gives +1 arcane skill per victim Spirit die step for 5 rd"',
+    'Description=' +
+      '"Gives +1 arcane skill per victim Spirit die step while maintained"',
   'Sanctuary':
     'Advances=0 ' +
-    'PowerPoints=4 ' +
+    'PowerPoints=3 ' +
     'Range=self ' +
     'Description="Teleports to safe location"',
   'Sentry':
@@ -1334,107 +1401,158 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=smarts*2 ' +
     'Description="Creates overnight ghostly sentry or object alarm"',
-  // Shape Change -> SWADE
-  // Silence -> SWADE Sound/Silence
+  'Silence': // ref Sound/Silence
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description="Mutes 2%{in} radius while maintained"',
   'Sluggish Reflexes':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
     'Description=' +
-      '"Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) for 5 rd"',
-  // Slumber -> SWADE
+      '"Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) while maintained"',
+  'Slumber': // ref Slumber
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*2 ' +
+    'Description="Target sleeps for 1 hr (Spirit neg)"',
   'Sphere Of Might':
     'Advances=8 ' +
     'PowerPoints=4 ' +
     'Range=smarts ' +
     'Description=' +
-      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8)"',
+      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8) while maintained"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Range=self ' +
     'Description=' +
-      '"Creates or dissipates 10 mile lightning storm or blizzard for 1 hr"',
+      '"Creates or dissipates 10 mile lightning storm or blizzard while maintained"',
   'Strength Of The Undead':
     'Advances=8 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=4 ' +
     'Range=touch ' +
     'Description=' +
-      '"Self mimics undead target\'s trait or special ability (Raise 2) for 5 rd"',
-  // Stun -> SWADE
-  // Succor -> SWADE Relief
+      '"Self mimics undead target\'s trait or special ability (Raise 2) while maintained"',
+  'Succor': // ref Succor
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description="Removes 1 level of fatigue (Raise 2 levels)"',
   'Summon Beast':
     'Advances=8 ' +
-    'PowerPoints=Special ' +
-    'Range=smarts*5 ' +
-    'Description="Self controls summoned beast\'s actions for 10 min"',
+    'PowerPoints=2+ ' +
+    'Range=spirit*5 ' +
+    'Description="Self controls summoned beast\'s actions while maintained"',
   'Summon Demon':
     'Advances=0 ' +
-    'PowerPoints=Special ' +
+    'PowerPoints=5+ ' +
     'Range=smarts*2 ' +
-    'Description="Brings demon from the Abyss for 1 hr"',
+    'Description="Brings demon from the Abyss while maintained"',
   'Summon Elemental':
     'Advances=8 ' +
     'PowerPoints=4 ' +
     'Range=smarts*2 ' +
-    'Description="Self controls summoned elemental\'s actions for 5 rd"',
+    'Description=' +
+      '"Self controls summoned elemental\'s actions while maintained"',
   'Summon Herald':
     'Advances=12 ' +
     'PowerPoints=8 ' +
     'Range=smarts*2 ' +
     'Description="Brings herald of deity for support"',
-  // Tempest -> SWADE
-  // Teleport -> SWADE
+  // TODO Summon Spirit
   'Viper Weapon':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
-    'Description="Transforms target weapon into viper for 5 rd"',
+    'Description="Transforms target weapon into viper while maintained"',
   'Voice On The Wind':
     'Advances=0 ' +
-    'PowerPoints=3 ' +
-    'Range=smarts*50 ' + // TODO miles
-    'Description="Transmits %{advances//4*10}-word message to known target"',
-  // Wall Walker -> SWADE
+    'PowerPoints=2 ' +
+    'Range=self ' +
+    'Description=' +
+      '"Transmits %{advances//4*10}-word message up to %{smarts*50} miles to known target"',
+  'Wall Walker': // ref Wall Walker
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description=' +
+      '"Target moves at full Pace on vertical and inverted surfaces while maintained"',
   'Wandering Senses':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts*10 ' +
-    'Description="Self senses remotely for 10 min"',
+    'Description="Self senses remotely while maintained"',
   'Warding':
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Range=self ' +
     'Description=' +
-      '"2%{in} radius (Raise 3%{in} radius) bars specified creature type for 1 hr"',
-  // Warrior's Gift -> SWADE
+      '"2%{in} radius (Raise 3%{in} radius) bars specified creature type while maintained"',
   'Water Walk':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
-    'Description="Gives ability to traverse calm water for 10 min"',
+    'Description="Gives ability to traverse calm water while maintained"',
   'Weaken Undead':
     'Advances=8 ' +
-    'PowerPoints=2 ' +
+    'PowerPoints=3 ' +
     'Range=spirit ' +
-    'Description="Target undead loses undead ability (Spirit neg) for 5 rd"',
+    'Description=' +
+      '"Target undead loses undead ability (Spirit neg) while maintained"',
   'Weapon Immunity':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Target takes half damage (Raise no damage) from specified weapon type for 5 rd"',
-  // Whirlwind -> SWADE Havok
+    'Description=' +
+      '"Target takes half damage (Raise no damage) from specified weapon type while maintained"',
+  'Whirlwind': // ref Havoc
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description="Knocks prone creatures in 2%{in} radius (Strength neg)"',
   'Wilderness Step':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target treats all terrain as normal for 1 hr"',
+    'Description="Target treats all terrain as normal while maintained"',
   'Zephyr':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=self ' +
-    'Description="Creates moderate wind for 1 dy"'
-  // Zombie -> SWADE
+    'Description="Creates moderate wind while maintained"',
+
+  // SWD spells copied to make available w/SWADE
+  'Armor':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=touch ' +
+    'Description="Gives +2 Armor (Raise +4) while maintained"',
+  'Greater Healing':
+    'Advances=8 ' +
+    'PowerPoints=10 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Restores 1 wound (Raise 2 wounds) w/out time limit or removes poison, disease, or sickness"',
+  'Quickness':
+    'Advances=4 ' +
+    'PowerPoints=4 ' +
+    'Range=touch ' +
+    'Description' +
+      '="Target gains second action (Raise also redraw Action Cards below 8) while maintained"',
+  'Slow':
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*2 ' +
+    'Description=' +
+      '"Target move counts as action (Raise also redraw Action Cards above 10) (Spirit neg) while maintained"',
+  'Speed':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Target dbl Pace (Raise also Run as free action) while maintained"'
 };
 Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
@@ -1471,7 +1589,19 @@ Hellfrost.SHIELDS = {
   'Large Shield':'Parry=2 Cover=2 MinStr=4 Weight=20'
 };
 Hellfrost.SKILLS_ADDED = {
-  // Individual Arcane Background skill replaced with Spellcasting
+  'Druidism':'Attribute=smarts',
+  'Elementalism':'Attribute=smarts',
+  'Heahwisardry':'Attribute=smarts',
+  'Hrimwisardry':'Attribute=smarts',
+  'Song Magic':'Attribute=smarts',
+  'Knowledge (Alchemy)':'Attribute=smarts',
+  'Knowledge (Arcana)':'Attribute=smarts',
+  'Knowledge (Craft)':'Attribute=smarts',
+  'Knowledge (Folklore)':'Attribute=smarts',
+  'Knowledge (Heraldry)':'Attribute=smarts',
+  'Knowledge (Religion)':'Attribute=smarts',
+  'Knowledge (Riddles)':'Attribute=smarts',
+  'Knowledge (Siege Artillery)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWADE.SKILLS, Hellfrost.SKILLS_ADDED);
 Hellfrost.WEAPONS = {
@@ -1504,6 +1634,39 @@ Hellfrost.WEAPONS = {
   'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=R Range=15 AP=2',
   'Sling':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=4',
   'Throwing Knife':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=4'
+};
+
+Hellfrost.SWD2SWADE = function(table) {
+  var replacements = {
+    'Charisma':'Persuasion',
+    'Climbing':'Athletics',
+    'Investigation':'Research',
+    'Knowledge (Academics)':'Academics',
+    'Knowledge (Arcana)':'Occult',
+    'Knowledge (Battle)':'Battle',
+    'Knowledge (Electronics)':'Electronics',
+    'Knowledge (Hacking)':'Hacking',
+    'Knowledge (Language':'Language', // TODO lose close paren
+    'Knowledge (Science)':'Science',
+    'Knowledge (Weird Science)':'Weird Science',
+    'Lockpicking':'Thievery',
+    'Streetwise':'Common Knowledge',
+    'Swimming':'Athletics',
+    'Throwing':'Athletics',
+    'Tracking':'Survival',
+    'Light/Obscure':'Light/Darkness'
+  };
+  var result = Object.assign({}, table);
+  for(var r in replacements) {
+    if(r in result) {
+      result[replacements[r]] = result[r];
+      delete result[r];
+    }
+    for(var key in result) {
+      result[key] = result[key].replaceAll(r, replacements[r]);
+    }
+  }
+  return result;
 };
 
 /* Defines the rules related to character attributes and description. */
@@ -1809,11 +1972,6 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     );
   } else if(name == 'Tactician') {
     ; // empty; overrides basePlugin computation
-  } else if(name == 'Very Rich') {
-    rules.defineRule('featureNotes.rich',
-      '', '=', '3',
-      'featureNotes.veryRich', '^', '5'
-    );
   } else if(name == 'Wood Warden') {
     rules.defineRule('powers.Beast Friend', 'features.Wood Warden', '=', '1');
   } else {
@@ -1984,6 +2142,11 @@ Hellfrost.ruleNotes = function() {
     '\n' +
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
+    '  <li>\n' +
+    '    Quilvyn calculates and reports Power Points for those who want to\n' +
+    '    use the power mechanics from he base rules. Edges that affect\n' +
+    '    power points (Rapid Recharge, Soul Drain etc.) are also available.\n' +
+    '  </li>\n' +
     '</ul>\n' +
     '<h3>Limitations</h3>\n' +
     '<ul>\n' +
