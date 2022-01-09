@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Leadership</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/leadership", "_timestamp":1641757831444, 
+  "advances":12, "agilityAllocation":2, "armor.None":1, "deity":"Kenaz", 
+  "edges.A Few Good Men":1, "edges.Command":1, "edges.Command Presence":1, 
+  "edges.Coordinated Firepower":1, "edges.Cry Havoc!":1, "edges.Death Before Dishonor":1, "edges.Fanaticism":1, 
+  "edges.Fervor":1, "edges.Hold The Line!":1, "edges.Inspire":1, "edges.Siege Breaker":1, 
+  "edges.Siege Mentality":1, "focusType":"Druidism", "gender":"Female", "hindrances.Black Sheep":1, 
+  "hindrances.Mean":1, "hindrances.Slow":1, "improvementPointsAllocation.Attribute":10, 
+  "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":8, "name":"Edges-Leadership", 
+  "race":"Hearth Elf", "shield":"None", "skillAllocation.Climbin":2, "skillAllocation.Fighting":3, 
+  "skillAllocation.Healing":1, "skillAllocation.Intimidation":1, "skillAllocation.Knowledge (Battle)":4, 
+  "skillAllocation.Persuasion":2, "skillAllocation.Repair":1, "skillAllocation.Shooting":3, 
+  "skillAllocation.Throwing":3, "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":1, 
+  "vigorAllocation":2
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Leadership</b> -- <b>Female</b> <b>Hearth Elf</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (10 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d10</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d6</td>
+      <td><b>Vigor</b>: d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Agile: +1 Agility step</i></td>
+    </tr><tr style="text-align:center">
+      <td>Death Before Dishonor: +2 Spirit (mass battle morale)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (20 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Fighting: (agi) d8</td>
+      <td>Knowledge (Battle): (sma) d10</td>
+      <td>Shooting: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Healing: (sma) d4</td>
+      <td>Persuasion: (spi) d6-2</td>
+      <td>Throwing: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d4</td>
+      <td>Repair: (sma) d4-2</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>All Thumbs: -2 Repair/Roll of 1 breaks device</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Charisma: -2 Persuasion/-2 Streetwise</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Mean: -2 Charisma</i></td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: -2 Charisma (heahwisards)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Kenaz</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 26</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 10; Edge: 8; Skill: 8</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (5 points): A Few Good Men; Command Presence; Command; Coordinated Firepower; Cry Havoc!; Death Before Dishonor; Fanaticism; Fervor; Hold The Line!; Inspire; Siege Breaker; Siege Mentality</td>
+      <td><b>Hindrances</b>: Black Sheep; Mean; Slow</td>
+      <td><b>Hearth Elf Features</b>: Agile; All Thumbs; Forest-Born; Low Light Vision; Natural Realms</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Command Presence: Increased Command effects</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Inspire: Increased Command effects</i></td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: Ostracized by magocratic nobility</td>
+    </tr><tr style="text-align:center">
+      <td>Command: R10" Commanded +2 to recover from Shaken or Stunned</td>
+    </tr><tr style="text-align:center">
+      <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
+    </tr><tr style="text-align:center">
+      <td>Mean: Ill-tempered and disagreeable</td>
+    </tr><tr style="text-align:center">
+      <td>Natural Realms: Treats Elfhomes as wilds</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 6 (0)</td>
+        <td><b>Toughness</b>: 6 (0)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: None</td>
+        <td><b>Shield</b>: None</td>
+        <td><b>Weapons</b>: Unarmed: 1 (d6+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +4 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +4</i></td>
+      </tr><tr style="text-align:center">
+        <td>A Few Good Men: Adds one token to army in mass battles</td>
+      </tr><tr style="text-align:center">
+        <td>Coordinated Firepower: R10" Commanded extras fire at single foe simultaneously at +2, doing cumulative damage</td>
+      </tr><tr style="text-align:center">
+        <td>Cry Havoc!: Can charge during Battle roll 1/mass battle, success removes 1 foe token</td>
+      </tr><tr style="text-align:center">
+        <td>Fanaticism: R10" Commanded +2 vs fear, -2 fear table</td>
+      </tr><tr style="text-align:center">
+        <td>Fervor: R10" Commanded +1 Fighting damage</td>
+      </tr><tr style="text-align:center">
+        <td>Forest-Born: No difficult terrain penalty in forests</td>
+      </tr><tr style="text-align:center">
+        <td>Hold The Line!: R10" Commanded +1 Toughness</td>
+      </tr><tr style="text-align:center">
+        <td>Siege Breaker: -1 fortification siege bonus during mass battle, test Knowledge (Battle) for -2 (Raise -3)</td>
+      </tr><tr style="text-align:center">
+        <td>Siege Mentality: +1 fortification siege bonus during mass battle, test Knowledge (Battle) for +2 (Raise +3)</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>: Edge Points Allocation: 5 available vs. 12 allocated</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Background</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/background", "_timestamp":1641754911031, 
+  "advances":12, "agilityAllocation":2, "arcaneFocus":"true", "armor.None":1, "deity":"Freo", 
+  "edges.Arcane Background (Heahwisardry)":1, "edges.Library":1, "edges.Linguist":1, "edges.Noble":1, 
+  "edges.Old Family":1, "edges.Styrimathr":1, "edges.Warm Blooded":1, "focusType":"Heahwisardry", 
+  "gender":"Female", "hindrances.Big Mouth":1, "hindrances.Black Sheep":1, "hindrances.Quirk":1, 
+  "hindrances.Ugly":1, "improvementPointsAllocation.Attribute":16, 
+  "improvementPointsAllocation.Edge":12, "improvementPointsAllocation.Skill":2, "name":"Edges-Background", 
+  "race":"Anari Human", "shield":"None", "skillAllocation.Boating":3, "skillAllocation.Faith":3, 
+  "skillAllocation.Intimidation":2, "skillAllocation.Investigation":1, "skillAllocation.Knowledge (Battle)":2, 
+  "skillAllocation.Knowledge (Language (Engro))":1, "skillAllocation.Psionics":3, "skillAllocation.Repair":1, 
+  "skillAllocation.Stealth":2, "smartsAllocation":2, "spiritAllocation":4, "strengthAllocation":3, 
+  "vigorAllocation":2, "weapons.Flail":1, "weapons.Great Sword":1, "weapons.Throwing Axe":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Background</b> -- <b>Female</b> <b>Anari Human</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (13 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d8</td>
+      <td><b>Smarts</b>: d8</td>
+      <td><b>Spirit</b>: d12</td>
+      <td><b>Strength</b>: d10</td>
+      <td><b>Vigor</b>: d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>: Warm Blooded: +2 Vigor (resist cold)</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (18 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Boating: (agi) d8</td>
+      <td>Investigation: (sma) d4</td>
+      <td>Psionics: (sma) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d8</td>
+      <td>Knowledge (Battle): (sma) d6</td>
+      <td>Repair: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d6</td>
+      <td>Knowledge (Language (Engro)): (sma) d4</td>
+      <td>Stealth: (agi) d6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Library: +4 Skill Points (choice of Knowledge)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Noble: +2 Charisma</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Old Family: +2 Knowledge (Arcana)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Ugly: -2 Charisma</i></td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Heahwisardry): -2 arcane skill, +1 per extra round taken (+4 max)</td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: -2 Charisma (heahwisards)</td>
+    </tr><tr style="text-align:center">
+      <td>Linguist: Knows 8 languages</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Freo</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 30</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 16; Edge: 12; Skill: 2</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (7 points): Arcane Background (Heahwisardry); Library; Linguist; Noble; Old Family; Styrimathr; Warm Blooded</td>
+      <td><b>Hindrances</b>: Big Mouth; Black Sheep; Quirk; Ugly</td>
+      <td><b>Anari Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Noble: Has Rich feature</i></td>
+    </tr><tr style="text-align:center">
+      <td>Big Mouth: Cannot keep secrets</td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: Ostracized by magocratic nobility</td>
+    </tr><tr style="text-align:center">
+      <td>Quirk: Has minor compulsion that occasionally causes trouble</td>
+    </tr><tr style="text-align:center">
+      <td>Rich: 3x starting funds</td>
+    </tr><tr style="text-align:center">
+      <td>Styrimathr: Owns a Smabyrding</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 2 (0)</td>
+        <td><b>Toughness</b>: 6 (0)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: None</td>
+        <td><b>Shield</b>: None</td>
+        <td><b>Weapons</b>: Flail: 1 (d10+d6); Great Sword: 1 (d10+d10); Throwing Axe: 1 (d10+d6 R3"); Unarmed: 1 (d10+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +4</i></td>
+      </tr><tr style="text-align:center">
+        <td>Great Sword Parry Modifier: -1 Parry when wielded</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 3</td>
+      <td><b>Power Points</b>: 10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>: <i>Arcane Background (Heahwisardry): Power Count 3/Power Points 10</i></td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Disciple</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/disciple", "_timestamp":1641756060162, 
+  "advances":12, "agilityAllocation":3, "armor.Scale Hauberk":1, "deity":"Var", 
+  "edges.Alertness":1, "edges.Arcane Background (Miracles)":1, "edges.Beast Bond":1, 
+  "edges.Disciple Of Dargar":1, "edges.Disciple Of Eira":1, "edges.Disciple Of Eostre Animalmother":1, 
+  "edges.Disciple Of Eostre Plantmother":1, "edges.Disciple Of Ertha":1, "edges.Disciple Of Freo":1, 
+  "edges.Disciple Of Hela":1, "edges.Disciple Of Hoenir":1, "edges.Disciple Of Hothar":1, 
+  "edges.Disciple Of Kenaz":1, "edges.Disciple Of Maera":1, "edges.Disciple Of Nauthiz":1, 
+  "edges.Disciple Of Neorthe":1, "edges.Disciple Of Niht":1, "edges.Disciple Of Rigr":1, 
+  "edges.Disciple Of Scaetha":1, "edges.Disciple Of Sigel":1, "edges.Disciple Of The Norns":1, 
+  "edges.Disciple Of The Unknowable One":1, "edges.Disciple Of Thrym":1, "edges.Disciple Of Thunor":1, 
+  "edges.Disciple Of Tiw":1, "edges.Disciple Of Ullr":1, "edges.Disciple Of Vali":1, 
+  "edges.Disciple Of Var":1, "edges.Investigator":1, "edges.Marksman":1, "edges.Scholar":1, 
+  "edges.Thief":1, "focusType":"Gifted", "gender":"Female", "hindrances.Cautious":1, 
+  "hindrances.Cold Blooded":1, "hindrances.Shamed":1, "hindrances.Vow":1, 
+  "improvementPointsAllocation.Attribute":14, "improvementPointsAllocation.Skill":15, "name":"Edges-Disciple", 
+  "notes":"+IGNORE-DEITY-EDGE-PREREQ", "powers.Burrow":1, "powers.Burst":1, "powers.Havoc":1, "powers.Refuge":1, 
+  "powers.Voice On The Wind":1, "powers.Wilderness Step":1, "race":"Finnar Human", "shield":"Large Shield", 
+  "skillAllocation.Boating":2, "skillAllocation.Climbing":2, "skillAllocation.Faith":3, 
+  "skillAllocation.Fighting":4, "skillAllocation.Gambling":3, "skillAllocation.Healing":2, 
+  "skillAllocation.Intimidation":3, "skillAllocation.Investigation":3, "skillAllocation.Lockpicking":2, 
+  "skillAllocation.Notice":3, "skillAllocation.Persuasion":2, "skillAllocation.Shooting":3, 
+  "skillAllocation.Stealth":3, "skillAllocation.Streetwise":3, "skillAllocation.Survival":2, 
+  "skillAllocation.Swimming":2, "skillAllocation.Taunt":3, "skillAllocation.Tracking":2, 
+  "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":2, "vigorAllocation":2, 
+  "weapons.Long Bow":1, "weapons.Short Sword":1, "weapons.Sling":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Disciple</b> -- <b>Female</b> <b>Finnar Human</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (12 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d10</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Cold Blooded: -2 Vigor (resist cold)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Hothar: +2 vs. mind effects</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Kenaz: +2 Vigor (resist heat)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Thunor: +1 Vigor (resist hot and cold), suffers half falling damage</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (27 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Boating: (agi) d6</td>
+      <td>Intimidation: (spi) d8</td>
+      <td>Stealth: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Climbing: (str) d6+2</td>
+      <td>Investigation: (sma) d8+2</td>
+      <td>Streetwise: (sma) d8+2</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d8</td>
+      <td>Lockpicking: (agi) d6+2</td>
+      <td>Survival: (sma) d6</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d10</td>
+      <td>Notice: (sma) d8+2</td>
+      <td>Swimming: (agi) d6</td>
+    </tr><tr style="text-align:left">
+      <td>Gambling: (sma) d8</td>
+      <td>Persuasion: (spi) d6</td>
+      <td>Taunt: (sma) d8+1</td>
+    </tr><tr style="text-align:left">
+      <td>Healing: (sma) d6+2</td>
+      <td>Shooting: (agi) d8</td>
+      <td>Tracking: (sma) d6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Alertness: +2 Notice</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Disciple Of Eira: +2 Healing/5 companions +2 natural Healing</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Disciple Of Hoenir: +1 Common Knowledge/+1 all Knowledge/Can make untrained Knowledge skills</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Disciple Of The Unknowable One: +1 Taunt/+1 vs. Taunt</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Investigator: +2 Investigation/+2 Streetwise/+2 Notice (sifting for information)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Thief: +2 Climbing/+2 Lockpicking/+2 Notice (traps)/+1 Repair (traps)/+2 Stealth (urban)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Eostre Plantmother: +1 Faith (vegetated areas)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Ertha: +2 Survival (underground)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Hela: +1 Faith (graveyards)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Nauthiz: Can reroll 1s on Gambling, Stealth, and Lockpicking; suffers fatigue for 1 dy if reroll is 1</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Sigel: +2 Notice (detect hidden objects and creatures)</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Ullr: +2 Stealth (wilderness)/+2 Tracking (wilderness)</td>
+    </tr><tr style="text-align:center">
+      <td>Scholar: +2 on 2 chosen skills</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Var</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 29</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 14; Skill: 15</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (1 points): Alertness; Arcane Background (Miracles); Beast Bond; Disciple Of Dargar; Disciple Of Eira; Disciple Of Eostre Animalmother; Disciple Of Eostre Plantmother; Disciple Of Ertha; Disciple Of Freo; Disciple Of Hela; Disciple Of Hoenir; Disciple Of Hothar; Disciple Of Kenaz; Disciple Of Maera; Disciple Of Nauthiz; Disciple Of Neorthe; Disciple Of Niht; Disciple Of Rigr; Disciple Of Scaetha; Disciple Of Sigel; Disciple Of The Norns; Disciple Of The Unknowable One; Disciple Of Thrym; Disciple Of Thunor; Disciple Of Tiw; Disciple Of Ullr; Disciple Of Vali; Disciple Of Var; Investigator; Marksman; Scholar; Thief</td>
+      <td><b>Hindrances</b>: Cautious; Cold Blooded; Shamed; Vow</td>
+      <td><b>Finnar Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Beast Bond: Spend Bennies on companion animals</td>
+    </tr><tr style="text-align:center">
+      <td>Beast Master: Has animal companion, other animals will not attack first</td>
+    </tr><tr style="text-align:center">
+      <td>Cautious: Requires detailed plan before acting</td>
+    </tr><tr style="text-align:center">
+      <td>Connections: Call in favors from acquaintance or organization</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Eostre Animalmother: Has Beast Master feature with wild card companion animal</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Eostre Plantmother: Can use Champion and Holy Warrior edges with plant creatures</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Neorthe: Can survive on half water, can survive drowning for 8 rd</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Niht: No penalty in dim and dark illumination, -2 in pitch dark</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Rigr: Needs only 3 hrs sleep, suffers half penalty for missed sleep, counts as active guard when asleep</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Sigel: Halves illumination penalty vs. heat-producing foes</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Tiw: +1 Rank for acquiring combat edges</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Vali: Immune to disease and poison</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Var: Can sell goods at 50% price (Raise 75%)</td>
+    </tr><tr style="text-align:center">
+      <td>Orders: Takes orders from outside power</td>
+    </tr><tr style="text-align:center">
+      <td>Vow: Has broad restrictions on behavior and decisions</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 9 (2)</td>
+        <td><b>Toughness</b>: 9 (2)</td>
+        <td><b>Cover</b>: 2</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Scale Hauberk</td>
+        <td><b>Shield</b>: Large Shield</td>
+        <td><b>Weapons</b>: Long Bow: 1 (2d6 R15"); Short Sword: 1 (d8+d6); Sling: 1 (d8+d4 R4"); Unarmed: 1 (d8+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Disciple Of Ertha: +1 Toughness</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +5 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +4</i></td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Dargar: Single blow that incapacitates foe makes adjacent foes Shaken (Spirit neg)</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Eostre Plantmother: Can move normally through vegetated difficult terrain</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Freo: Treats all terrain as normal ground</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Kenaz: +4 Armor vs. heat damage, can magically heat metal weapon for +2 damage vs. cold resistant and +4 vs cold immune</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Scaetha: +2 damage vs. undead</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Sigel: +2 vs. invisible foes</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of The Unknowable One: +1 on Tricks/+1 vs. Tricks</td>
+      </tr><tr style="text-align:center">
+        <td>Disciple Of Ullr: Can move half Pace before using Marksman with bow</td>
+      </tr><tr style="text-align:center">
+        <td>Marksman: Trade move for +2 ranged attack</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 2</td>
+      <td><b>Power Points</b>: 10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Powers</b>:     <table id="Powers" style="width:100%">
+    <tr style="text-align:left">
+      <td>Burrow: (3 PP) RSelf Allows merging into earth for 3 rd</td>
+    </tr><tr style="text-align:left">
+      <td>Burst: (2 PP) R9" Cone inflicts 2d10 damage</td>
+    </tr><tr style="text-align:left">
+      <td>Havoc: (2 PP) R20" Distracts and throws creatures in 2" radius 2d6" (Strength neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Refuge: (3 PP) R10" 10'x6' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Voice On The Wind: (2 PP) RSelf Transmits 30-word message up to 500 miles to known target</td>
+    </tr><tr style="text-align:left">
+      <td>Wilderness Step: (1 PP) RTouch Target treats all terrain as normal while maintained</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Miracles): Power Count 2/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Hela: Dbl Raise on <i>Zombie</i> creates permanent undead</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Maera: Can cast off-list spell at -2, +2 <i>Dispel</i></td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Scaetha: +1 casting vs. undead</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of The Norns: Can spend benny for augury</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Thrym: More effective casting in cold environment</td>
+    </tr><tr style="text-align:center">
+      <td>Disciple Of Tiw: Can cast and attack in single action</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="NotesPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>+IGNORE-DEITY-EDGE-PREREQ</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Edge Points Allocation: 1 available vs. 32 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Skill Points Allocation: 27 available vs. 47 allocated</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Professional</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/professional", "_timestamp":1641764180339, 
+  "advances":12, "agilityAllocation":3, "armor.None":1, "deity":"Thrym", 
+  "edges.Arcane Background (Miracles)":1, "edges.Bladedancer":1, "edges.Bludgeoner":1, "edges.Command":1, 
+  "edges.Command Presence":1, "edges.Gray Legionary":1, "edges.Guild Thief":1, "edges.Hearth Knight":1, 
+  "edges.Hedge Magic":1, "edges.Holy/Unholy Warrior":1, "edges.Iron Guild Mercenary":1, 
+  "edges.Knight Hrafn":1, "edges.Lorekeeper":1, "edges.Reliquary (Arcanologist)":1, 
+  "edges.Reliquary (Reliqus)":1, "edges.Roadwarden":1, "edges.Sister Of Mercy":1, "edges.Thief":1, 
+  "edges.Two-Fisted":1, "edges.Wood Warden":1, "edges.Woodsman":1, "focusType":"Hrimwisardry", 
+  "gender":"Female", "hindrances.Orders":1, "hindrances.Pacifist":1, 
+  "improvementPointsAllocation.Attribute":16, "improvementPointsAllocation.Skill":28, "name":"Edges-Professional", 
+  "race":"Taiga Elf", "shield":"None", "skillAllocation.Climbing":2, "skillAllocation.Faith":2, 
+  "skillAllocation.Fighting":3, "skillAllocation.Healing":3, "skillAllocation.Investigation":2, 
+  "skillAllocation.Knowledge (Alchemy)":2, "skillAllocation.Knowledge (Arcana)":3, 
+  "skillAllocation.Knowledge (Battle)":3, "skillAllocation.Lockpicking":2, "skillAllocation.Notice":2, 
+  "skillAllocation.Riding":2, "skillAllocation.Shooting":3, "skillAllocation.Stealth":3, 
+  "skillAllocation.Survival":3, "skillAllocation.Tracking":3, "skillAllocation.Weird Science":2, 
+  "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, "vigorAllocation":2
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Professional</b> -- <b>Female</b> <b>Taiga Elf</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (13 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d12</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d10</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Agile: +1 Agility step</i></td>
+    </tr><tr style="text-align:center">
+      <td>Heat Lethargy: -1 attribute rolls at temperatures above 52</td>
+    </tr><tr style="text-align:center">
+      <td>Reliquary (Reliqus): Test Agility-2 to avoid trap effects</td>
+    </tr><tr style="text-align:center">
+      <td>Winter Soul: +2 Vigor (resist cold)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (40 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Climbing: (str) d6+2</td>
+      <td>Knowledge (Arcana): (sma) d8</td>
+      <td>Stealth: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d6</td>
+      <td>Knowledge (Battle): (sma) d8+1</td>
+      <td>Survival: (sma) d8+2</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d8</td>
+      <td>Lockpicking: (agi) d6+2</td>
+      <td>Tracking: (sma) d8+2</td>
+    </tr><tr style="text-align:left">
+      <td>Healing: (sma) d8+2</td>
+      <td>Notice: (sma) d6</td>
+      <td>Weird Science: (sma) d6</td>
+    </tr><tr style="text-align:left">
+      <td>Investigation: (sma) d6</td>
+      <td>Riding: (agi) d6</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Alchemy): (sma) d6</td>
+      <td>Shooting: (agi) d8</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>All Thumbs: -2 Repair/Roll of 1 breaks device</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Charisma: +1 Persuasion/+1 Streetwise</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Knight Hrafn: +1 Knowledge (Battle)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Roadwarden: +2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Sister Of Mercy: +2 Healing/+1 Charisma</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Thief: +2 Climbing/+2 Lockpicking/+2 Notice (traps)/+1 Repair (traps)/+2 Stealth (urban)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Bludgeoner: +1 Charisma (engros)</td>
+    </tr><tr style="text-align:center">
+      <td>Guild Thief: +2 Common Knowledge (home country)/d8 Wild Die choice of Climbing, Stealth (urban) or Lockpicking</td>
+    </tr><tr style="text-align:center">
+      <td>Hearth Knight: +1 Parry and +2 called shots vs. cold-resistant and -immune creatures</td>
+    </tr><tr style="text-align:center">
+      <td>Heat Lethargy: -1 skill rolls at temperatures above 52</td>
+    </tr><tr style="text-align:center">
+      <td>Hedge Magic: Can identify plants for herbal remedies</td>
+    </tr><tr style="text-align:center">
+      <td>Lorekeeper: d4 on untrained Smarts skills</td>
+    </tr><tr style="text-align:center">
+      <td>Outsider: -2 Charisma (other races)</td>
+    </tr><tr style="text-align:center">
+      <td>Reliquary (Arcanologist): +2 Common Knowledge (relics)/+2 Knowledge (relics)/Can use Knowledge (Arcana) to learn unattuned relic powers</td>
+    </tr><tr style="text-align:center">
+      <td>Reliquary (Reliqus): +2 Notice (traps)/+2 disarm traps</td>
+    </tr><tr style="text-align:center">
+      <td>Woodsman: +2 Stealth (wilds)/+2 Survival (wilds)/+2 Tracking (wilds)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Thrym</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 26</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 16; Skill: 28</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (1 points): Arcane Background (Miracles); Bladedancer; Bludgeoner; Command Presence; Command; Gray Legionary; Guild Thief; Hearth Knight; Hedge Magic; Holy/Unholy Warrior; Iron Guild Mercenary; Knight Hrafn; Lorekeeper; Reliquary (Arcanologist); Reliquary (Reliqus); Roadwarden; Sister Of Mercy; Thief; Two-Fisted; Wood Warden; Woodsman</td>
+      <td><b>Hindrances</b>: Orders; Pacifist</td>
+      <td><b>Taiga Elf Features</b>: Agile; All Thumbs; Forest-Born; Heat Lethargy; Low Light Vision; Natural Realms; Outsider; Winter Soul</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Command Presence: Increased Command effects</i></td>
+    </tr><tr style="text-align:center">
+      <td>Command: R11" Commanded +1 to recover from Shaken or Stunned</td>
+    </tr><tr style="text-align:center">
+      <td>Connections: Call in favors from acquaintance or organization</td>
+    </tr><tr style="text-align:center">
+      <td>Gray Legionary: Member of Gray Legionary mercenary company</td>
+    </tr><tr style="text-align:center">
+      <td>Iron Guild Mercenary: +1 using Gang Up</td>
+    </tr><tr style="text-align:center">
+      <td>Knight Hrafn: Member of tactician order</td>
+    </tr><tr style="text-align:center">
+      <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
+    </tr><tr style="text-align:center">
+      <td>Natural Realms: Treats Elfhomes as wilds</td>
+    </tr><tr style="text-align:center">
+      <td>Orders: Takes orders from outside power</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 6 (0)</td>
+        <td><b>Toughness</b>: 6 (0)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: None</td>
+        <td><b>Shield</b>: None</td>
+        <td><b>Weapons</b>: Unarmed: 1 (d8+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +4 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Knight Hrafn: Increased Command effects</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +4</i></td>
+      </tr><tr style="text-align:center">
+        <td>Bladedancer: Can make -2 attack on every creature adjacent to running path</td>
+      </tr><tr style="text-align:center">
+        <td>Bludgeoner: +4 sling range, sling does d8+d6 damage at short range</td>
+      </tr><tr style="text-align:center">
+        <td>Forest-Born: No difficult terrain penalty in forests</td>
+      </tr><tr style="text-align:center">
+        <td>Hearth Knight: +2 Survival (freezing environments)</td>
+      </tr><tr style="text-align:center">
+        <td>Iron Guild Mercenary: Member of Iron Guild mercenary company</td>
+      </tr><tr style="text-align:center">
+        <td>Pacifist: Will harm others only when no other option available</td>
+      </tr><tr style="text-align:center">
+        <td>Two-Fisted: No multi-action penalty for melee attack with each hand</td>
+      </tr><tr style="text-align:center">
+        <td>Winter Soul: +2 Armor vs. cold attacks</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 2</td>
+      <td><b>Power Points</b>: 10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Powers</b>: Beast Friend: (3+2xSize PP) R500" Target can speak with and control beast actions for 10 min</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Miracles): Power Count 2/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td>Holy/Unholy Warrior: R10" Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure</td>
+    </tr><tr style="text-align:center">
+      <td>Wood Warden: Can speak with normal beasts, cast <i>Beast Friend</i></td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill >= 6 and shooting skill (currently 8) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Edge Points Allocation: 1 available vs. 21 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Improvement Points Allocation: 26 available vs. 44 allocated</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Power</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/power", "_timestamp":1641762340697, 
+  "advances":12, "agilityAllocation":0, "arcaneFocus":"true", "armor.None":1, 
+  "deity":"Neorthe", "edges.Alchemy":1, "edges.Arcane Background (Druidism)":1, 
+  "edges.Arcane Background (Elementalism (Eir))":1, "edges.Arcane Background (Elementalism (Ertha))":1, 
+  "edges.Arcane Background (Elementalism (Fyr))":1, "edges.Arcane Background (Elementalism (Waeter))":1, 
+  "edges.Arcane Background (Heahwisardry)":1, "edges.Arcane Background (Hrimwisardry)":1, 
+  "edges.Arcane Background (Rune Magic)":1, "edges.Arcane Background (Song Magic)":1, "edges.Augment Staff (Aura)":1, 
+  "edges.Augment Staff (Damage)":2, "edges.Augment Staff (Deflect)":2, "edges.Augment Staff (Spell Store)":2, 
+  "edges.Combine Spells":1, "edges.Concentration":1, "edges.Elemental Mastery":3, "edges.Focus":1, 
+  "edges.Hellfreeze":1, "edges.Improved Concentration":1, "edges.Improved Focus":1, 
+  "edges.Power Surge":1, "edges.Runic Insight":3, "edges.Spell Finesse (Arcane)":1, 
+  "edges.Spell Finesse (Armor Penetration)":1, "edges.Spell Finesse (Heavy Weapon)":1, "edges.Spell Finesse (Range)":1, 
+  "edges.Spell Finesse (Selective)":1, "focusType":"Elementalism", "gender":"Male", 
+  "hindrances.Necromantic Weakness":1, "hindrances.Stubborn":1, "hindrances.Thin Skinned":1, 
+  "improvementPointsAllocation.Attribute":8, "improvementPointsAllocation.Edge":10, 
+  "improvementPointsAllocation.Skill":9, "name":"Edges-Power", "race":"Engro", "shield":"None", 
+  "skillAllocation.Heahwisardry":4, "skillAllocation.Knowledge (Academics)":1, 
+  "skillAllocation.Knowledge (Alchemy)":2, "skillAllocation.Knowledge (Arcana)":4, 
+  "skillAllocation.Knowledge (Science)":1, "skillAllocation.Notice":1, "skillAllocation.Persuasion":3, 
+  "skillAllocation.Spellcasting":4, "skillAllocation.Stealth":2, "skillAllocation.Survival":1, 
+  "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, "vigorAllocation":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Power</b> -- <b>Male</b> <b>Engro</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (9 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d4</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d12</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Spirited: +1 Spirit step</i></td>
+    </tr><tr style="text-align:center">
+      <td>Necromantic Weakness: -2 vs. undead effects</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (23 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Heahwisardry: (sma) d10</td>
+      <td>Knowledge (Science): (sma) d4</td>
+      <td>Stealth: (agi) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Academics): (sma) d4</td>
+      <td>Notice: (sma) d4</td>
+      <td>Survival: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Alchemy): (sma) d6</td>
+      <td>Persuasion: (spi) d8+1</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Arcana): (sma) d10</td>
+      <td>Spellcasting: (sma) d10</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Song Magic): +1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Charisma: +1 Persuasion/+1 Streetwise</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Sneaky: +2 Skill Points (choice of Stealth or Lockpicking)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Druidism): +1 arcane skill in natural environments, -1 in urban environments</td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Heahwisardry): -2 arcane skill, +1 per extra round taken (+5 max)</td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Hrimwisardry): Arcane skill modified by temperature</td>
+    </tr><tr style="text-align:center">
+      <td>Augment Staff (Aura): Staff gives +2 Intimidation or +2 Persuasion</td>
+    </tr><tr style="text-align:center">
+      <td>Outsider: -2 Charisma (other races)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Neorthe</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 26</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 8; Edge: 10; Skill: 9</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (6 points): Alchemy: 1; Arcane Background (Druidism): 1; Arcane Background (Elementalism (Eir)): 1; Arcane Background (Elementalism (Ertha)): 1; Arcane Background (Elementalism (Fyr)): 1; Arcane Background (Elementalism (Waeter)): 1; Arcane Background (Heahwisardry): 1; Arcane Background (Hrimwisardry): 1; Arcane Background (Rune Magic): 1; Arcane Background (Song Magic): 1; Augment Staff (Aura): 1; Augment Staff (Damage): 2; Augment Staff (Deflect): 2; Augment Staff (Spell Store): 2; Combine Spells: 1; Concentration: 1; Elemental Mastery: 3; Focus: 1; Hellfreeze: 1; Improved Concentration: 1; Improved Focus: 1; Power Surge: 1; Runic Insight: 3; Spell Finesse (Arcane): 1; Spell Finesse (Armor Penetration): 1; Spell Finesse (Heavy Weapon): 1; Spell Finesse (Range): 1; Spell Finesse (Selective): 1</td>
+      <td><b>Hindrances</b>: Necromantic Weakness; Stubborn; Thin Skinned</td>
+      <td><b>Engro Features</b>: Engro Luck; Outsider; Size -1; Sneaky; Spirited</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Arcane Background (Hrimwisardry): Treated with deep suspicion</td>
+    </tr><tr style="text-align:center">
+      <td>Engro Luck: +1 Benny each session</td>
+    </tr><tr style="text-align:center">
+      <td>Stubborn: Never admits error</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 2 (0)</td>
+        <td><b>Toughness</b>: 5 (0)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: None</td>
+        <td><b>Shield</b>: None</td>
+        <td><b>Weapons</b>: Unarmed: 1 (d8+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +3</i></td>
+      </tr><tr style="text-align:center">
+        <td>Arcane Background (Hrimwisardry): -4 damage from cold, +4 from heat</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Damage): Staff does d8+d8 damage and AP 2</td>
+      </tr><tr style="text-align:center">
+        <td>Augment Staff (Deflect): Foe ranged attacks -2</td>
+      </tr><tr style="text-align:center">
+        <td>Power Surge: Dbl damage from arcane skill attack</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 24</td>
+      <td><b>Power Points</b>: 90</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Druidism): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Eir)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Ertha)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Fyr)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Elementalism (Waeter)): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Heahwisardry): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Hrimwisardry): Power Count 2/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Rune Magic): Power Count 1/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Song Magic): Power Count 3/Power Points 10</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Improved Concentration: Increased Concentration effects</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Improved Focus: Increased Focus effects</i></td>
+    </tr><tr style="text-align:center">
+      <td>Alchemy: Can create arcane devices for known spells</td>
+    </tr><tr style="text-align:center">
+      <td>Augment Staff (Spell Store): Staff can store 2 known spell(s), cast at +2</td>
+    </tr><tr style="text-align:center">
+      <td>Combine Spells: Can cast two spells simultaneously</td>
+    </tr><tr style="text-align:center">
+      <td>Concentration: +4 to resist spell disruption</td>
+    </tr><tr style="text-align:center">
+      <td>Elemental Mastery: Know 4 elements, cast at -0</td>
+    </tr><tr style="text-align:center">
+      <td>Focus: Immediate Spirit roll to recover from Shaken due to spell failure or siphoning</td>
+    </tr><tr style="text-align:center">
+      <td>Hellfreeze: Cold spells do normal damage to resistant, half to immune, dbl to vulnerable, and dbl+4 to targets with weakness</td>
+    </tr><tr style="text-align:center">
+      <td>Runic Insight: +1 arcane skill die for spells of 3 chosen runes</td>
+    </tr><tr style="text-align:center">
+      <td>Spell Finesse (Arcane): +1 Wild Die die on chosen spell skill</td>
+    </tr><tr style="text-align:center">
+      <td>Spell Finesse (Armor Penetration): Chosen spell has AP 2</td>
+    </tr><tr style="text-align:center">
+      <td>Spell Finesse (Heavy Weapon): Chosen spell counts as heavy weapon</td>
+    </tr><tr style="text-align:center">
+      <td>Spell Finesse (Range): Chosen spell has extended range</td>
+    </tr><tr style="text-align:center">
+      <td>Spell Finesse (Selective): Can exclude 5 creatures from effects of chosen area spell</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Edge Points Allocation: 6 available vs. 35 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Improvement Points Allocation: 26 available vs. 27 allocated</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sun Jan 09 2022 13:46:15 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.3; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.0 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Combat</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/edges/combat", "_timestamp":1641754797609, 
+  "advances":12, "agilityAllocation":3, "armor.Scale Hauberk":1, "deity":"Thunor", 
+  "edges.Block":1, "edges.Blood And Guts":1, "edges.Courageous":1, "edges.Double Shot":1, 
+  "edges.Favored Foe":1, "edges.Giant Killer":1, "edges.Improved Double Shot":1, 
+  "edges.Improved Giant Killer":1, "edges.Improved Snow Walker":1, "edges.Improved Sunder":1, 
+  "edges.Mighty Shot":1, "edges.Mighty Throw":1, "edges.Necromantic Severing":1, 
+  "edges.Oversized Weapon Master":1, "edges.Scamper":1, "edges.Shieldwall":1, "edges.Snow Walker":1, 
+  "edges.Sunder":1, "edges.Wall Of Steel":1, "edges.War Cry":1, "focusType":"Elementalism", 
+  "gender":"Male", "hindrances.Cautious":1, "hindrances.Clueless+":1, 
+  "hindrances.Cold Blooded":1, "hindrances.Hard Of Hearing":1, "improvementPointsAllocation.Attribute":14, 
+  "improvementPointsAllocation.Skill":14, "name":"Edges-Combat", "race":"Frost Dwarf", "shield":"Medium Shield", 
+  "skillAllocation.Boating":1, "skillAllocation.Fighting":4, "skillAllocation.Intimidation":3, 
+  "skillAllocation.Knowledge (Arcana)":1, "skillAllocation.Knowledge (Battle)":2, 
+  "skillAllocation.Knowledge (Language (Engro))":2, "skillAllocation.Knowledge (Science)":1, "skillAllocation.Notice":3, 
+  "skillAllocation.Shooting":4, "skillAllocation.Spellcasting":1, "skillAllocation.Throwing":4, 
+  "smartsAllocation":2, "spiritAllocation":2, "strengthAllocation":3, "vigorAllocation":2, 
+  "weapons.Antler Staff":1, "weapons.Battle Axe":1, "weapons.Twin Toothpick":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Combat</b> -- <b>Male</b> <b>Frost Dwarf</b> <b>Heroic Adventurer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (12 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d10</td>
+      <td><b>Smarts</b>: d8</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d10</td>
+      <td><b>Vigor</b>: d10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Tough: +1 Vigor step</i></td>
+    </tr><tr style="text-align:center">
+      <td>Clueless+: -2 Smarts (common knowledge)</td>
+    </tr><tr style="text-align:center">
+      <td>Cold Blooded: -2 Vigor (resist cold)</td>
+    </tr><tr style="text-align:center">
+      <td>Courageous: +2 Spirit vs. fear, -2 fear table roll</td>
+    </tr><tr style="text-align:center">
+      <td>Heat Lethargy: -1 attribute rolls at temperatures above 52</td>
+    </tr><tr style="text-align:center">
+      <td>Winter Soul: +2 Vigor (resist cold)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (26 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Boating: (agi) d4</td>
+      <td>Knowledge (Battle): (sma) d6</td>
+      <td>Shooting: (agi) d10</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d10</td>
+      <td>Knowledge (Language (Engro)): (sma) d6</td>
+      <td>Spellcasting: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d8</td>
+      <td>Knowledge (Science): (sma) d4</td>
+      <td>Throwing: (agi) d10</td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Arcana): (sma) d4</td>
+      <td>Notice: (sma) d8</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Hard Of Hearing: -2 Notice (hearing)</td>
+    </tr><tr style="text-align:center">
+      <td>Heat Lethargy: -1 skill rolls at temperatures above 52</td>
+    </tr><tr style="text-align:center">
+      <td>Outsider: -2 Charisma (other races)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Thunor</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 28</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 14; Skill: 14</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (1 points): Block; Blood And Guts; Courageous; Double Shot; Favored Foe; Giant Killer; Improved Double Shot; Improved Giant Killer; Improved Snow Walker; Improved Sunder; Mighty Shot; Mighty Throw; Necromantic Severing; Oversized Weapon Master; Scamper; Shieldwall; Snow Walker; Sunder; Wall Of Steel; War Cry</td>
+      <td><b>Hindrances</b>: Cautious; Clueless+; Cold Blooded; Hard Of Hearing</td>
+      <td><b>Frost Dwarf Features</b>: Heat Lethargy; Low Light Vision; Mountain-Born; Outsider; Slow; Tough; Winter Soul</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Cautious: Requires detailed plan before acting</td>
+    </tr><tr style="text-align:center">
+      <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 9 (1)</td>
+        <td><b>Toughness</b>: 9 (2)</td>
+        <td><b>Cover</b>: 2</td>
+        <td><b>Pace/Run</b>: 5/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Scale Hauberk</td>
+        <td><b>Shield</b>: Medium Shield</td>
+        <td><b>Weapons</b>: Antler Staff: 1 (d10+d6); Battle Axe: 1 (d10+d8); Twin Toothpick: 1 (d10+d8); Unarmed: 1 (d10+0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Block: +1 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +5 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Improved Double Shot: Increased Double Shot effects</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Improved Snow Walker: Increased Snow Walker effects</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Improved Sunder: Increased Sunder effects</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Slow: -1 Pace</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +5</i></td>
+      </tr><tr style="text-align:center">
+        <td>Antler Staff Parry Modifier: +1 Parry when wielded</td>
+      </tr><tr style="text-align:center">
+        <td>Blood And Guts: Halves negative difference between tokens when attacking in mass battle</td>
+      </tr><tr style="text-align:center">
+        <td>Double Shot: Can fire two arrows at one target</td>
+      </tr><tr style="text-align:center">
+        <td>Favored Foe: +1 Parry and d8 attack raise against chosen creature type</td>
+      </tr><tr style="text-align:center">
+        <td>Giant Killer: +1d6 damage vs. foes of size 3 or greater</td>
+      </tr><tr style="text-align:center">
+        <td>Improved Giant Killer: Ignores Armor or Size benefits of creatures of Size 3 or greater</td>
+      </tr><tr style="text-align:center">
+        <td>Mighty Shot: Bow does d10+d6 damage</td>
+      </tr><tr style="text-align:center">
+        <td>Mighty Throw: +1 thrown weapon range, +1 Strength die for short throws</td>
+      </tr><tr style="text-align:center">
+        <td>Mountain-Born: No difficult terrain penalty in hills and mountains</td>
+      </tr><tr style="text-align:center">
+        <td>Necromantic Severing: Can make called shots vs. undead</td>
+      </tr><tr style="text-align:center">
+        <td>Oversized Weapon Master: Can use two-handed weapons with one hand</td>
+      </tr><tr style="text-align:center">
+        <td>Scamper: Larger foes -1 attack</td>
+      </tr><tr style="text-align:center">
+        <td>Shieldwall: Shield benefit apples to adjacent ally</td>
+      </tr><tr style="text-align:center">
+        <td>Snow Walker: Moves full speed over snow and ice</td>
+      </tr><tr style="text-align:center">
+        <td>Sunder: +2 AP with any weapon</td>
+      </tr><tr style="text-align:center">
+        <td>Wall Of Steel: Foes gain no Gang Up bonus</td>
+      </tr><tr style="text-align:center">
+        <td>War Cry: Make Intimidation test against all in 4" radius</td>
+      </tr><tr style="text-align:center">
+        <td>Winter Soul: +2 Armor vs. cold attacks</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Double Shot Edge: Requires advances (currently 12) >= 4, race (currently Frost Dwarf) matches 'Elf' and shooting skill (currently 10) >= 8</td>
+      </tr><tr style="text-align:center">
+        <td>Edge Points Allocation: 1 available vs. 20 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Scamper Edge: Requires advances (currently 12) >= 4, race (currently Frost Dwarf) == 'Engro' and agility (currently 10) >= 8</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+
