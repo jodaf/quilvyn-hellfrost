@@ -403,7 +403,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Arcane Background (Miracles)",' +
       '"smarts >= 10",' +
       '"skills.Faith >= 8",' +
-      '"Sum \'features\\.Scholar\' > 0",' +
+      '"features.Scholar || Sum \'features.Scholar\' > 0",' +
       '"deity == \'Hoenir\'"',
   'Disciple Of Hothar':
     'Type=disciple ' +
@@ -614,7 +614,7 @@ Hellfrost.EDGES_ADDED = {
       '"advances >= 4",' +
       'powerCount,' +
       '"arcaneSkill >= 6",' +
-      '"skills.Knowledge (Weird Science) >= 6"',
+      '"skills.Knowledge (Alchemy) >= 6"',
   'Augment Staff (Aura)':
     'Type=power ' +
     'Require=' +
@@ -841,7 +841,7 @@ Hellfrost.FEATURES_ADDED = {
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
     'Note="Power Count 3/Power Points 10",' +
-         '"+1 Common Knowledge/+1 Persuasion/+1 Knowledge (folklore)"',
+         '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
@@ -859,7 +859,7 @@ Hellfrost.FEATURES_ADDED = {
   'Bludgeoner':'Section=combat,skill ' +
     'Note=' +
       '"+%V sling range, sling does d%{strength}%1+d6 damage at short range",' +
-      '"+1 Persuasion (engros)"',
+      '"+1 Charisma (engros)"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="Can cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
@@ -906,7 +906,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana Note="Can cast off-list spell at -2, +2 <i>Dispel</i>"',
   'Disciple Of Nauthiz':
     'Section=skill ' +
-    'Note="Can reroll 1s on Gambling, Stealth, and Thievery; suffers fatigue for 1 dy if reroll is 1"',
+    'Note="Can reroll 1s on Gambling, Stealth, and Lockpicking; suffers fatigue for 1 dy if reroll is 1"',
   'Disciple Of Neorthe':
     'Section=feature ' +
     'Note="Can survive on half water, can survive drowning for %{vigor} rd"',
@@ -943,7 +943,7 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Ullr':
     'Section=combat,skill ' +
     'Note="Can move half Pace before using Marksman with bow",' +
-         '"+2 Stealth (wilderness)/+2 Survival (wilderness)"',
+         '"+2 Stealth (wilderness)/+2 Tracking (wilderness)"',
   'Disciple Of Vali':'Section=feature Note="Immune to disease and poison"',
   'Disciple Of Var':
     'Section=feature Note="Can sell goods at 50% price (Raise 75%)"',
@@ -951,7 +951,7 @@ Hellfrost.FEATURES_ADDED = {
   'Elemental Mastery':'Section=arcana Note="Know %1 elements, cast at %2"',
   'Fanaticism':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Commanded extras +2 vs fear, -2 fear table"',
+    'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 attack raise against chosen creature type"',
@@ -962,7 +962,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature Note="Member of Gray Legionary mercenary company"',
   'Guild Thief':
     'Section=skill ' +
-    'Note="+2 Common Knowledge (home country)/d8 Wild Die choice of Athletics (climbing), Stealth (urban) or Thievery"',
+    'Note="+2 Common Knowledge (home country)/d8 Wild Die choice of Climbing, Stealth (urban) or Lockpicking"',
   'Hearth Knight':
     'Section=combat,skill ' +
     'Note=' +
@@ -991,7 +991,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat,feature,skill ' +
     'Note="Increased Command effects",' +
          '"Member of tactician order",' +
-         '"+1 Battle"',
+         '"+1 Knowledge (Battle)"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
   // TODO implement in randomizeOneAttribute
@@ -1009,32 +1009,32 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+1 thrown weapon range, +1 Strength die for short throws"',
   'Necromantic Severing':
     'Section=combat Note="Can make called shots vs. undead"',
-  'Noble':'Section=feature,skill Note="Has Rich feature","+2 Persuasion"',
-  'Old Family':'Section=skill Note="+2 Occult"',
+  'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
+  'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
   'Oversized Weapon Master':
     'Section=combat Note="Can use two-handed weapons with one hand"',
   'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
   'Reliquary (Arcanologist)':
     'Section=skill ' +
-    'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/Can use Occult to learn unattuned relic powers"',
+    'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/Can use Knowledge (Arcana) to learn unattuned relic powers"',
   'Reliquary (Reliqus)':
     'Section=attribute,skill ' +
     'Note="Test Agility-2 to avoid trap effects",' +
          '"+2 Notice (traps)/+2 disarm traps"',
   'Roadwarden':
     'Section=skill ' +
-    'Note="+2 Survival/+2 Notice (ambushes, traps, concealed weapons)"',
+    'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 arcane skill die for spells of %1 chosen runes"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Shieldwall':'Section=combat Note="Shield benefit apples to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
-    'Note="-1 fortification siege bonus during mass battle, test Battle for -2 (Raise -3)"',
+    'Note="-1 fortification siege bonus during mass battle, test Knowledge (Battle) for -2 (Raise -3)"',
   'Siege Mentality':
     'Section=combat ' +
-    'Note="+1 fortification siege bonus during mass battle, test Battle for +2 (Raise +3)"',
-  'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Persuasion"',
+    'Note="+1 fortification siege bonus during mass battle, test Knowledge (Battle) for +2 (Raise +3)"',
+  'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
   'Spell Finesse (Arcane)':
     'Section=arcana Note="+1 Wild Die die on chosen spell skill"',
@@ -1051,7 +1051,7 @@ Hellfrost.FEATURES_ADDED = {
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Make Battle test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
+    'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
     'Section=combat Note="Make Intimidation test against all in 4%{in} radius"',
@@ -1067,7 +1067,7 @@ Hellfrost.FEATURES_ADDED = {
   'Black Sheep':
     'Section=feature,skill ' +
     'Note="Ostracized by magocratic nobility",' +
-         '"-2 Persuasion (heahwisards)"',
+         '"-2 Charisma (heahwisards)"',
   'Cold Blooded':'Section=attribute Note="-2 Vigor (resist cold)"',
   'God Cursed+':
     'Section=feature ' +
@@ -1092,7 +1092,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="No difficult terrain penalty in hills and mountains"',
   'Natural Realms':'Section=feature Note="Treats Elfhomes as wilds"',
   'Sneaky':
-    'Section=skill Note="+2 Skill Points (choice of Stealth or Thievery)"',
+    'Section=skill Note="+2 Skill Points (choice of Stealth or Lockpicking)"',
   'Winter Soul':
     'Section=attribute,combat ' +
     'Note="+2 Vigor (resist cold)",' +
@@ -1201,7 +1201,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=self ' +
-    'Description="Gives +1 Persuasion (Raise +2) while maintained"',
+    'Description="Gives +1 Charisma (Raise +2) while maintained"',
   'Confusion': // ref Confusion
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -1642,13 +1642,13 @@ Hellfrost.SWD2SWADE = function(table) {
     'Climbing':'Athletics',
     'Investigation':'Research',
     'Knowledge (Academics)':'Academics',
+    'Knowledge (Alchemy)':'Weird Science',
     'Knowledge (Arcana)':'Occult',
     'Knowledge (Battle)':'Battle',
     'Knowledge (Electronics)':'Electronics',
     'Knowledge (Hacking)':'Hacking',
     'Knowledge (Language':'Language', // TODO lose close paren
     'Knowledge (Science)':'Science',
-    'Knowledge (Weird Science)':'Weird Science',
     'Lockpicking':'Thievery',
     'Streetwise':'Common Knowledge',
     'Swimming':'Athletics',
@@ -1873,6 +1873,10 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
+    rules.defineRule
+      ('powerCount', 'arcanaNotes.arcaneBackground(Miracles)', '+=', '2');
+    rules.defineRule
+      ('powerPoints', 'arcanaNotes.arcaneBackground(Miracles)', '+=', '10');
   } else if(name == 'Arcane Background (Rune Magic)') {
     rules.defineRule
       ('powerCount', 'arcanaNotes.arcaneBackground(RuneMagic)', '+=', '1');
@@ -2116,8 +2120,9 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   if(attribute == 'skills' &&
      attrs['features.Sneaky'] != null &&
      !attributes['skillAllocation.Stealth'] &&
+     !attributes['skillAllocation.Lockpicking'] &&
      !attributes['skillAllocation.Thievery']) {
-    attributes['skillAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Stealth' : 'Thievery')] = 2;
+    attributes['skillAllocation.Stealth'] = 2;
   }
   if(attribute == 'improvements' &&
      attrs['features.Diverse'] &&
