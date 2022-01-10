@@ -81,11 +81,13 @@ function Hellfrost(baseRules) {
 
   if(useSwade) {
     Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
+    Hellfrost.DEITIES = Hellfrost.SWD2SWADE(Hellfrost.DEITIES);
     Hellfrost.EDGES = Hellfrost.SWD2SWADE(Hellfrost.EDGES);
     Hellfrost.FEATURES = Hellfrost.SWD2SWADE(Hellfrost.FEATURES);
     Hellfrost.GOODIES = Hellfrost.SWD2SWADE(Hellfrost.GOODIES);
     Hellfrost.HINDRANCES = Hellfrost.SWD2SWADE(Hellfrost.HINDRANCES);
     Hellfrost.POWERS = Hellfrost.SWD2SWADE(Hellfrost.POWERS);
+    Hellfrost.RACES = Hellfrost.SWD2SWADE(Hellfrost.RACES);
     Hellfrost.SKILLS = Hellfrost.SWD2SWADE(Hellfrost.SKILLS);
   }
 
@@ -780,8 +782,8 @@ Hellfrost.EDGES_ADDED = {
       '"vigor >= 6",' +
       '"skills.Fighting >= 8",' +
       '"skills.Riding >= 6",' +
-      '"skills.Survival >= 6",' +
-      '"skills.Tracking >= 6"',
+      // TODO SWD also skills.Tracking >= 6
+      '"skills.Survival >= 6"',
   'Sister Of Mercy':
     'Type=professional ' +
     'Require=' +
@@ -855,10 +857,9 @@ Hellfrost.FEATURES_ADDED = {
   'Blood And Guts':
     'Section=combat ' +
     'Note="Halves negative difference between tokens when attacking in mass battle"',
-  // TODO implement
   'Bludgeoner':'Section=combat,skill ' +
     'Note=' +
-      '"+%V sling range, sling does d%{strength}%1+d6 damage at short range",' +
+      '"+%V sling range/Sling does d%{strength}%1+d6 damage at short range",' +
       '"+1 Charisma (engros)"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="Can cast two spells simultaneously"',
@@ -994,19 +995,16 @@ Hellfrost.FEATURES_ADDED = {
          '"+1 Knowledge (Battle)"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
-  // TODO implement in randomizeOneAttribute
   'Library':'Section=skill Note="+%V Skill Points (choice of Knowledge)"',
   'Linguist':'Section=skill Note="Knows %V languages"',
   'Lorekeeper':'Section=skill Note="d4 on untrained Smarts skills"',
   'Master Storyteller':
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
-  // TODO implement
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
-  // TODO implement
   'Mighty Throw':
     'Section=combat ' +
-    'Note="+1 thrown weapon range, +1 Strength die for short throws"',
+    'Note="+1 thrown weapon range/+1 Strength die for short throws"',
   'Necromantic Severing':
     'Section=combat Note="Can make called shots vs. undead"',
   'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
@@ -1640,24 +1638,27 @@ Hellfrost.WEAPONS = {
 
 Hellfrost.SWD2SWADE = function(table) {
   var replacements = {
+    // Powers
+    'Light/Obscure':'Light/Darkness',
+    // Races
+    'Short':'Size -1',
+    // Skills
     'Charisma':'Persuasion',
     'Climbing':'Athletics',
     'Investigation':'Research',
-    'Knowledge (Academics)':'Academics',
-    'Knowledge (Alchemy)':'Weird Science',
-    'Knowledge (Arcana)':'Occult',
-    'Knowledge (Battle)':'Battle',
-    'Knowledge (Electronics)':'Electronics',
-    'Knowledge (Hacking)':'Hacking',
-    'Knowledge (Language':'Language', // TODO lose close paren
-    'Knowledge (Science)':'Science',
+    'Knowledge \\(Academics\\)':'Academics',
+    'Knowledge \\(Alchemy\\)':'Weird Science',
+    'Knowledge \\(Arcana\\)':'Occult',
+    'Knowledge \\(Battle\\)':'Battle',
+    'Knowledge \\(Electronics\\)':'Electronics',
+    'Knowledge \\(Hacking\\)':'Hacking',
+    'Knowledge \\(Language \\((.*)\\)\\)':'Language ($1)',
+    'Knowledge \\(Science\\)':'Science',
     'Lockpicking':'Thievery',
-    'Short':'Size -1',
     'Streetwise':'Common Knowledge',
     'Swimming':'Athletics',
     'Throwing':'Athletics',
-    'Tracking':'Survival',
-    'Light/Obscure':'Light/Darkness'
+    'Tracking':'Survival'
   };
   var result = Object.assign({}, table);
   for(var r in replacements) {
@@ -1666,7 +1667,7 @@ Hellfrost.SWD2SWADE = function(table) {
       delete result[r];
     }
     for(var key in result) {
-      result[key] = result[key].replaceAll(r, replacements[r]);
+      result[key] = result[key].replace(new RegExp(r, 'g'), replacements[r]);
     }
   }
   return result;
@@ -1916,6 +1917,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'features.Bludgeoner', '?', null,
       'strengthModifier', '=', 'source<0 ? source : source>0 ? "+"+source : ""'
     );
+    rules.defineRule('range.Sling', 'combatNotes.bludgeoner', '+', null);
   } else if(name == 'Concentration') {
     rules.defineRule('arcanaNotes.concentration',
       '', '=', '2',
@@ -1961,6 +1963,23 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'features.Mighty Shot', '?', null,
       'strengthModifier', '=', 'source>0 ? "+"+source : source<0 ? source : ""'
     );
+    rules.defineRule('weapons.Bow.2', 'combatNotes.mightyShot', '=', null);
+    rules.defineRule
+      ('weapons.Bow.3', 'combatNotes.mightyShot.1', '=', 'source + "+"');
+    rules.defineRule('weapons.Bow.4', 'combatNotes.mightyShot', '=', '"d6"');
+    rules.defineRule('weapons.Long Bow.2', 'combatNotes.mightyShot', '=', null);
+    rules.defineRule
+      ('weapons.Long Bow.3', 'combatNotes.mightyShot.1', '=', 'source + "+"');
+    rules.defineRule
+      ('weapons.Long Bow.4', 'combatNotes.mightyShot', '=', '"d6"');
+  } else if(name == 'Mighty Throw') {
+    var allWeapons = rules.getChoices('weapons');
+    for(var w in allWeapons) {
+      if(allWeapons[w].includes('Range') &&
+         !allWeapons[w].includes('Category=R'))
+        rules.defineRule
+          ('weapons.' + w + '.6', 'combatNotes.mightyThrow', '+', '1');
+    }
   } else if(name == 'Noble') {
     rules.defineRule('features.Rich', 'featureNotes.noble', '=', '1');
   } else if(name == 'Runic Insight') {
@@ -2126,6 +2145,21 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
      !attributes['skillAllocation.Lockpicking'] &&
      !attributes['skillAllocation.Thievery']) {
     attributes['skillAllocation.Stealth'] = 2;
+  }
+  if(attribute == 'skills' && attrs['features.Library'] != null) {
+    var howMany =
+      attrs.smarts - QuilvynUtils.sumMatching(attributes, /skills.Knowledge/);
+    var allSkills = this.getChoices('skills');
+    for(var skill in allSkills) {
+      if(!skill.startsWith('Knowledge'))
+        continue;
+      if(howMany < 1)
+        break;
+      if(!attrs['skills.' + skill])
+        attrs['skills.' + skill] = 0;
+      attrs['skills.' + skill]++;
+      howMany--;
+    }
   }
   if(attribute == 'improvements' &&
      attrs['features.Diverse'] &&
