@@ -1063,7 +1063,9 @@ Hellfrost.FEATURES_ADDED = {
   // Hindrances
   'Apprentice/Novitiate':
     'Section=skill Note="Maximum starting arcane skill d6"',
-  'Apprentice/Novitiate+':'Section=arcana Note="-1 Power Count"',
+  'Apprentice/Novitiate+':
+    'Section=arcana,skill ' +
+    'Note="-1 Power Count","Maximum starting arcane skill d6"',
   'Black Sheep':
     'Section=feature,skill ' +
     'Note="Ostracized by magocratic nobility",' +
@@ -1558,7 +1560,7 @@ Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
   'Engro':
     'Features=' +
-      '"Engro Luck",Outsider,"Size -1",Sneaky,Spirited',
+      '"Engro Luck",Outsider,"Short",Sneaky,Spirited',
   'Frost Dwarf':
     'Features=' +
       '"Heat Lethargy",Outsider,"Low Light Vision",Mountain-Born,Slow,' +
@@ -1650,6 +1652,7 @@ Hellfrost.SWD2SWADE = function(table) {
     'Knowledge (Language':'Language', // TODO lose close paren
     'Knowledge (Science)':'Science',
     'Lockpicking':'Thievery',
+    'Short':'Size -1',
     'Streetwise':'Common Knowledge',
     'Swimming':'Athletics',
     'Throwing':'Athletics',
