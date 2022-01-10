@@ -12,13 +12,13 @@ var attributes = {
   "edges.Coordinated Firepower":1, "edges.Cry Havoc!":1, "edges.Death Before Dishonor":1, "edges.Fanaticism":1, 
   "edges.Fervor":1, "edges.Hold The Line!":1, "edges.Inspire":1, "edges.Siege Breaker":1, 
   "edges.Siege Mentality":1, "focusType":"Druidism", "gender":"Female", "hindrances.Black Sheep":1, 
-  "hindrances.Mean":1, "hindrances.Slow":1, "improvementPointsAllocation.Attribute":10, 
-  "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":8, "name":"Edges-Leadership", 
+  "hindrances.Mean":1, "hindrances.Stubborn":1, "improvementPointsAllocation.Attribute":10, 
+  "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":9, "name":"Edges-Leadership", 
   "race":"Hearth Elf", "shield":"None", "skillAllocation.Climbin":2, "skillAllocation.Fighting":3, 
-  "skillAllocation.Healing":1, "skillAllocation.Intimidation":1, "skillAllocation.Knowledge (Battle)":4, 
-  "skillAllocation.Persuasion":2, "skillAllocation.Repair":1, "skillAllocation.Shooting":3, 
-  "skillAllocation.Throwing":3, "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":1, 
-  "vigorAllocation":2
+  "skillAllocation.Gambling":1, "skillAllocation.Healing":1, "skillAllocation.Intimidation":1, 
+  "skillAllocation.Knowledge (Battle)":4, "skillAllocation.Persuasion":2, "skillAllocation.Repair":1, 
+  "skillAllocation.Shooting":3, "skillAllocation.Throwing":3, "smartsAllocation":3, "spiritAllocation":2, 
+  "strengthAllocation":1, "vigorAllocation":2
 };
   </script>
 </head>
@@ -53,7 +53,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (20 Points):</td>
+    <td><b>Skills</b> (21 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -61,16 +61,16 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Fighting: (agi) d8</td>
+      <td>Intimidation: (spi) d4</td>
+      <td>Repair: (sma) d4-2</td>
+    </tr><tr style="text-align:left">
+      <td>Gambling: (sma) d4</td>
       <td>Knowledge (Battle): (sma) d10</td>
       <td>Shooting: (agi) d8</td>
     </tr><tr style="text-align:left">
       <td>Healing: (sma) d4</td>
       <td>Persuasion: (spi) d6-2</td>
       <td>Throwing: (agi) d8</td>
-    </tr><tr style="text-align:left">
-      <td>Intimidation: (spi) d4</td>
-      <td>Repair: (sma) d4-2</td>
-      <td></td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -96,8 +96,8 @@ var attributes = {
     <td>    <table id="AdvanceStats" style="width:100%">
     <tr style="text-align:center">
       <td><b>Advances</b>: 12</td>
-      <td><b>Improvement Points</b>: 26</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 10; Edge: 8; Skill: 8</td>
+      <td><b>Improvement Points</b>: 27</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 10; Edge: 8; Skill: 9</td>
     </tr></table>
 </td>
   </tr></table>
@@ -108,7 +108,7 @@ var attributes = {
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
       <td><b>Edges</b> (5 points): A Few Good Men; Command Presence; Command; Coordinated Firepower; Cry Havoc!; Death Before Dishonor; Fanaticism; Fervor; Hold The Line!; Inspire; Siege Breaker; Siege Mentality</td>
-      <td><b>Hindrances</b>: Black Sheep; Mean; Slow</td>
+      <td><b>Hindrances</b>: Black Sheep; Mean; Stubborn</td>
       <td><b>Hearth Elf Features</b>: Agile; All Thumbs; Forest-Born; Low Light Vision; Natural Realms</td>
     </tr></table>
 </td>
@@ -128,6 +128,8 @@ var attributes = {
       <td>Mean: Ill-tempered and disagreeable</td>
     </tr><tr style="text-align:center">
       <td>Natural Realms: Treats Elfhomes as wilds</td>
+    </tr><tr style="text-align:center">
+      <td>Stubborn: Never admits error</td>
     </tr></table>
 </td>
   </tr></table>

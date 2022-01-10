@@ -19,7 +19,7 @@ var attributes = {
   "edges.Power Surge":1, "edges.Runic Insight":3, "edges.Spell Finesse (Arcane)":1, 
   "edges.Spell Finesse (Armor Penetration)":1, "edges.Spell Finesse (Heavy Weapon)":1, "edges.Spell Finesse (Range)":1, 
   "edges.Spell Finesse (Selective)":1, "focusType":"Elementalism", "gender":"Male", 
-  "hindrances.Necromantic Weakness":1, "hindrances.Stubborn":1, "hindrances.Thin Skinned":1, 
+  "hindrances.Necromantic Weakness":1, "hindrances.Stubborn":1, "hindrances.Wanted":1, 
   "improvementPointsAllocation.Attribute":8, "improvementPointsAllocation.Edge":10, 
   "improvementPointsAllocation.Skill":9, "name":"Edges-Power", "race":"Engro", "shield":"None", 
   "skillAllocation.Heahwisardry":4, "skillAllocation.Knowledge (Academics)":1, 
@@ -108,7 +108,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td>    <table id="Description" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Size</b>: 0</td>
+      <td><b>Size</b>: -1</td>
       <td><b>Deity</b>: Neorthe</td>
     </tr></table>
 </td>
@@ -116,10 +116,12 @@ var attributes = {
     <td>    <table id="AdvanceStats" style="width:100%">
     <tr style="text-align:center">
       <td><b>Advances</b>: 12</td>
-      <td><b>Improvement Points</b>: 26</td>
+      <td><b>Improvement Points</b>: 27</td>
       <td><b>Improvement Points Allocation</b>: Attribute: 8; Edge: 10; Skill: 9</td>
     </tr></table>
 </td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Short: -1 Size</i></td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -128,8 +130,8 @@ var attributes = {
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
       <td><b>Edges</b> (6 points): Alchemy: 1; Arcane Background (Druidism): 1; Arcane Background (Elementalism (Eir)): 1; Arcane Background (Elementalism (Ertha)): 1; Arcane Background (Elementalism (Fyr)): 1; Arcane Background (Elementalism (Waeter)): 1; Arcane Background (Heahwisardry): 1; Arcane Background (Hrimwisardry): 1; Arcane Background (Rune Magic): 1; Arcane Background (Song Magic): 1; Augment Staff (Aura): 1; Augment Staff (Damage): 2; Augment Staff (Deflect): 2; Augment Staff (Spell Store): 2; Combine Spells: 1; Concentration: 1; Elemental Mastery: 3; Focus: 1; Hellfreeze: 1; Improved Concentration: 1; Improved Focus: 1; Power Surge: 1; Runic Insight: 3; Spell Finesse (Arcane): 1; Spell Finesse (Armor Penetration): 1; Spell Finesse (Heavy Weapon): 1; Spell Finesse (Range): 1; Spell Finesse (Selective): 1</td>
-      <td><b>Hindrances</b>: Necromantic Weakness; Stubborn; Thin Skinned</td>
-      <td><b>Engro Features</b>: Engro Luck; Outsider; Size -1; Sneaky; Spirited</td>
+      <td><b>Hindrances</b>: Necromantic Weakness; Stubborn; Wanted</td>
+      <td><b>Engro Features</b>: Engro Luck; Outsider; Short; Sneaky; Spirited</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -140,6 +142,8 @@ var attributes = {
       <td>Engro Luck: +1 Benny each session</td>
     </tr><tr style="text-align:center">
       <td>Stubborn: Never admits error</td>
+    </tr><tr style="text-align:center">
+      <td>Wanted: Has trouble with distant law or minor infractions</td>
     </tr></table>
 </td>
   </tr></table>
@@ -152,7 +156,7 @@ var attributes = {
       <td>      <table id="CombatStats" style="width:100%">
       <tr style="text-align:center">
         <td><b>Parry</b>: 2 (0)</td>
-        <td><b>Toughness</b>: 5 (0)</td>
+        <td><b>Toughness</b>: 4 (0)</td>
         <td><b>Cover</b>: 0</td>
         <td><b>Pace/Run</b>: 6/+d6</td>
       </tr></table>
@@ -168,6 +172,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
       <tr style="text-align:center">
+        <td><i>Short: -1 Toughness</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Vigor Toughness Modifier: +3</i></td>
       </tr><tr style="text-align:center">
         <td>Arcane Background (Hrimwisardry): -4 damage from cold, +4 from heat</td>
@@ -251,13 +257,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
-      <tr style="text-align:center">
-        <td>Edge Points Allocation: 6 available vs. 35 allocated</td>
-      </tr><tr style="text-align:center">
-        <td>Improvement Points Allocation: 26 available vs. 27 allocated</td>
-      </tr></table>
-</td>
+      <td><b>Validation Errors</b>: Edge Points Allocation: 6 available vs. 35 allocated</td>
     </tr></table>
 </td>
   </tr></table>

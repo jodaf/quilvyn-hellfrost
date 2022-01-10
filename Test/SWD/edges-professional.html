@@ -15,14 +15,15 @@ var attributes = {
   "edges.Reliquary (Reliqus)":1, "edges.Roadwarden":1, "edges.Sister Of Mercy":1, "edges.Thief":1, 
   "edges.Two-Fisted":1, "edges.Wood Warden":1, "edges.Woodsman":1, "focusType":"Hrimwisardry", 
   "gender":"Female", "hindrances.Orders":1, "hindrances.Pacifist":1, 
-  "improvementPointsAllocation.Attribute":16, "improvementPointsAllocation.Skill":28, "name":"Edges-Professional", 
+  "improvementPointsAllocation.Attribute":16, "improvementPointsAllocation.Skill":30, "name":"Edges-Professional", 
   "race":"Taiga Elf", "shield":"None", "skillAllocation.Climbing":2, "skillAllocation.Faith":2, 
-  "skillAllocation.Fighting":3, "skillAllocation.Healing":3, "skillAllocation.Investigation":2, 
-  "skillAllocation.Knowledge (Alchemy)":2, "skillAllocation.Knowledge (Arcana)":3, 
-  "skillAllocation.Knowledge (Battle)":3, "skillAllocation.Lockpicking":2, "skillAllocation.Notice":2, 
-  "skillAllocation.Riding":2, "skillAllocation.Shooting":3, "skillAllocation.Stealth":3, 
-  "skillAllocation.Survival":3, "skillAllocation.Tracking":3, "skillAllocation.Weird Science":2, 
-  "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, "vigorAllocation":2
+  "skillAllocation.Fighting":3, "skillAllocation.Healing":3, "skillAllocation.Intimidation":2, 
+  "skillAllocation.Investigation":2, "skillAllocation.Knowledge (Alchemy)":2, 
+  "skillAllocation.Knowledge (Arcana)":3, "skillAllocation.Knowledge (Battle)":3, "skillAllocation.Lockpicking":2, 
+  "skillAllocation.Notice":2, "skillAllocation.Riding":2, "skillAllocation.Shooting":3, 
+  "skillAllocation.Stealth":3, "skillAllocation.Survival":3, "skillAllocation.Tracking":3, 
+  "skillAllocation.Weird Science":2, "smartsAllocation":3, "spiritAllocation":3, "strengthAllocation":2, 
+  "vigorAllocation":2
 };
   </script>
 </head>
@@ -61,7 +62,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (40 Points):</td>
+    <td><b>Skills</b> (42 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -69,27 +70,27 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Climbing: (str) d6+2</td>
+      <td>Knowledge (Alchemy): (sma) d6</td>
+      <td>Shooting: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d6</td>
       <td>Knowledge (Arcana): (sma) d8</td>
       <td>Stealth: (agi) d8</td>
     </tr><tr style="text-align:left">
-      <td>Faith: (spi) d6</td>
+      <td>Fighting: (agi) d8</td>
       <td>Knowledge (Battle): (sma) d8+1</td>
       <td>Survival: (sma) d8+2</td>
     </tr><tr style="text-align:left">
-      <td>Fighting: (agi) d8</td>
+      <td>Healing: (sma) d8+2</td>
       <td>Lockpicking: (agi) d6+2</td>
       <td>Tracking: (sma) d8+2</td>
     </tr><tr style="text-align:left">
-      <td>Healing: (sma) d8+2</td>
+      <td>Intimidation: (spi) d6</td>
       <td>Notice: (sma) d6</td>
       <td>Weird Science: (sma) d6</td>
     </tr><tr style="text-align:left">
       <td>Investigation: (sma) d6</td>
       <td>Riding: (agi) d6</td>
-      <td></td>
-    </tr><tr style="text-align:left">
-      <td>Knowledge (Alchemy): (sma) d6</td>
-      <td>Shooting: (agi) d8</td>
       <td></td>
     </tr></table>
 </td>
@@ -141,7 +142,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Advances</b>: 12</td>
       <td><b>Improvement Points</b>: 26</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 16; Skill: 28</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 16; Skill: 30</td>
     </tr></table>
 </td>
   </tr></table>
@@ -261,11 +262,11 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill >= 6 and shooting skill (currently 8) >= 8</td>
+        <td>Bludgeoner Edge: Requires race (currently Taiga Elf) == 'Engro', spirit (currently 10) >= 8, strength (currently 8) >= 6, intimidation skill (currently 6) >= 6 and shooting skill (currently 8) >= 8</td>
       </tr><tr style="text-align:center">
         <td>Edge Points Allocation: 1 available vs. 21 allocated</td>
       </tr><tr style="text-align:center">
-        <td>Improvement Points Allocation: 26 available vs. 44 allocated</td>
+        <td>Improvement Points Allocation: 26 available vs. 46 allocated</td>
       </tr></table>
 </td>
     </tr></table>
