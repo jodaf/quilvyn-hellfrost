@@ -1605,7 +1605,7 @@ Hellfrost.SKILLS_ADDED = {
 };
 Hellfrost.SKILLS = Object.assign({}, SWADE.SKILLS, Hellfrost.SKILLS_ADDED);
 Hellfrost.WEAPONS = {
-  'Unarmed':'Damage=Str+0 MinStr=4 Weight=0 Category=Un',
+  'Unarmed':'Damage=Str+d0 MinStr=4 Weight=0 Category=Un',
   'Antler Staff':'Damage=Str+d6 MinStr=4 Weight=10 Category=2h Parry=1',
   'Bear Claw':'Damage=Str+d4 MinStr=4 Weight=8 Category=1h Parry=1',
   'Double Toothpick':'Damage=Str+d6 MinStr=4 Weight=5 Category=1h',
@@ -1851,46 +1851,12 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  * derived directly from the attributes passed to edgeRules.
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
-  var note;
-  if(name == 'Arcane Background (Druidism)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Druidism)', '+=', '3');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Druidism)', '+=', '10');
-  } else if(name.match(/Arcane Background .Elementalism/)) {
-    note = 'arcanaNotes.a' + name.substring(1).replaceAll(' ', '');
-    rules.defineRule('powerCount', note, '+=', '3');
-    rules.defineRule('powerPoints', note, '+=', '10');
-  } else if(name == 'Arcane Background (Heahwisardry)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Heahwisardry)', '+=', '3');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Heahwisardry)', '+=', '10');
-  } else if(name == 'Arcane Background (Hrimwisardry)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Hrimwisardry)', '+=', '2');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Hrimwisardry)', '+=', '10');
-  } else if(name == 'Arcane Background (Miracles)') {
+  if(name == 'Arcane Background (Miracles)') {
     rules.defineRule('features.Connections',
       'features.Arcane Background (Miracles)', '=', '1'
     );
     rules.defineRule
       ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(Miracles)', '+=', '2');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(Miracles)', '+=', '10');
-  } else if(name == 'Arcane Background (Rune Magic)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(RuneMagic)', '+=', '1');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(RuneMagic)', '+=', '10');
-  } else if(name == 'Arcane Background (Song Magic)') {
-    rules.defineRule
-      ('powerCount', 'arcanaNotes.arcaneBackground(SongMagic)', '+=', '3');
-    rules.defineRule
-      ('powerPoints', 'arcanaNotes.arcaneBackground(SongMagic)', '+=', '10');
   } else if(name == 'Augment Staff (Damage)') {
     rules.defineRule('combatNotes.augmentStaff(Damage).1',
       'features.Augment Staff (Damage)', '?', null,
