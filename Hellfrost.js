@@ -818,31 +818,31 @@ Hellfrost.FEATURES_ADDED = {
   'Alchemy':'Section=arcana Note="Can create arcane devices for known spells"',
   'Arcane Background (Druidism)':
     'Section=arcana,skill ' +
-    'Note="Power Count 3/Power Points 10",' +
+    'Note="3 Powers/10 Power Points",' +
          '"+1 arcane skill in natural environments, -1 in urban environments"',
   'Arcane Background (Elementalism (Eir))':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Elementalism (Ertha))':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Elementalism (Fyr))':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Elementalism (Waeter))':
-    'Section=arcana Note="Power Count 3/Power Points 10"',
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Heahwisardry)':
     'Section=arcana,skill ' +
-    'Note="Power Count 3/Power Points 10",' +
+    'Note="3 Powers/10 Power Points",' +
          '"-2 arcane skill, +1 per extra round taken (+%{smarts//2} max)"',
   'Arcane Background (Hrimwisardry)':
     'Section=arcana,combat,feature,skill ' +
-    'Note="Power Count 2/Power Points 10",' +
+    'Note="2 Powers/10 Power Points",' +
          '"-4 damage from cold, +4 from heat",' +
          '"Treated with deep suspicion",' +
          '"Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
-    'Section=arcana Note="Power Count 1/Power Points 10"',
+    'Section=arcana Note="1 Power/10 Power Points"',
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
-    'Note="Power Count 3/Power Points 10",' +
+    'Note="3 Powers/10 Power Points",' +
          '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
