@@ -56,12 +56,12 @@ function Hellfrost(baseRules) {
   );
   rules.defineChoice('preset',
     'race:Race,select-one,races', 'advances:Advances,text,4',
-    'arcaneFocus:Arcane Focus?,checkbox,',
-    'focusType:Focus Type,select-one,arcanas'
+    'background:Background,select-one,backgrounds'
   );
 
   Hellfrost.ARCANAS =
     Object.assign({}, rules.basePlugin.ARCANAS, Hellfrost.ARCANAS_ADDED);
+  delete Hellfrost.ARCANAS['Gifted'];
   delete Hellfrost.ARCANAS['Magic'];
   delete Hellfrost.ARCANAS['Psionics'];
   delete Hellfrost.ARCANAS['Super Powers'];
@@ -69,6 +69,11 @@ function Hellfrost(baseRules) {
   Hellfrost.EDGES =
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
   delete Hellfrost.EDGES['Ace'];
+  delete Hellfrost.EDGES['Arcane Background (Gifted)'];
+  delete Hellfrost.EDGES['Arcane Background (Magic)'];
+  delete Hellfrost.EDGES['Arcane Background (Psionics)'];
+  delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
+  delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
   Hellfrost.FEATURES =
     Object.assign({}, rules.basePlugin.FEATURES, Hellfrost.FEATURES_ADDED);
   Hellfrost.GOODIES = Object.assign({}, rules.basePlugin.GOODIES);
@@ -81,6 +86,7 @@ function Hellfrost(baseRules) {
 
   if(useSwade) {
     Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
+    Hellfrost.BACKGROUNDS = Hellfrost.SWD2SWADE(Hellfrost.BACKGROUNDS);
     Hellfrost.DEITIES = Hellfrost.SWD2SWADE(Hellfrost.DEITIES);
     Hellfrost.EDGES = Hellfrost.SWD2SWADE(Hellfrost.EDGES);
     Hellfrost.FEATURES = Hellfrost.SWD2SWADE(Hellfrost.FEATURES);
@@ -95,7 +101,8 @@ function Hellfrost(baseRules) {
   Hellfrost.combatRules
     (rules, Hellfrost.ARMORS, Hellfrost.SHIELDS, Hellfrost.WEAPONS);
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
-  Hellfrost.identityRules(rules, Hellfrost.RACES, Hellfrost.DEITIES);
+  Hellfrost.identityRules
+    (rules, Hellfrost.RACES, Hellfrost.BACKGROUNDS, Hellfrost.DEITIES);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS);
@@ -106,7 +113,6 @@ function Hellfrost(baseRules) {
 
 Hellfrost.VERSION = '2.3.1.0';
 
-// Individual Arcane Background skill replaced with Spellcasting
 Hellfrost.ARCANAS_ADDED = {
   'Druidism':
     'Skill=Druidism ' +
@@ -208,7 +214,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Speak Language",Stun,Succor,"Summon Beast","Voice On The Wind",' +
       'Warding,"Warrior\'s Gift","Wilderness Step"'
 };
-Hellfrost.ARCANAS = Object.assign({}, SWADE.ARCANAS, Hellfrost.ARCANAS_ADDED);
+Hellfrost.ARCANAS = Object.assign({}, SWD.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS['Magic'];
 delete Hellfrost.ARCANAS['Psionics'];
 delete Hellfrost.ARCANAS['Super Powers'];
@@ -230,6 +236,109 @@ Hellfrost.ARMORS = {
   'Full Helmet':'Area=Head Armor=3 MinStr=4 Weight=8',
   'Blessed Robes':'Area=Body Armor=1 MinStr=4 Weight=8',
   'Blessed Armor':'Area=Body Armor=3 MinStr=4 Weight=30'
+};
+Hellfrost.BACKGROUNDS = {
+  'Avenger':'',
+  'Bandit':'',
+  'Bladedancer':
+    'Edge=Two-Fisted ' +
+    'Attribute=agility ' +
+    'Skill=Fighting',
+  'Bludgeoner':
+    'Edge=Bludgeoner ' +
+    'Attribute=spirit,strength ' +
+    'Skill=Intimidation,Shooting',
+  'Citizen':'',
+  'Druid':
+    'Edge="Arcane Background (Druidism)" ' +
+    'Attribute=smarts ' +
+    'Skill=Druidism',
+  'Elementalist (Eir)':
+    'Edge="Arcane Background (Elementalism (Eir))" ' +
+    'Attribute=smarts ' +
+    'Skill="Elementalism (Eir)"',
+  'Elementalist (Ertha)':
+    'Edge="Arcane Background (Elementalism (Ertha))" ' +
+    'Attribute=smarts ' +
+    'Skill="Elementalism (Ertha)"',
+  'Elementalist (Fyr)':
+    'Edge="Arcane Background (Elementalism (Fyr))" ' +
+    'Attribute=smarts ' +
+    'Skill="Elementalism (Fyr)"',
+  'Elementalist (Waeter)':
+    'Edge="Arcane Background (Elementalism (Waeter))" ' +
+    'Attribute=smarts ' +
+    'Skill="Elementalism (Waeter)"',
+  'Explorer':'',
+  'Fighter':'',
+  'Gray Legionary':
+    'Edge="Gray Legionary" ' +
+    'Attribute=spirit ' +
+    'Skill=Fighting,Shooting,Throwing',
+  'Heahwisard':
+    'Edge="Arcane Background (Heahwisardry)" ' +
+    'Attribute=smarts ' +
+    'Skill=Heahwisardry',
+  'Healer':
+    'Edge="Sister Of Mercy" ' +
+    'Skill=Healing',
+  'Hearth Knight':
+    'Edge="Hearth Knight" ' +
+    'Attribute=spirit,vigor ' +
+    'Skill=Fighting,Riding,Survival',
+  'Herald':'',
+  'Hrimwisard':
+    'Edge="Arcane Background (Hrimwisardry)" ' +
+    'Attribute=smarts ' +
+    'Skill=Hrimwisardry',
+  'Ice Rigger':'',
+  'Iron Guild Mercenary':
+    'Edge="Iron Guid Mercenary" ' +
+    'Attribute=strength,spirit ' +
+    'Skill=Fighting',
+  'Itinerant Worker':'',
+  'Knight Hrafn':
+    'Edge="Knight Hrafn",Command ' +
+    'Attribute=smarts,spirit',
+  'Lorekeeper':
+    'Edge=Lorekeeper ' +
+    'Attribute=smarts ' +
+    'Skill=Investigation',
+  'Messenger':'',
+  'Noble':
+    'Edge=Noble',
+  'Outlaw':'',
+  'Paladin':'',
+  'Priest':
+    'Edge="Arcane Background (Miracles)" ' +
+    'Attribute=spirit ' +
+    'Skill=Faith',
+  'Range':'',
+  'Refugee':'',
+  'Reliqus':
+    'Edge="Reliquary (Reliqus)" ' +
+    'Attribute=agility ' +
+    'Skill=Lockpicking,Notice',
+  'Roadwarden':
+    'Edge=Roadwarden ' +
+    'Attribute=vigor ' +
+    'Skill=Fighting,Riding,Tracking',
+  'Rune Mage':
+    'Edge="Arcane Background (Rune Magic)" ' +
+    'Attribute=smarts',
+  'Scout':'',
+  'Skald':
+    'Edge="Arcane Background (Song Magic)" ' +
+    'Attribute=smarts ' +
+    'Skill="Song Magic"',
+  'Trapper':'',
+  'Wood Warden':
+    'Edge=Woodsman ' +
+    'Skill=Shooting',
+  'Woodsman':
+    'Edge=Woodsman ' +
+    'Attribute=spirit ' +
+    'Skill=Survival'
 };
 Hellfrost.DEITIES = {
   'None':'',
@@ -260,6 +369,15 @@ Hellfrost.DEITIES = {
 };
 Hellfrost.EDGES_ADDED = {
   // Background
+  'Arcane Background (Druidism)':'Type=background',
+  'Arcane Background (Elementalism (Eir))':'Type=background',
+  'Arcane Background (Elementalism (Ertha))':'Type=background',
+  'Arcane Background (Elementalism (Fyr))':'Type=background',
+  'Arcane Background (Elementalism (Waeter))':'Type=background',
+  'Arcane Background (Heahwisardry)':'Type=background',
+  'Arcane Background (Hrimwisardry)':'Type=background',
+  'Arcane Background (Rune Magic)':'Type=background',
+  'Arcane Background (Song Magic)':'Type=background',
   'Library':
     'Type=background ' +
     'Require="features.Rich || features.Lorekeeper","features.Illiterate == 0"',
@@ -789,7 +907,7 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"skills.Healing >= 8",' +
       '"gender == \'Female\'",' +
-      '"features.Pacifist || features.Pacifist+"',
+      '"hindrances.Pacifist || hindrances.Pacifist+"',
   'Wood Warden':
     'Type=professional ' +
     'Require=' +
@@ -806,9 +924,13 @@ Hellfrost.EDGES_ADDED = {
   'Legendary Storyteller':
     'Type=background Require="advances >= 12","features.Master Storyteller"'
 };
-Hellfrost.EDGES = Object.assign({}, SWADE.EDGES, Hellfrost.EDGES_ADDED);
+Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
-// Forbidden Arcane Backgrounds handled with ARCANAS
+delete Hellfrost.EDGES['Arcane Background (Gifted)'];
+delete Hellfrost.EDGES['Arcane Background (Magic)'];
+delete Hellfrost.EDGES['Arcane Background (Psionics)'];
+delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
+delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
 // Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
 Hellfrost.FEATURES_ADDED = {
 
@@ -1098,9 +1220,8 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+2 Vigor (resist cold)",' +
          '"+2 Armor vs. cold attacks"'
 };
-Hellfrost.FEATURES =
-  Object.assign({}, SWADE.FEATURES, Hellfrost.FEATURES_ADDED);
-Hellfrost.GOODIES = Object.assign({}, SWADE.GOODIES);
+Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
+Hellfrost.GOODIES = Object.assign({}, SWD.GOODIES);
 Hellfrost.HINDRANCES_ADDED = {
   'Apprentice/Novitiate':
     'Severity=Minor Require=powerCount,"features.Apprentice/Novitiate+ == 0"',
@@ -1117,7 +1238,7 @@ Hellfrost.HINDRANCES_ADDED = {
   'Orders':'Severity=Minor'
 };
 Hellfrost.HINDRANCES =
-  Object.assign({}, SWADE.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
+  Object.assign({}, SWD.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
 Hellfrost.POWERS_ADDED = {
   'Aim':
     'Advances=0 ' +
@@ -1554,7 +1675,7 @@ Hellfrost.POWERS_ADDED = {
     'Description=' +
       '"Target dbl Pace (Raise also Run as free action) while maintained"'
 };
-Hellfrost.POWERS = Object.assign({}, SWADE.POWERS, Hellfrost.POWERS_ADDED);
+Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
   'Engro':
     'Features=' +
@@ -1603,7 +1724,7 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (Riddles)':'Attribute=smarts',
   'Knowledge (Siege Artillery)':'Attribute=smarts'
 };
-Hellfrost.SKILLS = Object.assign({}, SWADE.SKILLS, Hellfrost.SKILLS_ADDED);
+Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
 Hellfrost.WEAPONS = {
   'Unarmed':'Damage=Str+d0 MinStr=4 Weight=0 Category=Un',
   'Antler Staff':'Damage=Str+d6 MinStr=4 Weight=10 Category=2h Parry=1',
@@ -1686,8 +1807,8 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 };
 
 /* Defines rules related to basic character identity. */
-Hellfrost.identityRules = function(rules, races, deities) {
-  rules.basePlugin.identityRules(rules, races, {}, deities);
+Hellfrost.identityRules = function(rules, races, backgrounds, deities) {
+  rules.basePlugin.identityRules(rules, races, {}, backgrounds, deities);
   // No changes needed to the rules defined by base method
 };
 
@@ -1722,6 +1843,12 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'Armor'),
       QuilvynUtils.getAttrValue(attrs, 'MinStr'),
       QuilvynUtils.getAttrValue(attrs, 'Weight')
+    );
+  else if(type == 'Background')
+    Hellfrost.backgroundRules(rules, name,
+      QuilvynUtils.getAttrValueArray(attrs, 'Attribute'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Edge'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Skill')
     );
   else if(type == 'Deity')
     Hellfrost.deityRules(rules, name);
@@ -1820,6 +1947,16 @@ Hellfrost.arcanaRules = function(rules, name, skill, powers) {
 Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
   rules.basePlugin.armorRules
     (rules, name, ['Medieval'], areas, armor, minStr, weight);
+  // No changes needed to the rules defined by base method
+};
+
+/*
+ * Defines in #rules# the rules associated with background #name#.
+ * #attributes#, #edges#, and #skills# list the names of attributes, edges,
+ * and skills associated with the background.
+ */
+Hellfrost.backgroundRules = function(rules, name, attributes, edges, skills) {
+  rules.basePlugin.backgroundRules(rules, name, attributes, edges, skills);
   // No changes needed to the rules defined by base method
 };
 
@@ -1963,7 +2100,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'combatNotes.improvedSunder', '+', '1'
     );
   } else if(name == 'Tactician') {
-    ; // empty; overrides basePlugin computation
+    // empty; overrides basePlugin computation
   } else if(name == 'Wood Warden') {
     rules.defineRule('powers.Beast Friend', 'features.Wood Warden', '=', '1');
   } else {
@@ -2175,5 +2312,3 @@ Hellfrost.ruleNotes = function() {
     'Hellfrost Player\'s Guide © 2009 Triple Ace Games.\n' +
     '</p>\n';
 };
-// https://drive.google.com/file/d/1XalBepGyW5GRts_8hsYE_UPLVnwnkU1I/view
-// https://drive.google.com/file/d/10BnsW6778l1XwLB93p52AwBcrrSJmpsL/view
