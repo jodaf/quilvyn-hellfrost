@@ -56,7 +56,7 @@ function Hellfrost(baseRules) {
   );
   rules.defineChoice('preset',
     'race:Race,select-one,races', 'advances:Advances,text,4',
-    'background:Background,select-one,backgrounds'
+    'concept:Concept,select-one,concepts'
   );
 
   Hellfrost.ARCANAS =
@@ -84,7 +84,7 @@ function Hellfrost(baseRules) {
 
   if(useSwade) {
     Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
-    Hellfrost.BACKGROUNDS = Hellfrost.SWD2SWADE(Hellfrost.BACKGROUNDS);
+    Hellfrost.CONCEPTS = Hellfrost.SWD2SWADE(Hellfrost.CONCEPTS);
     Hellfrost.DEITIES = Hellfrost.SWD2SWADE(Hellfrost.DEITIES);
     Hellfrost.EDGES = Hellfrost.SWD2SWADE(Hellfrost.EDGES);
     Hellfrost.FEATURES = Hellfrost.SWD2SWADE(Hellfrost.FEATURES);
@@ -100,7 +100,7 @@ function Hellfrost(baseRules) {
     (rules, Hellfrost.ARMORS, Hellfrost.SHIELDS, Hellfrost.WEAPONS);
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
   Hellfrost.identityRules
-    (rules, Hellfrost.RACES, Hellfrost.BACKGROUNDS, Hellfrost.DEITIES);
+    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS);
@@ -235,7 +235,7 @@ Hellfrost.ARMORS = {
   'Blessed Robes':'Area=Body Armor=1 MinStr=4 Weight=8',
   'Blessed Armor':'Area=Body Armor=3 MinStr=4 Weight=30'
 };
-Hellfrost.BACKGROUNDS = {
+Hellfrost.CONCEPTS = {
   'Avenger':'',
   'Bandit':'',
   'Bladedancer':
@@ -1804,8 +1804,8 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 };
 
 /* Defines rules related to basic character identity. */
-Hellfrost.identityRules = function(rules, races, backgrounds, deities) {
-  rules.basePlugin.identityRules(rules, races, {}, backgrounds, deities);
+Hellfrost.identityRules = function(rules, races, concepts, deities) {
+  rules.basePlugin.identityRules(rules, races, {}, concepts, deities);
   // No changes needed to the rules defined by base method
 };
 
@@ -1841,8 +1841,8 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'MinStr'),
       QuilvynUtils.getAttrValue(attrs, 'Weight')
     );
-  else if(type == 'Background')
-    Hellfrost.backgroundRules(rules, name,
+  else if(type == 'Concept')
+    Hellfrost.conceptRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Attribute'),
       QuilvynUtils.getAttrValueArray(attrs, 'Edge'),
       QuilvynUtils.getAttrValueArray(attrs, 'Skill')
@@ -1948,12 +1948,12 @@ Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
 };
 
 /*
- * Defines in #rules# the rules associated with background #name#.
- * #attributes#, #edges#, and #skills# list the names of attributes, edges,
- * and skills associated with the background.
+ * Defines in #rules# the rules associated with concept #name#. #attributes#,
+ * #edges#, and #skills# list the names of attributes, edges, and skills
+ * associated with the concept.
  */
-Hellfrost.backgroundRules = function(rules, name, attributes, edges, skills) {
-  rules.basePlugin.backgroundRules(rules, name, attributes, edges, skills);
+Hellfrost.conceptRules = function(rules, name, attributes, edges, skills) {
+  rules.basePlugin.conceptRules(rules, name, attributes, edges, skills);
   // No changes needed to the rules defined by base method
 };
 
