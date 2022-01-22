@@ -99,11 +99,11 @@ function Hellfrost(baseRules) {
   Hellfrost.combatRules
     (rules, Hellfrost.ARMORS, Hellfrost.SHIELDS, Hellfrost.WEAPONS);
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
-  Hellfrost.identityRules
-    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS);
+  Hellfrost.identityRules
+    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
 
   Quilvyn.addRuleSet(rules);
 
@@ -240,102 +240,118 @@ Hellfrost.CONCEPTS = {
   'Bandit':'',
   'Bladedancer':
     'Edge=Two-Fisted ' +
-    'Attribute=agility ' +
+    'Attribute=Agility ' +
     'Skill=Fighting',
   'Bludgeoner':
     'Edge=Bludgeoner ' +
-    'Attribute=spirit,strength ' +
+    'Attribute=Spirit,Strength ' +
     'Skill=Intimidation,Shooting',
   'Citizen':'',
   'Druid':
     'Edge="Arcane Background (Druidism)" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill=Druidism',
   'Elementalist (Eir)':
     'Edge="Arcane Background (Elementalism (Eir))" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill="Elementalism"',
   'Elementalist (Ertha)':
     'Edge="Arcane Background (Elementalism (Ertha))" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill="Elementalism"',
   'Elementalist (Fyr)':
     'Edge="Arcane Background (Elementalism (Fyr))" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill="Elementalism"',
   'Elementalist (Waeter)':
     'Edge="Arcane Background (Elementalism (Waeter))" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill="Elementalism"',
-  'Explorer':'',
-  'Fighter':'',
+  'Explorer': // Estimated related features
+    'Attribute=Smarts ' +
+    'Skill=Survival',
+  'Fighter': // Estimated related features
+    'Attribute=Agility ' +
+    'Skill=Fighting,Shooting',
   'Gray Legionary':
     'Edge="Gray Legionary" ' +
-    'Attribute=spirit ' +
+    'Attribute=Spirit ' +
     'Skill=Fighting,Shooting,Throwing',
   'Heahwisard':
     'Edge="Arcane Background (Heahwisardry)" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill=Heahwisardry',
   'Healer':
     'Edge="Sister Of Mercy" ' +
     'Skill=Healing',
   'Hearth Knight':
     'Edge="Hearth Knight" ' +
-    'Attribute=spirit,vigor ' +
+    'Attribute=Spirit,Vigor ' +
     'Skill=Fighting,Riding,Survival',
   'Herald':'',
   'Hrimwisard':
     'Edge="Arcane Background (Hrimwisardry)" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill=Hrimwisardry',
-  'Ice Rigger':'',
+  'Ice Rigger': // Estimated related features
+    'Attribute=Agility ' +
+    'Skill=Boating',
   'Iron Guild Mercenary':
-    'Edge="Iron Guid Mercenary" ' +
-    'Attribute=strength,spirit ' +
+    'Edge="Iron Guild Mercenary" ' +
+    'Attribute=Strength,Spirit ' +
     'Skill=Fighting',
   'Itinerant Worker':'',
   'Knight Hrafn':
     'Edge="Knight Hrafn",Command ' +
-    'Attribute=smarts,spirit',
+    'Attribute=Smarts,Spirit',
   'Lorekeeper':
     'Edge=Lorekeeper ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill=Investigation',
-  'Messenger':'',
+  'Messenger': // Estimated related features
+    'Attribute=Agility ' +
+    'Skill=Riding',
   'Noble':
     'Edge=Noble',
   'Outlaw':'',
-  'Paladin':'',
+  'Paladin': // Estimated related features
+    'Attribute=Agility,Spirit ' +
+    'Skill=Faith,Fighting',
   'Priest':
     'Edge="Arcane Background (Miracles)" ' +
-    'Attribute=spirit ' +
+    'Attribute=Spirit ' +
     'Skill=Faith',
-  'Range':'',
+  'Ranger': // Estimated related features
+    'Attribute=Agility,Smarts ' +
+    'Skill=Fighting,Survival',
   'Refugee':'',
   'Reliqus':
     'Edge="Reliquary (Reliqus)" ' +
-    'Attribute=agility ' +
+    'Attribute=Agility ' +
     'Skill=Lockpicking,Notice',
   'Roadwarden':
     'Edge=Roadwarden ' +
-    'Attribute=vigor ' +
+    'Attribute=Vigor ' +
     'Skill=Fighting,Riding,Tracking',
   'Rune Mage':
     'Edge="Arcane Background (Rune Magic)" ' +
-    'Attribute=smarts',
-  'Scout':'',
+    'Attribute=Smarts',
+  'Scout': // Estimated related features
+    'Attribute=Smarts ' +
+    'Skill=Survival',
   'Skald':
     'Edge="Arcane Background (Song Magic)" ' +
-    'Attribute=smarts ' +
+    'Attribute=Smarts ' +
     'Skill="Song Magic"',
-  'Trapper':'',
+  'Trapper': // Estimated related features
+    'Attribute=Smarts ' +
+    'Skill=Survival',
   'Wood Warden':
     'Edge=Woodsman ' +
     'Skill=Shooting',
   'Woodsman':
     'Edge=Woodsman ' +
-    'Attribute=spirit ' +
+    'Attribute=Spirit ' +
     'Skill=Survival'
 };
 Hellfrost.DEITIES = {
