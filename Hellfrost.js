@@ -254,19 +254,19 @@ Hellfrost.CONCEPTS = {
   'Elementalist (Eir)':
     'Edge="Arcane Background (Elementalism (Eir))" ' +
     'Attribute=smarts ' +
-    'Skill="Elementalism (Eir)"',
+    'Skill="Elementalism"',
   'Elementalist (Ertha)':
     'Edge="Arcane Background (Elementalism (Ertha))" ' +
     'Attribute=smarts ' +
-    'Skill="Elementalism (Ertha)"',
+    'Skill="Elementalism"',
   'Elementalist (Fyr)':
     'Edge="Arcane Background (Elementalism (Fyr))" ' +
     'Attribute=smarts ' +
-    'Skill="Elementalism (Fyr)"',
+    'Skill="Elementalism"',
   'Elementalist (Waeter)':
     'Edge="Arcane Background (Elementalism (Waeter))" ' +
     'Attribute=smarts ' +
-    'Skill="Elementalism (Waeter)"',
+    'Skill="Elementalism"',
   'Explorer':'',
   'Fighter':'',
   'Gray Legionary':
@@ -1370,7 +1370,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target +2 Notice within smarts*2%{in} and see 5 miles while maintained"',
+      '"Target +2 Notice within %{smarts*2}%{in} and see 5 miles while maintained"',
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
