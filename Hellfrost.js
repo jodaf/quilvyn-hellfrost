@@ -61,7 +61,6 @@ function Hellfrost(baseRules) {
 
   Hellfrost.ARCANAS =
     Object.assign({}, rules.basePlugin.ARCANAS, Hellfrost.ARCANAS_ADDED);
-  delete Hellfrost.ARCANAS['Gifted'];
   delete Hellfrost.ARCANAS['Magic'];
   delete Hellfrost.ARCANAS['Psionics'];
   delete Hellfrost.ARCANAS['Super Powers'];
@@ -69,7 +68,6 @@ function Hellfrost(baseRules) {
   Hellfrost.EDGES =
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
   delete Hellfrost.EDGES['Ace'];
-  delete Hellfrost.EDGES['Arcane Background (Gifted)'];
   delete Hellfrost.EDGES['Arcane Background (Magic)'];
   delete Hellfrost.EDGES['Arcane Background (Psionics)'];
   delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
@@ -926,7 +924,6 @@ Hellfrost.EDGES_ADDED = {
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
-delete Hellfrost.EDGES['Arcane Background (Gifted)'];
 delete Hellfrost.EDGES['Arcane Background (Magic)'];
 delete Hellfrost.EDGES['Arcane Background (Psionics)'];
 delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
