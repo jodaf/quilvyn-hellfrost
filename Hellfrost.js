@@ -178,30 +178,69 @@ Hellfrost.ARCANAS_ADDED = {
       '"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
       '"Sphere Of Might",Storm,Stun,"Summon Elemental","Voice On The Wind",' +
       'Warding,Whirlwind,"Wilderness Step"',
-  'Rune Magic':
-    'Skill=Spellcasting ' +
-    'Powers=' +
-      'Armor,Bladebreaker,"Weapon Immunity",' +
-      'Aim,Bolt,"Boost/Lower Trait",' +
-      '"Boost/Lower Trait","Gift Of Battle","Warrior\'s Gift",' +
-      '"Beast Friend","Summon Beast","Viper Weapon",' +
-      '"Arcane Resistance","Fortune\'s Favored",Luck/Jinx,' +
-      'Becalm,Bless/Panic,Slumber,' +
-      'Etherealness/Corporealness,Growth/Shrink,"Shape Change",' +
-      '"Boost/Lower Trait","Charismatic Aura",Puppet,' +
-      'Burst,"Environmental Protection","Sluggish Reflexes",' +
-      'Confusion,Disease,Fatigue,' +
-      '"Boost/Lower Trait","Battle Song",Smite,' +
-      'Dispel,"Negate Arcana",Silence,' +
-      'Bridge,Burrow,Quake,' +
-      '"Elemental Form","Elemental Manipulation","Summon Elemental",' +
-      '"Altered Senses","Heat Mask",Light/Obscure,' +
-      '"Boost/Lower Trait",Healing,Succor,' +
-      'Detect/Conceal,Insight,Invisibility,' +
-      'Barrier,Deflection,Warding,' +
-      '"Gravespeak","Speak Language","Voice On The Wind",' +
-      'Quickness,Speed,"Wilderness Step",' +
-      '"Fog Cloud",Storm,Whirlwind',
+  'Rune Magic (Armor-Rune)':
+    'Skill=Armor-Rune ' +
+    'Powers=Armor,Bladebreaker,"Weapon Immunity"',
+  'Rune Magic (Arrow-Rune)':
+    'Skill=Arrow-Rune ' +
+    'Powers=Aim,Bolt,"Boost/Lower Trait"',
+  'Rune Magic (Battle-Rune)':
+    'Skill=Battle-Rune ' +
+    'Powers="Boost/Lower Trait","Gift Of Battle","Warrior\'s Gift"',
+  'Rune Magic (Beast-Rune)':
+    'Skill=Beast-Rune ' +
+    'Powers="Beast Friend","Summon Beast","Viper Weapon"',
+  'Rune Magic (Blessing-Rune)':
+    'Skill=Blessing-Rune ' +
+    'Powers="Arcane Resistance","Fortune\'s Favored",Luck/Jinx',
+  'Rune Magic (Calming-Rune)':
+    'Skill=Calming-Rune ' +
+    'Powers=Becalm,Bless/Panic,Slumber',
+  'Rune Magic (Change-Rune)':
+    'Skill=Change-Rune ' +
+    'Powers=Etherealness/Corporealness,Growth/Shrink,"Shape Change"',
+  'Rune Magic (Charm-Rune)':
+    'Skill=Charm-Rune ' +
+    'Powers="Boost/Lower Trait","Charismatic Aura",Puppet',
+  'Rune Magic (Coldfire-Rune)':
+    'Skill=Coldfire-Rune ' +
+    'Powers=Burst,"Environmental Protection","Sluggish Reflexes"',
+  'Rune Magic (Curse-Rune)':
+    'Skill=Curse-Rune ' +
+    'Powers=Confusion,Disease,Fatigue',
+  'Rune Magic (Cut-Rune)':
+    'Skill=Cut-Rune ' +
+    'Powers="Boost/Lower Trait","Battle Song",Smite',
+  'Rune Magic (Dispel-Rune)':
+    'Skill=Dispel-Rune ' +
+    'Powers=Dispel,"Negate Arcana",Silence',
+  'Rune Magic (Earth-Rune)':
+    'Skill=Earth-Rune ' +
+    'Powers=Bridge,Burrow,Quake',
+  'Rune Magic (Elemental-Rune)':
+    'Skill=Elemental-Rune ' +
+    'Powers="Elemental Form","Elemental Manipulation","Summon Elemental"',
+  'Rune Magic (Glow-Rune)':
+    'Skill=Glow-Rune ' +
+    'Powers="Altered Senses","Heat Mask",Light/Obscure',
+  'Rune Magic (Healing-Rune)':
+    'Skill=Healing-Rune ' +
+    'Powers="Boost/Lower Trait",Healing,Succor',
+  'Rune Magic (Secret-Rune)':
+    'Skill=Secret-Rune ' +
+    'Powers=Detect/Conceal,Insight,Invisibility',
+  'Rune Magic (Shield-Rune)':
+    'Skill=Shield-Rune ' +
+    'Powers=Barrier,Deflection,Warding',
+  'Rune Magic (Tongue-Rune)':
+    'Skill=Tongue-Rune ' +
+    'Powers="Gravespeak","Speak Language","Voice On The Wind"',
+  'Rune Magic (Travel-Rune)':
+    'Skill=Travel-Rune ' +
+    'Powers=Quickness,Speed,"Wilderness Step"',
+  'Rune Magic (Weather-Rune)':
+    'Skill=Weather-Rune ' +
+    'Powers="Fog Cloud",Storm,Whirlwind',
   'Song Magic':
     'Skill="Song Magic" ' +
     'Powers=' +
@@ -251,20 +290,8 @@ Hellfrost.CONCEPTS = {
     'Edge="Arcane Background (Druidism)" ' +
     'Attribute=Smarts ' +
     'Skill=Druidism',
-  'Elementalist (Eir)':
-    'Edge="Arcane Background (Elementalism (Eir))" ' +
-    'Attribute=Smarts ' +
-    'Skill="Elementalism"',
-  'Elementalist (Ertha)':
-    'Edge="Arcane Background (Elementalism (Ertha))" ' +
-    'Attribute=Smarts ' +
-    'Skill="Elementalism"',
-  'Elementalist (Fyr)':
-    'Edge="Arcane Background (Elementalism (Fyr))" ' +
-    'Attribute=Smarts ' +
-    'Skill="Elementalism"',
-  'Elementalist (Waeter)':
-    'Edge="Arcane Background (Elementalism (Waeter))" ' +
+  'Elementalist':
+    'Edge="Arcane Background (Elementalism)" ' +
     'Attribute=Smarts ' +
     'Skill="Elementalism"',
   'Explorer': // Estimated related features
@@ -383,14 +410,16 @@ Hellfrost.DEITIES = {
 };
 Hellfrost.EDGES_ADDED = {
   // Background
-  'Arcane Background (Druidism)':'Type=background',
-  'Arcane Background (Elementalism (Eir))':'Type=background',
-  'Arcane Background (Elementalism (Ertha))':'Type=background',
-  'Arcane Background (Elementalism (Fyr))':'Type=background',
-  'Arcane Background (Elementalism (Waeter))':'Type=background',
-  'Arcane Background (Heahwisardry)':'Type=background',
+  'Arcane Background (Druidism)':
+    'Type=background Require="race =~ \'Engro|Elf|Dwarf\'"',
+  'Arcane Background (Elementalism)':
+    'Type=background ' +
+    'Require="edges.Elementalism (Eir) || edges.Elementalism (Ertha) || ' +
+             'edges.Elementalism (Fyr) || edges.Elementalism (Waeter)"',
+  'Arcane Background (Heahwisardry)':'Type=background Require=features.Noble',
   'Arcane Background (Hrimwisardry)':'Type=background',
-  'Arcane Background (Rune Magic)':'Type=background',
+  'Arcane Background (Rune Magic)':
+    'Type=background Require="race == \'Frost Dwarf\'"',
   'Arcane Background (Song Magic)':'Type=background',
   'Library':
     'Type=background ' +
@@ -438,6 +467,48 @@ Hellfrost.EDGES_ADDED = {
       '"strength >= 10",' +
       '"skills.Fighting >= 10",' +
       '"size >= 0"',
+  'Rune Magic (Armor-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Arrow-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Battle-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Beast-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Blessing-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Calming-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Change-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Charm-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Coldfire-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Curse-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Cut-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Dispel-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Earth-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Elemental-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Glow-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Healing-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Secret-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Shield-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Tongue-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Travel-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'Rune Magic (Weather-Rune)':
+    'Type=power Require="features.Arcane Background (Rune Magic)"',
   'Scamper':
     'Type=combat ' +
     'Require="advances >= 4","race == \'Engro\'","agility >= 8"',
@@ -798,7 +869,15 @@ Hellfrost.EDGES_ADDED = {
     'Type=power ' +
     'Require=' +
       '"advances >= 4",' +
-      '"Sum \'features.Arcane Background .Elementalism\' > 0"',
+      '"features.Arcane Background (Elementalism)"',
+  'Elementalism (Eir)':
+    'Type=power Require="features.Arcane Background (Elementalism)"',
+  'Elementalism (Ertha)':
+    'Type=power Require="features.Arcane Background (Elementalism)"',
+  'Elementalism (Fyr)':
+    'Type=power Require="features.Arcane Background (Elementalism)"',
+  'Elementalism (Waeter)':
+    'Type=power Require="features.Arcane Background (Elementalism)"',
   'Focus':
     'Type=power ' +
     'Require="advances >= 4",powerCount,"spirit >= 6","arcaneSkill >= 8"',
@@ -810,6 +889,7 @@ Hellfrost.EDGES_ADDED = {
       'powerCount,' +
       '"arcaneSkill >= 10",' +
       '"skills.Knowledge (Arcana) >= 10"',
+  'New Rune':'Type=power Require="features.Arcane Background (Rune Magic)"',
   'Power Surge':
     'Type=power Require="advances >= 4",powerCount,"arcaneSkill >= 10"',
   'Runic Insight':
@@ -955,26 +1035,19 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
          '"+1 arcane skill in natural environments, -1 in urban environments"',
-  'Arcane Background (Elementalism (Eir))':
-    'Section=arcana Note="3 Powers/10 Power Points"',
-  'Arcane Background (Elementalism (Ertha))':
-    'Section=arcana Note="3 Powers/10 Power Points"',
-  'Arcane Background (Elementalism (Fyr))':
-    'Section=arcana Note="3 Powers/10 Power Points"',
-  'Arcane Background (Elementalism (Waeter))':
+  'Arcane Background (Elementalism)':
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Heahwisardry)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
          '"-2 arcane skill, +1 per extra round taken (+%{smarts//2} max)"',
   'Arcane Background (Hrimwisardry)':
-    'Section=arcana,combat,feature,skill ' +
+    'Section=arcana,combat,skill ' +
     'Note="2 Powers/10 Power Points",' +
          '"-4 damage from cold, +4 from heat",' +
-         '"Treated with deep suspicion",' +
-         '"Arcane skill modified by temperature"',
+         '"-2 Charisma (civilized races)/Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
-    'Section=arcana Note="1 Power/10 Power Points"',
+    'Section=arcana Note="0 Power/10 Power Points"',
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
@@ -1086,7 +1159,7 @@ Hellfrost.FEATURES_ADDED = {
   'Double Shot':'Section=combat Note="May fire two arrows at one target%1"',
   'Elemental Mastery':
     'Section=arcana ' +
-    'Note="Knows spells from %1 Elementalism disciplines, casts at %2"',
+    'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
   'Fanaticism':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
@@ -1253,10 +1326,7 @@ Hellfrost.HINDRANCES_ADDED = {
   'Magic Forbiddance+':
     'Severity=Major ' +
     'Require="edges.Arcane Background (Druidism) == 0",' +
-            '"edges.Elementalism (Eir) == 0",' +
-            '"edges.Elementalism (Ertha) == 0",' +
-            '"edges.Elementalism (Fyr) == 0",' +
-            '"edges.Elementalism (Waeter) == 0",' +
+            '"edges.Elementalism == 0",' +
             '"edges.Heahwisardry == 0",' +
             '"edges.Hrimwisardry == 0",' +
             '"edges.Rune Magic == 0",' +
@@ -1744,6 +1814,27 @@ Hellfrost.SKILLS_ADDED = {
   'Elementalism':'Attribute=smarts',
   'Heahwisardry':'Attribute=smarts',
   'Hrimwisardry':'Attribute=smarts',
+  'Armor-Rune':'Attribute=smarts',
+  'Arrow-Rune':'Attribute=smarts',
+  'Battle-Rune':'Attribute=smarts',
+  'Beast-Rune':'Attribute=smarts',
+  'Blessing-Rune':'Attribute=smarts',
+  'Calming-Rune':'Attribute=smarts',
+  'Change-Rune':'Attribute=smarts',
+  'Charm-Rune':'Attribute=smarts',
+  'Coldfire-Rune':'Attribute=smarts',
+  'Curse-Rune':'Attribute=smarts',
+  'Cut-Rune':'Attribute=smarts',
+  'Dispel-Rune':'Attribute=smarts',
+  'Earth-Rune':'Attribute=smarts',
+  'Elemental-Rune':'Attribute=smarts',
+  'Glow-Rune':'Attribute=smarts',
+  'Healing-Rune':'Attribute=smarts',
+  'Secret-Rune':'Attribute=smarts',
+  'Shield-Rune':'Attribute=smarts',
+  'Tongue-Rune':'Attribute=smarts',
+  'Travel-Rune':'Attribute=smarts',
+  'Weather-Rune':'Attribute=smarts',
   'Song Magic':'Attribute=smarts',
   'Knowledge (Alchemy)':'Attribute=smarts',
   'Knowledge (Arcana)':'Attribute=smarts',
@@ -2020,12 +2111,22 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  * derived directly from the attributes passed to edgeRules.
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
-  if(name == 'Arcane Background (Miracles)') {
+  var matchInfo;
+  if(name == 'Arcane Background (Elementalism)') {
+    rules.defineRule('elementalismCount',
+      'arcanaNotes.arcaneBackground(Elementalism)', '=', '1'
+    );
+    rules.defineRule('edgePoints', 'elementalismCount', '+', null);
+  } else if(name == 'Arcane Background (Miracles)') {
     rules.defineRule('features.Connections',
       'features.Arcane Background (Miracles)', '=', '1'
     );
     rules.defineRule
       ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
+  } else if(name == 'Arcane Background (Rune Magic)') {
+    rules.defineRule
+      ('runeCount', 'arcanaNotes.arcaneBackground(RuneMagic)', '=', '1');
+    rules.defineRule('edgePoints', 'runeCount', '+', null);
   } else if(name == 'Augment Staff (Damage)') {
     rules.defineRule('combatNotes.augmentStaff(Damage).1',
       'features.Augment Staff (Damage)', '?', null,
@@ -2068,11 +2169,17 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'combatNotes.improvedDoubleShot', '=', '""'
     );
   } else if(name == 'Elemental Mastery') {
-    rules.defineRule('arcanaNotes.elementalMastery.1',
-      'features.Elemental Mastery', '=', 'source + 1'
+    rules.defineRule('arcanaNotes.elementalMastery',
+      'edges.Elemental Mastery', '=', 'source + 1'
     );
-    rules.defineRule('arcanaNotes.elementalMastery.2',
-      'features.Elemental Mastery', '=', 'source == 3 ? "-0" : -source'
+    rules.defineRule('arcanaNotes.elementalMastery.1',
+      'edges.Elemental Mastery', '=', 'source == 3 ? "-0" : -source'
+    );
+    rules.defineRule
+      ('elementalismCount', 'arcanaNotes.elementalMastery', '+', 'source - 1');
+  } else if((matchInfo = name.match(/Elementalism \((.*)\)/)) != null) {
+    rules.defineRule('features.Arcane Background (' + name + ')',
+      'features.' + name, '=', '1'
     );
   } else if(name == 'Focus') {
     rules.defineRule('arcanaNotes.focus.1',
@@ -2115,8 +2222,14 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
         rules.defineRule
           ('weapons.' + w + '.6', 'combatNotes.mightyThrow', '+', '1');
     }
+  } else if(name == 'New Rune') {
+    rules.defineRule('runeCount', 'arcanaNotes.newRune', '+', null);
   } else if(name == 'Noble') {
     rules.defineRule('features.Rich', 'featureNotes.noble', '=', '1');
+  } else if((matchInfo = name.match(/Rune Magic \((.*)\)/)) != null) {
+    rules.defineRule('features.Arcane Background (' + name + ')',
+      'features.' + name, '=', '1'
+    );
   } else if(name == 'Runic Insight') {
     rules.defineRule('arcanaNotes.runicInsight.1',
       'features.Runic Insight', '=', null
@@ -2273,7 +2386,11 @@ Hellfrost.weaponRules = function(
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
+  var attr;
   var attrs = this.applyRules(attributes);
+  var choices;
+  var howMany;
+  var i;
   if(attribute == 'skills' &&
      attrs['features.Sneaky'] != null &&
      !attributes['skillAllocation.Stealth'] &&
@@ -2282,17 +2399,17 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     attributes['skillAllocation.Stealth'] = 2;
   }
   if(attribute == 'skills' && attrs['features.Library'] != null) {
-    var howMany =
+    howMany =
       attrs.smarts - QuilvynUtils.sumMatching(attributes, /skills.Knowledge/);
     var allSkills = this.getChoices('skills');
-    for(var skill in allSkills) {
-      if(!skill.startsWith('Knowledge'))
+    for(attr in allSkills) {
+      if(!attr.startsWith('Knowledge'))
         continue;
       if(howMany < 1)
         break;
-      if(!attrs['skills.' + skill])
-        attrs['skills.' + skill] = 0;
-      attrs['skills.' + skill]++;
+      if(!attrs['skills.' + attr])
+        attrs['skills.' + attr] = 0;
+      attrs['skills.' + attr]++;
       howMany--;
     }
   }
@@ -2300,9 +2417,92 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
      attrs['features.Diverse'] &&
      !attributes['improvementPointsAllocation.Edge'] &&
      !attributes['improvementPointsAllocation.Skills']) {
-    attributes['improvementPointsAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Edge' : 'Skills')] = 2;
+    attributes['improvementPointsAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Edge' : 'Skill')] = 2;
+  }
+  // Hack alert. SWADE's randomizeOneAttribute doesn't know about runeCount and
+  // elementalismCount, which determine the number of Rune and Element edges,
+  // nor that the magic casting skills (e.g., Hrimwisardry) are useless to
+  // non-casters. To avoid having those randomly assigned inappropriately, we
+  // remove them from the selection before the call and restore them afterward.
+  // Since the casting skills appear in the CONCEPTS list, the randomizer will
+  // still allocate to them for primary casters. For the edges, we may have to
+  // replace some of the newly-assigned edges with Rune and Element edges to
+  // get the correct count.
+  var preAttributes = Object.assign({}, attributes);
+  var preChoices = Object.assign({}, this.getChoices(attribute));
+  if(attribute == 'edges') {
+    choices = this.getChoices('edges');
+    for(attr in choices) {
+      if(attr.match(/^(Elementalism|Rune)/))
+        delete this.getChoices('edges')[attr];
+    }
+  } else if(attribute == 'skills') {
+    choices = this.getChoices('arcanas');
+    for(attr in choices) {
+      var skill = QuilvynUtils.getAttrValue(choices[attr], 'Skill');
+      if(skill && !(skill in this.basePlugin.SKILLS))
+        delete this.getChoices('skills')[skill];
+    }
   }
   this.basePlugin.randomizeOneAttribute.apply(this, [attributes, attribute]);
+  if(preChoices)
+    this.choices[attribute] = preChoices;
+  if(attribute == 'edges' &&
+     (attrs['elementalismCount'] != null || attrs['runeCount'] != null)) {
+    var newEdges = [];
+    for(attr in attributes) {
+      if(attr.startsWith('edges.') &&
+         !(attr in preAttributes) &&
+         !(attr.startsWith('edges.Elementalism')) &&
+         !(attr.startsWith('edges.Rune')))
+        newEdges.push(attr);
+    }
+    howMany = attrs['elementalismCount'] || 0;
+    choices = [];
+    for(attr in this.getChoices('edges')) {
+      if(!attr.startsWith('Elementalism'))
+        continue;
+      if(attrs['features.' + attr])
+        howMany--;
+      else
+        choices.push(attr);
+    }
+    while(howMany > 0 && choices.length > 0) {
+      i = QuilvynUtils.random(0, choices.length - 1);
+      attributes['edges.' + choices[i]] = 1;
+      howMany--;
+      choices.splice(i, 1);
+      if(newEdges.length > 0) {
+        i = QuilvynUtils.random(0, newEdges.length - 1);
+        delete attributes[newEdges[i]];
+        newEdges.splice(i, 1);
+      } else if(attributes['edges.Power Points'] &&
+                attributes['edges.Power Points'] > 1) {
+        attributes['edges.Power Points']--;
+      }
+    }
+    howMany = attrs['runeCount'] || 0;
+    choices = [];
+    for(attr in this.getChoices('arcanas')) {
+      if(!attr.startsWith('Rune Magic'))
+        continue;
+      if(attrs['features.' + attr])
+        howMany--;
+      else
+        choices.push(attr);
+    }
+    while(howMany > 0 && choices.length > 0) {
+      i = QuilvynUtils.random(0, choices.length - 1);
+      attributes['edges.' + choices[i]] = 1;
+      howMany--;
+      choices.splice(i, 1);
+      if(newEdges.length > 0) {
+        i = QuilvynUtils.random(0, newEdges.length - 1);
+        delete attributes[newEdges[i]];
+        newEdges.splice(i, 1);
+      }
+    }
+  }
 };
 
 /* Returns an array of plugins upon which this one depends. */
