@@ -1047,7 +1047,7 @@ Hellfrost.FEATURES_ADDED = {
          '"-4 damage from cold, +4 from heat",' +
          '"-2 Charisma (civilized races)/Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
-    'Section=arcana Note="0 Power/10 Power Points"',
+    'Section=arcana Note="0 Powers/10 Power Points"',
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
@@ -1217,6 +1217,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+1 thrown weapon range/+1 Strength die for short throws"',
   'Necromantic Severing':
     'Section=combat Note="May make called shots vs. undead"',
+  'New Rune':'Section=arcana Note="Knows spells from %V runes"',
   'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
   'Oversized Weapon Master':
@@ -2223,13 +2224,20 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
           ('weapons.' + w + '.6', 'combatNotes.mightyThrow', '+', '1');
     }
   } else if(name == 'New Rune') {
-    rules.defineRule('runeCount', 'arcanaNotes.newRune', '+', null);
+    rules.defineRule
+      ('arcanaNotes.newRune', 'edges.New Rune', '=', 'source + 1');
+    rules.defineRule('runeCount', 'arcanaNotes.newRune', '+', 'source - 1');
   } else if(name == 'Noble') {
     rules.defineRule('features.Rich', 'featureNotes.noble', '=', '1');
   } else if((matchInfo = name.match(/Rune Magic \((.*)\)/)) != null) {
     rules.defineRule('features.Arcane Background (' + name + ')',
       'features.' + name, '=', '1'
     );
+    rules.defineRule
+      ('skillStep.' + matchInfo[1], 'features.' + name, '+=', '1');
+    var runePowers = QuilvynUtils.getAttrValueArray(rules.getChoices('arcanas')[name], 'Powers');
+    runePowers.forEach
+      (x => rules.defineRule('powers.' + x, 'features.' + name, '=', '1'));
   } else if(name == 'Runic Insight') {
     rules.defineRule('arcanaNotes.runicInsight.1',
       'features.Runic Insight', '=', null
@@ -2422,33 +2430,38 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   // Hack alert. SWADE's randomizeOneAttribute doesn't know about runeCount and
   // elementalismCount, which determine the number of Rune and Element edges,
   // nor that the magic casting skills (e.g., Hrimwisardry) are useless to
-  // non-casters. To avoid having those randomly assigned inappropriately, we
-  // remove them from the selection before the call and restore them afterward.
-  // Since the casting skills appear in the CONCEPTS list, the randomizer will
-  // still allocate to them for primary casters. For the edges, we may have to
-  // replace some of the newly-assigned edges with Rune and Element edges to
-  // get the correct count.
+  // non-casters. To avoid having those randomly assigned inappropriately,
+  // temporarily remove them from the selection before the call. For the edges,
+  // we may have to replace some of the newly-assigned edges with Rune and
+  // Element edges to get the correct count. TODO There's a risk that the
+  // randomizer will have assigned two edges, one dependent on the other (e.g.,
+  // Attractive, Very Attractive) and that the code will reassign the base edge.
   var preAttributes = Object.assign({}, attributes);
-  var preChoices = Object.assign({}, this.getChoices(attribute));
+  var preChoices = null;
   if(attribute == 'edges') {
+    preChoices = Object.assign({}, this.getChoices('edges'));
     choices = this.getChoices('edges');
     for(attr in choices) {
       if(attr.match(/^(Elementalism|Rune)/))
         delete this.getChoices('edges')[attr];
     }
   } else if(attribute == 'skills') {
+    preChoices = Object.assign({}, this.getChoices('skills'));
     choices = this.getChoices('arcanas');
     for(attr in choices) {
       var skill = QuilvynUtils.getAttrValue(choices[attr], 'Skill');
-      if(skill && !(skill in this.basePlugin.SKILLS))
+      if(skill && !(skill in this.basePlugin.SKILLS) &&
+         !attributes['features.Arcane Background (' + attr + ')'])
         delete this.getChoices('skills')[skill];
     }
   }
   this.basePlugin.randomizeOneAttribute.apply(this, [attributes, attribute]);
   if(preChoices)
     this.choices[attribute] = preChoices;
-  if(attribute == 'edges' &&
-     (attrs['elementalismCount'] != null || attrs['runeCount'] != null)) {
+  if(attribute == 'edges') {
+    attrs = this.applyRules(attributes);
+    var countEdges =
+      {'elementalismCount':'Elementalism', 'runeCount':'Rune Magic'};
     var newEdges = [];
     for(attr in attributes) {
       if(attr.startsWith('edges.') &&
@@ -2457,49 +2470,35 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
          !(attr.startsWith('edges.Rune')))
         newEdges.push(attr);
     }
-    howMany = attrs['elementalismCount'] || 0;
-    choices = [];
-    for(attr in this.getChoices('edges')) {
-      if(!attr.startsWith('Elementalism'))
+    for(var count in countEdges) {
+      howMany = attrs[count];
+      if(!howMany)
         continue;
-      if(attrs['features.' + attr])
-        howMany--;
-      else
-        choices.push(attr);
-    }
-    while(howMany > 0 && choices.length > 0) {
-      i = QuilvynUtils.random(0, choices.length - 1);
-      attributes['edges.' + choices[i]] = 1;
-      howMany--;
-      choices.splice(i, 1);
-      if(newEdges.length > 0) {
-        i = QuilvynUtils.random(0, newEdges.length - 1);
-        delete attributes[newEdges[i]];
-        newEdges.splice(i, 1);
-      } else if(attributes['edges.Power Points'] &&
-                attributes['edges.Power Points'] > 1) {
-        attributes['edges.Power Points']--;
+      choices = [];
+      for(attr in this.getChoices('edges')) {
+        if(!attr.startsWith(countEdges[count]))
+          continue;
+        if(attrs['features.' + attr])
+          howMany--;
+        else
+          choices.push(attr);
       }
-    }
-    howMany = attrs['runeCount'] || 0;
-    choices = [];
-    for(attr in this.getChoices('arcanas')) {
-      if(!attr.startsWith('Rune Magic'))
-        continue;
-      if(attrs['features.' + attr])
+      while(howMany > 0 && choices.length > 0) {
+        i = QuilvynUtils.random(0, choices.length - 1);
+        attributes['edges.' + choices[i]] = 1;
         howMany--;
-      else
-        choices.push(attr);
-    }
-    while(howMany > 0 && choices.length > 0) {
-      i = QuilvynUtils.random(0, choices.length - 1);
-      attributes['edges.' + choices[i]] = 1;
-      howMany--;
-      choices.splice(i, 1);
-      if(newEdges.length > 0) {
-        i = QuilvynUtils.random(0, newEdges.length - 1);
-        delete attributes[newEdges[i]];
-        newEdges.splice(i, 1);
+        choices.splice(i, 1);
+        if(newEdges.length > 0) {
+          i = QuilvynUtils.random(0, newEdges.length - 1);
+          delete attributes[newEdges[i]];
+          newEdges.splice(i, 1);
+        } else if(attributes['edges.Power Points'] &&
+                  attributes['edges.Power Points'] > 1) {
+          attributes['edges.Power Points']--;
+        } else if(attributes['edges.New Powers'] &&
+                  attributes['edges.New Powers'] > 1) {
+          attributes['edges.New Powers']--;
+        }
       }
     }
   }
