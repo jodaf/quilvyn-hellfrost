@@ -119,11 +119,10 @@ Hellfrost.ARCANAS_ADDED = {
       '"Boost/Lower Trait",Bridge,Burrow,Deflection,Detect/Conceal,' +
       '"Elemental Form","Elemental Manipulation",Entangle,' +
       '"Environmental Protection",Farsight,Fatigue,Feast,"Fog Cloud",' +
-      'Growth/Shrink,Healing,Knockdown,Leaping,Light/Obscure,Obscure,Quake,' +
-      'Refuge,Sanctuary,Sentry,"Shape Change",Silence,Smite,' +
-      '"Sphere Of Might",Storm,"Summon Beast","Summon Elemental",' +
-      '"Viper Weapon","Voice On The Wind","Wall Walker",Warding,Whirlwind,' +
-      '"Wilderness Step"',
+      'Growth/Shrink,Healing,Knockdown,Leaping,Light,Obscure,Quake,Refuge,' +
+      'Sanctuary,Sentry,"Shape Change",Silence,Smite,"Sphere Of Might",Storm,' +
+      '"Summon Beast","Summon Elemental","Viper Weapon","Voice On The Wind",' +
+      '"Wall Walker",Warding,Whirlwind,"Wilderness Step"',
   'Elementalism (Eir)':
     'Skill=Elementalism ' +
     'Powers=' +
@@ -149,8 +148,8 @@ Hellfrost.ARCANAS_ADDED = {
       'Aura,Banish,Barrier,Bladebreaker,Blast,Bolt,Burst,Deflection,' +
       'Detect/Conceal,"Elemental Form","Elemental Manipulation",' +
       '"Energy Immunity","Environmental Protection",Fatigue,Glyph,' +
-      '"Heat Mask",Light/Obscure,"Prolonged Blast",Sanctuary,Smite,' +
-      '"Sphere Of Might","Summon Elemental",Warding',
+      '"Heat Mask",Light,"Prolonged Blast",Sanctuary,Smite,"Sphere Of Might",' +
+      '"Summon Elemental",Warding',
   'Elementalism (Waeter)':
     'Skill=Elementalism ' +
     'Powers=' +
@@ -174,8 +173,8 @@ Hellfrost.ARCANAS_ADDED = {
     'Powers=' +
       'Armor,Aura,Barrier,Bladebreaker,Blast,Bolt,Bridge,Burrow,Burst,' +
       'Deflection,Detect/Conceal,Dispel,"Elemental Form","Energy Immunity",' +
-      '"Environmental Protection",Fatigue,Invisibility,Knockdown,Obscure,' +
-      '"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
+      'Entangle,"Environmental Protection",Fatigue,Invisibility,Knockdown,' +
+      'Obscure,"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
       '"Sphere Of Might",Storm,Stun,"Summon Elemental","Voice On The Wind",' +
       'Warding,Whirlwind,"Wilderness Step"',
   'Rune Magic (Armor-Rune)':
@@ -222,7 +221,7 @@ Hellfrost.ARCANAS_ADDED = {
     'Powers="Elemental Form","Elemental Manipulation","Summon Elemental"',
   'Rune Magic (Glow-Rune)':
     'Skill=Glow-Rune ' +
-    'Powers="Altered Senses","Heat Mask",Light/Obscure',
+    'Powers="Altered Senses","Heat Mask",Light',
   'Rune Magic (Healing-Rune)':
     'Skill=Healing-Rune ' +
     'Powers="Boost/Lower Trait",Healing,Succor',
@@ -234,7 +233,7 @@ Hellfrost.ARCANAS_ADDED = {
     'Powers=Barrier,Deflection,Warding',
   'Rune Magic (Tongue-Rune)':
     'Skill=Tongue-Rune ' +
-    'Powers="Gravespeak","Speak Language","Voice On The Wind"',
+    'Powers=Gravespeak,"Speak Language","Voice On The Wind"',
   'Rune Magic (Travel-Rune)':
     'Skill=Travel-Rune ' +
     'Powers=Quickness,Speed,"Wilderness Step"',
@@ -1346,7 +1345,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Gives +2 attack (Raise +4) w/thrown or missile weapon while maintained"',
+      '"Target gains +2 attack (Raise +4) w/thrown or missile weapon while maintained"',
   'Altered Senses':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -1363,7 +1362,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=12 ' +
     'PowerPoints=8 ' +
     'Range=touch ' +
-    'Description="30\' tree animates (Raise as wild card) while maintained"',
+    'Description=' +
+      '"Target 30\' tree animates (Raise as wild card) while maintained"',
   'Arcane Resistance': // ref Arcane Protection
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -1418,12 +1418,13 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=self ' +
-    'Description="Gives Champion or Holy Warrior features while maintained"',
+    'Description=' +
+      '"Gives target Champion or Holy Warrior features while maintained"',
   'Charismatic Aura':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=self ' +
-    'Description="Gives +1 Charisma (Raise +2) while maintained"',
+    'Description="Target gains +1 Charisma (Raise +2) while maintained"',
   'Confusion': // ref Confusion
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -1434,7 +1435,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts*50 ' +
-    'Description="Self use corpse senses while maintained"',
+    'Description="Self may use corpse senses while maintained"',
   'Detect/Conceal': // ref Detect/Conceal Arcana
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -1450,7 +1451,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=5 ' +
     'Range=self ' +
-    'Description="Gives elemental form special abilities while maintained"',
+    'Description="Gains elemental form special abilities while maintained"',
   'Energy Immunity':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -1474,7 +1475,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target +2 Notice within %{smarts*2}%{in} and see 5 miles while maintained"',
+      '"Target gains +2 Notice within %{smarts*2}%{in} and see 5 miles while maintained"',
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -1496,13 +1497,13 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target can reroll failed benny-purchased reroll while maintained"',
+      '"Target may reroll failed benny-purchased reroll while maintained"',
   'Gift Of Battle':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
     'Description=' +
-      '"Gives leadership edge features (Raise 2 edges) while maintained"',
+      '"Target gains leadership edge features (Raise 2 edges) while maintained"',
   'Glyph':
     'Advances=8 ' +
     'PowerPoints=4 ' +
@@ -1512,24 +1513,24 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Gives ability to ask spirit %{spirit} questions"',
+    'Description="Target gains ability to ask spirit %{spirit} questions"',
   'Greater Zombie': // ref Zombie
     'Advances=12 ' +
     'PowerPoints=4 ' +
     'Range=spirit*2 ' +
-    'Description="Animates and controls corpse for 1 hr"',
+    'Description="Target corpse animates and obeys self commands for 1 hr"',
   // TODO Hamper Movement
   'Heat Mask':
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Gives invisibility to infravision while maintained"',
+    'Description="Target gains invisibility to infravision while maintained"',
   'Insight': // ref Object reading
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Shows 1 event that occurred recently to touched object"',
+      '"Target sees 1 event that occurred recently to touched object"',
   'Knockdown':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -1540,13 +1541,14 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Gives dbl jumping distance (Raise x4) while maintained"',
+    'Description=' +
+      '"Target gains dbl jumping distance (Raise x4) while maintained"',
   'Lock/Unlock':
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Gives lock w/-2 pick penalty and +2 Toughness (Raise -4 and +4) until unlocked or unlocks normal lock"',
+      '"Target lock gains -2 pick penalty and +2 Toughness (Raise -4 and +4) until unlocked or unlocks normal lock"',
   'Luck/Jinx':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1558,7 +1560,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Repairs 1 wound (Raise 2) inflicted on wooden vehicle w/in past hr"',
+      '"Repairs 1 wound (Raise 2) inflicted to target wooden vehicle w/in past hr"',
   'Mimic':
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -1601,12 +1603,12 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=smarts ' +
     'Description=' +
-      '"10\'x6\' shelter gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
+      '"Creates 10\'x6\' shelter that gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
   'Regenerate':
     'Advances=12 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Gives free -2 Soak roll (Raise -0) while maintained"',
+    'Description="Target gains free -2 Soak roll (Raise -0) while maintained"',
   'Sacrifice':
     'Advances=8 ' +
     'PowerPoints=5 ' +
@@ -1661,7 +1663,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Removes 1 level of fatigue (Raise 2 levels)"',
+    'Description="Target rgains 1 level of fatigue (Raise 2 levels)"',
   'Summon Beast':
     'Advances=8 ' +
     'PowerPoints=2+ ' +
@@ -1716,7 +1718,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
-    'Description="Gives ability to traverse calm water while maintained"',
+    'Description=' +
+      '"Target gains ability to traverse calm water while maintained"',
   'Weaken Undead':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1757,6 +1760,16 @@ Hellfrost.POWERS_ADDED = {
     'Range=touch ' +
     'Description=' +
       '"Restores 1 wound (Raise 2 wounds) w/out time limit or removes poison, disease, or sickness"',
+  'Light':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description="Creates 3%{in} radius bright light for 30 min"',
+  'Obscure':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description="Creates 3%{in} radius darkness for 3 rd"',
   'Quickness':
     'Advances=4 ' +
     'PowerPoints=4 ' +
@@ -1883,8 +1896,6 @@ Hellfrost.SWD2SWADE = function(table) {
   var replacements = {
     // Special for Roadwarden
     'Survival\\D+\\d+","skills.Tracking':'Survival',
-    // Powers
-    'Light/Obscure':'Light/Darkness',
     // Races
     'Short':'Size -1',
     // Skills
@@ -2307,6 +2318,7 @@ Hellfrost.hindranceRules = function(rules, name, requires, severity) {
  */
 Hellfrost.hindranceRulesExtra = function(rules, name) {
   rules.basePlugin.hindranceRulesExtra(rules, name);
+  // No changes needed to the rules defined by base method
 };
 
 /* Defines in #rules# the rules associated with language #name#. */
@@ -2394,11 +2406,14 @@ Hellfrost.weaponRules = function(
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
+
   var attr;
   var attrs = this.applyRules(attributes);
   var choices;
   var howMany;
   var i;
+
+  // Handle targeted allocations from Sneaky, Library, and Diverse features
   if(attribute == 'skills' &&
      attrs['features.Sneaky'] != null &&
      !attributes['skillAllocation.Stealth'] &&
@@ -2427,26 +2442,28 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
      !attributes['improvementPointsAllocation.Skills']) {
     attributes['improvementPointsAllocation.' + (QuilvynUtils.random(0, 1) == 0 ? 'Edge' : 'Skill')] = 2;
   }
-  // Hack alert. SWADE's randomizeOneAttribute doesn't know about runeCount and
-  // elementalismCount, which determine the number of Rune and Element edges,
-  // nor that the magic casting skills (e.g., Hrimwisardry) are useless to
-  // non-casters. To avoid having those randomly assigned inappropriately,
-  // temporarily remove them from the selection before the call. For the edges,
-  // we may have to replace some of the newly-assigned edges with Rune and
-  // Element edges to get the correct count. TODO There's a risk that the
-  // randomizer will have assigned two edges, one dependent on the other (e.g.,
-  // Attractive, Very Attractive) and that the code will reassign the base edge.
+
+  // Bit of a hack here. SWADE's randomizeOneAttribute doesn't know about
+  // runeCount and elementalismCount, which determine the number of Rune and
+  // Element edges, nor that the magic casting skills (e.g., Hrimwisardry) are
+  // useless to non-casters. To avoid having those randomly assigned
+  // inappropriately, temporarily remove the the unwanted choices from the
+  // choices. For edges, we may have to replace some of the newly-assigned
+  // choices with Rune Magic and Element edges to get the correct count.
+  // TODO There's a risk that the randomizer will have assigned two edges, one
+  // dependent on the other (e.g., Attractive and Very Attractive) and that the
+  // code will reassign the base edge while leaving the dependent edge assigned.
   var preAttributes = Object.assign({}, attributes);
-  var preChoices = null;
+  var allChoices = null;
   if(attribute == 'edges') {
-    preChoices = Object.assign({}, this.getChoices('edges'));
+    allChoices = Object.assign({}, this.getChoices('edges'));
     choices = this.getChoices('edges');
     for(attr in choices) {
-      if(attr.match(/^(Elementalism|Rune)/))
+      if(attr.match(/^(Elementalism|Rune Magic)/))
         delete this.getChoices('edges')[attr];
     }
   } else if(attribute == 'skills') {
-    preChoices = Object.assign({}, this.getChoices('skills'));
+    allChoices = Object.assign({}, this.getChoices('skills'));
     choices = this.getChoices('arcanas');
     for(attr in choices) {
       var skill = QuilvynUtils.getAttrValue(choices[attr], 'Skill');
@@ -2456,18 +2473,15 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     }
   }
   this.basePlugin.randomizeOneAttribute.apply(this, [attributes, attribute]);
-  if(preChoices)
-    this.choices[attribute] = preChoices;
+  if(allChoices)
+    this.choices[attribute] = allChoices;
   if(attribute == 'edges') {
     attrs = this.applyRules(attributes);
     var countEdges =
       {'elementalismCount':'Elementalism', 'runeCount':'Rune Magic'};
     var newEdges = [];
     for(attr in attributes) {
-      if(attr.startsWith('edges.') &&
-         !(attr in preAttributes) &&
-         !(attr.startsWith('edges.Elementalism')) &&
-         !(attr.startsWith('edges.Rune')))
+      if(attr.startsWith('edges.') && !(attr in preAttributes))
         newEdges.push(attr);
     }
     for(var count in countEdges) {
@@ -2502,6 +2516,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
       }
     }
   }
+
 };
 
 /* Returns an array of plugins upon which this one depends. */
@@ -2523,12 +2538,6 @@ Hellfrost.ruleNotes = function() {
     '    use the power mechanics from he base rules. Edges that affect\n' +
     '    power points (Rapid Recharge, Soul Drain etc.) are also available.\n' +
     '  </li>\n' +
-    '</ul>\n' +
-    '<h3>Limitations</h3>\n' +
-    '<ul>\n' +
-    '</ul>\n' +
-    '<h3>Known Bugs</h3>\n' +
-    '<ul>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
     '<p>\n' +
