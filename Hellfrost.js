@@ -1539,6 +1539,9 @@ Hellfrost.HINDRANCES_ADDED = {
 Hellfrost.HINDRANCES =
   Object.assign({}, SWD.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
 Hellfrost.POWERS_ADDED = {
+  // Note that "half powers" are included here where some arcana power list
+  // includes a restricted version of the spell (e.g. Corporealness and
+  // Incorporealness represent restrictions on Corporealness/Incorporealness).
   'Aim':
     'Advances=0 ' +
     'PowerPoints=1 ' +
