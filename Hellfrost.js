@@ -56,7 +56,7 @@ function Hellfrost(baseRules) {
   );
   rules.defineChoice('preset',
     'race:Race,select-one,races', 'advances:Advances,text,4',
-    'concept:Concept,select-one,concepts'
+    'concept:Concept,select-one,concepts', 'deity:Deity,select-one,deitys'
   );
 
   Hellfrost.ARCANAS =
@@ -111,6 +111,11 @@ function Hellfrost(baseRules) {
 
 Hellfrost.VERSION = '2.3.1.0';
 
+/*
+ * Spell list changes from errata:
+ *   Remove Decipher from Nauthiz
+ *   Wall Of Might => Sphere Of Might
+ */
 Hellfrost.ARCANAS_ADDED = {
   'Druidism':
     'Skill=Druidism ' +
@@ -177,6 +182,199 @@ Hellfrost.ARCANAS_ADDED = {
       'Obscure,"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
       '"Sphere Of Might",Storm,Stun,"Summon Elemental","Voice On The Wind",' +
       'Warding,Whirlwind,"Wilderness Step"',
+  'Miracles (Dargar)':
+    'Powers=' +
+      'Smite,Armor,"Battle Song",Blast,Bolt,"Boost/Lower Trait",Burst,' +
+      '"Champion Of The Faith","Energy Immunity","Gift Of Battle",' +
+      '"Prolonged Blast",Quickness,Sanctuary,"Sphere Of Might",' +
+      '"Summon Demon","Summon Herald","Warrior\'s Gift","Weapon Immunity"',
+  'Miracles (Eira)':
+    'Powers=' +
+      'Healing,"Arcane Resistance","Beast Friend",Bladebreaker,Bless,' +
+      'Bodyguard,"Boost/Lower Trait","Champion Of The Faith",Confusion,' +
+      'Dispel,"Energy Immunity","Environmental Protection",Feast,Glyph,' +
+      '"Greater Healing",Knockdown,Refuge,Regenerate,Sanctuary,Slumber,Stun,' +
+      'Succor,"Summon Herald",Warding,"Weapon Immunity"',
+  'Miracles (Eostre Animalmother)':
+    'Powers=' +
+      '"Beast Friend",Entangle,"Altered Senses","Animate War Tree",Barrier,' +
+      'Bolt,"Boost/Lower Trait",Bridge,Burrow,"Champion Of The Faith",' +
+      '"Elemental Manipulation",Entangle,"Environmental Protection",Farsight,' +
+      'Feast,Glyph,Growth/Shrink,Healing,Leaping,Mend,Refuge,Sanctuary,' +
+      '"Shape Change",Sentry,"Summon Beast","Summon Elemental",' +
+      '"Summon Herald","Sphere Of Might","Wall Walker","Wandering Senses",' +
+      '"Wilderness Step"',
+  'Miracles (Eostre Plantmother)':
+    'Powers=' +
+      'Entangle,"Beast Friend","Altered Senses","Animate War Tree",Barrier,' +
+      'Bolt,"Boost/Lower Trait",Bridge,Burrow,"Champion Of The Faith",' +
+      '"Elemental Manipulation",Entangle,"Environmental Protection",Farsight,' +
+      'Feast,Glyph,Growth/Shrink,Healing,Leaping,Mend,Refuge,Sanctuary,' +
+      '"Shape Change",Sentry,"Summon Beast","Summon Elemental",' +
+      '"Summon Herald","Sphere Of Might","Wall Walker","Wandering Senses",' +
+      '"Wilderness Step"',
+  'Miracles (Ertha)':
+    'Powers=' +
+      'Burrow,Armor,Barrier,"Beast Friend",Bladebreaker,Bolt,' +
+      '"Boost/Lower Trait",Bridge,"Champion Of The Faith",Detect/Conceal,' +
+      '"Elemental Form","Elemental Manipulation","Energy Immunity",Entangle,' +
+      '"Environmental Protection",Corporealness,Glyph,Growth/Shrink,Quake,' +
+      'Refuge,Sanctuary,"Sphere Of Might","Summon Elemental","Summon Herald",' +
+      '"Wall Walker","Weapon Immunity","Wilderness Step"',
+  'Miracles (Freo)':
+    'Powers=' +
+      '"Wilderness Step","Beast Friend",Bodyguard,Bolt,"Boost/Lower Trait",' +
+      'Bridge,"Champion Of The Faith",Entangle,"Environmental Protection",' +
+      'Etherealness,Farsight,Feast,Fly,Leaping,Mend,Quickness,Sanctuary,' +
+      'Sentry,"Speak Language",Speed,Storm,Succor,"Summon Herald",Teleport,' +
+      '"Voice On The Wind","Wall Walker","Wandering Senses",Zephyr',
+  'Miracles (Hela)':
+    'Powers=' +
+      'Zombie,"Arcane Resistance",Armor,Aura,Banish,"Beast Friend",Blast,' +
+      'Bolt,"Boost/Lower Trait","Champion Of The Faith","Corpse Senses",' +
+      'Deflection,Dispel,"Enhance Undead",Etherealness/Corporealness,Fatigue,' +
+      'Fear,"Fog Cloud",Glyph,Gravespeak,"Greater Zombie",Invisibility,' +
+      'Nightmare,Obscure,"Prolonged Blast",Sacrifice,Sanctuary,' +
+      '"Sluggish Reflexes",Slumber,"Strength Of The Undead",Stun,' +
+      '"Summon Herald","Weaken Undead"',
+  'Miracles (Hoenir)':
+    'Powers=' +
+      'Detect/Conceal,"Altered Senses","Arcane Resistance","Beast Friend",' +
+      'Bless,Bolt,"Boost/Lower Trait","Champion Of The Faith",Confusion,' +
+      'Dispel,Farsight,Glyph,Gravespeak,Insight,Light,Lock/Unlock,Mimic,' +
+      '"Mind Rider",Precognition,Sanctuary,Silence,"Speak Language",' +
+      '"Summon Demon","Summon Herald","Voice On The Wind","Wandering Senses",' +
+      'Warding',
+  'Miracles (Hothar)':
+    'Powers=' +
+      '"Charismatic Aura","Altered Senses","Arcane Resistance",Armor,Barrier,' +
+      '"Beast Friend",Bladebreaker,"Boost/Lower Trait",' +
+      '"Champion Of The Faith",Deflection,Detect/Conceal,Dispel,Entangle,' +
+      '"Environmental Protection",Fear,Invisibility,Light,Puppet,Quickness,' +
+      'Sanctuary,Silence,Smite,"Speak Language",Speed,Stun,"Summon Herald",' +
+      '"Voice On The Wind"',
+  'Miracles (Kenaz)':
+    'Powers=' +
+      'Deflection,"Altered Senses",Aura,Bladebreaker,Blast,Bolt,Burst,' +
+      '"Champion Of The Faith","Elemental Form","Elemental Manipulation",' +
+      '"Energy Immunity",Etherealness,"Environmental Protection",Fatigue,' +
+      'Glyph,Leaping,Light,"Heat Mask","Prolonged Blast",Sanctuary,Smite,' +
+      'Speed,"Sphere Of Might",Stun,"Summon Elemental","Summon Herald",Warding',
+  'Miracles (Maera)':
+    'Powers=' +
+      'Dispel,"Arcane Resistance",Banish,Barrier,Bolt,Deflection,' +
+      'Detect/Conceal,"Elemental Manipulation","Energy Immunity",' +
+      'Etherealness/Corporealness,Fly,Glyph,Light,"Negate Arcana",Obscure,' +
+      'Precognition,Sanctuary,Stun,"Summon Elemental","Summon Herald",' +
+      'Teleport,Warding',
+  'Miracles (Nauthiz)':
+    'Powers=' +
+      '"Boost/Lower Trait","Altered Senses","Arcane Resistance",Bolt,Burrow,' +
+      '"Champion Of The Faith",Confusion,Detect/Conceal,Dispel,Etherealness,' +
+      '"Fortune\'s Favored",Gravespeak,Growth/Shrink,Invisibility,Light,' +
+      'Lock/Unlock,Luck/Jinx,Obscure,"Negate Arcana",Sanctuary,Silence,' +
+      '"Speak Language","Summon Herald","Wall Walker","Wandering Senses"',
+  'Miracles (Neorthe)':
+    'Powers=' +
+      '"Environmental Protection",Barrier,"Beast Friend",Bolt,' +
+      '"Boost/Lower Trait","Champion Of The Faith","Elemental Form",' +
+      '"Elemental Manipulation","Energy Immunity",Etherealness/Corporealness,' +
+      'Fatigue,"Fog Cloud",Glyph,Healing,Mend,Sanctuary,"Shape Change",Stun,' +
+      'Succor,"Summon Beast","Summon Herald","Summon Elemental",' +
+      '"Sphere Of Might","Water Walk"',
+  'Miracles (Niht)':
+    'Powers=' +
+      'Obscure,"Altered Senses",Banish,Panic,Bolt,"Boost/Lower Trait",Burrow,' +
+      '"Champion Of The Faith",Confusion,Deflection,Conceal,' +
+      '"Energy Immunity",Entangle,Etherealness/Corporealness,Farsight,Fear,' +
+      '"Fog Cloud","Heat Mask",Invisibility,Nightmare,Quickness,Sacrifice,' +
+      'Sanctuary,Sentry,Shrink,Silence,Smite,"Summon Elemental",' +
+      '"Summon Herald",Teleport,"Wall Walker","Wandering Senses"',
+  'Miracles (The Norns)':
+    'Powers=' +
+      'Precognition,"Analyze Foe",Banish,Bless/Panic,Bolt,' +
+      '"Boost/Lower Trait","Champion Of The Faith",Confusion,Deflection,' +
+      'Dispel,Entangle,Fatigue,"Fortune\'s Favored",Healing,Insight,' +
+      'Invisibility,Luck/Jinx,Mimic,Quickness,Speed,Succor,"Summon Herald",' +
+      'Teleport,Warding',
+  'Miracles (Rigr)':
+    'Powers=' +
+      'Detect,"Altered Senses","Analyze Foe","Boost/Lower Trait",' +
+      '"Champion Of The Faith","Environmental Protection",Farsight,' +
+      '"Fog Cloud","Heat Mask",Invisibility,Light,Sanctuary,Sentry,Silence,' +
+      '"Speak Language",Speed,Storm,"Summon Herald",Teleport,' +
+      '"Wandering Senses","Voice On The Wind"',
+  'Miracles (Scaetha)':
+    'Powers=' +
+      '"Weaken Undead","Arcane Resistance",Armor,Banish,Bladebreaker,Bless,' +
+      'Bodyguard,Bolt,"Boost/Lower Trait","Champion Of The Faith",Deflection,' +
+      'Dispel,Corporealness,Glyph,Gravespeak,Healing,"Heat Mask",' +
+      '"Energy Immunity",Invisibility,Light,"Prolonged Blast",Quickness,' +
+      'Sanctuary,Smite,"Sphere Of Might","Summon Herald",Warding,' +
+      '"Warrior\'s Gift","Weapon Immunity"',
+  'Miracles (Sigel)':
+    'Powers=' +
+      'Light,"Altered Senses",Aura,Banish,Bless,Bolt,Burst,' +
+      '"Champion Of The Faith",Deflection,"Elemental Manipulation",' +
+      '"Energy Immunity","Environmental Protection",Farsight,Fatigue,' +
+      'Invisibility,Precognition,"Prolonged Blast",Sanctuary,Speed,' +
+      '"Sphere Of Might",Stun,"Summon Elemental","Summon Herald",Teleport,' +
+      'Warding,"Weaken Undead"',
+  'Miracles (Thrym)':
+    'Powers=' +
+      'Entangle,Armor,Aura,Barrier,"Beast Friend",Bladebreaker,Bolt,Bridge,' +
+      'Burrow,Burst,"Champion Of The Faith",Deflection,Detect/Conceal,' +
+      'Dispel,"Elemental Form","Elemental Manipulation","Energy Immunity",' +
+      '"Environmental Protection",Fatigue,Fear,Fly,Glyph,"Heat Mask",Light,' +
+      'Obscure,"Prolonged Blast",Sanctuary,"Sluggish Reflexes",Smite,' +
+      '"Sphere Of Might",Storm,"Summon Herald","Voice On The Wind",' +
+      '"Wilderness Step"',
+  'Miracles (Thunor)':
+    'Powers=' +
+      'Fly,Aim,Barrier,Becalm,"Beast Friend",Bolt,"Champion Of The Faith",' +
+      'Deflection,"Elemental Form","Elemental Manipulation",' +
+      '"Energy Immunity","Environmental Protection",' +
+      'Etherealness/Corporealness,Fatigue,"Fog Cloud",Glyph,Knockdown,' +
+      'Leaping,Obscure,Sanctuary,"Shape Change",Silence,Storm,"Summon Beast",' +
+      '"Summon Elemental","Summon Herald",Telekinesis,"Sphere Of Might",' +
+      '"Voice On The Wind",Whirlwind,Zephyr',
+  'Miracles (Tiw)':
+    'Powers=' +
+      'Armor,Smite,Aim,"Battle Song",Bladebreaker,Blast,Bolt,' +
+      '"Boost/Lower Trait",Burst,"Champion Of The Faith",Deflection,' +
+      '"Energy Immunity",Fatigue,"Gift Of Battle",Knockdown,' +
+      '"Prolonged Blast",Quickness,"Sluggish Reflexes",Sanctuary,Smite,Speed,' +
+      'Stun,"Summon Herald","Warrior\'s Gift","Weapon Immunity"',
+  'Miracles (Ullr)':
+    'Powers=' +
+      'Aim,"Altered Senses","Beast Friend","Boost/Lower Trait",' +
+      '"Champion Of The Faith",Deflection,Entangle,' +
+      '"Environmental Protection",Feast,"Heat Mask",Leaping,Refuge,Sanctuary,' +
+      'Sentry,"Shape Change",Silence,Speed,"Summon Beast","Summon Herald",' +
+      '"Voice On The Wind","Wandering Senses","Wilderness Step"',
+  'Miracles (The Unknowable One)':
+    'Powers=' +
+      '"Shape Change",Bladebreaker,Bless/Panic,"Boost/Lower Trait",Burrow,' +
+      '"Champion Of The Faith","Charismatic Aura",Confusion,Deflection,' +
+      'Detect/Conceal,Dispel,"Elemental Manipulation",Entangle,' +
+      'Etherealness/Corporealness,Farsight,Fear,"Fortune\'s Favored",' +
+      'Invisibility,Knockdown,Light,Luck/Jinx,Mimic,"Mind Rider",Obscure,' +
+      'Puppet,Quickness,Sanctuary,Silence,"Sluggish Reflexes","Summon Demon",' +
+      '"Summon Herald",Telekinesis,Teleport,"Wandering Senses",' +
+      '"Weapon Immunity"',
+  'Miracles (Vali)':
+    'Powers=' +
+      'Disease,"Charismatic Aura",Armor,Barrier,Aura,"Beast Friend",' +
+      '"Boost/Lower Trait",Burrow,"Champion Of The Faith","Charismatic Aura",' +
+      'Detect/Conceal,Disease,Entangle,Fatigue,Fear,Nightmare,Obscure,Puppet,' +
+      'Sacrifice,Sanctuary,"Shape Change",Smite,Stun,"Summon Demon",' +
+      '"Summon Herald"',
+  'Miracles (Var)':
+    'Powers=' +
+      '"Charismatic Aura",Bladebreaker,Bodyguard,Bolt,"Boost/Lower Trait",' +
+      'Confusion,Deflection,Detect/Conceal,Entangle,Fear,Lock,Puppet,' +
+      'Sanctuary,Sentry,Silence,Slumber,"Speak Language",Speed,' +
+      '"Summon Herald",Teleport',
   'Rune Magic (Armor-Rune)':
     'Skill=Armor-Rune ' +
     'Powers=Armor,Bladebreaker,"Weapon Immunity"',
@@ -384,7 +582,8 @@ Hellfrost.DEITIES = {
   'None':'',
   'Dargar':'',
   'Eira':'',
-  'Eostre':'',
+  'Eostre Animalmother':'',
+  'Eostre Plantmother':'',
   'Ertha':'',
   'Freo':'',
   'Hela':'',
@@ -1033,7 +1232,7 @@ Hellfrost.FEATURES_ADDED = {
   'Arcane Background (Druidism)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
-         '"+1 arcane skill in natural environments, -1 in urban environments"',
+         '"+1 Druidism in natural environments, -1 in urban environments"',
   'Arcane Background (Elementalism)':
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Heahwisardry)':
@@ -1403,6 +1602,18 @@ Hellfrost.POWERS_ADDED = {
     'Range=spirit ' +
     'Description=' +
       '"Allies in range gain +2 Spirit (or foes suffer -2) vs. fear (Raise +4/-4) while maintained"',
+  'Bless':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Range=spirit ' +
+    'Description=' +
+      '"Allies in range gain +2 Spirit vs. fear (Raise +4) while maintained"',
+  'Panic':
+    'Advances=4 ' +
+    'PowerPoints=1 ' +
+    'Range=spirit ' +
+    'Description=' +
+      '"Foes in range suffer -2 Spirit vs. fear (Raise -4) while maintained"',
   'Bodygard': // ref Summon Ally
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -1442,6 +1653,18 @@ Hellfrost.POWERS_ADDED = {
     'Range=smarts*2 ' +
     'Description=' +
       '"Target can detect supernatural effects or conceals target aura while maintained"',
+  'Detect':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*2 ' +
+    'Description=' +
+      '"Target can detect supernatural effects while maintained"',
+  'Conceal':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts*2 ' +
+    'Description=' +
+      '"Conceals target aura while maintained"',
   'Disease':
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -1470,6 +1693,18 @@ Hellfrost.POWERS_ADDED = {
     'Range=smarts ' +
     'Description=' +
       '"Target becomes unaffected by physical world or ethereal creature becomes effected (Spirit neg) while maintained"',
+  'Etherealness':
+    'Advances=4 ' +
+    'PowerPoints=5 ' +
+    'Range=smarts ' +
+    'Description=' +
+      '"Target becomes unaffected by physical world while maintained"',
+  'Corporealness':
+    'Advances=4 ' +
+    'PowerPoints=5 ' +
+    'Range=smarts ' +
+    'Description=' +
+      '"Target ethereal creature becomes effected by physical world (Spirit neg) while maintained"',
   'Farsight': // ref Farsight
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -1549,6 +1784,12 @@ Hellfrost.POWERS_ADDED = {
     'Range=touch ' +
     'Description=' +
       '"Target lock gains -2 pick penalty and +2 Toughness (Raise -4 and +4) until unlocked or unlocks normal lock"',
+  'Lock':
+    'Advances=0 ' +
+    'PowerPoints=1 ' +
+    'Range=touch ' +
+    'Description=' +
+      '"Target lock gains -2 pick penalty and +2 Toughness (Raise -4 and +4) until unlocked"',
   'Luck/Jinx':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -1787,7 +2028,16 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target dbl Pace (Raise also Run as free action) while maintained"'
+      '"Target dbl Pace (Raise also Run as free action) while maintained"',
+
+  // SWADE powers that are split in a Hellfrost spell list
+  'Shrink': // ref Growth/Shrink
+    'Advances=4 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description=' +
+      '"Target loses Toughness and Strength step (Spirit neg) for 5 rd"'
+
 };
 Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
@@ -1896,10 +2146,12 @@ Hellfrost.SWD2SWADE = function(table) {
   var replacements = {
     // Special for Roadwarden
     'Survival\\D+\\d+","skills.Tracking':'Survival',
+    // Powers
+    'Bodyguard':'"Summon Ally"',
     // Races
     'Short':'Size -1',
     // Skills
-    'Charisma':'Persuasion',
+    'Charisma\\b':'Persuasion',
     'Climbing':'Athletics',
     'Investigation':'Research',
     'Knowledge \\(Academics\\)':'Academics',
@@ -2099,6 +2351,12 @@ Hellfrost.conceptRules = function(rules, name, attributes, edges, skills) {
 Hellfrost.deityRules = function(rules, name) {
   rules.basePlugin.deityRules(rules, name);
   // No changes needed to the rules defined by base method
+  if(name != 'None') {
+    rules.defineRule('features.Arcane Background (Miracles (' + name + '))',
+      'features.Arcane Background (Miracles)', '?', null,
+      'deity', '=', 'source == "' + name + '" ? 1 : null'
+    );
+  }
 };
 
 /*
@@ -2412,6 +2670,17 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   var choices;
   var howMany;
   var i;
+
+  // Give priests their deity's signature spell
+  if(attribute == 'powers' && attrs['features.Arcane Background (Miracles)']) {
+    var arcana =
+      this.getChoices('arcanas')['Miracles (' + attributes['deity'] + ')'];
+    var powers = [];
+    if(arcana)
+      powers = QuilvynUtils.getAttrValueArray(arcana, 'Powers');
+    if(powers.length > 0)
+      attributes['powers.' + powers[0]] = 1;
+  }
 
   // Handle targeted allocations from Sneaky, Library, and Diverse features
   if(attribute == 'skills' &&
