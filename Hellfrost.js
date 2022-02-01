@@ -39,7 +39,7 @@ function Hellfrost(baseRules) {
   Hellfrost.rules = rules;
   rules.basePlugin = useSwade ? SWADE : SWD;
 
-  rules.defineChoice('choices', rules.basePlugin.CHOICES);
+  rules.defineChoice('choices', Hellfrost.CHOICES);
   rules.choiceEditorElements = rules.basePlugin.choiceEditorElements;
   rules.choiceRules = Hellfrost.choiceRules;
   rules.editorElements = rules.basePlugin.initialEditorElements();
@@ -47,7 +47,7 @@ function Hellfrost(baseRules) {
   rules.getPlugins = Hellfrost.getPlugins;
   rules.makeValid = rules.basePlugin.makeValid;
   rules.randomizeOneAttribute = Hellfrost.randomizeOneAttribute;
-  rules.defineChoice('random', rules.basePlugin.RANDOMIZABLE_ATTRIBUTES);
+  rules.defineChoice('random', Hellfrost.RANDOMIZABLE_ATTRIBUTES);
   rules.ruleNotes = Hellfrost.ruleNotes;
 
   rules.basePlugin.createViewers(rules, rules.basePlugin.VIEWERS);
@@ -101,7 +101,8 @@ function Hellfrost(baseRules) {
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
-     Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS);
+     Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS,
+     Hellfrost.GLORYS);
   Hellfrost.identityRules
     (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
 
@@ -110,6 +111,10 @@ function Hellfrost(baseRules) {
 }
 
 Hellfrost.VERSION = '2.3.1.0';
+
+Hellfrost.CHOICES = ['Glory'].concat(SWADE.CHOICES);
+Hellfrost.RANDOMIZABLE_ATTRIBUTES =
+  ['glories'].concat(SWADE.RANDOMIZABLE_ATTRIBUTES);
 
 /*
  * Spell list changes from errata:
@@ -1467,6 +1472,16 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Can speak with normal beasts, cast <i>Beast Friend</i>"',
 
+  // Glory Benefits
+  'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
+  'Favored':'Section=feature Note="+1 Benny each session"',
+  'Heroic Armor':'Section=combat Note="+%V Toughness in no armor"',
+  'Heroic Status':
+    'Section=skill ' +
+    'Note="+%V Reaction table/+%V Intimidation/+%V Persuasion/+%V Streetwise"',
+  'Immortalized In Song':'Section=feature Note="Dbl number of followers"',
+  'Leader Of Men':'Section=feature Note="+%V Edge Points (leadership)"',
+
   // Hindrances
   'Apprentice/Novitiate':
     'Section=skill Note="Maximum starting arcane skill d6"',
@@ -1509,6 +1524,17 @@ Hellfrost.FEATURES_ADDED = {
          '"+2 Armor vs. cold attacks"'
 };
 Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
+Hellfrost.GLORYS = {
+  'Combat Prowess':'Require="glory >= 40"',
+  'Connection':'Require="glory >= 20"',
+  'Favored':'Require="glory >= 60"',
+  'Followers':'Require="glory >= 40"',
+  'Heroic Aura':'Require="glory >= 40"',
+  'Heroic Status':'Require="glory >= 20"',
+  'Immortalized In Song':'Require="features.Heroic Status >= 4"',
+  'Leader Of Men':'Require="glory >= 40"',
+  'Sidekick':'Require="glory >= 80"'
+};
 Hellfrost.GOODIES = Object.assign({}, SWD.GOODIES);
 Hellfrost.HINDRANCES_ADDED = {
   'Apprentice/Novitiate':
@@ -1617,7 +1643,7 @@ Hellfrost.POWERS_ADDED = {
     'Range=spirit ' +
     'Description=' +
       '"Foes in range suffer -2 Spirit vs. fear (Raise -4) while maintained"',
-  'Bodygard': // ref Summon Ally
+  'Bodyguard': // ref Summon Ally
     'Advances=0 ' +
     'PowerPoints=3 ' +
     'Range=smarts ' +
@@ -1890,7 +1916,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=4 ' +
     'Range=smarts ' +
     'Description=' +
-      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damge (Raise d%{arcaneSkill}+d8) while maintained"',
+      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damage (Raise d%{arcaneSkill}+d8) while maintained"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
@@ -1907,7 +1933,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target rgains 1 level of fatigue (Raise 2 levels)"',
+    'Description="Target regains 1 level of fatigue (Raise 2 levels)"',
   'Summon Beast':
     'Advances=8 ' +
     'PowerPoints=2+ ' +
@@ -2210,11 +2236,27 @@ Hellfrost.arcaneRules = function(rules, arcanas, powers) {
 
 /* Defines rules related to character aptitudes. */
 Hellfrost.talentRules = function(
-  rules, edges, features, goodies, hindrances, languages, skills
+  rules, edges, features, goodies, hindrances, languages, skills, glorys
 ) {
   rules.basePlugin.talentRules
     (rules, edges, features, goodies, hindrances, languages, skills);
   // No changes needed to the rules defined by base method
+  QuilvynUtils.checkAttrTable(glorys, ['Require']);
+  for(var glory in glorys) {
+    rules.choiceRules(rules, 'Glory', glory, glorys[glory]);
+  }
+  rules.defineRule('gloryPoints', 
+    'glory', '=', 'source >= 20 ? Math.floor(source / 20) : null'
+  );
+  rules.defineEditorElement('glory', 'Glory', 'text', [10], 'notes');
+  rules.defineEditorElement
+    ('glorys', 'Glory Benefits', 'bag', 'glorys', 'notes');
+  rules.defineSheetElement('GloryPart', 'Hindrances+');
+  rules.defineSheetElement('Glory', 'GloryPart/');
+  rules.defineSheetElement
+    ('Glorys', 'GloryPart/', '<b>Glory Benefits</b>: %V', '; ');
+  rules.defineSheetElement('GloryPoints', 'GloryPart/');
+  rules.defineChoice('extras', 'Glory Benefits');
 };
 
 /*
@@ -2254,7 +2296,12 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Section'),
       QuilvynUtils.getAttrValueArray(attrs, 'Note')
     );
-  else if(type == 'Goody')
+  else if(type == 'Glory') {
+    Hellfrost.gloryRules(rules, name,
+      QuilvynUtils.getAttrValueArray(attrs, 'Require'),
+    );
+    Hellfrost.gloryRulesExtra(rules, name);
+  } else if(type == 'Goody')
     Hellfrost.goodyRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Pattern'),
       QuilvynUtils.getAttrValue(attrs, 'Effect'),
@@ -2541,6 +2588,45 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
 Hellfrost.featureRules = function(rules, name, sections, notes) {
   rules.basePlugin.featureRules(rules, name, sections, notes);
   // No changes needed to the rules defined by base method
+};
+
+/*
+ * Defines in #rules# the rules associated with glory benefit #name#, which has
+ * the list of hard prerequisites #requires#.
+ */
+Hellfrost.gloryRules = function(rules, name, requires) {
+  if(!name) {
+    console.log('Empty glory name');
+    return;
+  }
+  if(!Array.isArray(requires)) {
+    console.log('Bad requires list "' + requires + '" for glory ' + name);
+    return;
+  }
+  var prefix =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
+  if(requires.length > 0)
+    QuilvynRules.prerequisiteRules
+      (rules, 'validation', prefix + 'Glory', 'glory.' + name, requires);
+};
+
+/*
+ * Defines in #rules# the rules associated with glory #name# that cannot be
+ * derived directly from the attributes passed to gloryRules.
+ */
+Hellfrost.gloryRulesExtra = function(rules, name) {
+  if(name == 'Combat Prowess')
+    rules.defineRule
+      ('featureNotes.combatProwess', 'glorys.Combat Prowess', '=', null);
+  else if(name == 'Heroic Armor')
+    rules.defineRule
+      ('featureNotes.heroicArmor', 'glorys.Heroic Armor', '=', null);
+  else if(name == 'Heroic Status')
+    rules.defineRule
+      ('featureNotes.heroicStatus', 'glorys.Heroic Status', '=', null);
+  else if(name == 'Leader Of Men')
+    rules.defineRule
+      ('featureNotes.leaderOfMen', 'glorys.Leader Of Men', '=', null);
 };
 
 /*
