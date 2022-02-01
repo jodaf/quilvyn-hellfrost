@@ -1475,7 +1475,7 @@ Hellfrost.FEATURES_ADDED = {
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
   'Favored':'Section=feature Note="+1 Benny each session"',
-  'Heroic Armor':'Section=combat Note="+%V Toughness in no armor"',
+  'Heroic Aura':'Section=combat Note="+%V Toughness in no armor"',
   'Heroic Status':
     'Section=skill ' +
     'Note="+%V Reaction table/+%V Intimidation/+%V Persuasion/+%V Streetwise"',
@@ -1526,7 +1526,7 @@ Hellfrost.FEATURES_ADDED = {
 Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
 Hellfrost.GLORYS = {
   'Combat Prowess':'Require="glory >= 40"',
-  'Connection':'Require="glory >= 20"',
+  'Connections':'Require="glory >= 20"',
   'Favored':'Require="glory >= 60"',
   'Followers':'Require="glory >= 40"',
   'Heroic Aura':'Require="glory >= 40"',
@@ -2175,8 +2175,6 @@ Hellfrost.SWD2SWADE = function(table) {
   var replacements = {
     // Special for Roadwarden
     'Survival\\D+\\d+","skills.Tracking':'Survival',
-    // Powers
-    'Bodyguard':'"Summon Ally"',
     // Races
     'Short':'Size -1',
     // Skills
@@ -2248,15 +2246,19 @@ Hellfrost.talentRules = function(
   rules.defineRule('gloryPoints', 
     'glory', '=', 'source >= 20 ? Math.floor(source / 20) : null'
   );
-  rules.defineEditorElement('glory', 'Glory', 'text', [10], 'notes');
+  rules.defineEditorElement
+    ('glory', 'Glory', 'text', [10, '\\+?\\d+'], 'notes');
   rules.defineEditorElement
     ('glorys', 'Glory Benefits', 'bag', 'glorys', 'notes');
-  rules.defineSheetElement('GloryPart', 'Hindrances+');
-  rules.defineSheetElement('Glory', 'GloryPart/');
+  rules.defineSheetElement('Glory', 'Improvement Points Allocation+');
+  rules.defineSheetElement('GloryPart', 'Hindrances+', null, ' ');
+  rules.defineSheetElement('GloryStats', 'GloryPart/', null, '');
   rules.defineSheetElement
-    ('Glorys', 'GloryPart/', '<b>Glory Benefits</b>: %V', '; ');
-  rules.defineSheetElement('GloryPoints', 'GloryPart/');
+    ('Glory Points', 'GloryStats/', '<b>Glory Benefits</b> (%V points):');
+  rules.defineSheetElement('Glorys', 'GloryPart/', '%V', '; ');
   rules.defineChoice('extras', 'Glory Benefits');
+  QuilvynRules.validAllocationRules
+    (rules, 'gloryBenefit', 'gloryPoints', 'Sum "^glorys\\."');
 };
 
 /*
@@ -2298,7 +2300,7 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     );
   else if(type == 'Glory') {
     Hellfrost.gloryRules(rules, name,
-      QuilvynUtils.getAttrValueArray(attrs, 'Require'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Require')
     );
     Hellfrost.gloryRulesExtra(rules, name);
   } else if(type == 'Goody')
@@ -2607,7 +2609,8 @@ Hellfrost.gloryRules = function(rules, name, requires) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   if(requires.length > 0)
     QuilvynRules.prerequisiteRules
-      (rules, 'validation', prefix + 'Glory', 'glory.' + name, requires);
+      (rules, 'validation', prefix + 'Glory', 'glorys.' + name, requires);
+  rules.defineRule('features.' + name, 'glorys.' + name, '=', null);
 };
 
 /*
@@ -2615,18 +2618,32 @@ Hellfrost.gloryRules = function(rules, name, requires) {
  * derived directly from the attributes passed to gloryRules.
  */
 Hellfrost.gloryRulesExtra = function(rules, name) {
-  if(name == 'Combat Prowess')
+  if(name == 'Combat Prowess') {
     rules.defineRule
       ('featureNotes.combatProwess', 'glorys.Combat Prowess', '=', null);
-  else if(name == 'Heroic Armor')
+    rules.defineRule('edgePoints', 'featureNotes.combatProwess', '+', null);
+  } else if(name == 'Heroic Aura') {
+    var allArmors = rules.getChoices('armors');
+    rules.defineRule('wearingArmor',
+      'combatNotes.heroicAura', '=', '0'
+    );
+    for(var armor in allArmors)
+      rules.defineRule('wearingArmor', 'armor.' + armor, '+', '1');
     rules.defineRule
-      ('featureNotes.heroicArmor', 'glorys.Heroic Armor', '=', null);
-  else if(name == 'Heroic Status')
+      ('combatNotes.heroicAura', 'glorys.Heroic Aura', '=', null);
+    rules.defineRule('combatNotes.heroicAura.1',
+      'wearingArmor', '?', 'source == 0',
+      'combatNotes.heroicAura', '=', null
+    );
+    rules.defineRule('toughness', 'combatNotes.heroicAura.1', '+', null);
+  } else if(name == 'Heroic Status')
     rules.defineRule
-      ('featureNotes.heroicStatus', 'glorys.Heroic Status', '=', null);
-  else if(name == 'Leader Of Men')
+      ('skillNotes.heroicStatus', 'glorys.Heroic Status', '=', null);
+  else if(name == 'Leader Of Men') {
     rules.defineRule
       ('featureNotes.leaderOfMen', 'glorys.Leader Of Men', '=', null);
+    rules.defineRule('edgePoints', 'featureNotes.leaderOfMen', '+', null);
+  }
 };
 
 /*
@@ -2893,8 +2910,10 @@ Hellfrost.ruleNotes = function() {
     '<ul>\n' +
     '  <li>\n' +
     '    Quilvyn calculates and reports Power Points for those who want to\n' +
-    '    use the power mechanics from he base rules. Edges that affect\n' +
+    '    use the power mechanics from the base rules. Edges that affect\n' +
     '    power points (Rapid Recharge, Soul Drain etc.) are also available.\n' +
+    '    Power Point costs of Hellfrost spells are assigned by comparison\n' +
+    '    with spells of similar power from the base rules.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
