@@ -1307,7 +1307,7 @@ Hellfrost.FEATURES_ADDED = {
          '"+1 Faith (graveyards)"',
   'Disciple Of Hoenir':
     'Section=skill ' +
-    'Note="+1 Common Knowledge/+1 all Knowledge/May make untrained Knowledge skills"',
+    'Note="+1 Common Knowledge/+1 all Knowledge/May make untrained Knowledge rolls"',
   'Disciple Of Hothar':'Section=attribute Note="+2 vs. mind effects"',
   'Disciple Of Kenaz':
     'Section=attribute,combat ' +
@@ -1373,7 +1373,9 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
   'Gray Legionary':
-    'Section=feature Note="Member of Gray Legionary mercenary company"',
+    'Section=feature,skill ' +
+    'Note="Member of Gray Legionary mercenary company",' +
+         '"Immune to Intimidation and fear"',
   'Guild Thief':
     'Section=skill ' +
     'Note="+2 Streetwise (home country)/d8 Wild Die choice of Climbing, Stealth (urban), or Lockpicking"',
@@ -1395,22 +1397,23 @@ Hellfrost.FEATURES_ADDED = {
   'Improved Focus':'Section=arcana Note="Increased Focus effects"',
   'Improved Giant Killer':
     'Section=combat ' +
-    'Note="Ignores Armor or Size benefits of creatures of Size %{size+3} or greater"',
+    'Note="May ignore Armor or Size benefits of creatures of Size %{size+3} or greater"',
   'Improved Snow Walker':'Section=combat Note="Increased Snow Walker effects"',
   'Improved Sunder':'Section=combat Note="Increased Sunder effects"',
   'Iron Guild Mercenary':
     'Section=combat,feature ' +
     'Note="Member of Iron Guild mercenary company","+1 using Gang Up"',
   'Knight Hrafn':
-    'Section=combat,feature,skill ' +
-    'Note="Increased Command effects",' +
-         '"Member of tactician order",' +
+    'Section=feature,skill ' +
+    'Note="+%V Command range; ignores rank requirement for leadership edges",' +
          '"+1 Knowledge (Battle)"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
   'Library':'Section=skill Note="+%V Skill Points (choice of Knowledge)"',
   'Linguist':'Section=skill Note="Knows %V languages"',
-  'Lorekeeper':'Section=skill Note="May make untrained Smarts skills at d4"',
+  'Lorekeeper':
+    'Section=skill ' +
+    'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
   'Master Storyteller':
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
@@ -1437,9 +1440,9 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill ' +
     'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
   'Runic Insight':
-    'Section=arcana Note="+1 arcane skill die for 1 spell of %1 chosen runes"',
+    'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
-  'Shieldwall':'Section=combat Note="Shield benefit apples to adjacent ally"',
+  'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
     'Note="-1 fortification siege bonus during mass battle, test Knowledge (Battle) for -2 (Raise -3)"',
@@ -1466,11 +1469,12 @@ Hellfrost.FEATURES_ADDED = {
     'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
-    'Section=combat Note="Make Intimidation test against all in 3%{in} radius"',
+    'Section=combat ' +
+    'Note="May make Intimidation test against all in 3%{in} radius"',
   'Warm Blooded':'Section=attribute Note="+2 Vigor (cold weather effects)"',
   'Wood Warden':
     'Section=arcana ' +
-    'Note="Can speak with normal beasts, cast <i>Beast Friend</i>"',
+    'Note="Can speak with normal beasts, cast <i>Beast Friend</i> at +2"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
@@ -1504,7 +1508,6 @@ Hellfrost.FEATURES_ADDED = {
   // Races
   'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
   'Forest-Born':'Section=combat Note="No difficult terrain penalty in forests"',
-  'Engro Luck':'Section=feature Note="+1 Benny each session"',
   'Frigid Form':
     'Section=arcana ' +
     'Note="Innate casting on self of cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i>"',
@@ -1513,9 +1516,11 @@ Hellfrost.FEATURES_ADDED = {
     'Note="-1 attribute rolls at temperatures above 52",' +
          '"-1 skill rolls at temperatures above 52"',
   'Insular':'Section=skill Note="-2 Charisma (other races)"',
+  'Luck (Engro)':'Section=feature Note="+1 Benny each session"',
   'Mountain-Born':
     'Section=combat Note="No difficult terrain penalty in hills and mountains"',
   'Natural Realms':'Section=feature Note="Treats Elfhomes as wilds"',
+  'Small (Engro)':'Section=combat,description Note="-1 Toughness","-1 Size"',
   'Sneaky':
     'Section=skill Note="+2 Skill Points (choice of Stealth or Lockpicking)"',
   'Winter Soul':
@@ -2072,7 +2077,7 @@ Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
   'Engro':
     'Features=' +
-      '"Engro Luck",Outsider,"Short",Sneaky,Spirited',
+      '"Luck (Engro)",Outsider,"Small (Engro)",Sneaky,Spirited',
   'Frost Dwarf':
     'Features=' +
       '"Heat Lethargy",Insular,"Low Light Vision",Mountain-Born,Slow,' +
@@ -2130,7 +2135,6 @@ Hellfrost.SKILLS_ADDED = {
   'Weather-Rune':'Attribute=smarts',
   'Song Magic':'Attribute=smarts',
   'Knowledge (Alchemy)':'Attribute=smarts',
-  'Knowledge (Arcana)':'Attribute=smarts',
   'Knowledge (Craft)':'Attribute=smarts',
   'Knowledge (Folklore)':'Attribute=smarts',
   'Knowledge (Heraldry)':'Attribute=smarts',
@@ -2168,15 +2172,14 @@ Hellfrost.WEAPONS = {
   'Long Bow':'Damage=2d6 MinStr=8 Weight=5 Category=R Range=15',
   'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=R Range=15 AP=2',
   'Sling':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=4',
-  'Throwing Knife':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=4'
+  'Throwing Knife':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=3'
 };
 
 Hellfrost.SWD2SWADE = function(table) {
   var replacements = {
     // Special for Roadwarden
-    'Survival\\D+\\d+","skills.Tracking':'Survival',
-    // Races
-    'Short':'Size -1',
+    'skills.Survival.*skills.Tracking':'skills.Survival',
+    '.2 Survival/.2 Tracking':'+2 Survival',
     // Skills
     'Charisma\\b':'Persuasion',
     'Climbing':'Athletics',
@@ -2509,7 +2512,9 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'arcanaNotes.improvedFocus', '=', '""'
     );
   } else if(name == 'Knight Hrafn') {
-    rules.defineRule('commandRange', 'combatNotes.knightHrafn', '+', '1');
+    rules.defineRule
+      ('featureNotes.knightHrafn', 'advances', '=', 'Math.floor(source/4) + 1');
+    rules.defineRule('commandRange', 'featureNotes.knightHrafn', '+', null);
   } else if(name == 'Library') {
     rules.defineRule
       ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
