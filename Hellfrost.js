@@ -451,7 +451,10 @@ Hellfrost.ARCANAS_ADDED = {
       'Dispel,"Elemental Manipulation",Fatigue,Fear,Healing,Lock/Unlock,' +
       'Mimic,"Negate Arcana",Nightmare,Puppet,Sanctuary,Silence,Slumber,' +
       '"Speak Language",Stun,Succor,"Summon Beast","Voice On The Wind",' +
-      'Warding,"Warrior\'s Gift","Wilderness Step"'
+      'Warding,"Warrior\'s Gift","Wilderness Step"',
+  'Soul Binding':
+    'Skill="Soul Binding" ' +
+    'Powers="Boost Trait","Warrior\'s Gift"'
 };
 Hellfrost.ARCANAS = Object.assign({}, SWD.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS['Magic'];
@@ -572,6 +575,10 @@ Hellfrost.CONCEPTS = {
     'Edge="Arcane Background (Song Magic)" ' +
     'Attribute=Smarts ' +
     'Skill="Song Magic"',
+  'Soul Binder':
+    'Edge="Arcane Background (Soul Binding)" ' +
+    'Attribute=Smarts ' +
+    'Skill="Soul Binding"',
   'Trapper': // Estimated related features
     'Attribute=Smarts ' +
     'Skill=Survival',
@@ -612,6 +619,7 @@ Hellfrost.DEITIES = {
   'Var':''
 };
 Hellfrost.EDGES_ADDED = {
+  // Player's Guide
   // Background
   'Arcane Background (Druidism)':
     'Type=background Require="race =~ \'Engro|Elf|Dwarf\'"',
@@ -623,6 +631,7 @@ Hellfrost.EDGES_ADDED = {
   'Arcane Background (Hrimwisardry)':'Type=background',
   'Arcane Background (Rune Magic)':
     'Type=background Require="race == \'Frost Dwarf\'"',
+  'Arcane Background (Soul Binding)':'Type=background',
   'Arcane Background (Song Magic)':'Type=background',
   'Library':
     'Type=background ' +
@@ -1219,7 +1228,114 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Knowledge (Folklore) >= 8",' +
       '"skills.Persuasion >= 8"',
   'Legendary Storyteller':
-    'Type=background Require="advances >= 12","features.Master Storyteller"'
+    'Type=background Require="advances >= 12","features.Master Storyteller"',
+  // Rassilon Expansion I
+  // Background
+  'Ancestral Guardian':
+    'Type=background ' +
+    'Require="spirit >= 8"',
+  'Giant Blood':
+    'Type=background ' +
+    'Require="strength >= 8","vigor >= 6","race =~ \'Human\'"',
+  'Large Family':'Type=background',
+  'Powerful Family':'Type=background',
+  'World-Wise':'Type=background Require="smarts >= 8"',
+  // Combat
+  'Fast And Silent':'Type=combat Require="agility >= 8","skills.Stealth >= 8"',
+  'One Step One Kill':'Type=combat Require="advances >= 8","agility >= 8"',
+  'Retributive Strike':
+    'Type=combat ' +
+    'Require="advances >= 8","agility >= 8","skills.Fighting >= 8"',
+  'Vengeful Strike':
+    'Type=combat Require="advances >= 12","features.Retributive Strike"',
+  'Salmon Leap':
+    'Type=combat Require="advances >= 4","agility >= 8","strength >= 8"',
+  'Spear Catch':
+    'Type=combat Require="advances >= 8","agility >= 8","skills.Throwing >= 6"',
+  'Spear Twist':
+    'Type=combat Require="advances >= 4","agility >= 8","skills.Throwing >= 8"',
+  'Steady Feet':
+    'Type=combat ' +
+    'Require=' +
+      '"advances >= 12",' +
+      '"agility >= 8",' +
+      '"strength >= 8",' +
+      '"features.Giant Killer"',
+  // Leadership
+  'Born In Battle':
+    'Type=leadership ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"smarts >= 8",' +
+      '"skills.Knowledge (Battle) >= 8",' +
+      '"features.Command"',
+  // Power
+  'Enhanced Maintenance':
+    'Type=power ' +
+    'Require="advances >= 8","spirit >= 8","vigor >= 8","arcaneSkill >= 8"',
+  'Instinctive Dispel':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"arcaneSkill >= 8",' +
+      '"skills.Knowledge (Arcana) >= 10",' +
+      'powers.Dispel',
+  'Spell Finesse (Altered Range)':
+    'Type=power ' +
+    'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
+  // Professional
+  'Arcane Hand':
+    'Type=professional ' +
+    'Require=' +
+      '"skills.Healing >= 6",' +
+      '"skills.Knowledge (Arcana) >= 6",' +
+      '"skills.Notice >= 6"',
+  'Dungeon Crawler':
+    'Type=professional ' +
+    'Require=' +
+      '"agility >= 8",' +
+      '"skills.Climbing >= 6",' +
+      '"skills.Stealth >= 6",' +
+      '"skills.Survival >= 6"',
+  'Huscarl Of Hammerhand':
+    'Type=professional ' +
+    'Require=' +
+      '"race == \'Frost Dwarf\'",' +
+      '"strength >= 8",' +
+      '"spirit >= 6",' +
+      '"vigor >= 6",' +
+      '"skills.Fighting >= 6",' +
+      '"skills.Throwing >= 8",' +
+      '"features.Vow"',
+  'Elite Huscarl Of Hammerhand':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 12",' +
+      '"skills.Throwing >= 10",' +
+      '"features.Huscarl Of Hammerhand"',
+  'One Of Thirteen':
+    'Type=professional ' +
+    'Require=' +
+      '"agility >= 6",' +
+      '"smarts >= 6",' +
+      '"skills.Fighting >= 8",' +
+      '"combatEdgeCount >= 2"',
+  'Ranger':'Type=professional Require="advances >= 4","features.Woodsman"',
+  'Siege Engineer':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"smarts >= 8",' +
+      '"skills.Knowledge (Siege Artillery) >= 8"',
+  'Watcher Of The Black Gate':
+    'Type=professional ' +
+    'Require=' +
+      '"spirit >= 8",' +
+      '"vigor >= 6",' +
+      '"skills.Fighting >= 8"',
+  // Social
+  'Sanctuary':'Type=social'
+
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES['Ace'];
@@ -1230,10 +1346,14 @@ delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
 // Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
 Hellfrost.FEATURES_ADDED = {
 
+  // Player's Guide
   // Edges
   'A Few Good Men':
     'Section=combat Note="Adds one token to army in mass battles"',
   'Alchemy':'Section=arcana Note="May create arcane devices for known spells"',
+  'Ancestral Guardian':
+    'Section=arcana ' +
+    'Note="May spend benny to cast <i>Aim</i>, <i>Boost Trait</i>, <i>Deflection</i>, <i>Environmental Protection</i>, <i>Farsight</i>, or <i>Warrior\'s Gift</i> on self"',
   'Arcane Background (Druidism)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
@@ -1251,10 +1371,13 @@ Hellfrost.FEATURES_ADDED = {
          '"-2 Charisma (civilized races)/Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
     'Section=arcana Note="0 Powers/10 Power Points"',
+  'Arcane Background (Soul Binding)':
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
          '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
+  'Arcane Hand':'Section=feature Note="Member of Magocracy elite bodyguard"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
@@ -1272,6 +1395,9 @@ Hellfrost.FEATURES_ADDED = {
     'Note=' +
       '"+%V sling range/Sling does d%{strength}%1+d6 damage at short range",' +
       '"+1 Charisma (engros)"',
+  'Born In Battle':
+    'Section=skill ' +
+    'Note="+2 Common Knowledge (military)/+2 Knowledge (Battle)"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
@@ -1360,18 +1486,33 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Var':
     'Section=feature Note="May sell goods at 50% price (Raise 75%)"',
   'Double Shot':'Section=combat Note="May fire two arrows at one target%1"',
+  'Dungeon Crawler':
+    'Section=skill ' +
+    'Note="+1 Climbing (underground)/+1 Stealthy (underground)/+1 Survival (underground)/May squeeze into tight spaces"',
   'Elemental Mastery':
     'Section=arcana ' +
     'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
+  'Elite Huscarl Of Hammerhand':
+    'Section=combat Note="Thrown warhammer strikes all in 1%{in} line"',
+  'Enhanced Maintenance':
+    'Section=arcana Note="May maintain spell while asleep"',
   'Fanaticism':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
+  'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 extra damage on attack Raise against chosen creature type"',
   'Focus':
     'Section=arcana ' +
     'Note="Immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
+  'Giant Blood':
+    'Section=attribute,combat,description,feature ' +
+    'Note=' +
+      '"May spend benny to gain +2 Strength step for %{vigor//2} rd",' +
+      '"+1 Toughness",' +
+      '"+1 Size",' +
+      '"Has Mean feature"',
   'Gray Legionary':
     'Section=feature,skill ' +
     'Note="Member of Gray Legionary mercenary company",' +
@@ -1391,6 +1532,8 @@ Hellfrost.FEATURES_ADDED = {
   'Holy/Unholy Warrior':
     'Section=arcana ' +
     'Note="R%{spirit}%{in} Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
+  'Huscarl Of Hammerhand':
+    'Section=combat Note="Warhammer has range 2, may strike multiple targets"',
   'Improved Concentration':
     'Section=arcana Note="Increased Concentration effects"',
   'Improved Double Shot':'Section=combat Note="Increased Double Shot effects"',
@@ -1400,6 +1543,8 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May ignore Armor or Size benefits of creatures of Size %{size+3} or greater"',
   'Improved Snow Walker':'Section=combat Note="Increased Snow Walker effects"',
   'Improved Sunder':'Section=combat Note="Increased Sunder effects"',
+  'Instinctive Dispel':
+    'Section=arcana Note="Free <i>Dispel</i> of spell that effects self 1/rd"',
   'Iron Guild Mercenary':
     'Section=combat,feature ' +
     'Note="Member of Iron Guild mercenary company","+1 using Gang Up"',
@@ -1407,6 +1552,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature,skill ' +
     'Note="+%V Command range; ignores rank requirement for leadership edges",' +
          '"+1 Knowledge (Battle)"',
+  'Large Family':'Section=feature Note="+2 Kinship"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
   'Library':'Section=skill Note="+%V Skill Points (choice of Knowledge)"',
@@ -1426,9 +1572,17 @@ Hellfrost.FEATURES_ADDED = {
   'New Rune':'Section=arcana Note="Knows spells from %V runes"',
   'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
+  'One Of Thirteen':'Section=combat Note="May use ally\'s combat edge 1/rd"',
+  'One Step One Kill':
+    'Section=combat ' +
+    'Note="May move 1%{in} w/out triggering first strike/May spend benny to get the Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
+  'Powerful Family':'Section=feature Note="+2 Kinship"',
+  'Ranger':
+    'Section=skill ' +
+    'Note="Trackers -2 Tracking/d8 Wild Die with choice of Stealth, Survival, or Tracking"',
   'Reliquary (Arcanologist)':
     'Section=skill ' +
     'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/May use Knowledge (Arcana) to learn unattuned relic powers"',
@@ -1436,21 +1590,34 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute,skill ' +
     'Note="Test Agility-2 to avoid trap effects",' +
          '"+2 Notice (traps)/+2 disarm traps"',
+  'Retributive Strike':
+    'Section=combat Note="Free melee attack upon incapacitation"',
   'Roadwarden':
     'Section=skill ' +
     'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
+  'Salmon Leap':
+    'Section=combat,skill Note="Ignore 1 point of shield Parry","+1%{in} jump"',
+  'Sanctuary':
+    'Section=feature ' +
+    'Note="Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
     'Note="-1 fortification siege bonus during mass battle, test Knowledge (Battle) for -2 (Raise -3)"',
+  'Siege Engineer':'Section=combat Note="Siege weapons +50% range and +2 AP"',
   'Siege Mentality':
     'Section=combat ' +
     'Note="+1 fortification siege bonus during mass battle, test Knowledge (Battle) for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
+  'Spear Catch':'Section=combat Note="Successful agility test catches thrown spear (Raise returns throw)"',
+  'Spear Twist':'Section=combat Note="+1 Strength step for spear throw"',
+  'Spell Finesse (Altered Range)':
+    'Section=arcana ' +
+    'Note="Increase range of chosen touch spell to %{smarts>?spirit}%{in} or ranged spell to 12%{in}"',
   'Spell Finesse (Arcane)':
     'Section=arcana Note="+1 Wild Die die on chosen spell skill"',
   'Spell Finesse (Armor Penetration)':
@@ -1462,19 +1629,26 @@ Hellfrost.FEATURES_ADDED = {
   'Spell Finesse (Selective)':
     'Section=arcana ' +
     'Note="May exclude %{arcaneSkill//2} creatures from effects of chosen area spell"',
+  'Steady Feet':'Section=combat Note="+1 Size vs. knockback"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding"',
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
+  'Vengeful Strike':
+    'Section=combat Note="Free melee attack upon adjacent ally incapacitation"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
     'Section=combat ' +
     'Note="May make Intimidation test against all in 3%{in} radius"',
   'Warm Blooded':'Section=attribute Note="+2 Vigor (cold weather effects)"',
+  'Watcher Of The Black Gate':'Section=combat Note="+2 vs. demon powers"',
   'Wood Warden':
     'Section=arcana ' +
     'Note="Can speak with normal beasts, cast <i>Beast Friend</i> at +2"',
+  'World-Wise':
+    'Section=skill ' +
+    'Note="+5 Skill Points (areas)/May make unskilled area knowledge rolls"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
@@ -1496,6 +1670,11 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature,skill ' +
     'Note="Ostracized by magocratic nobility",' +
          '"-2 Charisma (heahwisards)"',
+  'Blood Feud':'Section=skill Note="-2 Charisma (rival family)"',
+  'Blood Feud+':'Section=skill Note="-4 Charisma (rival family)"',
+  'City Dweller':
+    'Section=skill ' +
+    'Note="-2 Common Knowledge (country life)/-2 Stealth/-2 Survival"',
   'Cold Blooded':'Section=attribute Note="-2 Vigor (cold weather effects)"',
   'God Cursed+':
     'Section=feature ' +
@@ -1504,6 +1683,18 @@ Hellfrost.FEATURES_ADDED = {
   'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
   'Orders':'Section=feature Note="Takes orders from outside power"',
+  'Outlaw':'Section=feature Note="-20 Glory/May be killed legally"',
+  'Sea Fear':
+    'Section=feature ' +
+    'Note="Must roll vs. fear within sight of large body of water"',
+  'Sea Fear+':
+    'Section=feature ' +
+    'Note="Must roll vs. fear within sight of large body of water"',
+  'Short-Lived Magic':'Section=arcana Note="Maintained spells end after 1 hr"',
+  'Short-Lived Magic+':
+    'Section=arcana Note="Maintained spells end after 1 min"',
+  'Weak Family':'Section=feature Note="-2 Kinship rolls"',
+  'Weak Family+':'Section=feature Note="-4 Kinship rolls"',
 
   // Races
   'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
@@ -1527,6 +1718,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute,combat ' +
     'Note="+2 Vigor (resist cold)",' +
          '"+2 Armor vs. cold attacks"'
+
 };
 Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
 Hellfrost.GLORYS = {
@@ -1542,6 +1734,7 @@ Hellfrost.GLORYS = {
 };
 Hellfrost.GOODIES = Object.assign({}, SWD.GOODIES);
 Hellfrost.HINDRANCES_ADDED = {
+  // Player's Guide
   'Apprentice/Novitiate':
     'Severity=Minor Require=powerCount,"features.Apprentice/Novitiate+ == 0"',
   'Apprentice/Novitiate+':
@@ -1565,7 +1758,20 @@ Hellfrost.HINDRANCES_ADDED = {
     'Severity=Minor Require="features.Necromantic Weakness+ == 0"',
   'Necromantic Weakness+':
     'Severity=Major Require="features.Necromantic Weakness == 0"',
-  'Orders':'Severity=Minor'
+  'Orders':'Severity=Minor',
+  // Rassilon Expansion I
+  'Blood Feud':'Severity=Minor Require="features.Blood Feud+ == 0"',
+  'Blood Feud+':'Severity=Major Require="features.Blood Feud == 0"',
+  'City Dweller':'Severity=Minor',
+  'Outlaw':'Severity=Major',
+  'Sea Fear':'Severity=Minor Require="features.Sea Fear+ == 0"',
+  'Sea Fear+':'Severity=Major Require="features.Sea Fear == 0"',
+  'Short-Lived Magic':
+    'Severity=Minor Require="features.Short-Lived Magic+ == 0"',
+  'Short-Lived Magic+':
+    'Severity=Major Require="features.Short-Lived Magic == 0"',
+  'Weak Family':'Severity=Minor Require="features.Weak Family+ == 0"',
+  'Weak Family+':'Severity=Major Require="features.Weak Family == 0"'
 };
 Hellfrost.HINDRANCES =
   Object.assign({}, SWD.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
@@ -2134,10 +2340,13 @@ Hellfrost.SKILLS_ADDED = {
   'Travel-Rune':'Attribute=smarts',
   'Weather-Rune':'Attribute=smarts',
   'Song Magic':'Attribute=smarts',
+  'Soul Binding':'Attribute=smarts',
   'Knowledge (Alchemy)':'Attribute=smarts',
   'Knowledge (Craft)':'Attribute=smarts',
   'Knowledge (Folklore)':'Attribute=smarts',
   'Knowledge (Heraldry)':'Attribute=smarts',
+  'Knowledge (History)':'Attribute=smarts',
+  'Knowledge (Law)':'Attribute=smarts',
   'Knowledge (Religion)':'Attribute=smarts',
   'Knowledge (Riddles)':'Attribute=smarts',
   'Knowledge (Siege Artillery)':'Attribute=smarts'
@@ -2511,6 +2720,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'features.Focus', '=', '"-2 "',
       'arcanaNotes.improvedFocus', '=', '""'
     );
+  } else if(name == 'Giant Blood') {
+    rules.defineRule('features.Mean', 'featureNotes.giantBlood', '=', '1');
   } else if(name == 'Knight Hrafn') {
     rules.defineRule
       ('featureNotes.knightHrafn', 'advances', '=', 'Math.floor(source/4) + 1');
@@ -2582,6 +2793,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     // empty; overrides basePlugin computation
   } else if(name == 'Wood Warden') {
     rules.defineRule('powers.Beast Friend', 'features.Wood Warden', '=', '1');
+  } else if(name == 'World-Wise') {
+    rules.defineRule('skillPoints', 'skillNotes.world-Wise', '+', '5');
   } else {
     rules.basePlugin.edgeRulesExtra(rules, name);
   }
@@ -2793,7 +3006,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
       attributes['powers.' + powers[0]] = 1;
   }
 
-  // Handle targeted allocations from Sneaky, Library, and Diverse features
+  // Handle targeted feature allocations
   if(attribute == 'skills' &&
      attrs['features.Sneaky'] != null &&
      !attributes['skillAllocation.Stealth'] &&
@@ -2815,6 +3028,9 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
       attrs['skills.' + attr]++;
       howMany--;
     }
+  }
+  if(attribute == 'skills' && attrs['features.World-Wise'] != null) {
+    // TODO
   }
   if(attribute == 'improvements' &&
      attrs['features.Diverse'] &&
