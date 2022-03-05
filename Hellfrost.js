@@ -132,7 +132,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Growth/Shrink,Healing,Knockdown,Leaping,Light,Obscure,Quake,Refuge,' +
       'Sanctuary,Sentry,"Shape Change",Silence,Smite,"Sphere Of Might",Storm,' +
       '"Summon Beast","Summon Elemental","Viper Weapon","Voice On The Wind",' +
-      '"Wall Walker",Warding,Whirlwind,"Wilderness Step"',
+      '"Wall Walker",Warding,Whirlwind,"Wilderness Step","Hamper Movement"',
   'Elementalism (Eir)':
     'Skill=Elementalism ' +
     'Powers=' +
@@ -142,7 +142,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Fatigue,Fly,Glyph,Invisibility,Knockdown,Leaping,Obscure,Quickness,' +
       'Sanctuary,Sentry,Silence,Slumber,"Speak Language","Sphere Of Might",' +
       'Storm,"Summon Elemental",Telekinesis,Teleport,"Voice On The Wind",' +
-      '"Wandering Senses",Warding,Whirlwind,Zephyr',
+      '"Wandering Senses",Warding,Whirlwind,Zephyr,"Hamper Movement"',
   'Elementalism (Ertha)':
     'Skill=Elementalism ' +
     'Powers=' +
@@ -151,7 +151,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Energy Immunity",Entangle,Glyph,Growth/Shrink,Knockdown,Lock/Unlock,' +
       'Mend,"Prolonged Blast",Quake,Refuge,Sanctuary,"Sphere Of Might",' +
       '"Summon Elemental","Viper Weapon","Wall Walker",Warding,' +
-      '"Weapon Immunity","Wilderness Step"',
+      '"Weapon Immunity","Wilderness Step","Hamper Movement"',
   'Elementalism (Fyr)':
     'Skill=Elementalism ' +
     'Powers=' +
@@ -167,7 +167,20 @@ Hellfrost.ARCANAS_ADDED = {
       '"Elemental Manipulation","Energy Immunity","Environmental Protection",' +
       'Fatigue,"Fog Cloud",Glyph,Healing,Knockdown,Quickness,Sanctuary,Speed,' +
       '"Sphere Of Might",Storm,Stun,Succor,"Summon Elemental",Warding,' +
-      '"Water Walk"',
+      '"Water Walk","Hamper Movement"',
+  'Finnar Wind Priest':
+    'Skill=Faith ' +
+    'Powers=' +
+      'Aim,Aura,Banish,Becalm,Blast,Bolt,Burst,Deflection,"Elemental Form",' +
+      'Entangle,Fly,"Fog Cloud","Hamper Movement",Knockdown,Leaping,' +
+      '"Prolonged Blast","Sluggish Reflexes",Speed,"Sphere Of Might",Storm,' +
+      'Stun,Telekinesis,"Voice On The Wind",Whirlwind,Zephyr',
+  'Glamour':
+    'Skill=Glamour ' +
+    'Powers=' +
+      '"Beast Friend",Bless/Panic,"Charismatic Aura",Confusion,Deflection,' +
+      '"Elemental Manipulation",Fear,Invisibility,Nightmare,Obscure,Puppet,' +
+      '"Shape Change","Speak Language",Stun,"Voice On The Wind"',
   'Heahwisardry':
     'Skill=Heahwisardry ' +
     'Powers=' +
@@ -186,20 +199,21 @@ Hellfrost.ARCANAS_ADDED = {
       'Entangle,"Environmental Protection",Fatigue,Invisibility,Knockdown,' +
       'Obscure,"Prolonged Blast",Refuge,Sanctuary,"Sluggish Reflexes",Smite,' +
       '"Sphere Of Might",Storm,Stun,"Summon Elemental","Voice On The Wind",' +
-      'Warding,Whirlwind,"Wilderness Step"',
+      'Warding,Whirlwind,"Wilderness Step","Hamper Movement"',
   'Miracles (Dargar)':
     'Powers=' +
       'Smite,Armor,"Battle Song",Blast,Bolt,"Boost/Lower Trait",Burst,' +
       '"Champion Of The Faith","Energy Immunity","Gift Of Battle",' +
       '"Prolonged Blast",Quickness,Sanctuary,"Sphere Of Might",' +
-      '"Summon Demon","Summon Herald","Warrior\'s Gift","Weapon Immunity"',
+      '"Summon Demon","Summon Herald","Warrior\'s Gift","Weapon Immunity",' +
+      '"Summon Spirit"',
   'Miracles (Eira)':
     'Powers=' +
       'Healing,"Arcane Resistance","Beast Friend",Bladebreaker,Bless,' +
       'Bodyguard,"Boost/Lower Trait","Champion Of The Faith",Confusion,' +
       'Dispel,"Energy Immunity","Environmental Protection",Feast,Glyph,' +
       '"Greater Healing",Knockdown,Refuge,Regenerate,Sanctuary,Slumber,Stun,' +
-      'Succor,"Summon Herald",Warding,"Weapon Immunity"',
+      'Succor,"Summon Herald",Warding,"Weapon Immunity","Summon Spirit"',
   'Miracles (Eostre Animalmother)':
     'Powers=' +
       '"Beast Friend",Entangle,"Altered Senses","Animate War Tree",Barrier,' +
@@ -208,7 +222,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Feast,Glyph,Growth/Shrink,Healing,Leaping,Mend,Refuge,Sanctuary,' +
       '"Shape Change",Sentry,"Summon Beast","Summon Elemental",' +
       '"Summon Herald","Sphere Of Might","Wall Walker","Wandering Senses",' +
-      '"Wilderness Step"',
+      '"Wilderness Step","Hamper Movement"',
   'Miracles (Eostre Plantmother)':
     'Powers=' +
       'Entangle,"Beast Friend","Altered Senses","Animate War Tree",Barrier,' +
@@ -217,7 +231,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Feast,Glyph,Growth/Shrink,Healing,Leaping,Mend,Refuge,Sanctuary,' +
       '"Shape Change",Sentry,"Summon Beast","Summon Elemental",' +
       '"Summon Herald","Sphere Of Might","Wall Walker","Wandering Senses",' +
-      '"Wilderness Step"',
+      '"Wilderness Step","Hamper Movement"',
   'Miracles (Ertha)':
     'Powers=' +
       'Burrow,Armor,Barrier,"Beast Friend",Bladebreaker,Bolt,' +
@@ -225,14 +239,15 @@ Hellfrost.ARCANAS_ADDED = {
       '"Elemental Form","Elemental Manipulation","Energy Immunity",Entangle,' +
       '"Environmental Protection",Corporealness,Glyph,Growth/Shrink,Quake,' +
       'Refuge,Sanctuary,"Sphere Of Might","Summon Elemental","Summon Herald",' +
-      '"Wall Walker","Weapon Immunity","Wilderness Step"',
+      '"Wall Walker","Weapon Immunity","Wilderness Step","Hamper Movement"',
   'Miracles (Freo)':
     'Powers=' +
       '"Wilderness Step","Beast Friend",Bodyguard,Bolt,"Boost/Lower Trait",' +
       'Bridge,"Champion Of The Faith",Entangle,"Environmental Protection",' +
       'Etherealness,Farsight,Feast,Fly,Leaping,Mend,Quickness,Sanctuary,' +
       'Sentry,"Speak Language",Speed,Storm,Succor,"Summon Herald",Teleport,' +
-      '"Voice On The Wind","Wall Walker","Wandering Senses",Zephyr',
+      '"Voice On The Wind","Wall Walker","Wandering Senses",Zephyr,' +
+      '"Hamper Movement"',
   'Miracles (Hela)':
     'Powers=' +
       'Zombie,"Arcane Resistance",Armor,Aura,Banish,"Beast Friend",Blast,' +
@@ -241,7 +256,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Fear,"Fog Cloud",Glyph,Gravespeak,"Greater Zombie",Invisibility,' +
       'Nightmare,Obscure,"Prolonged Blast",Sacrifice,Sanctuary,' +
       '"Sluggish Reflexes",Slumber,"Strength Of The Undead",Stun,' +
-      '"Summon Herald","Weaken Undead"',
+      '"Summon Herald","Weaken Undead","Hamper Movement","Summon Spirit"',
   'Miracles (Hoenir)':
     'Powers=' +
       'Detect/Conceal,"Altered Senses","Arcane Resistance","Beast Friend",' +
@@ -286,7 +301,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Elemental Manipulation","Energy Immunity",Etherealness/Corporealness,' +
       'Fatigue,"Fog Cloud",Glyph,Healing,Mend,Sanctuary,"Shape Change",Stun,' +
       'Succor,"Summon Beast","Summon Herald","Summon Elemental",' +
-      '"Sphere Of Might","Water Walk"',
+      '"Sphere Of Might","Water Walk","Hamper Movement"',
   'Miracles (Niht)':
     'Powers=' +
       'Obscure,"Altered Senses",Banish,Panic,Bolt,"Boost/Lower Trait",Burrow,' +
@@ -294,7 +309,8 @@ Hellfrost.ARCANAS_ADDED = {
       '"Energy Immunity",Entangle,Etherealness/Corporealness,Farsight,Fear,' +
       '"Fog Cloud","Heat Mask",Invisibility,Nightmare,Quickness,Sacrifice,' +
       'Sanctuary,Sentry,Shrink,Silence,Smite,"Summon Elemental",' +
-      '"Summon Herald",Teleport,"Wall Walker","Wandering Senses"',
+      '"Summon Herald",Teleport,"Wall Walker","Wandering Senses",' +
+      '"Summon Spirit"',
   'Miracles (The Norns)':
     'Powers=' +
       'Precognition,"Analyze Foe",Banish,Bless/Panic,Bolt,' +
@@ -316,7 +332,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Dispel,Corporealness,Glyph,Gravespeak,Healing,"Heat Mask",' +
       '"Energy Immunity",Invisibility,Light,"Prolonged Blast",Quickness,' +
       'Sanctuary,Smite,"Sphere Of Might","Summon Herald",Warding,' +
-      '"Warrior\'s Gift","Weapon Immunity"',
+      '"Warrior\'s Gift","Weapon Immunity","Summon Spirit"',
   'Miracles (Sigel)':
     'Powers=' +
       'Light,"Altered Senses",Aura,Banish,Bless,Bolt,Burst,' +
@@ -333,7 +349,7 @@ Hellfrost.ARCANAS_ADDED = {
       '"Environmental Protection",Fatigue,Fear,Fly,Glyph,"Heat Mask",Light,' +
       'Obscure,"Prolonged Blast",Sanctuary,"Sluggish Reflexes",Smite,' +
       '"Sphere Of Might",Storm,"Summon Herald","Voice On The Wind",' +
-      '"Wilderness Step"',
+      '"Wilderness Step","Hamper Movement"',
   'Miracles (Thunor)':
     'Powers=' +
       'Fly,Aim,Barrier,Becalm,"Beast Friend",Bolt,"Champion Of The Faith",' +
@@ -342,7 +358,7 @@ Hellfrost.ARCANAS_ADDED = {
       'Etherealness/Corporealness,Fatigue,"Fog Cloud",Glyph,Knockdown,' +
       'Leaping,Obscure,Sanctuary,"Shape Change",Silence,Storm,"Summon Beast",' +
       '"Summon Elemental","Summon Herald",Telekinesis,"Sphere Of Might",' +
-      '"Voice On The Wind",Whirlwind,Zephyr',
+      '"Voice On The Wind",Whirlwind,Zephyr,"Hamper Movement","Summon Spirit"',
   'Miracles (Tiw)':
     'Powers=' +
       'Armor,Smite,Aim,"Battle Song",Bladebreaker,Blast,Bolt,' +
@@ -366,20 +382,20 @@ Hellfrost.ARCANAS_ADDED = {
       'Invisibility,Knockdown,Light,Luck/Jinx,Mimic,"Mind Rider",Obscure,' +
       'Puppet,Quickness,Sanctuary,Silence,"Sluggish Reflexes","Summon Demon",' +
       '"Summon Herald",Telekinesis,Teleport,"Wandering Senses",' +
-      '"Weapon Immunity"',
+      '"Weapon Immunity","Hamper Movement","Summon Spirit"',
   'Miracles (Vali)':
     'Powers=' +
       'Disease,"Charismatic Aura",Armor,Barrier,Aura,"Beast Friend",' +
       '"Boost/Lower Trait",Burrow,"Champion Of The Faith","Charismatic Aura",' +
       'Detect/Conceal,Disease,Entangle,Fatigue,Fear,Nightmare,Obscure,Puppet,' +
       'Sacrifice,Sanctuary,"Shape Change",Smite,Stun,"Summon Demon",' +
-      '"Summon Herald"',
+      '"Summon Herald","Summon Spirit"',
   'Miracles (Var)':
     'Powers=' +
       '"Charismatic Aura",Bladebreaker,Bodyguard,Bolt,"Boost/Lower Trait",' +
       'Confusion,Deflection,Detect/Conceal,Entangle,Fear,Lock,Puppet,' +
       'Sanctuary,Sentry,Silence,Slumber,"Speak Language",Speed,' +
-      '"Summon Herald",Teleport',
+      '"Summon Herald",Teleport,"Summon Spirit"',
   'Rune Magic (Armor-Rune)':
     'Skill=Armor-Rune ' +
     'Powers=Armor,Bladebreaker,"Weapon Immunity"',
@@ -443,6 +459,14 @@ Hellfrost.ARCANAS_ADDED = {
   'Rune Magic (Weather-Rune)':
     'Skill=Weather-Rune ' +
     'Powers="Fog Cloud",Storm,Whirlwind',
+  'Solar Magic':
+    'Skill="Solar Magic" ' +
+    'Powers=' +
+      '"Altered Senses",Aura,Banish,Barrier,Blast,Bless/Panic,Bolt,Burst,' +
+      '"Charismatic Aura",Deflection,Detect/Conceal,"Elemental Manipulation",' +
+      'Dispel,"Elemental Manipulation","Energy Immunity",Farsight,Fly,Glyph,' +
+      '"Heat Mask","Prolonged Blast",Quickness,"Sphere Of Might",Smite,Speed,' +
+      'Stun,"Weaken Undead"',
   'Song Magic':
     'Skill="Song Magic" ' +
     'Powers=' +
@@ -505,6 +529,14 @@ Hellfrost.CONCEPTS = {
   'Fighter': // Estimated related features
     'Attribute=Agility ' +
     'Skill=Fighting,Shooting',
+  'Finnar Wind Priest':
+    'Edge="Arcane Background (Finnar Wind Priest)" ' +
+    'Attribute=Smarts ' +
+    'Skill=Faith',
+  'Glamourist':
+    'Edge="Arcane Background (Glamour)" ' +
+    'Attribute=Smarts ' +
+    'Skill=Glamour',
   'Gray Legionary':
     'Edge="Gray Legionary" ' +
     'Attribute=Spirit ' +
@@ -575,6 +607,10 @@ Hellfrost.CONCEPTS = {
     'Edge="Arcane Background (Song Magic)" ' +
     'Attribute=Smarts ' +
     'Skill="Song Magic"',
+  'Solar Magician':
+    'Edge="Arcane Background (Solar Magic)" ' +
+    'Attribute=Smarts ' +
+    'Skill="Solar Magic"',
   'Soul Binder':
     'Edge="Arcane Background (Soul Binding)" ' +
     'Attribute=Smarts ' +
@@ -619,6 +655,7 @@ Hellfrost.DEITIES = {
   'Var':''
 };
 Hellfrost.EDGES_ADDED = {
+
   // Player's Guide
   // Background
   'Arcane Background (Druidism)':
@@ -1193,7 +1230,8 @@ Hellfrost.EDGES_ADDED = {
     'Require=' +
       '"smarts >= 8",' +
       '"skills.Knowledge (Arcana) >= 8",' +
-      '"skills.Notice >= 6"',
+      // Updated from skills.Notice by RE II
+      '"skills.Investigation >= 6"',
   'Reliquary (Reliqus)':
     'Type=professional ' +
     'Require=' +
@@ -1229,6 +1267,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Persuasion >= 8"',
   'Legendary Storyteller':
     'Type=background Require="advances >= 12","features.Master Storyteller"',
+
   // Rassilon Expansion I
   // Background
   'Ancestral Guardian':
@@ -1334,7 +1373,161 @@ Hellfrost.EDGES_ADDED = {
       '"vigor >= 6",' +
       '"skills.Fighting >= 8"',
   // Social
-  'Sanctuary':'Type=social'
+  'Sanctuary':'Type=social',
+
+  // Rassilon Expansion II
+  // Background
+  'Arcane Background (Finnar Wind Priest)':
+    'Type=background Require="race =~ \'Finnar Human\'"',
+  'Arcane Background (Glamour)':'Type=background Require="race =~ \'Elf\'"',
+  'Arcane Background (Solar Magic)':'Type=background',
+  'Gravetouched':'Type=background Require="spirit >= 8","vigor >= 6"',
+  'Merman Blood':'Type=background',
+  // Combat
+  'Armor Percing Shot':
+    'Type=combat ' +
+    'Require="agility >= 8","skills.Shooting >= 8","race =~ \'Elf\'"',
+  'Charge':
+    'Type=combat Require="advances >= 4","vigor >= 8","skills.Fighting >= 8"',
+  'Fast Mount':'Type=combat Require="agility >= 8","skills.Riding >= 6"',
+  'Fighting Withdrawal':
+    'Type=combat Require="advances >= 8","agility >= 8","skills.Fighting >= 8"',
+  'Lurker':'Type=combat Require="agility >= 8","skills.Stealth >= 6"',
+  'Mounted Combatant':'Type=combat Require="skills.Riding >= 8"',
+  'Pathfinder':
+    'Type=combat ' +
+    'Require=' +
+      '"agility >= 6",' +
+      '"smarts >= 6",' +
+      '"skills.Notice >= 6",' +
+      '"skills.Survival >= 6"',
+  'Quick Reactions':'Type=combat Require="agility >= 6 || smarts >= 6"',
+  'Running Throw':
+    'Type=combat Require="agility >= 6","strength >= 8","skills.Thorwing >= 8"',
+  'Steal Away':'Type=combat Require="agility >= 8","skills.Stealth >= 6"',
+  // Leadership
+  'Drop!':
+    'Type=Leadership ' +
+    'Require="advances >= 4","skills.Notice >= 6",features.Command',
+  'Forced March':
+    'Type=Leadership ' +
+    'Require="advances >= 4","agility >= 6","vigor >= 6",features.Command',
+  'Help Me!':'Type=Leadership Require="advances >= 4",features.Command',
+  'Take Aim':
+    'Type=Leadership Require="advances >= 8","spirit >= 8",features.Command',
+  // Power
+  'Delay Spell':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 8",' +
+      'powerCount,' +
+      '"arcaneSkill >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
+  'Potent Magic':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 8",' +
+      'powerCount,' +
+      '"arcaneSkill >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8"',
+  'Reflect Spell':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"spirit >= 8",' +
+      'powerCount,' +
+      '"arcaneSkill >= 8",' +
+      '"skills.Knowledge (Arcana) >= 8",' +
+      'powers.Dispel',
+  'Righteous Miracles':
+    'Type=power ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"features.Arcane Background (Miracles)",' +
+      '"deity =~ \'Sigel|The Norns\'",' +
+      '"skills.Faith >= 8",' +
+      '"features.Watcher Of The Black Gate"',
+  // Professional
+  'Bastion Of Strength':
+    'Type=professional ' +
+    'Require=' +
+      '"spirit >= 10",' +
+      '"features.Censure Demons",' +
+      '"features.Watcher Of The Black Gate"',
+  'Bodyguard':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 12",' +
+      '"agility >= 8",' +
+      'features.Shieldwall,' +
+      '"skills.Notice >= 8"',
+  'Brothers-In-Arms':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 4",' +
+      '"skills.Fighting >= 8",' +
+      '"features.Iron Guild Mercenary"',
+  'Censure Demons':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"strength >= 6",' +
+      '"vigor >= 8",' +
+      '"features.Watcher Of The Black Gate"',
+  'Deathdealer':
+    'Type=professional ' +
+    'Require=' +
+      'features.Gravetouched,' +
+      '"skills.Fighting >= 6",' +
+      '"deity == \'Scaetha\'"',
+  'Doomsman':
+    'Type=professional Require="smarts >= 8","skills.Knowledge (Law) >= 8"',
+  'Double The Load':'Type=professional Require=features.Bludgeoner',
+  'Improved Double The Load':
+     'Type=professional Require="advances >= 12","features.Double The Load"',
+  'Dragon Guard':
+    'Type=professional Require="spirit >= 8","skills.Fighting >= 8"',
+  'Veteran Dragon Guard':
+    'Type=professional Require="advances >= 8","features.Dragon Guard"',
+  'Hellfrost Hardened':
+    'Type=professional Require="advances >= 8","features.Hearth Knight"',
+  'Hellfrost Hardy':
+    'Type=professional ' +
+    'Require="advances >= 8","features.Hellfrost Hardened","vigor >= 10"',
+  'Horse Lord':
+    'Type=professional Require="advances >= 8","features.Hrosmark Huscarl"',
+  'Hrosmark Huscarl':
+    'Type=professional ' +
+    'Require=' +
+      '"race == \'Saxa Human\'",' +
+      '"agility >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"skills.Fighting >= 8",' +
+      '"skills.Riding >= 6"',
+  'Master Bludgeoner':
+    'Type=professional Require="advances >= 8",features.Bludgeoner',
+  'Master Mariner':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"smarts >= 8",' +
+      '"skills.Boating >= 8",' +
+      '"skills.Knowledge (The Seas) >= 8"',
+  'Not Just A Sling':
+    'Type=professional Require="advances >= 4",features.Bludgeoner',
+  'Protect The Cargo':
+    'Type=professional Require="advances >= 8","features.Iron Guild Mercenary"',
+  'Sea Legs':'Type=professional Require="agility >= 8"',
+  'Share Spell':
+    'Type=professional ' +
+    'Require=' +
+      '"advances >= 8",' +
+      '"features.Arcane Hand",' +
+      '"skills.Knowledge (Arcana) >= 8"',
+  'Sister Superior':
+    'Type=professional Require="advances >= 4","features.Sister Of Mercy"',
+  'Speed Rider':
+    'Type=professional Require="advances >= 4","features.Hrosmark Huscarl"',
 
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
@@ -1346,7 +1539,6 @@ delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
 // Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
 Hellfrost.FEATURES_ADDED = {
 
-  // Player's Guide
   // Edges
   'A Few Good Men':
     'Section=combat Note="Adds one token to army in mass battles"',
@@ -1360,6 +1552,10 @@ Hellfrost.FEATURES_ADDED = {
          '"+1 Druidism in natural environments, -1 in urban environments"',
   'Arcane Background (Elementalism)':
     'Section=arcana Note="3 Powers/10 Power Points"',
+  'Arcane Background (Finnar Wind Priest)':
+    'Section=arcana Note="3 Powers/10 Power Points"',
+  'Arcane Background (Glamour)':
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Heahwisardry)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
@@ -1371,6 +1567,8 @@ Hellfrost.FEATURES_ADDED = {
          '"-2 Charisma (civilized races)/Arcane skill modified by temperature"',
   'Arcane Background (Rune Magic)':
     'Section=arcana Note="0 Powers/10 Power Points"',
+  'Arcane Background (Solar Magic)':
+    'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Soul Binding)':
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Song Magic)':
@@ -1378,6 +1576,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="3 Powers/10 Power Points",' +
          '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
   'Arcane Hand':'Section=feature Note="Member of Magocracy elite bodyguard"',
+  'Armor Piercing Shot':'Section=combat Note="+2 AP with bows"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
@@ -1385,6 +1584,9 @@ Hellfrost.FEATURES_ADDED = {
   'Augment Staff (Deflect)':'Section=combat Note="Foe ranged attacks %1"',
   'Augment Staff (Spell Store)':
     'Section=arcana Note="Staff can store %1 known spell(s), cast at +2"',
+  'Bastion Of Strength':
+    'Section=combat ' +
+    'Note="Adjacent allies share Censure Demons and Watcher Of The Black Gate features and Spirit resistance vs. Demon fear and Intimidation"',
   'Bladedancer':
     'Section=combat ' +
     'Note="May make -2 attack on every creature adjacent to running path"',
@@ -1395,9 +1597,17 @@ Hellfrost.FEATURES_ADDED = {
     'Note=' +
       '"+%V sling range/Sling does d%{strength}%1+d6 damage at short range",' +
       '"+1 Charisma (engros)"',
+  'Bodyguard':'Section=combat Note="May share Parry with adjacent ally"',
   'Born In Battle':
     'Section=skill ' +
     'Note="+2 Common Knowledge (military)/+2 Knowledge (Battle)"',
+  'Brothers-In-Arms':
+    'Section=combat ' +
+    'Note="-1 damage per each Iron Guildsman w/in 6%{in} (-4 max)"',
+  'Censure Demons':
+    'Section=combat ' +
+    'Note="Has Champion and Holy Warrior features vs. Demons"',
+  'Charge':'Section=combat Note="Free Fighting roll after run"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
@@ -1409,6 +1619,9 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May charge during Battle roll 1/mass battle, success removes extra foe token"',
   'Death Before Dishonor':
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
+  'Deathdealer':
+    'Section=combat Note="Free attack on adjacent undead after slaying undead"',
+  'Delay Spell':'Section=arcana Note="May delay spell effect 1 - 6 rds"',
   'Disciple Of Dargar':
     'Section=combat ' +
     'Note="Single blow that incapacitates foe makes adjacent foes Shaken (Spirit neg)"',
@@ -1485,7 +1698,17 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Vali':'Section=feature Note="Immune to disease and poison"',
   'Disciple Of Var':
     'Section=feature Note="May sell goods at 50% price (Raise 75%)"',
+  'Doomsman':
+    'Section=skill ' +
+    'Note="+2 Charisma (community)/+2 Knowledge (Law) (evidence)/+2 Smarts (evidence)"',
   'Double Shot':'Section=combat Note="May fire two arrows at one target%1"',
+  'Double The Load':
+    'Section=combat Note="May sling two stones simultaneously%1"',
+  'Dragon Guard':
+    'Section=feature ' +
+    'Note="Arcane Resistance, Favored Foe, and Giant Killer features with marsh dragons and marsh orms"',
+  'Drop!':
+    'Section=combat Note="May give one commanded medium ranged cover 1/rd"',
   'Dungeon Crawler':
     'Section=skill ' +
     'Note="+1 Climbing (underground)/+1 Stealthy (underground)/+1 Survival (underground)/May squeeze into tight spaces"',
@@ -1500,12 +1723,15 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
   'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
+  'Fast Mount':'Section=combat Note="Dis/mount as free action 1/rd"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 extra damage on attack Raise against chosen creature type"',
+  'Fighting Withdrawal':'Section=combat Note="May Defend while running and move full Pace during Full Defense"',
   'Focus':
     'Section=arcana ' +
     'Note="Immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
+  'Forced March':'Section=combat Note="Commanded allies may share running die"',
   'Giant Blood':
     'Section=attribute,combat,description,feature ' +
     'Note=' +
@@ -1513,6 +1739,9 @@ Hellfrost.FEATURES_ADDED = {
       '"+1 Toughness",' +
       '"+1 Size",' +
       '"Has Mean feature"',
+  'Gravetouched':
+    'Section=combat ' +
+    'Note="+2 resistance vs. undead abilities and necromantic spells"',
   'Gray Legionary':
     'Section=feature,skill ' +
     'Note="Member of Gray Legionary mercenary company",' +
@@ -1529,14 +1758,28 @@ Hellfrost.FEATURES_ADDED = {
   'Hellfreeze':
     'Section=arcana ' +
     'Note="Cold spells do normal damage to resistant, half to immune, dbl to vulnerable, and dbl+4 to targets with weakness"',
+  'Hellfrost Hardened':
+    'Section=combat Note="+2 Armor and Trait rolls vs. cold damage and powers"',
+  'Hellfrost Hardy':
+    'Section=combat ' +
+    'Note="Second Shaken condition from cold does not cause wound"',
+  'Help Me!':
+    'Section=combat Note="Commanded ally may interrupt attack on self"',
   'Holy/Unholy Warrior':
     'Section=arcana ' +
     'Note="R%{spirit}%{in} Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
+  'Horse Lord':
+    'Section=skill ' +
+    'Note="d8 Wild Die with Riding, mount shares Parry and resistance"',
+  'Hrosmark Huscarl':
+    'Section=combat Note="Gains Steady Hands feature and may Aim when mounted"',
   'Huscarl Of Hammerhand':
     'Section=combat Note="Warhammer has range 2, may strike multiple targets"',
   'Improved Concentration':
     'Section=arcana Note="Increased Concentration effects"',
   'Improved Double Shot':'Section=combat Note="Increased Double Shot effects"',
+  'Improved Double The Load':
+    'Section=combat Note="Increased Double The Load effects"',
   'Improved Focus':'Section=arcana Note="Increased Focus effects"',
   'Improved Giant Killer':
     'Section=combat ' +
@@ -1560,17 +1803,30 @@ Hellfrost.FEATURES_ADDED = {
   'Lorekeeper':
     'Section=skill ' +
     'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
+  'Lurker':'Section=combat Note="%V Parry using Full Defense"',
+  'Master Bludgeoner':
+    'Section=combat Note="Sling inflicts Str+d8 (short) or Str+d6 (medium)"',
+  'Master Mariner':
+    'Section=skill ' +
+    'Note="Ignores 2 penalty points on Boating; may spend Benny to Soak boat damage; boat +1 top speed"',
   'Master Storyteller':
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
+  'Merman Blood':
+    'Section=combat,skill Note="%{speed} Swim","+2 Swimming"',
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
     'Note="+1 thrown weapon range/+1 Strength die for short throws"',
+  'Mounted Combatant':
+    'Section=skill ' +
+    'Note="Ignores 2 penalty points on Riding; successful Ride gives mount +2 Pace; may spend Benny to Soak mount damage"',
   'Necromantic Severing':
     'Section=combat Note="May make called shots vs. undead"',
   'New Rune':'Section=arcana Note="Knows spells from %V runes"',
   'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
+  'Not Just A Sling':
+    'Section=combat Note="Never unarmed with sling, +2 Disarm and Grapple"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
   'One Of Thirteen':'Section=combat Note="May use ally\'s combat edge 1/rd"',
   'One Step One Kill':
@@ -1578,11 +1834,25 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May move 1%{in} w/out triggering first strike/May spend benny to get the Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
+  'Pathfinder':
+    'Section=skills ' +
+    'Note="Allies may move through scouted difficult terrain at 1.5%{in}"',
+  'Potent Magic':
+    'Section=arcana ' +
+    'Note="Targets suffer -1 arcane resistance, -2 others\' dispel attempts"',
   'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
   'Powerful Family':'Section=feature Note="+2 Kinship"',
+  'Protect The Cargo':
+    'Section=combat ' +
+    'Note="+1 Fighting and Toughness when protecting adjacent cargo"',
+  'Quick Reactions':
+    'Section=combat Note="May take limited actions when surprised"',
   'Ranger':
     'Section=skill ' +
     'Note="Trackers -2 Tracking/d8 Wild Die with choice of Stealth, Survival, or Tracking"',
+  'Reflect Spell':
+    'Section=arcana ' +
+    'Note="Raise on counterspell allows turning spell back on caster"',
   'Reliquary (Arcanologist)':
     'Section=skill ' +
     'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/May use Knowledge (Arcana) to learn unattuned relic powers"',
@@ -1592,17 +1862,27 @@ Hellfrost.FEATURES_ADDED = {
          '"+2 Notice (traps)/+2 disarm traps"',
   'Retributive Strike':
     'Section=combat Note="Free melee attack upon incapacitation"',
+  'Righteous Miracles':
+    'Section=arcana ' +
+    'Note="Demon targets suffer +2 power damage, -2 Trait rolls"',
   'Roadwarden':
     'Section=skill ' +
     'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
+  'Running Throw':
+    'Section=combat Note="+2 thrown range after moving half Pace"',
   'Salmon Leap':
     'Section=combat,skill Note="Ignore 1 point of shield Parry","+1%{in} jump"',
   'Sanctuary':
     'Section=feature ' +
     'Note="Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
+  'Sea Legs':
+    'Section=combat ' +
+    'Note="No penalty for shot from ship, reduce running shot penalty by 1, +1 Parry"',
+  'Share Spell':
+    'Section=arcana Note="Gains benefits of adjacent master\'s spells"',
   'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
@@ -1612,9 +1892,15 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="+1 fortification siege bonus during mass battle, test Knowledge (Battle) for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
+  'Sister Superior':
+    'Section=skill ' +
+    'Note="Successful Healing-2 immediately after ally wound reduces to Shaken"',
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
   'Spear Catch':'Section=combat Note="Successful agility test catches thrown spear (Raise returns throw)"',
   'Spear Twist':'Section=combat Note="+1 Strength step for spear throw"',
+  'Speed Rider':
+    'Section=skill ' +
+    'Note="Mount +2 Pace, may trade mount fatigue for dbl running dice"',
   'Spell Finesse (Altered Range)':
     'Section=arcana ' +
     'Note="Increase range of chosen touch spell to %{smarts>?spirit}%{in} or ranged spell to 12%{in}"',
@@ -1630,13 +1916,21 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="May exclude %{arcaneSkill//2} creatures from effects of chosen area spell"',
   'Steady Feet':'Section=combat Note="+1 Size vs. knockback"',
+  'Steal Away':
+    'Section=combat Note="Successful Stealth allows withdrawal without attack"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding"',
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
+  'Take Aim':
+    'Section=combat ' +
+    'Note="Commanded gain +1 shooting and throwing damage, 1d6+1 with Coordinated Firepower"',
   'Vengeful Strike':
     'Section=combat Note="Free melee attack upon adjacent ally incapacitation"',
+  'Veteran Dragon Guard':
+    'Section=feature ' +
+    'Note="Champion features and +2 vs. paralysis with marsh dragons and marsh orms"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
     'Section=combat ' +
@@ -1676,9 +1970,11 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill ' +
     'Note="-2 Common Knowledge (country life)/-2 Stealth/-2 Survival"',
   'Cold Blooded':'Section=attribute Note="-2 Vigor (cold weather effects)"',
+  'Disowned':'Section=feature Note="Outcast from family"',
   'God Cursed+':
     'Section=feature ' +
     'Note="Beneficial spells from god\'s cleric fail, harmful spells do +2 damage and negate arcane resistance"',
+  'Leysingi':'Section=feature Note="Former thrall"',
   'Magic Forbiddance+':'Section=feature Note="Cannot use magic items"',
   'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
@@ -1734,6 +2030,7 @@ Hellfrost.GLORYS = {
 };
 Hellfrost.GOODIES = Object.assign({}, SWD.GOODIES);
 Hellfrost.HINDRANCES_ADDED = {
+
   // Player's Guide
   'Apprentice/Novitiate':
     'Severity=Minor Require=powerCount,"features.Apprentice/Novitiate+ == 0"',
@@ -1759,6 +2056,7 @@ Hellfrost.HINDRANCES_ADDED = {
   'Necromantic Weakness+':
     'Severity=Major Require="features.Necromantic Weakness == 0"',
   'Orders':'Severity=Minor',
+
   // Rassilon Expansion I
   'Blood Feud':'Severity=Minor Require="features.Blood Feud+ == 0"',
   'Blood Feud+':'Severity=Major Require="features.Blood Feud == 0"',
@@ -1771,7 +2069,12 @@ Hellfrost.HINDRANCES_ADDED = {
   'Short-Lived Magic+':
     'Severity=Major Require="features.Short-Lived Magic == 0"',
   'Weak Family':'Severity=Minor Require="features.Weak Family+ == 0"',
-  'Weak Family+':'Severity=Major Require="features.Weak Family == 0"'
+  'Weak Family+':'Severity=Major Require="features.Weak Family == 0"',
+
+  // Rassilon Expansion II
+  'Disowned':'Severity=Minor',
+  'Leysingi':'Severity=Minor'
+
 };
 Hellfrost.HINDRANCES =
   Object.assign({}, SWD.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
@@ -1994,7 +2297,6 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=4 ' +
     'Range=spirit*2 ' +
     'Description="Target corpse animates and obeys self commands for 1 hr"',
-  // TODO Hamper Movement
   'Heat Mask':
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -2166,7 +2468,6 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=8 ' +
     'Range=smarts*2 ' +
     'Description="Brings herald of deity for support"',
-  // TODO Summon Spirit
   'Viper Weapon':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -2276,7 +2577,19 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Target loses Toughness and Strength step (Spirit neg) for 5 rd"'
+      '"Target loses Toughness and Strength step (Spirit neg) for 5 rd"',
+
+  // Rassilon Expansion II
+  'Hamper Movement':
+    'Advances=4 ' +
+    'PowerPoints=2 ' + // ref Slow
+    'Range=smarts ' +
+    'Description="2%{in} radius becomes difficult terrain"',
+  'Summon Spirit':
+    'Advances=8 ' +
+    'PowerPoints=4 ' + // ref Summon Elemental
+    'Range=smarts ' +
+    'Description="Summons spirit to possess target"'
 
 };
 Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
@@ -2316,6 +2629,7 @@ Hellfrost.SHIELDS = {
 Hellfrost.SKILLS_ADDED = {
   'Druidism':'Attribute=smarts',
   'Elementalism':'Attribute=smarts',
+  'Glamour':'Attribute=smarts',
   'Heahwisardry':'Attribute=smarts',
   'Hrimwisardry':'Attribute=smarts',
   'Armor-Rune':'Attribute=smarts',
@@ -2333,6 +2647,7 @@ Hellfrost.SKILLS_ADDED = {
   'Earth-Rune':'Attribute=smarts',
   'Elemental-Rune':'Attribute=smarts',
   'Glow-Rune':'Attribute=smarts',
+  'Glow-Rune':'Attribute=smarts',
   'Healing-Rune':'Attribute=smarts',
   'Secret-Rune':'Attribute=smarts',
   'Shield-Rune':'Attribute=smarts',
@@ -2340,6 +2655,7 @@ Hellfrost.SKILLS_ADDED = {
   'Travel-Rune':'Attribute=smarts',
   'Weather-Rune':'Attribute=smarts',
   'Song Magic':'Attribute=smarts',
+  'Solar Magic':'Attribute=smarts',
   'Soul Binding':'Attribute=smarts',
   'Knowledge (Alchemy)':'Attribute=smarts',
   'Knowledge (Craft)':'Attribute=smarts',
@@ -2702,6 +3018,11 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'features.Double Shot', '=', '" at -2 attack"',
       'combatNotes.improvedDoubleShot', '=', '""'
     );
+  } else if(name == 'Double The Load') {
+    rules.defineRule('combatNotes.doubleTheLoad.1',
+      'features.Double The Load', '=', '" at -2 attack"',
+      'combatNotes.improvedDoubleTheLoad', '=', '""'
+    );
   } else if(name == 'Elemental Mastery') {
     rules.defineRule('arcanaNotes.elementalMastery',
       'edges.Elemental Mastery', '=', 'source + 1'
@@ -2736,6 +3057,12 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule('featureNotes.masterStoryteller.1',
       'features.Master Storyteller', '=', '""',
       'featureNotes.legendaryStoryteller', '=', '" (Raise +1d8 each)"'
+    );
+  } else if(name == 'Lurker') {
+    rules.defineRule('combatNotes.lurker',
+      'skills.Stealth', '=', 'Math.floor(source / 2)',
+      'skillModifier.Stealth', '+', 'Math.floor(source / 2)',
+      'combatNotes.fightingParryModifier', '+', '-source'
     );
   } else if(name == 'Mighty Shot') {
     rules.defineRule('combatNotes.mightyShot', 'strength', '=', '"d" + source');
