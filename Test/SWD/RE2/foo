@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Combat</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/edges/combat", "_timestamp":1646512123672, 
+  "advances":12, "agilityAllocation":1, "armor.Hide":1, "concept":"Avenger", 
+  "deity":"The Unknowable One", "edges.Armor Piercing Shot":1, "edges.Charge":1, "edges.Fast Mount":1, 
+  "edges.Fighting Withdrawal":1, "edges.Lurker":1, "edges.Mounted Combatant":1, "edges.Pathfinder":1, 
+  "edges.Quick Reactions":1, "edges.Running Throw":1, "edges.Steal Away":1, "gender":"Male", 
+  "hindrances.Cold Blooded":1, "hindrances.Leysingi":1, "hindrances.Wanted+":1, 
+  "improvementPointsAllocation.Attribute":10, "improvementPointsAllocation.Edge":12, 
+  "improvementPointsAllocation.Skill":6, "name":"Edges-Combat", "race":"Hearth Elf", "shield":"Small Shield", 
+  "skillAllocation.Fighting":3, "skillAllocation.Notice":2, "skillAllocation.Riding":3, 
+  "skillAllocation.Shooting":3, "skillAllocation.Stealth":2, "skillAllocation.Survival":2, 
+  "skillAllocation.Throwing":3, "smartsAllocation":3, "spiritAllocation":1, "strengthAllocation":2, 
+  "vigorAllocation":3, "weapons.Flail":1, "weapons.Lance":1, "weapons.Long Spear":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Combat</b> -- <b>Male</b> <b>Hearth Elf</b> <b>Heroic</b> <b>Avenger</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (10 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d8</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d6</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>:     <table id="AttributeNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Agile: +1 Agility step</i></td>
+    </tr><tr style="text-align:center">
+      <td>Cold Blooded: -2 Vigor (cold weather effects)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (18 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Fighting: (agi) d8</td>
+      <td>Shooting: (agi) d8</td>
+      <td>Throwing: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Notice: (sma) d6</td>
+      <td>Stealth: (agi) d6</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Riding: (agi) d8</td>
+      <td>Survival: (sma) d6</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>All Thumbs: -2 Repair/Roll of 1 breaks device</i></td>
+    </tr><tr style="text-align:center">
+      <td>Mounted Combatant: Ignores 2 penalty points on Riding; successful Ride gives mount +2 Pace; may spend Benny to Soak mount damage</td>
+    </tr><tr style="text-align:center">
+      <td>Pathfinder: Allies may move through scouted difficult terrain at 1.5"</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: The Unknowable One</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 12</td>
+      <td><b>Improvement Points</b>: 28</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 10; Edge: 12; Skill: 6</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (6 points): Armor Piercing Shot; Charge; Fast Mount; Fighting Withdrawal; Lurker; Mounted Combatant; Pathfinder; Quick Reactions; Running Throw; Steal Away</td>
+      <td><b>Hindrances</b>: Cold Blooded; Leysingi; Wanted+</td>
+      <td><b>Hearth Elf Features</b>: Agile; All Thumbs; Forest-Born; Low Light Vision; Natural Realms</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Leysingi: Former thrall</td>
+    </tr><tr style="text-align:center">
+      <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
+    </tr><tr style="text-align:center">
+      <td>Natural Realms: Treats Elfhomes as wilds</td>
+    </tr><tr style="text-align:center">
+      <td>Wanted+: Has significant trouble with local law enforcement</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 7 (1)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Toughness</b>: 8 (1)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Hide</td>
+        <td><b>Shield</b>: Small Shield</td>
+        <td><b>Weapons</b>: Flail (d8+d6); Lance (d8+d8); Long Spear (d8+d6); Unarmed (d8+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +4 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +5</i></td>
+      </tr><tr style="text-align:center">
+        <td>Armor Piercing Shot: +2 AP with bows</td>
+      </tr><tr style="text-align:center">
+        <td>Charge: Free melee attack after run</td>
+      </tr><tr style="text-align:center">
+        <td>Fast Mount: Dis/mount as free action 1/rd</td>
+      </tr><tr style="text-align:center">
+        <td>Fighting Withdrawal: May Defend while running and move full Pace during Full Defense</td>
+      </tr><tr style="text-align:center">
+        <td>Forest-Born: No difficult terrain penalty in forests</td>
+      </tr><tr style="text-align:center">
+        <td>Long Spear Parry Modifier: +1 Parry when wielded</td>
+      </tr><tr style="text-align:center">
+        <td>Lurker: Parry -1 while using Full Defense</td>
+      </tr><tr style="text-align:center">
+        <td>Quick Reactions: May take limited actions when surprised</td>
+      </tr><tr style="text-align:center">
+        <td>Running Throw: +2 thrown weapon range after moving half Pace</td>
+      </tr><tr style="text-align:center">
+        <td>Steal Away: Successful Stealth allows withdrawal without attack</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>: Edge Allocation: 6 available vs. 10 allocated</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Powers</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/powers", "_timestamp":1646512123593, 
+  "advances":8, "agilityAllocation":0, "armor.Blessed Armor":1, "concept":"Priest", 
+  "deity":"The Norns", "edges.Arcane Background (Miracles)":1, "edges.Danger Sense":1, 
+  "edges.New Power":1, "edges.Power Points":2, "gender":"Female", "hindrances.Big Mouth":1, 
+  "hindrances.Curious+":1, "hindrances.Phobia":1, "improvementPointsAllocation.Attribute":8, 
+  "improvementPointsAllocation.Edge":10, "improvementPointsAllocation.Skill":4, "name":"Powers", 
+  "powers.Hamper Movement":1, "powers.Summon Spirit":1, "race":"Tuomi Human", "shield":"Medium Shield", 
+  "skillAllocation.Faith":5, "skillAllocation.Investigation":1, "skillAllocation.Knowledge (Heraldry)":2, 
+  "skillAllocation.Lockpicking":1, "skillAllocation.Persuasion":1, "skillAllocation.Shooting":1, 
+  "skillAllocation.Spellcasting":1, "skillAllocation.Swimming":1, "skillAllocation.Taunt":1, 
+  "skillAllocation.Throwing":1, "skillAllocation.Tracking":1, "smartsAllocation":0, "spiritAllocation":4, 
+  "strengthAllocation":1, "vigorAllocation":4, "weapons.Dagger":1, "weapons.Short Spear":1, 
+  "weapons.Twin Toothpick":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Powers</b> -- <b>Female</b> <b>Tuomi Human</b> <b>Veteran</b> <b>Priest</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (9 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d4</td>
+      <td><b>Smarts</b>: d4</td>
+      <td><b>Spirit</b>: d12</td>
+      <td><b>Strength</b>: d6</td>
+      <td><b>Vigor</b>: d12</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (16 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Faith: (spi) d12</td>
+      <td>Persuasion: (spi) d4</td>
+      <td>Taunt: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Investigation: (sma) d4</td>
+      <td>Shooting: (agi) d4</td>
+      <td>Throwing: (agi) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Heraldry): (sma) d4</td>
+      <td>Spellcasting: (sma) d4</td>
+      <td>Tracking: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Lockpicking: (agi) d4</td>
+      <td>Swimming: (agi) d4</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: The Norns</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 8</td>
+      <td><b>Improvement Points</b>: 22</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 8; Edge: 10; Skill: 4</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (5 points): Arcane Background (Miracles): 1; Danger Sense: 1; New Power: 1; Power Points: 2</td>
+      <td><b>Hindrances</b>: Big Mouth; Curious+; Phobia</td>
+      <td><b>Tuomi Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Arcane Background (Miracles): Violating core beliefs inflicts -2 Faith for 1 wk; major sins remove powers</td>
+    </tr><tr style="text-align:center">
+      <td>Big Mouth: Cannot keep secrets</td>
+    </tr><tr style="text-align:center">
+      <td>Connections: May call in favors from acquaintance or organization</td>
+    </tr><tr style="text-align:center">
+      <td>Curious+: Insists on investigating every mystery and secret</td>
+    </tr><tr style="text-align:center">
+      <td>Orders: Takes orders from outside power</td>
+    </tr><tr style="text-align:center">
+      <td>Phobia: -2 on trait rolls in presence of phobia subject</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 3 (1)</td>
+        <td><b>Cover</b>: 2</td>
+        <td><b>Toughness</b>: 11 (3)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Blessed Armor</td>
+        <td><b>Shield</b>: Medium Shield</td>
+        <td><b>Weapons</b>: Dagger (d6+d4); Short Spear (d6+d6 R3"); Twin Toothpick (d6+d8); Unarmed (d6+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +6</i></td>
+      </tr><tr style="text-align:center">
+        <td>Danger Sense: May test Notice-2 before surprise attack</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 3</td>
+      <td><b>Power Points</b>: 20</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Powers</b>:     <table id="Powers" style="width:100%">
+    <tr style="text-align:left">
+      <td>Hamper Movement: (2 PP) R4" 3" radius becomes difficult terrain</td>
+    </tr><tr style="text-align:left">
+      <td>Summon Spirit: (4 PP) R4" Summons spirit to possess target</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Miracles): 2 Powers/10 Power Points</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>New Power: +1 Power Count</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Power Points: +10 Power Points</i></td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Hindrances</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/hindrances", "_timestamp":1646512123563, 
+  "agilityAllocation":0, "armor.Plate Corselet":1, "concept":"Explorer", "deity":"Var", 
+  "gender":"Female", "hindrances.Disowned":1, "hindrances.Heroic+":1, "hindrances.Leysingi":1, 
+  "improvementPointsAllocation.Attribute":2, "improvementPointsAllocation.Skill":4, "name":"Hindrances", 
+  "race":"Anari Human", "shield":"Small Shield", "skillAllocation.Faith":1, 
+  "skillAllocation.Intimidation":1, "skillAllocation.Knowledge (Language (Anari Human))":1, 
+  "skillAllocation.Persuasion":1, "skillAllocation.Psionics":1, "skillAllocation.Shooting":1, 
+  "skillAllocation.Spellcasting":3, "skillAllocation.Stealth":1, "skillAllocation.Survival":5, 
+  "skillAllocation.Swimming":1, "smartsAllocation":3, "spiritAllocation":1, "strengthAllocation":1, 
+  "vigorAllocation":1, "weapons.Bow":1, "weapons.Long Sword":1, "weapons.Maul":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Hindrances</b> -- <b>Female</b> <b>Anari Human</b> <b>Novice</b> <b>Explorer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (6 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d4</td>
+      <td><b>Smarts</b>: d10</td>
+      <td><b>Spirit</b>: d6</td>
+      <td><b>Strength</b>: d6</td>
+      <td><b>Vigor</b>: d6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (16 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Faith: (spi) d4</td>
+      <td>Psionics: (sma) d4</td>
+      <td>Survival: (sma) d10</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d4</td>
+      <td>Shooting: (agi) d4</td>
+      <td>Swimming: (agi) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Language (Anari Human)): (sma) d4</td>
+      <td>Spellcasting: (sma) d8</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Persuasion: (spi) d4</td>
+      <td>Stealth: (agi) d4</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Var</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 0</td>
+      <td><b>Improvement Points</b>: 6</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 2; Skill: 4</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (0 points):</td>
+      <td><b>Hindrances</b>: Disowned; Heroic+; Leysingi</td>
+      <td><b>Anari Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Disowned: Outcast from family</td>
+    </tr><tr style="text-align:center">
+      <td>Heroic+: Always tries to help others</td>
+    </tr><tr style="text-align:center">
+      <td>Leysingi: Former thrall</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 3 (1)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Toughness</b>: 8 (3)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Plate Corselet</td>
+        <td><b>Shield</b>: Small Shield</td>
+        <td><b>Weapons</b>: Bow (2d6 R12"); Long Sword (d6+d8); Maul (d6+d8); Unarmed (d6+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +3</i></td>
+      </tr><tr style="text-align:center">
+        <td>Maul Parry Modifier: -1 Parry when wielded</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Background</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/edges/background", 
+  "_timestamp":1646512123453, "advances":4, "agilityAllocation":2, "armor.Leather Suit":1, 
+  "concept":"Fighter", "deity":"Hoenir", "edges.Gravetouched":1, "edges.Merman Blood":1, 
+  "gender":"Male", "hindrances.Enemy":1, "hindrances.Quirk":1, "hindrances.Stubborn":1, 
+  "hindrances.Weak Family":1, "improvementPointsAllocation.Attribute":4, 
+  "improvementPointsAllocation.Edge":4, "improvementPointsAllocation.Skill":6, "name":"Edges-Background", 
+  "race":"Finnar Human", "shield":"Small Shield", "skillAllocation.Boating":1, 
+  "skillAllocation.Faith":1, "skillAllocation.Fighting":5, "skillAllocation.Knowledge (Alchemy)":1, 
+  "skillAllocation.Shooting":4, "skillAllocation.Spellcasting":1, "skillAllocation.Streetwise":2, 
+  "skillAllocation.Survival":1, "skillAllocation.Swimming":1, "skillAllocation.Taunt":1, 
+  "smartsAllocation":0, "spiritAllocation":2, "strengthAllocation":0, "vigorAllocation":3, 
+  "weapons.Antler Staff":1, "weapons.Boot Spikes":1, "weapons.Pike":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Background</b> -- <b>Male</b> <b>Finnar Human</b> <b>Seasoned</b> <b>Fighter</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (7 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d8</td>
+      <td><b>Smarts</b>: d4</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d4</td>
+      <td><b>Vigor</b>: d10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (18 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Boating: (agi) d4</td>
+      <td>Shooting: (agi) d8</td>
+      <td>Swimming: (agi) d4+2</td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d4</td>
+      <td>Spellcasting: (sma) d4</td>
+      <td>Taunt: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d10</td>
+      <td>Streetwise: (sma) d4</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Alchemy): (sma) d4</td>
+      <td>Survival: (sma) d4</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>: <i>Merman Blood: +2 Swimming</i></td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Hoenir</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 4</td>
+      <td><b>Improvement Points</b>: 14</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 4; Edge: 4; Skill: 6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (2 points): Gravetouched; Merman Blood</td>
+      <td><b>Hindrances</b>: Enemy; Quirk; Stubborn; Weak Family</td>
+      <td><b>Finnar Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Enemy: Individual or remote group wants character eliminated</td>
+    </tr><tr style="text-align:center">
+      <td>Quirk: Has minor compulsion that occasionally causes trouble</td>
+    </tr><tr style="text-align:center">
+      <td>Stubborn: Never admits error</td>
+    </tr><tr style="text-align:center">
+      <td>Weak Family: -2 Kinship rolls</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 8 (1)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Toughness</b>: 8 (1)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Leather Suit</td>
+        <td><b>Shield</b>: Small Shield</td>
+        <td><b>Weapons</b>: Antler Staff (d4+d6); Boot Spikes (d4+d4); Pike (d4+d8); Unarmed (d4+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +5 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +5</i></td>
+      </tr><tr style="text-align:center">
+        <td>Antler Staff Parry Modifier: +1 Parry when wielded</td>
+      </tr><tr style="text-align:center">
+        <td>Gravetouched: +2 resistance vs. undead abilities and necromantic spells</td>
+      </tr><tr style="text-align:center">
+        <td>Merman Blood: Swim Pace 6"</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Power</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/edges/power", "_timestamp":1646512123389, 
+  "advances":8, "agilityAllocation":2, "armor.Hide":1, "concept":"Priest", "deity":"Sigel", 
+  "edges.Arcane Background (Miracles)":1, "edges.Delay Spell":1, "edges.Potent Magic":1, "edges.Reflect Spell":1, 
+  "edges.Righteous Miracles":1, "edges.Watcher Of The Black Gate":1, "gender":"Male", 
+  "hindrances.Black Sheep":1, "hindrances.Necromantic Weakness":1, "hindrances.One Eye+":1, 
+  "improvementPointsAllocation.Attribute":4, "improvementPointsAllocation.Edge":12, 
+  "improvementPointsAllocation.Skill":6, "name":"Edges-Power", "powers.Dispel":1, 
+  "powers.Environmental Protection":1, "powers.Light":1, "powers.Precognition":1, "powers.Prolonged Blast":1, 
+  "powers.Sanctuary":1, "powers.Stun":1, "race":"Saxa Human", "shield":"Small Shield", 
+  "skillAllocation.Faith":5, "skillAllocation.Fighting":3, "skillAllocation.Healing":1, 
+  "skillAllocation.Knowledge (Arcana)":3, "skillAllocation.Riding":1, "skillAllocation.Spellcasting":3, 
+  "skillAllocation.Stealth":1, "skillAllocation.Survival":1, "smartsAllocation":2, "spiritAllocation":2, 
+  "strengthAllocation":0, "vigorAllocation":1, "weapons.Long Spear":1, "weapons.Throwing Knife":1, 
+  "weapons.Unarmed":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Power</b> -- <b>Male</b> <b>Saxa Human</b> <b>Veteran</b> <b>Priest</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (7 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d8</td>
+      <td><b>Smarts</b>: d8</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d4</td>
+      <td><b>Vigor</b>: d6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>: Necromantic Weakness: -2 vs. undead effects</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (18 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Faith: (spi) d10</td>
+      <td>Knowledge (Arcana): (sma) d8</td>
+      <td>Stealth: (agi) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d8</td>
+      <td>Riding: (agi) d4</td>
+      <td>Survival: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Healing: (sma) d4</td>
+      <td>Spellcasting: (sma) d8</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Black Sheep: -2 Charisma (heahwisards)</td>
+    </tr><tr style="text-align:center">
+      <td>One Eye+: -1 Charisma unless missing eye is covered</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: Sigel</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 8</td>
+      <td><b>Improvement Points</b>: 22</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 4; Edge: 12; Skill: 6</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (6 points): Arcane Background (Miracles); Delay Spell; Potent Magic; Reflect Spell; Righteous Miracles; Watcher Of The Black Gate</td>
+      <td><b>Hindrances</b>: Black Sheep; Necromantic Weakness; One Eye+</td>
+      <td><b>Saxa Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>One Eye+: -2 Shooting/-2 Throwing/-2 tasks requiring depth perception</i></td>
+    </tr><tr style="text-align:center">
+      <td>Arcane Background (Miracles): Violating core beliefs inflicts -2 Faith for 1 wk; major sins remove powers</td>
+    </tr><tr style="text-align:center">
+      <td>Black Sheep: Ostracized by magocratic nobility</td>
+    </tr><tr style="text-align:center">
+      <td>Connections: May call in favors from acquaintance or organization</td>
+    </tr><tr style="text-align:center">
+      <td>Orders: Takes orders from outside power</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 7 (1)</td>
+        <td><b>Cover</b>: 0</td>
+        <td><b>Toughness</b>: 6 (1)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Hide</td>
+        <td><b>Shield</b>: Small Shield</td>
+        <td><b>Weapons</b>: Long Spear (d4+d6); Throwing Knife (d4+d4 R3"); Unarmed (d4+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +4 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +3</i></td>
+      </tr><tr style="text-align:center">
+        <td>Long Spear Parry Modifier: +1 Parry when wielded</td>
+      </tr><tr style="text-align:center">
+        <td>Watcher Of The Black Gate: +2 vs. demon powers</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 2</td>
+      <td><b>Power Points</b>: 10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Powers</b>:     <table id="Powers" style="width:100%">
+    <tr style="text-align:left">
+      <td>Dispel: (3 PP) R8" End targeted power (Arcane skill neg, +2 if types differ)</td>
+    </tr><tr style="text-align:left">
+      <td>Environmental Protection: (2 PP) RTouch Target gains protection from hazards for 1 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Light: (2 PP) R8" Creates 3" radius bright light for 30 min</td>
+    </tr><tr style="text-align:left">
+      <td>Precognition: (2 PP) RSelf Allows rearranging 2 Action Cards (Raise 4) next rd</td>
+    </tr><tr style="text-align:left">
+      <td>Prolonged Blast: (5 PP) R24" Choice of 1" or 2" radius inflicts 2d6 damage (Raise 3d6) while maintained</td>
+    </tr><tr style="text-align:left">
+      <td>Sanctuary: (3 PP) RSelf Teleports to safe location</td>
+    </tr><tr style="text-align:left">
+      <td>Stun: (2 PP) R12" Target Shaken (Vigor neg)</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Arcane Background (Miracles): 2 Powers/10 Power Points</i></td>
+    </tr><tr style="text-align:center">
+      <td>Delay Spell: May delay spell effect 1 - 6 rds</td>
+    </tr><tr style="text-align:center">
+      <td>Potent Magic: Targets suffer -1 arcane resistance; others' dispel attempts suffer -2</td>
+    </tr><tr style="text-align:center">
+      <td>Reflect Spell: Raise on counterspell allows turning spell back on caster</td>
+    </tr><tr style="text-align:center">
+      <td>Righteous Miracles: Demon targets suffer +2 power damage and -2 Trait rolls</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Professional</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/edges/professional", 
+  "_timestamp":1646512123512, "advances":14, "agilityAllocation":2, "armor.Blessed Robes":1, 
+  "concept":"Explorer", "deity":"Scaetha", "edges.Arcane Hand":1, "edges.Bastion Of Strength":1, 
+  "edges.Block":1, "edges.Bludgeoner":1, "edges.Bodyguard":1, "edges.Brothers-In-Arms":1, 
+  "edges.Censure Demons":1, "edges.Deathdealer":1, "edges.Doomsman":1, "edges.Double The Load":1, 
+  "edges.Dragon Guard":1, "edges.Gravetouched":1, "edges.Hearth Knight":1, 
+  "edges.Hellfrost Hardened":1, "edges.Hellfrost Hardy":1, "edges.Horse Lord":1, "edges.Hrosmark Huscarl":1, 
+  "edges.Improved Double The Load":1, "edges.Iron Guild Mercenary":1, "edges.Master Bludgeoner":1, 
+  "edges.Master Mariner":1, "edges.Not Just A Sling":1, "edges.Protect The Cargo":1, "edges.Sea Legs":1, 
+  "edges.Share Spell":1, "edges.Shieldwall":1, "edges.Sister Of Mercy":1, "edges.Sister Superior":1, 
+  "edges.Speed Rider":1, "edges.Veteran Dragon Guard":1, "edges.Watcher Of The Black Gate":1, 
+  "gender":"Female", "hindrances.Bad Eyes":1, "hindrances.Blood Feud":1, "hindrances.Disowned":1, 
+  "hindrances.Pacifist":1, "improvementPointsAllocation.Attribute":12, 
+  "improvementPointsAllocation.Edge":2, "improvementPointsAllocation.Skill":18, "name":"Edges-Professional", 
+  "race":"Engro", "shield":"Medium Shield", "skillAllocation.Boating":3, 
+  "skillAllocation.Fighting":3, "skillAllocation.Healing":3, "skillAllocation.Intimidation":2, 
+  "skillAllocation.Knowledge (Arcana)":3, "skillAllocation.Knowledge (Law)":3, 
+  "skillAllocation.Knowledge (The Seas)":3, "skillAllocation.Notice":3, "skillAllocation.Riding":2, 
+  "skillAllocation.Shooting":3, "skillAllocation.Streetwise":1, "skillAllocation.Survival":3, 
+  "smartsAllocation":2, "spiritAllocation":2, "strengthAllocation":2, "vigorAllocation":3, 
+  "weapons.Crossbow":1, "weapons.Lance":1, "weapons.Warhammer":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Professional</b> -- <b>Female</b> <b>Engro</b> <b>Heroic</b> <b>Explorer</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (11 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d8</td>
+      <td><b>Smarts</b>: d8</td>
+      <td><b>Spirit</b>: d10</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Attribute Notes</b>: <i>Spirited: +1 Spirit step</i></td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (32 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Boating: (agi) d8</td>
+      <td>Knowledge (Arcana): (sma) d8</td>
+      <td>Riding: (agi) d6</td>
+    </tr><tr style="text-align:left">
+      <td>Fighting: (agi) d8</td>
+      <td>Knowledge (Law): (sma) d8</td>
+      <td>Shooting: (agi) d8</td>
+    </tr><tr style="text-align:left">
+      <td>Healing: (sma) d8+2</td>
+      <td>Knowledge (The Seas): (sma) d8</td>
+      <td>Streetwise: (sma) d4+1</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d6</td>
+      <td>Notice: (sma) d8</td>
+      <td>Survival: (sma) d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Charisma: +1 Persuasion/+1 Streetwise</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Sister Of Mercy: +2 Healing/+1 Charisma</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Sneaky: +2 Skill Points (choice of Stealth or Lockpicking)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Bad Eyes: -2 on distant visual trait rolls and ranged attacks w/out corrective lenses</td>
+    </tr><tr style="text-align:center">
+      <td>Blood Feud: -2 Charisma (rival family)</td>
+    </tr><tr style="text-align:center">
+      <td>Bludgeoner: +1 Charisma (engros)</td>
+    </tr><tr style="text-align:center">
+      <td>Doomsman: +2 Charisma (community)/+2 Knowledge (Law) (evidence)/+2 Smarts (evidence)</td>
+    </tr><tr style="text-align:center">
+      <td>Hearth Knight: +1 Parry and +2 called shots vs. cold-resistant and -immune creatures</td>
+    </tr><tr style="text-align:center">
+      <td>Horse Lord: d8 Wild Die with Riding, mount shares Parry and resistance</td>
+    </tr><tr style="text-align:center">
+      <td>Master Mariner: Ignores 2 penalty points on Boating; may spend Benny to Soak boat damage; boat +1 top speed</td>
+    </tr><tr style="text-align:center">
+      <td>Outsider: -2 Charisma (other races)</td>
+    </tr><tr style="text-align:center">
+      <td>Sister Superior: Successful Healing-2 immediately after ally wound reduces to Shaken</td>
+    </tr><tr style="text-align:center">
+      <td>Speed Rider: Mount +2 Pace, may trade mount fatigue for dbl running dice</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: -1</td>
+      <td><b>Deity</b>: Scaetha</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 14</td>
+      <td><b>Improvement Points</b>: 32</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 12; Edge: 2; Skill: 18</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Small (Engro): -1 Size</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (1 points): Arcane Hand; Bastion Of Strength; Block; Bludgeoner; Bodyguard; Brothers-In-Arms; Censure Demons; Deathdealer; Doomsman; Double The Load; Dragon Guard; Gravetouched; Hearth Knight; Hellfrost Hardened; Hellfrost Hardy; Horse Lord; Hrosmark Huscarl; Improved Double The Load; Iron Guild Mercenary; Master Bludgeoner; Master Mariner; Not Just A Sling; Protect The Cargo; Sea Legs; Share Spell; Shieldwall; Sister Of Mercy; Sister Superior; Speed Rider; Veteran Dragon Guard; Watcher Of The Black Gate</td>
+      <td><b>Hindrances</b>: Bad Eyes; Blood Feud; Disowned; Pacifist</td>
+      <td><b>Engro Features</b>: Luck (Engro); Outsider; Small (Engro); Sneaky; Spirited</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Arcane Hand: Member of Magocracy elite bodyguard</td>
+    </tr><tr style="text-align:center">
+      <td>Disowned: Outcast from family</td>
+    </tr><tr style="text-align:center">
+      <td>Dragon Guard: Arcane Resistance, Favored Foe, and Giant Killer features with marsh dragons and marsh orms</td>
+    </tr><tr style="text-align:center">
+      <td>Iron Guild Mercenary: +1 using Gang Up</td>
+    </tr><tr style="text-align:center">
+      <td>Luck (Engro): +1 Benny each session</td>
+    </tr><tr style="text-align:center">
+      <td>Veteran Dragon Guard: Champion features and +2 vs. paralysis with marsh dragons and marsh orms</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 8 (1)</td>
+        <td><b>Cover</b>: 2</td>
+        <td><b>Toughness</b>: 7 (1)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Blessed Robes</td>
+        <td><b>Shield</b>: Medium Shield</td>
+        <td><b>Weapons</b>: Crossbow (2d6 R15"); Lance (d8+d8); Unarmed (d8+d0); Warhammer (d8+d6)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Block: +1 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Bludgeoner: +4 sling range/Sling does d8+d6 damage at short range</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +4 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Improved Double The Load: Increased Double The Load effects</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Small (Engro): -1 Toughness</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +5</i></td>
+      </tr><tr style="text-align:center">
+        <td>Bastion Of Strength: Adjacent allies share Censure Demons and Watcher Of The Black Gate features and Spirit resistance vs. Demon fear and Intimidation</td>
+      </tr><tr style="text-align:center">
+        <td>Bodyguard: May share Parry with adjacent ally</td>
+      </tr><tr style="text-align:center">
+        <td>Brothers-In-Arms: -1 damage per each Iron Guildsman w/in 6" (-4 max)</td>
+      </tr><tr style="text-align:center">
+        <td>Censure Demons: Has Champion and Holy Warrior features vs. Demons</td>
+      </tr><tr style="text-align:center">
+        <td>Deathdealer: Free attack on adjacent undead after slaying undead</td>
+      </tr><tr style="text-align:center">
+        <td>Double The Load: May sling two stones simultaneously</td>
+      </tr><tr style="text-align:center">
+        <td>Gravetouched: +2 resistance vs. undead abilities and necromantic spells</td>
+      </tr><tr style="text-align:center">
+        <td>Hearth Knight: +2 Survival (freezing environments)</td>
+      </tr><tr style="text-align:center">
+        <td>Hellfrost Hardened: +2 Armor and Trait rolls vs. cold damage and powers</td>
+      </tr><tr style="text-align:center">
+        <td>Hellfrost Hardy: Second Shaken condition from cold does not cause wound</td>
+      </tr><tr style="text-align:center">
+        <td>Hrosmark Huscarl: Gains Steady Hands feature and may Aim when mounted</td>
+      </tr><tr style="text-align:center">
+        <td>Iron Guild Mercenary: Member of Iron Guild mercenary company</td>
+      </tr><tr style="text-align:center">
+        <td>Master Bludgeoner: Sling inflicts Str+d8 (short) or Str+d6 (medium)</td>
+      </tr><tr style="text-align:center">
+        <td>Not Just ASling: Never unarmed with sling, +2 Disarm and Grapple</td>
+      </tr><tr style="text-align:center">
+        <td>Pacifist: Will harm others only when no other option available</td>
+      </tr><tr style="text-align:center">
+        <td>Protect The Cargo: +1 Fighting and Toughness when protecting adjacent cargo</td>
+      </tr><tr style="text-align:center">
+        <td>Sea Legs: No penalty for shot from ship, reduce running shot penalty by 1, +1 Parry</td>
+      </tr><tr style="text-align:center">
+        <td>Shieldwall: Shield benefit applies to adjacent ally</td>
+      </tr><tr style="text-align:center">
+        <td>Watcher Of The Black Gate: +2 vs. demon powers</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Arcana Notes</b>: Share Spell: Gains benefits of adjacent master's spells</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Notes</b><br/>  <table id="NotesArea" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="ValidationPart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Edge Allocation: 1 available vs. 31 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Hrosmark Huscarl Edge: Requires race (currently Engro) == 'Saxa Human', agility (currently 8) >= 8, fighting skill (currently 8) >= 8, riding skill (currently 6) >= 6 and shooting skill (currently 8) >= 8</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+<!DOCTYPE html>
+<!-- Generated Sat Mar 05 2022 12:29:43 GMT-0800 (Pacific Standard Time) by Quilvyn version 2.3.10; Hellfrost - SWD version 2.3.1.0; SWD version 2.3.1.0; SWADE version 2.3.1.3 -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Edges-Leadership</title>
+  <script>
+var attributes = {
+  "_path":"ztest/hellfrost/swd/re2/edges/leadership", 
+  "_timestamp":1646512123698, "advances":8, "agilityAllocation":3, "armor.Chain Hauberk":1, 
+  "concept":"Messenger", "deity":"The Norns", "edges.Command":1, "edges.Drop!":1, 
+  "edges.Forced March":1, "edges.Help Me!":1, "edges.Take Aim":1, "gender":"Male", 
+  "hindrances.Blood Feud":1, "hindrances.Death Wish":1, "hindrances.Poverty":1, "hindrances.Vengeful":1, 
+  "improvementPointsAllocation.Attribute":10, "improvementPointsAllocation.Edge":10, 
+  "improvementPointsAllocation.Skill":2, "name":"Edges-Leadership", "race":"Saxa Human", "shield":"Medium Shield", 
+  "skillAllocation.Fighting":1, "skillAllocation.Intimidation":1, 
+  "skillAllocation.Knowledge (Language (Taiga Elf))":3, "skillAllocation.Notice":2, "skillAllocation.Persuasion":1, 
+  "skillAllocation.Riding":5, "skillAllocation.Streetwise":1, "smartsAllocation":1, "spiritAllocation":2, 
+  "strengthAllocation":2, "vigorAllocation":2, "weapons.Antler Staff":1, "weapons.Bow":1, 
+  "weapons.Short Sword":1
+};
+  </script>
+</head>
+<body>
+<table id="_top" style="border:1px solid black; width:100%">
+<tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Header" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Edges-Leadership</b> -- <b>Male</b> <b>Saxa Human</b> <b>Veteran</b> <b>Messenger</b></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black">  <table id="Characteristics" style="width:100%">
+  <tr style="text-align:center">
+    <td><b>Attributes</b> (10 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Attributes" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Agility</b>: d10</td>
+      <td><b>Smarts</b>: d6</td>
+      <td><b>Spirit</b>: d8</td>
+      <td><b>Strength</b>: d8</td>
+      <td><b>Vigor</b>: d8</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skills</b> (14 Points):</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Skills" style="width:100%">
+    <col style="width:33%"/>
+    <col style="width:33%"/>
+    <col style="width:34%"/>
+    <tr style="text-align:left">
+      <td>Fighting: (agi) d4</td>
+      <td>Notice: (sma) d6</td>
+      <td>Streetwise: (sma) d4</td>
+    </tr><tr style="text-align:left">
+      <td>Intimidation: (spi) d4</td>
+      <td>Persuasion: (spi) d4</td>
+      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Knowledge (Language (Taiga Elf)): (sma) d6</td>
+      <td>Riding: (agi) d10</td>
+      <td></td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Skill Notes</b>: Blood Feud: -2 Charisma (rival family)</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="Description" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Size</b>: 0</td>
+      <td><b>Deity</b>: The Norns</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td>    <table id="AdvanceStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Advances</b>: 8</td>
+      <td><b>Improvement Points</b>: 22</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 10; Edge: 10; Skill: 2</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Description Notes</b>: <i>Diverse: +2 Improvement Points (edge or skills)</i></td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Features</b><br/>  <table id="FeatureSection" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="FeaturePart" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Edges</b> (5 points): Command; Drop!; Forced March; Help Me!; Take Aim</td>
+      <td><b>Hindrances</b>: Blood Feud; Death Wish; Poverty; Vengeful</td>
+      <td><b>Saxa Human Features</b>: Diverse</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Command: R5" Commanded +1 to recover from Shaken</td>
+    </tr><tr style="text-align:center">
+      <td>Death Wish: Will risk death for valued goal</td>
+    </tr><tr style="text-align:center">
+      <td>Poverty: Starts with half funds, loses half funds each wk</td>
+    </tr><tr style="text-align:center">
+      <td>Vengeful: Seeks revenge legally</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr><tr style="text-align:center">
+  <td style="border:1px solid black"><b>Combat</b><br/>  <table id="Combat" style="width:100%">
+  <tr style="text-align:center">
+    <td>    <table id="CombatPart" style="width:100%">
+    <tr style="text-align:center">
+      <td>      <table id="CombatStats" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Parry</b>: 5 (1)</td>
+        <td><b>Cover</b>: 2</td>
+        <td><b>Toughness</b>: 8 (2)</td>
+        <td><b>Pace/Run</b>: 6/+d6</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td>      <table id="Gear" style="width:100%">
+      <tr style="text-align:center">
+        <td><b>Armor</b>: Chain Hauberk</td>
+        <td><b>Shield</b>: Medium Shield</td>
+        <td><b>Weapons</b>: Antler Staff (d8+d6); Bow (2d6 R12"); Short Sword (d8+d6); Unarmed (d8+d0)</td>
+      </tr></table>
+</td>
+    </tr><tr style="text-align:center">
+      <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td><i>Fighting Parry Modifier: +2 Parry</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Vigor Toughness Modifier: +4</i></td>
+      </tr><tr style="text-align:center">
+        <td>Antler Staff Parry Modifier: +1 Parry when wielded</td>
+      </tr><tr style="text-align:center">
+        <td>Drop!: May give one commanded medium ranged cover 1/rd</td>
+      </tr><tr style="text-align:center">
+        <td>Forced March: Commanded allies may share running die</td>
+      </tr><tr style="text-align:center">
+        <td>Help Me!: Commanded ally may interrupt attack on self</td>
+      </tr><tr style="text-align:center">
+        <td>Take Aim: Commanded gain +1 shooting and throwing damage, 1d6+1 with Coordinated Firepower</td>
+      </tr></table>
+</td>
+    </tr></table>
+</td>
+  </tr></table>
+</td>
+</tr></table>
+
+</body>
+</html>
+
