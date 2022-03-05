@@ -1384,7 +1384,7 @@ Hellfrost.EDGES_ADDED = {
   'Gravetouched':'Type=background Require="spirit >= 8","vigor >= 6"',
   'Merman Blood':'Type=background',
   // Combat
-  'Armor Percing Shot':
+  'Armor Piercing Shot':
     'Type=combat ' +
     'Require="agility >= 8","skills.Shooting >= 8","race =~ \'Elf\'"',
   'Charge':
@@ -1403,7 +1403,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Survival >= 6"',
   'Quick Reactions':'Type=combat Require="agility >= 6 || smarts >= 6"',
   'Running Throw':
-    'Type=combat Require="agility >= 6","strength >= 8","skills.Thorwing >= 8"',
+    'Type=combat Require="agility >= 6","strength >= 8","skills.Throwing >= 8"',
   'Steal Away':'Type=combat Require="agility >= 8","skills.Stealth >= 6"',
   // Leadership
   'Drop!':
@@ -1502,8 +1502,8 @@ Hellfrost.EDGES_ADDED = {
       '"race == \'Saxa Human\'",' +
       '"agility >= 8",' +
       '"skills.Fighting >= 8",' +
-      '"skills.Fighting >= 8",' +
-      '"skills.Riding >= 6"',
+      '"skills.Riding >= 6",' +
+      '"skills.Shooting >= 8"',
   'Master Bludgeoner':
     'Type=professional Require="advances >= 8",features.Bludgeoner',
   'Master Mariner':
@@ -1607,7 +1607,7 @@ Hellfrost.FEATURES_ADDED = {
   'Censure Demons':
     'Section=combat ' +
     'Note="Has Champion and Holy Warrior features vs. Demons"',
-  'Charge':'Section=combat Note="Free Fighting roll after run"',
+  'Charge':'Section=combat Note="Free melee attack after run"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
@@ -1803,7 +1803,7 @@ Hellfrost.FEATURES_ADDED = {
   'Lorekeeper':
     'Section=skill ' +
     'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
-  'Lurker':'Section=combat Note="%V Parry using Full Defense"',
+  'Lurker':'Section=combat Note="Parry %V while using Full Defense"',
   'Master Bludgeoner':
     'Section=combat Note="Sling inflicts Str+d8 (short) or Str+d6 (medium)"',
   'Master Mariner':
@@ -1813,7 +1813,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
   'Merman Blood':
-    'Section=combat,skill Note="%{speed} Swim","+2 Swimming"',
+    'Section=combat,skill Note="Swim Pace %{pace}%{in}","+2 Swimming"',
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
@@ -1835,11 +1835,11 @@ Hellfrost.FEATURES_ADDED = {
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
-    'Section=skills ' +
+    'Section=skill ' +
     'Note="Allies may move through scouted difficult terrain at 1.5%{in}"',
   'Potent Magic':
     'Section=arcana ' +
-    'Note="Targets suffer -1 arcane resistance, -2 others\' dispel attempts"',
+    'Note="Targets suffer -1 arcane resistance; others\' dispel attempts suffer -2"',
   'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
   'Powerful Family':'Section=feature Note="+2 Kinship"',
   'Protect The Cargo':
@@ -1864,14 +1864,14 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="Free melee attack upon incapacitation"',
   'Righteous Miracles':
     'Section=arcana ' +
-    'Note="Demon targets suffer +2 power damage, -2 Trait rolls"',
+    'Note="Demon targets suffer +2 power damage and -2 Trait rolls"',
   'Roadwarden':
     'Section=skill ' +
     'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
   'Running Throw':
-    'Section=combat Note="+2 thrown range after moving half Pace"',
+    'Section=combat Note="+2 thrown weapon range after moving half Pace"',
   'Salmon Leap':
     'Section=combat,skill Note="Ignore 1 point of shield Parry","+1%{in} jump"',
   'Sanctuary':
@@ -2584,7 +2584,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' + // ref Slow
     'Range=smarts ' +
-    'Description="2%{in} radius becomes difficult terrain"',
+    'Description="3%{in} radius becomes difficult terrain"',
   'Summon Spirit':
     'Advances=8 ' +
     'PowerPoints=4 ' + // ref Summon Elemental
@@ -2665,7 +2665,8 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (Law)':'Attribute=smarts',
   'Knowledge (Religion)':'Attribute=smarts',
   'Knowledge (Riddles)':'Attribute=smarts',
-  'Knowledge (Siege Artillery)':'Attribute=smarts'
+  'Knowledge (Siege Artillery)':'Attribute=smarts',
+  'Knowledge (The Seas)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
 Hellfrost.WEAPONS = {
