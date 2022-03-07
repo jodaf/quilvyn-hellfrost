@@ -81,6 +81,11 @@ function Hellfrost(baseRules) {
     Object.assign({}, rules.basePlugin.POWERS, Hellfrost.POWERS_ADDED);
   Hellfrost.SKILLS =
     Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
+  delete Hellfrost.SKILLS['Driving'];
+  delete Hellfrost.SKILLS['Knowledge (Language (%languages))'];
+  delete Hellfrost.SKILLS['Piloting'];
+  delete Hellfrost.SKILLS['Psionics'];
+  delete Hellfrost.SKILLS['Weird Science'];
 
   if(useSwade) {
     Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
@@ -114,7 +119,7 @@ Hellfrost.VERSION = '2.3.1.0';
 
 Hellfrost.CHOICES = ['Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
-  ['glories'].concat(SWADE.RANDOMIZABLE_ATTRIBUTES);
+  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['glories', 'languages']);
 
 /*
  * Spell list changes from errata:
@@ -1545,7 +1550,7 @@ Hellfrost.FEATURES_ADDED = {
   'Alchemy':'Section=arcana Note="May create arcane devices for known spells"',
   'Ancestral Guardian':
     'Section=arcana ' +
-    'Note="May spend benny to cast <i>Aim</i>, <i>Boost Trait</i>, <i>Deflection</i>, <i>Environmental Protection</i>, <i>Farsight</i>, or <i>Warrior\'s Gift</i> on self"',
+    'Note="May spend Benny to cast <i>Aim</i>, <i>Boost Trait</i>, <i>Deflection</i>, <i>Environmental Protection</i>, <i>Farsight</i>, or <i>Warrior\'s Gift</i> on self"',
   'Arcane Background (Druidism)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
@@ -1575,7 +1580,8 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
          '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
-  'Arcane Hand':'Section=feature Note="Member of Magocracy elite bodyguard"',
+  'Arcane Hand':
+    'Section=combat Note="May interrupt foe spellcasting (+2 if on Hold)"',
   'Armor Piercing Shot':'Section=combat Note="+2 AP with bows"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
@@ -1621,7 +1627,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Deathdealer':
     'Section=combat Note="Free attack on adjacent undead after slaying undead"',
-  'Delay Spell':'Section=arcana Note="May delay spell effect 1 - 6 rds"',
+  'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rds"',
   'Disciple Of Dargar':
     'Section=combat ' +
     'Note="Single blow that incapacitates foe makes adjacent foes Shaken (Spirit neg)"',
@@ -1664,7 +1670,7 @@ Hellfrost.FEATURES_ADDED = {
   'Disciple Of Niht':
     'Section=feature ' +
     'Note="No penalty in dim and dark illumination, -2 in pitch dark"',
-  'Disciple Of The Norns':'Section=arcana Note="May spend benny for augury"',
+  'Disciple Of The Norns':'Section=arcana Note="May spend Benny for augury"',
   'Disciple Of Rigr':
     'Section=feature ' +
     'Note="Needs only 3 hrs sleep, suffers half penalty for missed sleep, counts as active guard when asleep"',
@@ -1711,7 +1717,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="May give one commanded medium ranged cover 1/rd"',
   'Dungeon Crawler':
     'Section=skill ' +
-    'Note="+1 Climbing (underground)/+1 Stealthy (underground)/+1 Survival (underground)/May squeeze into tight spaces"',
+    'Note="+1 Climbing (underground)/+1 Stealthy (underground)/+1 Survival (underground)/-1 Size for squeezing into tight spaces"',
   'Elemental Mastery':
     'Section=arcana ' +
     'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
@@ -1723,7 +1729,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
   'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
-  'Fast Mount':'Section=combat Note="Dis/mount as free action 1/rd"',
+  'Fast Mount':'Section=combat Note="Mount and dismount as free actions 1/rd"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 extra damage on attack Raise against chosen creature type"',
@@ -1735,7 +1741,7 @@ Hellfrost.FEATURES_ADDED = {
   'Giant Blood':
     'Section=attribute,combat,description,feature ' +
     'Note=' +
-      '"May spend benny to gain +2 Strength step for %{vigor//2} rd",' +
+      '"May spend Benny to gain +2 Strength step for %{vigor//2} rd",' +
       '"+1 Toughness",' +
       '"+1 Size",' +
       '"Has Mean feature"',
@@ -1764,7 +1770,8 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="Second Shaken condition from cold does not cause wound"',
   'Help Me!':
-    'Section=combat Note="Commanded ally may interrupt attack on self"',
+    'Section=combat ' +
+    'Note="Commanded ally may step in front of attack on self 1/rd"',
   'Holy/Unholy Warrior':
     'Section=arcana ' +
     'Note="R%{spirit}%{in} Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
@@ -1774,7 +1781,8 @@ Hellfrost.FEATURES_ADDED = {
   'Hrosmark Huscarl':
     'Section=combat Note="Gains Steady Hands feature and may Aim when mounted"',
   'Huscarl Of Hammerhand':
-    'Section=combat Note="Warhammer has range 2, may strike multiple targets"',
+    'Section=combat ' +
+    'Note="Warhammer has range 2/Thrown axes and hammers may strike multiple targets"',
   'Improved Concentration':
     'Section=arcana Note="Increased Concentration effects"',
   'Improved Double Shot':'Section=combat Note="Increased Double Shot effects"',
@@ -1795,7 +1803,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature,skill ' +
     'Note="+%V Command range; ignores rank requirement for leadership edges",' +
          '"+1 Knowledge (Battle)"',
-  'Large Family':'Section=feature Note="+2 Kinship"',
+  'Large Family':'Section=feature Note="+2 Kinship results"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
   'Library':'Section=skill Note="+%V Skill Points (choice of Knowledge)"',
@@ -1828,20 +1836,21 @@ Hellfrost.FEATURES_ADDED = {
   'Not Just A Sling':
     'Section=combat Note="Never unarmed with sling, +2 Disarm and Grapple"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
-  'One Of Thirteen':'Section=combat Note="May use ally\'s combat edge 1/rd"',
+  'One Of Thirteen':
+    'Section=combat Note="May use adjacent ally\'s combat edge 1/rd"',
   'One Step One Kill':
     'Section=combat ' +
-    'Note="May move 1%{in} w/out triggering first strike/May spend benny to get the Drop"',
+    'Note="May move 1%{in} w/out triggering first strike; may spend Benny for the Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
     'Section=skill ' +
-    'Note="Allies may move through scouted difficult terrain at 1.5%{in}"',
+    'Note="Allies may move through scouted difficult terrain at 2/3 Pace"',
   'Potent Magic':
     'Section=arcana ' +
     'Note="Targets suffer -1 arcane resistance; others\' dispel attempts suffer -2"',
   'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
-  'Powerful Family':'Section=feature Note="+2 Kinship"',
+  'Powerful Family':'Section=feature Note="+2 Kinship results"',
   'Protect The Cargo':
     'Section=combat ' +
     'Note="+1 Fighting and Toughness when protecting adjacent cargo"',
@@ -1852,7 +1861,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Trackers -2 Tracking/d8 Wild Die with choice of Stealth, Survival, or Tracking"',
   'Reflect Spell':
     'Section=arcana ' +
-    'Note="Raise on counterspell allows turning spell back on caster"',
+    'Note="Raise on <i>Dispel</i> allows turning spell back on caster"',
   'Reliquary (Arcanologist)':
     'Section=skill ' +
     'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/May use Knowledge (Arcana) to learn unattuned relic powers"',
@@ -1861,7 +1870,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Test Agility-2 to avoid trap effects",' +
          '"+2 Notice (traps)/+2 disarm traps"',
   'Retributive Strike':
-    'Section=combat Note="Free melee attack upon incapacitation"',
+    'Section=combat Note="May make free melee attack upon incapacitation"',
   'Righteous Miracles':
     'Section=arcana ' +
     'Note="Demon targets suffer +2 power damage and -2 Trait rolls"',
@@ -1896,8 +1905,11 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill ' +
     'Note="Successful Healing-2 immediately after ally wound reduces to Shaken"',
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
-  'Spear Catch':'Section=combat Note="Successful agility test catches thrown spear (Raise returns throw)"',
-  'Spear Twist':'Section=combat Note="+1 Strength step for spear throw"',
+  'Spear Catch':
+    'Section=combat ' +
+    'Note="Successful Agility test catches thrown spear (Raise returns throw) 1/rd"',
+  'Spear Twist':
+    'Section=combat Note="Thrown spear does +1 Strength step damage"',
   'Speed Rider':
     'Section=skill ' +
     'Note="Mount +2 Pace, may trade mount fatigue for dbl running dice"',
@@ -1925,9 +1937,10 @@ Hellfrost.FEATURES_ADDED = {
     'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
   'Take Aim':
     'Section=combat ' +
-    'Note="Commanded gain +1 shooting and throwing damage, 1d6+1 with Coordinated Firepower"',
+    'Note="Commanded gain +1 shooting and throwing damage (1d6+1 with Coordinated Firepower)"',
   'Vengeful Strike':
-    'Section=combat Note="Free melee attack upon adjacent ally incapacitation"',
+    'Section=combat ' +
+    'Note="May make free melee attack upon adjacent ally incapacitation"',
   'Veteran Dragon Guard':
     'Section=feature ' +
     'Note="Champion features and +2 vs. paralysis with marsh dragons and marsh orms"',
@@ -1942,7 +1955,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Can speak with normal beasts, cast <i>Beast Friend</i> at +2"',
   'World-Wise':
     'Section=skill ' +
-    'Note="+5 Skill Points (areas)/May make unskilled area knowledge rolls"',
+    'Note="+5 Skill Points (Knowledge (3+ areas))/May make unskilled area knowledge rolls"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
@@ -1968,7 +1981,7 @@ Hellfrost.FEATURES_ADDED = {
   'Blood Feud+':'Section=skill Note="-4 Charisma (rival family)"',
   'City Dweller':
     'Section=skill ' +
-    'Note="-2 Common Knowledge (country life)/-2 Stealth/-2 Survival"',
+    'Note="-2 Common Knowledge (country life)/-2 Stealth (wilderness)/-2 Survival (wilderness)"',
   'Cold Blooded':'Section=attribute Note="-2 Vigor (cold weather effects)"',
   'Disowned':'Section=feature Note="Outcast from family"',
   'God Cursed+':
@@ -1979,18 +1992,17 @@ Hellfrost.FEATURES_ADDED = {
   'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
   'Orders':'Section=feature Note="Takes orders from outside power"',
-  'Outlaw':'Section=feature Note="-20 Glory/May be killed legally"',
-  'Sea Fear':
-    'Section=feature ' +
-    'Note="Must roll vs. fear within sight of large body of water"',
-  'Sea Fear+':
-    'Section=feature ' +
-    'Note="Must roll vs. fear within sight of large body of water"',
-  'Short-Lived Magic':'Section=arcana Note="Maintained spells end after 1 hr"',
+  'Outlaw+':
+    'Section=feature Note="-20 Glory/Cannot use Kinship/May be killed legally"',
+  'Sea Fear':'Section=feature Note="Fears presence of large bodies of water"',
+  'Sea Fear+':'Section=feature Note="Fears presence of large bodies of water"',
+  'Short-Lived Magic':
+    'Section=arcana ' +
+    'Note="Maintained spells end after 1 hr, devices after 30 min"',
   'Short-Lived Magic+':
-    'Section=arcana Note="Maintained spells end after 1 min"',
-  'Weak Family':'Section=feature Note="-2 Kinship rolls"',
-  'Weak Family+':'Section=feature Note="-4 Kinship rolls"',
+    'Section=arcana Note="Maintained spells and devices end after 1 min"',
+  'Weak Family':'Section=feature Note="-2 Kinship results"',
+  'Weak Family+':'Section=feature Note="-4 Kinship results"',
 
   // Races
   'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
@@ -2061,7 +2073,7 @@ Hellfrost.HINDRANCES_ADDED = {
   'Blood Feud':'Severity=Minor Require="features.Blood Feud+ == 0"',
   'Blood Feud+':'Severity=Major Require="features.Blood Feud == 0"',
   'City Dweller':'Severity=Minor',
-  'Outlaw':'Severity=Major',
+  'Outlaw+':'Severity=Major',
   'Sea Fear':'Severity=Minor Require="features.Sea Fear+ == 0"',
   'Sea Fear+':'Severity=Major Require="features.Sea Fear == 0"',
   'Short-Lived Magic':
@@ -2275,7 +2287,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target may reroll failed benny-purchased reroll while maintained"',
+      '"Target may reroll failed Benny-purchased reroll while maintained"',
   'Gift Of Battle':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2595,31 +2607,58 @@ Hellfrost.POWERS_ADDED = {
 Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
   'Engro':
-    'Features=' +
-      '"Luck (Engro)",Outsider,"Small (Engro)",Sneaky,Spirited',
+    'Features="Luck (Engro)",Outsider,"Small (Engro)",Sneaky,Spirited ' +
+    'Languages=Engrosi',
   'Frost Dwarf':
     'Features=' +
       '"Heat Lethargy",Insular,"Low Light Vision",Mountain-Born,Slow,' +
-      'Tough,"Winter Soul"',
+      'Tough,"Winter Soul" ' +
+    'Languages=Dwarven',
   'Frostborn':
-    'Features=' +
-      '"Frigid Form","Heat Lethargy",Outsider,"Winter Soul"',
+    'Features="Frigid Form","Heat Lethargy",Outsider,"Winter Soul"',
   'Hearth Elf':
     'Features=' +
-      'Agile,"All Thumbs","Forest-Born","Low Light Vision","Natural Realms"',
-  'Anari Human':'Features=Diverse',
-  'Finnar Human':'Features=Diverse',
-  'Saxa Human':'Features=Diverse',
-  'Tuomi Human':'Features=Diverse',
+      'Agile,"All Thumbs","Forest-Born","Low Light Vision","Natural Realms" ' +
+    'Languages="Hearth Elven"',
+  'Anari Human':'Features=Diverse Languages=Anari',
+  'Finnar Human':'Features=Diverse Languages=Finnari',
+  'Saxa Human':'Features=Diverse Languages=Saxa',
+  'Tuomi Human':'Features=Diverse Languages=Tuomi',
   'Taiga Elf':
     'Features=' +
       'Agile,"All Thumbs","Forest-Born","Heat Lethargy",Insular,' +
-      '"Low Light Vision","Natural Realms","Winter Soul"'
+      '"Low Light Vision","Natural Realms","Winter Soul" ' +
+    'Languages="Tanari Elven"'
 };
-Hellfrost.LANGUAGES = {};
-for(var r in Hellfrost.RACES) {
-  Hellfrost.LANGUAGES[r] = '';
-}
+Hellfrost.LANGUAGES = {
+  'Anari':'',
+  'Arboreal':'',
+  'Aspirian':'',
+  'Auld Saxa':'',
+  'Battletongue':'',
+  'Beastspeech':'',
+  'Black Tongue':'',
+  'Chalcian':'',
+  'Classical Anari':'',
+  'Draketongue':'',
+  'Dwarven':'',
+  'Earthtongue':'',
+  'Engrosi':'',
+  'Fey':'',
+  'Fingerspeak':'',
+  'Finnari':'',
+  'Frosttongue':'',
+  'Giant':'',
+  'Hearth Elven':'',
+  'Orcish':'',
+  'Saxa':'',
+  'Selari':'',
+  'Taiga Elven':'',
+  'Tuomi':'',
+  'Trader':'',
+  'Vendahl':'',
+  'Vindari':''
+};
 Hellfrost.SHIELDS = {
   'None':'Parry=0 Cover=0 MinStr=4 Weight=0',
   'Small Shield':'Parry=1 Cover=0 MinStr=4 Weight=8',
@@ -2669,6 +2708,11 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (The Seas)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
+delete Hellfrost.SKILLS['Driving'];
+delete Hellfrost.SKILLS['Knowledge (Language (%languages))'];
+delete Hellfrost.SKILLS['Piloting'];
+delete Hellfrost.SKILLS['Psionics'];
+delete Hellfrost.SKILLS['Weird Science'];
 Hellfrost.WEAPONS = {
   'Unarmed':'Damage=Str+d0 MinStr=4 Weight=0 Category=Un',
   'Antler Staff':'Damage=Str+d6 MinStr=4 Weight=10 Category=2h Parry=1',
@@ -2788,6 +2832,9 @@ Hellfrost.talentRules = function(
   rules.defineChoice('extras', 'Glory Benefits');
   QuilvynRules.validAllocationRules
     (rules, 'gloryBenefit', 'gloryPoints', 'Sum "^glorys\\."');
+  rules.defineEditorElement
+    ('languages', 'Languages', 'set', 'languages', 'deity');
+  rules.defineSheetElement('Languages', 'Skills+', null, '; ');
 };
 
 /*
@@ -3060,10 +3107,14 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'featureNotes.legendaryStoryteller', '=', '" (Raise +1d8 each)"'
     );
   } else if(name == 'Lurker') {
-    rules.defineRule('combatNotes.lurker',
+    rules.defineRule('combatNotes.lurker.1',
+      'features.Lurker', '?', null,
       'skills.Stealth', '=', 'Math.floor(source / 2)',
       'skillModifier.Stealth', '+', 'Math.floor(source / 2)',
       'combatNotes.fightingParryModifier', '+', '-source'
+    );
+    rules.defineRule('combatNotes.lurker',
+      'combatNotes.lurker.1', '=', 'QuilvynUtils.signed(source)'
     );
   } else if(name == 'Mighty Shot') {
     rules.defineRule('combatNotes.mightyShot', 'strength', '=', '"d" + source');
@@ -3257,8 +3308,14 @@ Hellfrost.powerRules = function(
  * #languages# any automatic languages.
  */
 Hellfrost.raceRules = function(rules, name, requires, features, languages) {
-  rules.basePlugin.raceRules(rules, name, requires, features, languages);
+  rules.basePlugin.raceRules(rules, name, requires, features, []);
   // No changes needed to the rules defined by base method
+  var prefix =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
+  var raceAdvances = prefix + 'Advances';
+  for(var i = 0; i < languages.length; i++) {
+    rules.defineRule('languages.' + languages[i], raceAdvances, '=', '1');
+  }
 };
 
 /*
@@ -3322,6 +3379,24 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   var choices;
   var howMany;
   var i;
+
+  if(attribute == 'languages') {
+    howMany = attrs.smarts / 2;
+    choices = [];
+    for(attr in this.getChoices('languages')) {
+      if('languages.' + attr in attrs)
+        howMany--;
+      else
+        choices.push(attr);
+    }
+    while(howMany > 0) {
+      i = QuilvynUtils.random(0, choices.length - 1);
+      attributes['languages.' + choices[i]] = 1;
+      choices.splice(i, 1);
+      howMany--;
+    }
+    return;
+  }
 
   // Give priests their deity's signature spell
   if(attribute == 'powers' && attrs['features.Arcane Background (Miracles)']) {
@@ -3460,9 +3535,14 @@ Hellfrost.ruleNotes = function() {
     '  <li>\n' +
     '    Quilvyn calculates and reports Power Points for those who want to\n' +
     '    use the power mechanics from the base rules. Edges that affect\n' +
-    '    power points (Rapid Recharge, Soul Drain etc.) are also available.\n' +
+    '    power points (Rapid Recharge, Soul Drain, etc.) are also available.\n'+
     '    Power Point costs of Hellfrost spells are assigned by comparison\n' +
     '    with spells of similar power from the base rules.\n' +
+    '  </li><li>\n' +
+    '    The SWADE Hellfrost implementation uses a simple transition of SWD\n' +
+    '    rules to SWADE rules, largely limited to a translation of skills.\n' +
+    '    It will be replaced once an official adaptation of Hellfrost to\n' +
+    '    SWADE becomes available.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
@@ -3476,6 +3556,10 @@ Hellfrost.ruleNotes = function() {
     '© Triple Ace Games.\n' +
     '</p><p>\n' +
     'Hellfrost Player\'s Guide © 2009 Triple Ace Games.\n' +
+    '</p><p>\n' +
+    'Hellfrost Rassilon Expansion © 2010 Triple Ace Games.\n' +
+    '</p><p>\n' +
+    'Hellfrost Rassilon Expansion II © 2014 Triple Ace Games.\n' +
     '</p>\n' +
     '<img alt="Savage Worlds Fan Logo" width="300" height="200" src="https://peginc.com/wp-content/uploads/2019/01/SW_LOGO_FP_2018.png"/>\n';
 };
