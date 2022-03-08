@@ -82,7 +82,8 @@ function Hellfrost(baseRules) {
   Hellfrost.SKILLS =
     Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
   delete Hellfrost.SKILLS['Driving'];
-  delete Hellfrost.SKILLS['Knowledge (Language (%languages))'];
+  delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
+  delete Hellfrost.SKILLS['Language (%language)'];
   delete Hellfrost.SKILLS['Piloting'];
   delete Hellfrost.SKILLS['Psionics'];
   delete Hellfrost.SKILLS['Weird Science'];
@@ -1609,7 +1610,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+2 Common Knowledge (military)/+2 Knowledge (Battle)"',
   'Brothers-In-Arms':
     'Section=combat ' +
-    'Note="-1 damage per each Iron Guildsman w/in 6%{in} (-4 max)"',
+    'Note="Takes -1 damage per each Iron Guildsman w/in 6%{in} (-4 max)"',
   'Censure Demons':
     'Section=combat ' +
     'Note="Has Champion and Holy Warrior features vs. Demons"',
@@ -1626,7 +1627,8 @@ Hellfrost.FEATURES_ADDED = {
   'Death Before Dishonor':
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Deathdealer':
-    'Section=combat Note="Free attack on adjacent undead after slaying undead"',
+    'Section=combat ' +
+    'Note="Free attack on adjacent undead after slaying undead 1/rd"',
   'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rds"',
   'Disciple Of Dargar':
     'Section=combat ' +
@@ -1777,7 +1779,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="R%{spirit}%{in} Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
   'Horse Lord':
     'Section=skill ' +
-    'Note="d8 Wild Die with Riding, mount shares Parry and resistance"',
+    'Note="d8 Wild Die with Riding; mount shares Parry and resistance"',
   'Hrosmark Huscarl':
     'Section=combat Note="Gains Steady Hands feature and may Aim when mounted"',
   'Huscarl Of Hammerhand':
@@ -1813,7 +1815,8 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
   'Lurker':'Section=combat Note="Parry %V while using Full Defense"',
   'Master Bludgeoner':
-    'Section=combat Note="Sling inflicts Str+d8 (short) or Str+d6 (medium)"',
+    'Section=combat ' +
+    'Note="Sling inflicts Str+d8 (short range) or Str+d6 (medium range)"',
   'Master Mariner':
     'Section=skill ' +
     'Note="Ignores 2 penalty points on Boating; may spend Benny to Soak boat damage; boat +1 top speed"',
@@ -1889,7 +1892,7 @@ Hellfrost.FEATURES_ADDED = {
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Sea Legs':
     'Section=combat ' +
-    'Note="No penalty for shot from ship, reduce running shot penalty by 1, +1 Parry"',
+    'Note="No penalty for shot, reduce running shot penalty by 1, and +1 Parry while aboard ship"',
   'Share Spell':
     'Section=arcana Note="Gains benefits of adjacent master\'s spells"',
   'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
@@ -1903,7 +1906,7 @@ Hellfrost.FEATURES_ADDED = {
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Sister Superior':
     'Section=skill ' +
-    'Note="Successful Healing-2 immediately after ally wound reduces to Shaken"',
+    'Note="Successful Healing-2 on allied Extra immediately after wound reduces to Shaken"',
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
   'Spear Catch':
     'Section=combat ' +
@@ -2686,7 +2689,6 @@ Hellfrost.SKILLS_ADDED = {
   'Earth-Rune':'Attribute=smarts',
   'Elemental-Rune':'Attribute=smarts',
   'Glow-Rune':'Attribute=smarts',
-  'Glow-Rune':'Attribute=smarts',
   'Healing-Rune':'Attribute=smarts',
   'Secret-Rune':'Attribute=smarts',
   'Shield-Rune':'Attribute=smarts',
@@ -2705,11 +2707,17 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (Religion)':'Attribute=smarts',
   'Knowledge (Riddles)':'Attribute=smarts',
   'Knowledge (Siege Artillery)':'Attribute=smarts',
-  'Knowledge (The Seas)':'Attribute=smarts'
+  'Knowledge (The Seas)':'Attribute=smarts',
+  'Knowledge (Hearthlands)':'Attribute=smarts',
+  'Knowledge (Low Winterlands)':'Attribute=smarts',
+  'Knowledge (High Winterlands)':'Attribute=smarts',
+  'Knowledge (Outer Hellfrost)':'Attribute=smarts',
+  'Knowledge (Hellfrost)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
 delete Hellfrost.SKILLS['Driving'];
-delete Hellfrost.SKILLS['Knowledge (Language (%languages))'];
+delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
+delete Hellfrost.SKILLS['Language (%language)'];
 delete Hellfrost.SKILLS['Piloting'];
 delete Hellfrost.SKILLS['Psionics'];
 delete Hellfrost.SKILLS['Weird Science'];
