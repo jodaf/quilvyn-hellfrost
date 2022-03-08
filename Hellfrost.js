@@ -1580,7 +1580,7 @@ Hellfrost.FEATURES_ADDED = {
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
     'Note="3 Powers/10 Power Points",' +
-         '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (folklore)"',
+         '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (Folklore)/+1 Knowledge (History)/+1 Knowledge (Riddles)"',
   'Arcane Hand':
     'Section=combat Note="May interrupt foe spellcasting (+2 if on Hold)"',
   'Armor Piercing Shot':'Section=combat Note="+2 AP with bows"',
@@ -1588,7 +1588,8 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
     'Section=combat Note="Staff does d%{strength}%1+d%2 damage and AP %3"',
-  'Augment Staff (Deflect)':'Section=combat Note="Foe ranged attacks %1"',
+  'Augment Staff (Deflect)':
+    'Section=combat Note="Foes suffer %1 ranged attacks"',
   'Augment Staff (Spell Store)':
     'Section=arcana Note="Staff can store %1 known spell(s), cast at +2"',
   'Bastion Of Strength':
@@ -1620,10 +1621,10 @@ Hellfrost.FEATURES_ADDED = {
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Commanded may make +2 ranged attacks at a single foe simultaneously, doing cumulative damage"',
+    'Note="R%{commandRange}%{in} Simultaneous ranged attacks by commanded at single target gain +2 attack per person"',
   'Cry Havoc!':
     'Section=combat ' +
-    'Note="May charge during Battle roll 1/mass battle, success removes extra foe token"',
+    'Note="May charge during Battle roll 1/mass battle; success removes extra foe token"',
   'Death Before Dishonor':
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Deathdealer':
@@ -1637,7 +1638,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=skill Note="+2 Healing/5 companions +2 natural Healing"',
   'Disciple Of Eostre Animalmother':
     'Section=feature ' +
-    'Note="Has Beast Master feature with wild card companion animal"',
+    'Note="Has Beast Master feature with Wild Card companion animal"',
   'Disciple Of Eostre Plantmother':
     'Section=combat,feature,skill ' +
     'Note=' +
@@ -1756,7 +1757,7 @@ Hellfrost.FEATURES_ADDED = {
          '"Immune to Intimidation and fear"',
   'Guild Thief':
     'Section=skill ' +
-    'Note="+2 Streetwise (home country)/d8 Wild Die choice of Climbing, Stealth (urban), or Lockpicking"',
+    'Note="+2 Streetwise (home country)/d8 Wild Die on choice of Climbing, Stealth (urban), or Lockpicking"',
   'Hearth Knight':
     'Section=combat,skill ' +
     'Note=' +
@@ -1828,7 +1829,7 @@ Hellfrost.FEATURES_ADDED = {
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
-    'Note="+1 thrown weapon range/+1 Strength die for short throws"',
+    'Note="+1 thrown weapon range/+1 Strength step for short throws"',
   'Mounted Combatant':
     'Section=skill ' +
     'Note="Ignores 2 penalty points on Riding; successful Ride gives mount +2 Pace; may spend Benny to Soak mount damage"',
@@ -1879,7 +1880,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Demon targets suffer +2 power damage and -2 Trait rolls"',
   'Roadwarden':
     'Section=skill ' +
-    'Note="+2 Survival/+2 Tracking/+2 Notice (ambushes, traps, concealed weapons)"',
+    'Note="+2 Survival/+2 Tracking/+2 Notice (wilderness ambushes, traps, and concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
   'Running Throw':
@@ -1920,7 +1921,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Increase range of chosen touch spell to %{smarts>?spirit}%{in} or ranged spell to 12%{in}"',
   'Spell Finesse (Arcane)':
-    'Section=arcana Note="+1 Wild Die die on chosen spell skill"',
+    'Section=arcana Note="+1 Wild Die step on chosen spell skill"',
   'Spell Finesse (Armor Penetration)':
     'Section=arcana Note="Chosen spell has AP 2"',
   'Spell Finesse (Heavy Weapon)':
@@ -1991,7 +1992,8 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="Beneficial spells from god\'s cleric fail, harmful spells do +2 damage and negate arcane resistance"',
   'Leysingi':'Section=feature Note="Former thrall"',
-  'Magic Forbiddance+':'Section=feature Note="Cannot use magic items"',
+  'Magic Forbiddance+':
+    'Section=feature Note="Cannot use or detect magic items"',
   'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
   'Orders':'Section=feature Note="Takes orders from outside power"',
@@ -2120,7 +2122,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=8 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target 30\' tree animates (Raise as wild card) while maintained"',
+      '"Target 30\' tree animates (Raise as Wild Card) while maintained"',
   'Arcane Resistance': // ref Arcane Protection
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -2412,7 +2414,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=5 ' +
     'Range=self ' +
     'Description=' +
-      '"Gives +1 arcane skill per victim Spirit die step while maintained"',
+      '"Gives +1 arcane skill per victim Spirit step while maintained"',
   'Sanctuary':
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -2763,7 +2765,6 @@ Hellfrost.SWD2SWADE = function(table) {
     'Climbing':'Athletics',
     'Investigation':'Research',
     'Knowledge \\(Academics\\)':'Academics',
-    'Knowledge \\(Alchemy\\)':'Weird Science',
     'Knowledge \\(Arcana\\)':'Occult',
     'Knowledge \\(Battle\\)':'Battle',
     'Knowledge \\(Electronics\\)':'Electronics',
@@ -3168,7 +3169,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     );
   } else if(name == 'Snow Walker') {
     rules.defineRule('combatNotes.snowWalker',
-      '', '=', '"3/4 speed"',
+      '', '=', '"2/3 speed"',
       'combatNotes.improvedSnowWalker', '=', '"full speed"'
     );
   } else if(name == 'Sunder') {
@@ -3390,6 +3391,8 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
 
   if(attribute == 'languages') {
     howMany = attrs.smarts / 2;
+    if(attrs['features.Linguist'])
+      howMany = attrs.smarts;
     choices = [];
     for(attr in this.getChoices('languages')) {
       if('languages.' + attr in attrs)
