@@ -3,19 +3,19 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Edges-Power</title>
+  <title>Edges-Social</title>
   <script>
 var attributes = {
-  "_path":"ztest/hellfrost/swd/re1/edges/power", 
-  "advances":8, "agilityAllocation":1, "armor.Plate Corselet":1, "concept":"Elementalist", 
-  "deity":"The Unknowable One", "edges.Arcane Background (Elementalism)":1, "edges.Elementalism (Eir)":1, 
-  "edges.Enhanced Maintenance":1, "edges.Instinctive Dispel":1, "edges.Spell Finesse (Altered Range)":1, 
-  "gender":"Male", "hindrances.Habit":1, "hindrances.Outsider":1, "hindrances.Tongue-Tied+":1, 
-  "improvementPointsAllocation.Attribute":6, "improvementPointsAllocation.Edge":8, "improvementPointsAllocation.Skill":6, 
-  "languages.Chalcian":1, "languages.Dwarven":1, "languages.Vendahl":1, "languages.Vindari":1, 
-  "name":"Edges-Power", "powers.Dispel":1, "race":"Saxa Human", "shield":"Medium Shield", 
-  "skillAllocation.Athletics":1, "skillAllocation.Common Knowledge":1, "skillAllocation.Elementalism":5, 
-  "skillAllocation.Focus":1, "skillAllocation.Knowledge (Arcana)":4, "skillAllocation.Occult":4, 
+  "_path":"ztest/hellfrost/swd/re1/edges/social", 
+  "advances":8, "agilityAllocation":1, "armor.Plate Corselet":1, "concept":"Fighter", 
+  "deity":"The Unknowable One", "edges.Sanctuary":1, "gender":"Male", "hindrances.Habit":1, 
+  "hindrances.Outsider":1, "hindrances.Tongue-Tied+":1, "improvementPointsAllocation.Attribute":6, 
+  "improvementPointsAllocation.Edge":2, "improvementPointsAllocation.Skill":12, "languages.Chalcian":1, 
+  "languages.Dwarven":1, "languages.Vendahl":1, "languages.Vindari":1, "name":"Edges-Social", 
+  "race":"Saxa Human", "shield":"Medium Shield", "skillAllocation.Athletics":1, 
+  "skillAllocation.Common Knowledge":1, "skillAllocation.Elementalism":5, "skillAllocation.Faith":1, 
+  "skillAllocation.Focus":1, "skillAllocation.Healing":1, "skillAllocation.Intimidation":1, 
+  "skillAllocation.Knowledge (Arcana)":4, "skillAllocation.Occult":4, "skillAllocation.Stealth":3, 
   "skillAllocation.Thievery":2, "smartsAllocation":3, "spiritAllocation":2, "strengthAllocation":0, 
   "vigorAllocation":2, "weapons.Axe":1, "weapons.Halberd":1, "weapons.Unarmed":1
 };
@@ -26,7 +26,7 @@ var attributes = {
 <tr style="text-align:center">
   <td style="border:1px solid black">  <table id="Header" style="width:100%">
   <tr style="text-align:center">
-    <td><b>Edges-Power</b> -- <b>Male</b> <b>Saxa Human</b> <b>Veteran</b> <b>Elementalist</b></td>
+    <td><b>Edges-Social</b> -- <b>Male</b> <b>Saxa Human</b> <b>Veteran</b> <b>Fighter</b></td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -44,7 +44,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (18 Points):</td>
+    <td><b>Skills</b> (24 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -52,8 +52,12 @@ var attributes = {
     <col style="width:34%"/>
     <tr style="text-align:left">
       <td>Elementalism: (sma) d10</td>
+      <td>Healing: (sma) d4</td>
       <td>Knowledge (Arcana): (sma) d10</td>
-      <td></td>
+    </tr><tr style="text-align:left">
+      <td>Faith: (spi) d4</td>
+      <td>Intimidation: (spi) d4</td>
+      <td>Stealth: (agi) d6</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -80,7 +84,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Advances</b>: 8</td>
       <td><b>Improvement Points</b>: 20</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 6; Edge: 8; Skill: 6</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 6; Edge: 2; Skill: 12</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -92,13 +96,19 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (5 points): Arcane Background (Elementalism); Elementalism (Eir); Enhanced Maintenance; Instinctive Dispel; Spell Finesse (Altered Range)</td>
+      <td><b>Edges</b> (1 points): Sanctuary</td>
       <td><b>Hindrances</b>: Habit; Outsider; Tongue-Tied+</td>
       <td><b>Saxa Human Features</b>: Diverse</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Feature Notes</b>: Habit: Has irritating but harmless compulsion</td>
+    <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Habit: Has irritating but harmless compulsion</td>
+    </tr><tr style="text-align:center">
+      <td>Sanctuary: Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days</td>
+    </tr></table>
+</td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -124,31 +134,6 @@ var attributes = {
 </td>
     </tr><tr style="text-align:center">
       <td><b>Combat Notes</b>: <i>Vigor Toughness Modifier: +4</i></td>
-    </tr></table>
-</td>
-  </tr></table>
-</td>
-</tr><tr style="text-align:center">
-  <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
-  <tr style="text-align:center">
-    <td>    <table id="PowerStats" style="width:100%">
-    <tr style="text-align:center">
-      <td><b>Power Count</b>: 3</td>
-      <td><b>Power Points</b>: 10</td>
-    </tr></table>
-</td>
-  </tr><tr style="text-align:center">
-    <td><b>Powers</b>: Dispel: (3 PP) R10" End targeted power (Arcane skill neg, +2 if types differ)</td>
-  </tr><tr style="text-align:center">
-    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
-    <tr style="text-align:center">
-      <td><i>Arcane Background (Elementalism): 3 Powers/10 Power Points</i></td>
-    </tr><tr style="text-align:center">
-      <td>Enhanced Maintenance: May maintain spell while asleep</td>
-    </tr><tr style="text-align:center">
-      <td>Instinctive Dispel: Free <i>Dispel</i> of spell that effects self 1/rd</td>
-    </tr><tr style="text-align:center">
-      <td>Spell Finesse (Altered Range): Increase range of chosen touch spell to 10" or ranged spell to 12"</td>
     </tr></table>
 </td>
   </tr></table>
