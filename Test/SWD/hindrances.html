@@ -8,15 +8,15 @@
 var attributes = {
   "_path":"ztest/hellfrost/swd/hindrances", 
   "agilityAllocation":4, "armor.None":1, "concept":"Adventurer", "deity":"Rigr", 
-  "focusType":"Druidism", "gender":"Female", "hindrances.Apprentice/Novitiate":1, 
-  "hindrances.Apprentice/Novitiate+":1, "hindrances.Black Sheep":1, "hindrances.Cold Blooded":1, 
-  "hindrances.God Cursed+":1, "hindrances.Magic Forbiddance+":1, "hindrances.Necromantic Weakness":1, 
-  "hindrances.Necromantic Weakness+":1, "hindrances.Orders":1, "improvementPointsAllocation.Attribute":2, 
-  "improvementPointsAllocation.Skill":2, "name":"Hindrances", "race":"Hearth Elf", "shield":"None", 
-  "skillAllocation.Intimidation":2, "skillAllocation.Knowledge (Folklore)":1, "skillAllocation.Lockpicking":3, 
-  "skillAllocation.Research":2, "skillAllocation.Spellcasting":1, "skillAllocation.Stealth":3, 
-  "skillAllocation.knowledge (Science)":2, "smartsAllocation":1, "spiritAllocation":1, "strengthAllocation":0, 
-  "vigorAllocation":0
+  "edges.Arcane Background (Miracles)":1, "focusType":"Druidism", "gender":"Female", 
+  "hindrances.Apprentice/Novitiate":1, "hindrances.Apprentice/Novitiate+":1, "hindrances.Black Sheep":1, 
+  "hindrances.Cold Blooded":1, "hindrances.God Cursed+":1, "hindrances.Magic Forbiddance+":1, 
+  "hindrances.Necromantic Weakness":1, "hindrances.Necromantic Weakness+":1, "hindrances.Orders":1, 
+  "improvementPointsAllocation.Attribute":2, "improvementPointsAllocation.Edge":2, "name":"Hindrances", 
+  "race":"Hearth Elf", "shield":"None", "skillAllocation.Intimidation":2, 
+  "skillAllocation.Knowledge (Folklore)":1, "skillAllocation.Lockpicking":3, "skillAllocation.Research":2, 
+  "skillAllocation.Spellcasting":1, "skillAllocation.Stealth":1, "skillAllocation.knowledge (Science)":2, 
+  "smartsAllocation":1, "spiritAllocation":1, "strengthAllocation":0, "vigorAllocation":0
 };
   </script>
 </head>
@@ -55,7 +55,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skills</b> (14 Points):</td>
+    <td><b>Skills</b> (12 Points):</td>
   </tr><tr style="text-align:center">
     <td>    <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -64,7 +64,7 @@ var attributes = {
     <tr style="text-align:left">
       <td>Intimidation: (spi) d6</td>
       <td>Lockpicking: (agi) d8</td>
-      <td>Stealth: (agi) d8</td>
+      <td>Stealth: (agi) d4</td>
     </tr><tr style="text-align:left">
       <td>Knowledge (Folklore): (sma) d4</td>
       <td>Spellcasting: (sma) d4</td>
@@ -97,7 +97,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Advances</b>: 0</td>
       <td><b>Improvement Points</b>: 4</td>
-      <td><b>Improvement Points Allocation</b>: Attribute: 2; Skill: 2</td>
+      <td><b>Improvement Points Allocation</b>: Attribute: 2; Edge: 2</td>
     </tr></table>
 </td>
   </tr></table>
@@ -107,7 +107,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="FeaturePart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Edges</b> (0 points):</td>
+      <td><b>Edges</b> (1 points): Arcane Background (Miracles)</td>
       <td><b>Hindrances</b>: Apprentice/Novitiate+; Apprentice/Novitiate; Black Sheep; Cold Blooded; God Cursed+; Magic Forbiddance+; Necromantic Weakness+; Necromantic Weakness; Orders</td>
       <td><b>Hearth Elf Features</b>: Agile; All Thumbs; Forest-Born; Low Light Vision; Natural Realms</td>
     </tr></table>
@@ -115,13 +115,17 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Feature Notes</b>:     <table id="FeatureNotes" style="width:100%">
     <tr style="text-align:center">
+      <td>Arcane Background (Miracles): Violating core beliefs inflicts -2 Faith for 1 wk; major sins remove powers</td>
+    </tr><tr style="text-align:center">
       <td>Black Sheep: Ostracized by magocratic nobility</td>
+    </tr><tr style="text-align:center">
+      <td>Connections: May call in favors from acquaintance or organization</td>
     </tr><tr style="text-align:center">
       <td>God Cursed+: Beneficial spells from god's cleric fail, harmful spells do +2 damage and negate arcane resistance</td>
     </tr><tr style="text-align:center">
       <td>Low Light Vision: Ignores penalties for dim and dark illumination</td>
     </tr><tr style="text-align:center">
-      <td>Magic Forbiddance+: Cannot use magic items</td>
+      <td>Magic Forbiddance+: Cannot use or detect magic items</td>
     </tr><tr style="text-align:center">
       <td>Natural Realms: Treats Elfhomes as wilds</td>
     </tr><tr style="text-align:center">
@@ -166,7 +170,20 @@ var attributes = {
 </tr><tr style="text-align:center">
   <td style="border:1px solid black"><b>Arcana</b><br/>  <table id="Arcana" style="width:100%">
   <tr style="text-align:center">
-    <td><b>Arcana Notes</b>: <i>Apprentice/Novitiate+: -1 Power Count</i></td>
+    <td>    <table id="PowerStats" style="width:100%">
+    <tr style="text-align:center">
+      <td><b>Power Count</b>: 1</td>
+      <td><b>Power Points</b>: 10</td>
+    </tr></table>
+</td>
+  </tr><tr style="text-align:center">
+    <td><b>Arcana Notes</b>:     <table id="ArcanaNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td><i>Apprentice/Novitiate+: -1 Power Count</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Arcane Background (Miracles): 2 Powers/10 Power Points</i></td>
+    </tr></table>
+</td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -176,9 +193,9 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Apprentice/Novitiate Hindrance: Requires power count, apprentice feature and Novitiate+ == 0</td>
+        <td>Apprentice/Novitiate Hindrance: Requires power count (currently 1), apprentice feature and Novitiate+ == 0</td>
       </tr><tr style="text-align:center">
-        <td>Apprentice/Novitiate+Hindrance: Requires power count, apprentice feature and Novitiate == 0</td>
+        <td>Apprentice/Novitiate+Hindrance: Requires power count (currently 1), apprentice feature and Novitiate == 0</td>
       </tr><tr style="text-align:center">
         <td>Necromantic Weakness Hindrance: Requires necromantic weakness feature (currently 1)+ == 0</td>
       </tr><tr style="text-align:center">
