@@ -26,7 +26,7 @@ following lines to the file plugins/plugins.js:
     RULESETS["Hellfrost Campaign Setting using the SWADE rules"] = {
       url:'plugins/Hellfrost.js',
       group:'Savage Worlds',
-      require:'SWADE.js'
+      require:['SWD.js','SWADE.js']
     };
 
 ### Usage
