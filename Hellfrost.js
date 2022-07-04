@@ -3563,6 +3563,10 @@ Hellfrost.ruleNotes = function() {
     '    rules to SWADE rules, largely limited to a translation of skills.\n' +
     '    It will be replaced once an official adaptation of Hellfrost to\n' +
     '    SWADE becomes available.\n' +
+    '  </li><li>\n' +
+    '    Instead of using the New Power edge with rune magic, Quilvyn\n' +
+    '    defines a separate New Rune edge that gives rune mages access to\n' +
+    '    additional runes.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
