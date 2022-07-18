@@ -116,7 +116,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.0';
+Hellfrost.VERSION = '2.3.1.1';
 
 Hellfrost.CHOICES = ['Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -491,23 +491,25 @@ delete Hellfrost.ARCANAS['Magic'];
 delete Hellfrost.ARCANAS['Psionics'];
 delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
+// MinStr values taken/extrapolated from SWADE rules
 Hellfrost.ARMORS = {
-  'None':'Area=Body Armor=0 MinStr=4 Weight=0',
-  'Hide':'Area=Body Armor=1 MinStr=4 Weight=15',
-  'Leather Suit':'Area=Body Armor=1 MinStr=4 Weight=10',
-  'Chain Hauberk':'Area=Body Armor=2 MinStr=4 Weight=20',
-  'Chain Shirt':'Area=Torso Armor=2 MinStr=4 Weight=10',
-  'Chain Leggings':'Area=Legs Armor=2 MinStr=4 Weight=8',
-  'Chain Sleeves':'Area=Arms Armor=2 MinStr=4 Weight=6',
-  'Scale Hauberk':'Area=Body Armor=2 MinStr=4 Weight=25',
-  'Plate Corselet':'Area=Torso Armor=3 MinStr=4 Weight=20',
-  'Plate Bracers':'Area=Arms Armor=3 MinStr=4 Weight=8',
-  'Plate Greaves':'Area=Legs Armor=3 MinStr=4 Weight=12',
-  'Chain Coif':'Area=Head Armor=2 MinStr=4 Weight=3',
-  'Pot Helm':'Area=Head Armor=3 MinStr=4 Weight=4',
-  'Full Helmet':'Area=Head Armor=3 MinStr=4 Weight=8',
-  'Blessed Robes':'Area=Body Armor=1 MinStr=4 Weight=8',
-  'Blessed Armor':'Area=Body Armor=3 MinStr=4 Weight=30'
+  'None':'Area=Body Armor=0 Weight=0 MinStr=0',
+  'Hide':'Area=Body Armor=1 Weight=15 MinStr=6',
+  'Leather Suit':'Area=Body Armor=1 Weight=10 MinStr=6',
+  'Leather Shirt':'Area=Torso Armor=1 Weight=3 MinStr=6',
+  'Chain Hauberk':'Area=Body Armor=2 Weight=20 MinStr=8',
+  'Chain Shirt':'Area=Torso Armor=2 Weight=10 MinStr=8',
+  'Chain Leggings':'Area=Legs Armor=2 Weight=8 MinStr=8',
+  'Chain Sleeves':'Area=Arms Armor=2 Weight=6 MinStr=8',
+  'Scale Hauberk':'Area=Body Armor=2 Weight=25 MinStr=10',
+  'Plate Corselet':'Area=Torso Armor=3 Weight=20 MinStr=10',
+  'Plate Bracers':'Area=Arms Armor=3 Weight=8 MinStr=10',
+  'Plate Greaves':'Area=Legs Armor=3 Weight=12 MinStr=10',
+  'Chain Coif':'Area=Head Armor=2 Weight=3 MinStr=8',
+  'Pot Helm':'Area=Head Armor=3 Weight=4 MinStr=8',
+  'Full Helmet':'Area=Head Armor=3 Weight=8 MinStr=10',
+  'Blessed Robes':'Area=Body Armor=1 Weight=8 MinStr=4',
+  'Blessed Armor':'Area=Body Armor=3 Weight=30 MinStr=10'
 };
 Hellfrost.CONCEPTS = {
   'Avenger':'',
@@ -2664,11 +2666,12 @@ Hellfrost.LANGUAGES = {
   'Vendahl':'',
   'Vindari':''
 };
+// MinStr values taken from SWADE rules
 Hellfrost.SHIELDS = {
-  'None':'Parry=0 Cover=0 MinStr=4 Weight=0',
-  'Small Shield':'Parry=1 Cover=0 MinStr=4 Weight=8',
-  'Medium Shield':'Parry=1 Cover=2 MinStr=4 Weight=12',
-  'Large Shield':'Parry=2 Cover=2 MinStr=4 Weight=20'
+  'None':'Parry=0 Cover=0 Weight=0 MinStr=0',
+  'Small Shield':'Parry=1 Cover=0 Weight=8 MinStr=4',
+  'Medium Shield':'Parry=1 Cover=2 Weight=12 MinStr=6',
+  'Large Shield':'Parry=2 Cover=2 Weight=20 MinStr=8'
 };
 Hellfrost.SKILLS_ADDED = {
   'Druidism':'Attribute=smarts',
@@ -2733,35 +2736,35 @@ delete Hellfrost.SKILLS['Piloting'];
 delete Hellfrost.SKILLS['Psionics'];
 delete Hellfrost.SKILLS['Weird Science'];
 Hellfrost.WEAPONS = {
-  'Unarmed':'Damage=Str+d0 MinStr=4 Weight=0 Category=Un',
-  'Antler Staff':'Damage=Str+d6 MinStr=4 Weight=10 Category=2h Parry=1',
-  'Bear Claw':'Damage=Str+d4 MinStr=4 Weight=8 Category=1h Parry=1',
-  'Double Toothpick':'Damage=Str+d6 MinStr=4 Weight=5 Category=1h',
-  'Twin Toothpick':'Damage=Str+d8 MinStr=4 Weight=5 Category=1h',
-  'Boot Spikes':'Damage=Str+d4 MinStr=4 Weight=3 Category=Un',
-  'Dagger':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h',
-  'Flail':'Damage=Str+d6 MinStr=4 Weight=8 Category=1h',
-  'Great Sword':'Damage=Str+d10 MinStr=4 Weight=12 Category=2h Parry=-1',
-  'Long Sword':'Damage=Str+d8 MinStr=4 Weight=8 Category=1h',
-  'Short Sword':'Damage=Str+d6 MinStr=4 Weight=4 Category=1h',
-  'Axe':'Damage=Str+d6 MinStr=4 Weight=2 Category=1h',
-  'Battle Axe':'Damage=Str+d8 MinStr=4 Weight=10 Category=1h',
-  'Great Axe':'Damage=Str+d10 MinStr=4 Weight=15 Category=2h Parry=-1',
-  'Mace':'Damage=Str+d6 MinStr=4 Weight=4 Category=1h',
-  'Maul':'Damage=Str+d8 MinStr=4 Weight=20 Category=2h Parry=-1 AP=2',
-  'Warhammer':'Damage=Str+d6 MinStr=4 Weight=8 Category=1h AP=1',
-  'Halberd':'Damage=Str+d8 MinStr=4 Weight=15 Category=2h',
-  'Lance':'Damage=Str+d8 MinStr=4 Weight=10 Category=2h AP=2',
-  'Pike':'Damage=Str+d8 MinStr=4 Weight=25 Category=2h',
-  'Long Spear':'Damage=Str+d6 MinStr=4 Weight=5 Category=2h Parry=1',
-  'Short Spear':'Damage=Str+d6 MinStr=6 Weight=3 Category=1h Range=3',
-  'Staff':'Damage=Str+d4 MinStr=4 Weight=8 Category=2h Parry=1',
-  'Throwing Axe':'Damage=Str+d6 MinStr=4 Weight=2 Category=1h Range=3',
+  'Unarmed':'Damage=Str+d0 Weight=0 Category=Un',
+  'Antler Staff':'Damage=Str+d6 Weight=10 Category=2h Parry=1',
+  'Bear Claw':'Damage=Str+d4 Weight=8 Category=1h Parry=1',
+  'Double Toothpick':'Damage=Str+d6 Weight=5 Category=1h',
+  'Twin Toothpick':'Damage=Str+d8 Weight=5 Category=1h',
+  'Boot Spikes':'Damage=Str+d4 Weight=3 Category=Un',
+  'Dagger':'Damage=Str+d4 Weight=1 Category=1h',
+  'Flail':'Damage=Str+d6 Weight=8 Category=1h',
+  'Great Sword':'Damage=Str+d10 Weight=12 Category=2h Parry=-1',
+  'Long Sword':'Damage=Str+d8 Weight=8 Category=1h',
+  'Short Sword':'Damage=Str+d6 Weight=4 Category=1h',
+  'Axe':'Damage=Str+d6 Weight=2 Category=1h',
+  'Battle Axe':'Damage=Str+d8 Weight=10 Category=1h',
+  'Great Axe':'Damage=Str+d10 Weight=15 Category=2h Parry=-1',
+  'Mace':'Damage=Str+d6 Weight=4 Category=1h',
+  'Maul':'Damage=Str+d8 Weight=20 Category=2h Parry=-1 AP=2',
+  'Warhammer':'Damage=Str+d6 Weight=8 Category=1h AP=1',
+  'Halberd':'Damage=Str+d8 Weight=15 Category=2h',
+  'Lance':'Damage=Str+d8 Weight=10 Category=2h AP=2',
+  'Pike':'Damage=Str+d8 Weight=25 Category=2h',
+  'Long Spear':'Damage=Str+d6 Weight=5 Category=2h Parry=1',
+  'Short Spear':'Damage=Str+d6 Weight=3 Category=1h Range=3',
+  'Staff':'Damage=Str+d4 Weight=8 Category=2h Parry=1',
+  'Throwing Axe':'Damage=Str+d6 Weight=2 Category=1h Range=3',
   'Bow':'Damage=2d6 MinStr=6 Weight=3 Category=R Range=12',
   'Long Bow':'Damage=2d6 MinStr=8 Weight=5 Category=R Range=15',
   'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=R Range=15 AP=2',
-  'Sling':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=4',
-  'Throwing Knife':'Damage=Str+d4 MinStr=4 Weight=1 Category=1h Range=3'
+  'Sling':'Damage=Str+d4 Weight=1 Category=1h Range=4',
+  'Throwing Knife':'Damage=Str+d4 Weight=1 Category=1h Range=3'
 };
 
 Hellfrost.SWD2SWADE = function(table) {
@@ -2978,6 +2981,8 @@ Hellfrost.arcanaRules = function(rules, name, skill, powers) {
  * requires a strength of #minStr# to use effectively, and weighs #weight#.
  */
 Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
+  if(rules.basePlugin == window.SWD)
+    minStr = 0;
   rules.basePlugin.armorRules
     (rules, name, ['Medieval'], areas, armor, minStr, weight);
   // No changes needed to the rules defined by base method
@@ -3355,6 +3360,8 @@ Hellfrost.raceRulesExtra = function(rules, name) {
  * to handle, and weighs #weight#.
  */
 Hellfrost.shieldRules = function(rules, name, parry, cover, minStr, weight) {
+  if(rules.basePlugin == window.SWD)
+    minStr = 0;
   rules.basePlugin.shieldRules
     (rules, name, ['Medieval'], parry, cover, minStr, weight);
   // No changes needed to the rules defined by base method
@@ -3382,6 +3389,8 @@ Hellfrost.weaponRules = function(
   rules, name, damage, minStr, weight, category, armorPiercing, range,
   rateOfFire, parry
 ) {
+  if(minStr == null && (damage + '').match(/d\d+/))
+    minStr = damage.match(/d(\d+)/)[1] - 0;
   rules.basePlugin.weaponRules(
     rules, name, ['Medieval'], damage, minStr, weight, category, armorPiercing,
     range, rateOfFire, parry
