@@ -108,7 +108,7 @@ function Hellfrost(baseRules) {
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS,
-     Hellfrost.GLORYS);
+     Hellfrost.GLORYS, Hellfrost.AREAS);
   Hellfrost.identityRules
     (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
 
@@ -116,9 +116,9 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.1';
+Hellfrost.VERSION = '2.3.1.2';
 
-Hellfrost.CHOICES = ['Glory'].concat(SWADE.CHOICES);
+Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
   SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['glories', 'languages']);
 
@@ -491,6 +491,63 @@ delete Hellfrost.ARCANAS['Magic'];
 delete Hellfrost.ARCANAS['Psionics'];
 delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
+Hellfrost.AREAS = {
+  // Regions
+  'Hearthlands':'',
+  'Hellfrost':'',
+  'High Winterlands':'',
+  'Low Winterlands':'',
+  'Outer Hellfrost':'',
+  // Individual entities
+  'Alantaris Isle':'',
+  'Angarion':'',
+  'Angmark':'',
+  'Aspiria':'',
+  'The Battlelands':'',
+  'Barony Of Blackstone':'',
+  'The Borderlands':'',
+  'Cairn Lands':'',
+  'Chalis':'',
+  'Coglelund':'',
+  'Crystalflow Confederacy':'',
+  'Barony Of Cul':'',
+  'Drachenlands':'',
+  'Dwarf Cities':'',
+  'Freelands':'',
+  'Freetown':'',
+  'Frozen Forest':'',
+  "Giant's Throne":'',
+  'Glittersands':'',
+  'The Great Swamp':'',
+  'Heldalund':'',
+  'Heligioland':'',
+  'Hrimthyr Isle':'',
+  'Icedale Freeholds':'',
+  'Isle Of The Seareavers':'',
+  'Lakeland':'',
+  'Liche Lands Of Old':'',
+  'The Magocracy':'',
+  'Midmark':'',
+  'The Mistlands':'',
+  'Nerenel':'',
+  'Nordmark':'',
+  'Orcmark':'',
+  'Ostmark':'',
+  'Rimeholm':'',
+  'Royalmark':'',
+  'Seithrby':'',
+  'Shattered Moor':'',
+  'Sunken Realm':'',
+  'Sutmark':'',
+  'Tethilin':'',
+  'Barony Of Trond':'',
+  'Unclaimed Lands':'',
+  'The Vale':'',
+  'Veermark':'',
+  'Vestmark':'',
+  'Witchwood':'',
+  'Withered Lands':''
+};
 // MinStr values taken/extrapolated from SWADE rules
 Hellfrost.ARMORS = {
   'None':'Area=Body Armor=0 Weight=0 MinStr=0',
@@ -1613,7 +1670,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+2 Common Knowledge (military)/+2 Knowledge (Battle)"',
   'Brothers-In-Arms':
     'Section=combat ' +
-    'Note="Takes -1 damage per each Iron Guildsman w/in 6%{in} (-4 max)"',
+    'Note="Takes -1 damage per each Iron Guildsman w/in 6\\" (-4 max)"',
   'Censure Demons':
     'Section=combat ' +
     'Note="Has Champion and Holy Warrior features vs. Demons"',
@@ -1623,7 +1680,7 @@ Hellfrost.FEATURES_ADDED = {
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Simultaneous ranged attacks by commanded at single target gain +2 attack per person"',
+    'Note="R%{commandRange}\\" Simultaneous ranged attacks by commanded at single target gain +2 attack per person"',
   'Cry Havoc!':
     'Section=combat ' +
     'Note="May charge during Battle roll 1/mass battle; success removes extra foe token"',
@@ -1727,12 +1784,12 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
   'Elite Huscarl Of Hammerhand':
-    'Section=combat Note="Thrown warhammer strikes all in 1%{in} line"',
+    'Section=combat Note="Thrown warhammer strikes all in 1\\" line"',
   'Enhanced Maintenance':
     'Section=arcana Note="May maintain spell while asleep"',
   'Fanaticism':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Commanded +2 vs fear, -2 fear table"',
+    'Note="R%{commandRange}\\" Commanded +2 vs fear, -2 fear table"',
   'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
   'Fast Mount':'Section=combat Note="Mount and dismount as free actions 1/rd"',
   'Favored Foe':
@@ -1779,7 +1836,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Commanded ally may step in front of attack on self 1/rd"',
   'Holy/Unholy Warrior':
     'Section=arcana ' +
-    'Note="R%{spirit}%{in} Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
+    'Note="R%{spirit}\\" Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
   'Horse Lord':
     'Section=skill ' +
     'Note="d8 Wild Die with Riding; mount shares Parry and resistance"',
@@ -1827,7 +1884,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
   'Merman Blood':
-    'Section=combat,skill Note="Swim Pace %{pace}%{in}","+2 Swimming"',
+    'Section=combat,skill Note="Swim Pace %{pace}\\"","+2 Swimming"',
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
@@ -1846,7 +1903,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="May use adjacent ally\'s combat edge 1/rd"',
   'One Step One Kill':
     'Section=combat ' +
-    'Note="May move 1%{in} w/out triggering first strike; may spend Benny for the Drop"',
+    'Note="May move 1\\" w/out triggering first strike; may spend Benny for the Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
@@ -1888,7 +1945,7 @@ Hellfrost.FEATURES_ADDED = {
   'Running Throw':
     'Section=combat Note="+2 thrown weapon range after moving half Pace"',
   'Salmon Leap':
-    'Section=combat,skill Note="Ignore 1 point of shield Parry","+1%{in} jump"',
+    'Section=combat,skill Note="Ignore 1 point of shield Parry","+1\\" jump"',
   'Sanctuary':
     'Section=feature ' +
     'Note="Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days"',
@@ -1921,7 +1978,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Mount +2 Pace, may trade mount fatigue for dbl running dice"',
   'Spell Finesse (Altered Range)':
     'Section=arcana ' +
-    'Note="Increase range of chosen touch spell to %{smarts>?spirit}%{in} or ranged spell to 12%{in}"',
+    'Note="Increase range of chosen touch spell to %{smarts>?spirit}\\" or ranged spell to 12\\""',
   'Spell Finesse (Arcane)':
     'Section=arcana Note="+1 Wild Die step on chosen spell skill"',
   'Spell Finesse (Armor Penetration)':
@@ -1940,7 +1997,7 @@ Hellfrost.FEATURES_ADDED = {
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
-    'Note="R%{commandRange}%{in} Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
+    'Note="R%{commandRange}\\" Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
   'Take Aim':
     'Section=combat ' +
     'Note="Commanded gain +1 shooting and throwing damage (1d6+1 with Coordinated Firepower)"',
@@ -1953,7 +2010,7 @@ Hellfrost.FEATURES_ADDED = {
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
     'Section=combat ' +
-    'Note="May make Intimidation test against all in 3%{in} radius"',
+    'Note="May make Intimidation test against all in 3\\" radius"',
   'Warm Blooded':'Section=attribute Note="+2 Vigor (cold weather effects)"',
   'Watcher Of The Black Gate':'Section=combat Note="+2 vs. demon powers"',
   'Wood Warden':
@@ -2181,12 +2238,17 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=smarts ' +
     'Description="Creates obedient servant until wounded"',
+  'Boost Trait':
+    'Advances=0 ' +
+    'PowerPoints=2 ' +
+    'Range=smarts ' +
+    'Description="Target gains +1 trait step (Raise +2) for 5 rd"',
   'Bridge': // ref Barrier
     'Advances=4 ' +
     'PowerPoints=1/Section ' +
     'Range=smarts ' +
     'Description=' +
-      '"Creates sections of 1%{in} horizontal surface while maintained"',
+      '"Creates sections of 1\\" horizontal surface while maintained"',
   'Champion Of The Faith':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -2272,12 +2334,12 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target gains +2 Notice within %{smarts*2}%{in} and see 5 miles while maintained"',
+      '"Target gains +2 Notice within %{smarts*2}\\" and see 5 miles while maintained"',
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=12 ' +
-    'Description="2%{in} radius (Raise 3%{in}) inflicts fatigue (Vigor neg)"',
+    'Description="2\\" radius (Raise 3\\") inflicts fatigue (Vigor neg)"',
   'Feast':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2332,7 +2394,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=9 ' +
     'Description=' +
-      '"Cone pushes creatures 1d4%{in} and knocks prone (Strength neg)"',
+      '"Cone pushes creatures 1d4\\" and knocks prone (Strength neg)"',
   'Leaping':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -2377,7 +2439,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=5 ' +
     'Range=smarts ' +
-    'Description="2%{in} radius dispels all magic while maintained"',
+    'Description="2\\" radius dispels all magic while maintained"',
   'Nightmare':
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -2394,12 +2456,12 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=5 ' +
     'Range=24 ' +
     'Description=' +
-      '"Choice of 1%{in} or 2%{in} radius inflicts 2d6 damage (Raise 3d6) while maintained"',
+      '"Choice of 1\\" or 2\\" radius inflicts 2d6 damage (Raise 3d6) while maintained"',
   'Quake':
     'Advances=8 ' +
     'PowerPoints=6 ' +
     'Range=smarts*3 ' +
-    'Description="3%{in} radius inflicts 2d10 damage (Agility neg)"',
+    'Description="3\\" radius inflicts 2d10 damage (Agility neg)"',
   'Refuge':
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -2431,7 +2493,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Mutes 2%{in} radius while maintained"',
+    'Description="Mutes 2\\" radius while maintained"',
   'Sluggish Reflexes':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -2448,7 +2510,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=4 ' +
     'Range=smarts ' +
     'Description=' +
-      '"1%{in} sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damage (Raise d%{arcaneSkill}+d8) while maintained"',
+      '"1\\" sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damage (Raise d%{arcaneSkill}+d8) while maintained"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
@@ -2514,7 +2576,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=5 ' +
     'Range=self ' +
     'Description=' +
-      '"2%{in} radius (Raise 3%{in} radius) bars specified creature type while maintained"',
+      '"2\\" radius (Raise 3\\" radius) bars specified creature type while maintained"',
   'Water Walk':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2537,7 +2599,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
-    'Description="Knocks prone creatures in 2%{in} radius (Strength neg)"',
+    'Description="Knocks prone creatures in 2\\" radius (Strength neg)"',
   'Wilderness Step':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -2565,12 +2627,12 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
-    'Description="Creates 3%{in} radius bright light for 30 min"',
+    'Description="Creates 3\\" radius bright light for 30 min"',
   'Obscure':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
-    'Description="Creates 3%{in} radius darkness for 3 rd"',
+    'Description="Creates 3\\" radius darkness for 3 rd"',
   'Quickness':
     'Advances=4 ' +
     'PowerPoints=4 ' +
@@ -2603,7 +2665,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' + // ref Slow
     'Range=smarts ' +
-    'Description="3%{in} radius becomes difficult terrain"',
+    'Description="3\\" radius becomes difficult terrain"',
   'Summon Spirit':
     'Advances=8 ' +
     'PowerPoints=4 ' + // ref Summon Elemental
@@ -2722,11 +2784,7 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (Riddles)':'Attribute=smarts',
   'Knowledge (Siege Artillery)':'Attribute=smarts',
   'Knowledge (The Seas)':'Attribute=smarts',
-  'Knowledge (Hearthlands)':'Attribute=smarts',
-  'Knowledge (Low Winterlands)':'Attribute=smarts',
-  'Knowledge (High Winterlands)':'Attribute=smarts',
-  'Knowledge (Outer Hellfrost)':'Attribute=smarts',
-  'Knowledge (Hellfrost)':'Attribute=smarts'
+  'Knowledge (%area)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
 delete Hellfrost.SKILLS['Driving'];
@@ -2828,8 +2886,14 @@ Hellfrost.arcaneRules = function(rules, arcanas, powers) {
 
 /* Defines rules related to character aptitudes. */
 Hellfrost.talentRules = function(
-  rules, edges, features, goodies, hindrances, languages, skills, glorys
+  rules, edges, features, goodies, hindrances, languages, skills, glorys,
+  areas
 ) {
+  // Need to define areas before skills for expansion of Knowledge (%area)
+  QuilvynUtils.checkAttrTable(areas, []);
+  for(var area in areas) {
+    rules.choiceRules(rules, 'Area', area, areas[area]);
+  }
   rules.basePlugin.talentRules
     (rules, edges, features, goodies, hindrances, languages, skills);
   // No changes needed to the rules defined by base method
@@ -2868,6 +2932,8 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'Skill'),
       QuilvynUtils.getAttrValueArray(attrs, 'Powers')
     );
+  else if(type == 'Area')
+    Hellfrost.areaRules(rules, name);
   else if(type == 'Armor')
     Hellfrost.armorRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Area'),
@@ -2973,6 +3039,15 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
 Hellfrost.arcanaRules = function(rules, name, skill, powers) {
   rules.basePlugin.arcanaRules(rules, name, skill);
   // No changes needed to the rules defined by base method
+};
+
+/* Defines in #rules# the rules associated with area #name#. */
+Hellfrost.areaRules = function(rules, name) {
+  if(!name) {
+    console.log('Empty area name');
+    return;
+  }
+  // No rules pertain to area
 };
 
 /*
@@ -3406,6 +3481,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   var choices;
   var howMany;
   var i;
+  var matchInfo;
 
   if(attribute == 'languages') {
     howMany = attrs.smarts / 2;
@@ -3430,7 +3506,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   // Give priests their deity's signature spell
   if(attribute == 'powers' && attrs['features.Arcane Background (Miracles)']) {
     var arcana =
-      this.getChoices('arcanas')['Miracles (' + attributes['deity'] + ')'];
+      this.getChoices('arcanas')['Miracles (' + attributes.deity + ')'];
     var powers = [];
     if(arcana)
       powers = QuilvynUtils.getAttrValueArray(arcana, 'Powers');
@@ -3439,30 +3515,57 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   }
 
   // Handle targeted feature allocations
-  if(attribute == 'skills' &&
-     attrs['features.Sneaky'] != null &&
-     !attributes['skillAllocation.Stealth'] &&
-     !attributes['skillAllocation.Lockpicking'] &&
-     !attributes['skillAllocation.Thievery']) {
-    attributes['skillAllocation.Stealth'] = 2;
+  if(attribute == 'skills' && attrs['features.Sneaky'] != null) {
+    choices = ['Lockpicking', 'Stealth', 'Thievery'];
+    howMany =
+      2 - QuilvynUtils.sumMatching(attributes, /skillAllocation.(Lockpicking|Stealth|Thievery)/);
+    while(howMany > 0) {
+      attr =
+        'skillAllocation.' + choices[QuilvynUtils.random(0, choices.length-1)];
+      if(!attributes[attr])
+        attributes[attr] = 0;
+      attributes[attr]++;
+      howMany--;
+    }
   }
   if(attribute == 'skills' && attrs['features.Library'] != null) {
+    choices = [];
+    for(attr in this.getChoices('skills')) {
+      if(attr.startsWith('Knowledge'))
+        choices.push(attr);
+    }
     howMany =
-      attrs.smarts - QuilvynUtils.sumMatching(attributes, /skills.Knowledge/);
-    var allSkills = this.getChoices('skills');
-    for(attr in allSkills) {
-      if(!attr.startsWith('Knowledge'))
-        continue;
-      if(howMany < 1)
-        break;
-      if(!attrs['skills.' + attr])
-        attrs['skills.' + attr] = 0;
-      attrs['skills.' + attr]++;
+      attrs.smarts / 2 -
+      QuilvynUtils.sumMatching(attributes, /skillAllocation.Knowledge/);
+    while(howMany > 0 && choices.length > 0) {
+      attr =
+        'skillAllocation.' + choices[QuilvynUtils.random(0, choices.length-1)];
+      if(!attributes[attr])
+        attributes[attr] = 0;
+      attributes[attr]++;
       howMany--;
     }
   }
   if(attribute == 'skills' && attrs['features.World-Wise'] != null) {
-    // TODO
+    howMany = 5;
+    choices = [];
+    var allAreas = this.getChoices('areas');
+    for(attr in this.getChoices('skills')) {
+      matchInfo = attr.match(/^Knowlege .(.*).$/);
+      if(!matchInfo || !(matchInfo[1] in allAreas))
+        continue;
+      choices.push(attr);
+      if(('skillAllocation.' + attr) in attributes)
+        howMany -= attributes['skillAllocation.' + attr];
+    }
+    while(howMany > 0 && choices.length > 0) {
+      attr =
+        'skillAllocation.' + choices[QuilvynUtils.random(0, choices.length-1)];
+      if(!attributes[attr])
+        attributes[attr] = 0;
+      attributes[attr]++;
+      howMany--;
+    }
   }
   if(attribute == 'improvements' &&
      attrs['features.Diverse'] &&
