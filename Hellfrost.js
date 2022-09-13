@@ -40,7 +40,7 @@ function Hellfrost(baseRules) {
   rules.basePlugin = useSwade ? SWADE : SWD;
 
   rules.defineChoice('choices', Hellfrost.CHOICES);
-  rules.choiceEditorElements = rules.basePlugin.choiceEditorElements;
+  rules.choiceEditorElements = Hellfrost.choiceEditorElements;
   rules.choiceRules = Hellfrost.choiceRules;
   rules.editorElements = rules.basePlugin.initialEditorElements();
   rules.getFormats = rules.basePlugin.getFormats;
@@ -3471,6 +3471,19 @@ Hellfrost.weaponRules = function(
     range, rateOfFire, parry
   );
   // No changes needed to the rules defined by base method
+};
+
+/*
+ * Returns the list of editing elements needed by #choiceRules# to add a #type#
+ * item to #rules#.
+ */
+Hellfrost.choiceEditorElements = function(rules, type) {
+  if(type == 'Area')
+    return [];
+  else if(type == 'Glory')
+    return [['Require', 'Prerequisites', 'text', [40]]];
+  else
+    return rules.basePlugin.choiceEditorElements(rules, type);
 };
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
