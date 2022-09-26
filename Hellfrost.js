@@ -116,7 +116,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.2';
+Hellfrost.VERSION = '2.3.1.3';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -2186,6 +2186,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description=' +
       '"Foes suffer -2 (Raise -4) on arcane attacks and damage against target while maintained"',
   'Aura': // ref Damage Field
@@ -2237,6 +2239,10 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=3 ' +
     'Range=smarts ' +
+    'Modifier=' +
+      '"+1 PP Servant can bite/claw for Str+d6 damage",' +
+      '"+2 PP Servant has fly Pace 12",' +
+      '"+1 PP Self can use servant\'s senses" ' +
     'Description="Creates obedient servant until wounded"',
   'Boost Trait':
     'Advances=0 ' +
@@ -2264,6 +2270,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=smarts*2 ' +
+    'Modifier=' +
+      '"+2/+3 PP 2\\"/3\\" radius" ' +
     'Description=' +
       '"Target suffers -2 Trait rolls (Raise -4) (Smarts neg) while maintained"',
   'Corpse Senses':
@@ -2275,18 +2283,28 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
+    'Modifier=' +
+      '"+1 PP/additional target",' +
+      '"+1/+2 PP 2\\"/3\\" radius",' +
+      '"+1 PP <i>Detect</i>-2" ' +
     'Description=' +
       '"Target can detect supernatural effects or conceals target aura while maintained"',
   'Detect':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description=' +
       '"Target can detect supernatural effects while maintained"',
   'Conceal':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
+    'Modifier=' +
+      '"+1 PP/additional target",' +
+      '"+1/+2 PP 2\\"/3\\" radius",' +
+      '"+1 PP <i>Detect</i>-2" ' +
     'Description=' +
       '"Conceals target aura while maintained"',
   'Disease':
@@ -2333,6 +2351,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description=' +
       '"Target gains +2 Notice within %{smarts*2}\\" and see 5 miles while maintained"',
   'Fatigue':
@@ -2493,6 +2513,9 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP Moves effect %{arcaneSkill}\\"/rd",' +
+      '"1 PP/target (Spirit neg)" ' +
     'Description="Mutes 2\\" radius while maintained"',
   'Sluggish Reflexes':
     'Advances=4 ' +
@@ -2504,6 +2527,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
+    'Modifier=' +
+      '"+2/+3 PP 2\\"/3\\" radius" ' +
     'Description="Target sleeps for 1 hr (Spirit neg)"',
   'Sphere Of Might':
     'Advances=8 ' +
@@ -2564,6 +2589,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description=' +
       '"Target moves at full Pace on vertical and inverted surfaces while maintained"',
   'Wandering Senses':
@@ -2581,6 +2608,8 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description=' +
       '"Target gains ability to traverse calm water while maintained"',
   'Weaken Undead':
@@ -2599,6 +2628,9 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
+    'Modifier=' +
+      '"+1 PP 3\\" radius",' +
+      '"+1 PP Strength-2" ' +
     'Description="Knocks prone creatures in 2\\" radius (Strength neg)"',
   'Wilderness Step':
     'Advances=0 ' +
@@ -2612,10 +2644,12 @@ Hellfrost.POWERS_ADDED = {
     'Description="Creates moderate wind while maintained"',
 
   // SWD spells copied to make available w/SWADE
-  'Armor':
+  'Armor': // ref Arcane Protection
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP/additional target" ' +
     'Description="Gives +2 Armor (Raise +4) while maintained"',
   'Greater Healing':
     'Advances=8 ' +
@@ -2623,15 +2657,19 @@ Hellfrost.POWERS_ADDED = {
     'Range=touch ' +
     'Description=' +
       '"Restores 1 wound (Raise 2 wounds) w/out time limit or removes poison, disease, or sickness"',
-  'Light':
+  'Light': // ref Light/Darkness
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
+    'Modifier=' +
+      '"+1 PP Attaches to object or moves effect %{arcaneSkill}\\"/rd" ' +
     'Description="Creates 3\\" radius bright light for 30 min"',
-  'Obscure':
+  'Obscure': // ref Light/Darkness
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
+    'Modifier=' +
+      '"+1 PP Attaches to object or moves effect %{arcaneSkill}\\"/rd" ' +
     'Description="Creates 3\\" radius darkness for 3 rd"',
   'Quickness':
     'Advances=4 ' +
@@ -2645,10 +2683,13 @@ Hellfrost.POWERS_ADDED = {
     'Range=smarts*2 ' +
     'Description=' +
       '"Target move counts as action (Raise also redraw Action Cards above 10) (Spirit neg) while maintained"',
-  'Speed':
+  'Speed': // ref Sloth/Speed
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
+    'Modifier=' +
+      '"+1 PP/additional target",' +
+      '"+2 PP Reduces target multi-action penalty by 2" ' +
     'Description=' +
       '"Target dbl Pace (Raise also Run as free action) while maintained"',
 
@@ -2988,7 +3029,9 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'Advances'),
       QuilvynUtils.getAttrValue(attrs, 'PowerPoints'),
       QuilvynUtils.getAttrValue(attrs, 'Range'),
-      QuilvynUtils.getAttrValue(attrs, 'Description')
+      QuilvynUtils.getAttrValue(attrs, 'Description'),
+      QuilvynUtils.getAttrValue(attrs, 'School'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Modifier')
     );
   else if(type == 'Race') {
     Hellfrost.raceRules(rules, name,
@@ -3390,13 +3433,15 @@ Hellfrost.languageRules = function(rules, name) {
  * Defines in #rules# the rules associated with power #name#, which may be
  * acquired only after #advances# advances, requires #powerPoints# Power Points
  * to use, and can be cast at range #range#. #description# is a concise
- * description of the power's effects.
+ * description of the power's effects and #school#, if defined, is the magic
+ * school that defines the power, and #modifiers# lists the power point cost
+ * and effects of any power-specific modifiers.
  */
 Hellfrost.powerRules = function(
-  rules, name, advances, powerPoints, range, description
+  rules, name, advances, powerPoints, range, description, school, modifiers
 ) {
   rules.basePlugin.powerRules
-    (rules, name, advances, powerPoints, range, description);
+    (rules, name, advances, powerPoints, range, description, school, modifiers);
   // No changes needed to the rules defined by base method
 };
 
