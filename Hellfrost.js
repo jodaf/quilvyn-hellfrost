@@ -116,7 +116,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.3';
+Hellfrost.VERSION = '2.3.1.4';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -2275,7 +2275,7 @@ Hellfrost.POWERS_ADDED = {
     'Description=' +
       '"Target suffers -2 Trait rolls (Raise -4) (Smarts neg) while maintained"',
   'Corpse Senses':
-    'Advances=0 ' +
+    'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*50 ' +
     'Description="Self may use corpse senses while maintained"',
@@ -2510,7 +2510,7 @@ Hellfrost.POWERS_ADDED = {
     'Range=smarts*2 ' +
     'Description="Creates overnight ghostly sentry or object alarm"',
   'Silence': // ref Sound/Silence
-    'Advances=0 ' +
+    'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Modifier=' +
@@ -2559,7 +2559,7 @@ Hellfrost.POWERS_ADDED = {
     'Range=spirit*5 ' +
     'Description="Self controls summoned beast\'s actions while maintained"',
   'Summon Demon':
-    'Advances=0 ' +
+    'Advances=8 ' +
     'PowerPoints=5+ ' +
     'Range=smarts*2 ' +
     'Description="Brings demon from the Abyss while maintained"',
