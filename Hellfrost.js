@@ -30,10 +30,10 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
  */
 function Hellfrost(baseRules) {
 
-  var useSwade =
+  let useSwade =
     baseRules && !baseRules.match(/deluxe|swd/i) && window.SWADE != null;
 
-  var rules = new QuilvynRules(
+  let rules = new QuilvynRules(
     'Hellfrost - SW' + (useSwade ? 'ADE' : 'D'), Hellfrost.VERSION
   );
   Hellfrost.rules = rules;
@@ -61,13 +61,13 @@ function Hellfrost(baseRules) {
 
   Hellfrost.ARCANAS =
     Object.assign({}, rules.basePlugin.ARCANAS, Hellfrost.ARCANAS_ADDED);
-  delete Hellfrost.ARCANAS['Magic'];
-  delete Hellfrost.ARCANAS['Psionics'];
+  delete Hellfrost.ARCANAS.Magic;
+  delete Hellfrost.ARCANAS.Psionics;
   delete Hellfrost.ARCANAS['Super Powers'];
   delete Hellfrost.ARCANAS['Weird Science'];
   Hellfrost.EDGES =
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
-  delete Hellfrost.EDGES['Ace'];
+  delete Hellfrost.EDGES.Ace;
   delete Hellfrost.EDGES['Arcane Background (Magic)'];
   delete Hellfrost.EDGES['Arcane Background (Psionics)'];
   delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
@@ -81,11 +81,11 @@ function Hellfrost(baseRules) {
     Object.assign({}, rules.basePlugin.POWERS, Hellfrost.POWERS_ADDED);
   Hellfrost.SKILLS =
     Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
-  delete Hellfrost.SKILLS['Driving'];
+  delete Hellfrost.SKILLS.Driving;
   delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
   delete Hellfrost.SKILLS['Language (%language)'];
-  delete Hellfrost.SKILLS['Piloting'];
-  delete Hellfrost.SKILLS['Psionics'];
+  delete Hellfrost.SKILLS.Piloting;
+  delete Hellfrost.SKILLS.Psionics;
   delete Hellfrost.SKILLS['Weird Science'];
 
   if(useSwade) {
@@ -116,7 +116,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.4';
+Hellfrost.VERSION = '2.3.1.5';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -487,8 +487,8 @@ Hellfrost.ARCANAS_ADDED = {
     'Powers="Boost Trait","Warrior\'s Gift"'
 };
 Hellfrost.ARCANAS = Object.assign({}, SWD.ARCANAS, Hellfrost.ARCANAS_ADDED);
-delete Hellfrost.ARCANAS['Magic'];
-delete Hellfrost.ARCANAS['Psionics'];
+delete Hellfrost.ARCANAS.Magic;
+delete Hellfrost.ARCANAS.Psionics;
 delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
 Hellfrost.AREAS = {
@@ -1596,7 +1596,7 @@ Hellfrost.EDGES_ADDED = {
 
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
-delete Hellfrost.EDGES['Ace'];
+delete Hellfrost.EDGES.Ace;
 delete Hellfrost.EDGES['Arcane Background (Magic)'];
 delete Hellfrost.EDGES['Arcane Background (Psionics)'];
 delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
@@ -2828,11 +2828,11 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (%area)':'Attribute=smarts'
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
-delete Hellfrost.SKILLS['Driving'];
+delete Hellfrost.SKILLS.Driving;
 delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
 delete Hellfrost.SKILLS['Language (%language)'];
-delete Hellfrost.SKILLS['Piloting'];
-delete Hellfrost.SKILLS['Psionics'];
+delete Hellfrost.SKILLS.Piloting;
+delete Hellfrost.SKILLS.Psionics;
 delete Hellfrost.SKILLS['Weird Science'];
 Hellfrost.WEAPONS = {
   'Unarmed':'Damage=Str+d0 Weight=0 Category=Un',
@@ -2867,7 +2867,7 @@ Hellfrost.WEAPONS = {
 };
 
 Hellfrost.SWD2SWADE = function(table) {
-  var replacements = {
+  let replacements = {
     // Special for Roadwarden
     'skills.Survival.*skills.Tracking':'skills.Survival',
     '.2 Survival/.2 Tracking':'+2 Survival',
@@ -2888,13 +2888,13 @@ Hellfrost.SWD2SWADE = function(table) {
     'Throwing':'Athletics',
     'Tracking':'Survival'
   };
-  var result = Object.assign({}, table);
-  for(var r in replacements) {
+  let result = Object.assign({}, table);
+  for(let r in replacements) {
     if(r in result) {
       result[replacements[r]] = result[r];
       delete result[r];
     }
-    for(var key in result) {
+    for(let key in result) {
       result[key] = result[key].replace(new RegExp(r, 'g'), replacements[r]);
     }
   }
@@ -2932,14 +2932,14 @@ Hellfrost.talentRules = function(
 ) {
   // Need to define areas before skills for expansion of Knowledge (%area)
   QuilvynUtils.checkAttrTable(areas, []);
-  for(var area in areas) {
+  for(let area in areas) {
     rules.choiceRules(rules, 'Area', area, areas[area]);
   }
   rules.basePlugin.talentRules
     (rules, edges, features, goodies, hindrances, languages, skills);
   // No changes needed to the rules defined by base method
   QuilvynUtils.checkAttrTable(glorys, ['Require']);
-  for(var glory in glorys) {
+  for(let glory in glorys) {
     rules.choiceRules(rules, 'Glory', glory, glorys[glory]);
   }
   rules.defineRule('gloryPoints', 
@@ -3104,6 +3104,23 @@ Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
   rules.basePlugin.armorRules
     (rules, name, ['Medieval'], areas, armor, minStr, weight);
   // No changes needed to the rules defined by base method
+  rules.defineChoice('notes',
+    'sanityNotes.blessedArmor:' +
+      'Blessed Armor benefits require Arcane Background (Miracles)',
+    'sanityNotes.blessedRobes:' +
+      'Blessed Robes benefits require Arcane Background (Miracles)'
+  );
+  rules.defineRule('sanityNotes.blessedArmor',
+    'armor.Blessed Armor', '=', '1',
+    'features.Arcane Background (Miracles)', 'v', '0'
+  );
+  rules.defineRule('sanityNotes.blessedRobes',
+    'armor.Blessed Robes', '=', '1',
+    'features.Arcane Background (Miracles)', 'v', '0'
+  );
+  rules.defineRule('armorToughness',
+    'sanityNotes.blessedRobes', '+', 'source==1 ? -1 : null'
+  );
 };
 
 /*
@@ -3138,7 +3155,7 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
   // No changes needed to the rules defined by base method
   // Add backdoor to allow testing multiple disciple edges w/1 character
   if(requires.filter(x => x.includes('deity')).length > 0) {
-    var note = 'validationNotes.' + name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Edge';
+    let note = 'validationNotes.' + name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Edge';
     rules.defineRule(note,
       'notes', '+', 'source.includes("+IGNORE-DEITY-EDGE-PREREQ") ? 1 : null'
     );
@@ -3150,7 +3167,7 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  * derived directly from the attributes passed to edgeRules.
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
-  var matchInfo;
+  let matchInfo;
   if(name == 'Arcane Background (Elementalism)') {
     rules.defineRule('elementalismCount',
       'arcanaNotes.arcaneBackground(Elementalism)', '=', '1'
@@ -3273,8 +3290,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule
       ('weapons.Long Bow.4', 'combatNotes.mightyShot', '=', '"d6"');
   } else if(name == 'Mighty Throw') {
-    var allWeapons = rules.getChoices('weapons');
-    for(var w in allWeapons) {
+    let allWeapons = rules.getChoices('weapons');
+    for(let w in allWeapons) {
       if(allWeapons[w].includes('Range') &&
          !allWeapons[w].includes('Category=R'))
         rules.defineRule
@@ -3292,7 +3309,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('skillStep.' + matchInfo[1], 'features.' + name, '+=', '1');
-    var runePowers = QuilvynUtils.getAttrValueArray(rules.getChoices('arcanas')[name], 'Powers');
+    let runePowers = QuilvynUtils.getAttrValueArray(rules.getChoices('arcanas')[name], 'Powers');
     runePowers.forEach
       (x => rules.defineRule('powers.' + x, 'features.' + name, '=', '1'));
   } else if(name == 'Runic Insight') {
@@ -3343,7 +3360,7 @@ Hellfrost.gloryRules = function(rules, name, requires) {
     console.log('Bad requires list "' + requires + '" for glory ' + name);
     return;
   }
-  var prefix =
+  let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   if(requires.length > 0)
     QuilvynRules.prerequisiteRules
@@ -3361,11 +3378,11 @@ Hellfrost.gloryRulesExtra = function(rules, name) {
       ('featureNotes.combatProwess', 'glorys.Combat Prowess', '=', null);
     rules.defineRule('edgePoints', 'featureNotes.combatProwess', '+', null);
   } else if(name == 'Heroic Aura') {
-    var allArmors = rules.getChoices('armors');
+    let allArmors = rules.getChoices('armors');
     rules.defineRule('wearingArmor',
       'combatNotes.heroicAura', '=', '0'
     );
-    for(var armor in allArmors)
+    for(let armor in allArmors)
       rules.defineRule('wearingArmor', 'armor.' + armor, '+', '1');
     rules.defineRule
       ('combatNotes.heroicAura', 'glorys.Heroic Aura', '=', null);
@@ -3453,10 +3470,10 @@ Hellfrost.powerRules = function(
 Hellfrost.raceRules = function(rules, name, requires, features, languages) {
   rules.basePlugin.raceRules(rules, name, requires, features, []);
   // No changes needed to the rules defined by base method
-  var prefix =
+  let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
-  var raceAdvances = prefix + 'Advances';
-  for(var i = 0; i < languages.length; i++) {
+  let raceAdvances = prefix + 'Advances';
+  for(let i = 0; i < languages.length; i++) {
     rules.defineRule('languages.' + languages[i], raceAdvances, '=', '1');
   }
 };
@@ -3534,12 +3551,12 @@ Hellfrost.choiceEditorElements = function(rules, type) {
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
 
-  var attr;
-  var attrs = this.applyRules(attributes);
-  var choices;
-  var howMany;
-  var i;
-  var matchInfo;
+  let attr;
+  let attrs = this.applyRules(attributes);
+  let choices;
+  let howMany;
+  let i;
+  let matchInfo;
 
   if(attribute == 'languages') {
     howMany = attrs.smarts / 2;
@@ -3563,9 +3580,9 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
 
   // Give priests their deity's signature spell
   if(attribute == 'powers' && attrs['features.Arcane Background (Miracles)']) {
-    var arcana =
+    let arcana =
       this.getChoices('arcanas')['Miracles (' + attributes.deity + ')'];
-    var powers = [];
+    let powers = [];
     if(arcana)
       powers = QuilvynUtils.getAttrValueArray(arcana, 'Powers');
     if(powers.length > 0)
@@ -3607,7 +3624,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   if(attribute == 'skills' && attrs['features.World-Wise'] != null) {
     howMany = 5;
     choices = [];
-    var allAreas = this.getChoices('areas');
+    let allAreas = this.getChoices('areas');
     for(attr in this.getChoices('skills')) {
       matchInfo = attr.match(/^Knowlege .(.*).$/);
       if(!matchInfo || !(matchInfo[1] in allAreas))
@@ -3642,8 +3659,8 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   // TODO There's a risk that the randomizer will have assigned two edges, one
   // dependent on the other (e.g., Attractive and Very Attractive) and that the
   // code will reassign the base edge while leaving the dependent edge assigned.
-  var preAttributes = Object.assign({}, attributes);
-  var allChoices = null;
+  let preAttributes = Object.assign({}, attributes);
+  let allChoices = null;
   if(attribute == 'edges') {
     allChoices = Object.assign({}, this.getChoices('edges'));
     choices = this.getChoices('edges');
@@ -3655,7 +3672,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     allChoices = Object.assign({}, this.getChoices('skills'));
     choices = this.getChoices('arcanas');
     for(attr in choices) {
-      var skill = QuilvynUtils.getAttrValue(choices[attr], 'Skill');
+      let skill = QuilvynUtils.getAttrValue(choices[attr], 'Skill');
       if(skill && !(skill in this.basePlugin.SKILLS) &&
          !attributes['features.Arcane Background (' + attr + ')'])
         delete this.getChoices('skills')[skill];
@@ -3666,14 +3683,14 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     this.choices[attribute] = allChoices;
   if(attribute == 'edges') {
     attrs = this.applyRules(attributes);
-    var countEdges =
+    let countEdges =
       {'elementalismCount':'Elementalism', 'runeCount':'Rune Magic'};
-    var newEdges = [];
+    let newEdges = [];
     for(attr in attributes) {
       if(attr.startsWith('edges.') && !(attr in preAttributes))
         newEdges.push(attr);
     }
-    for(var count in countEdges) {
+    for(let count in countEdges) {
       howMany = attrs[count];
       if(!howMany)
         continue;
@@ -3710,7 +3727,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
 
 /* Returns an array of plugins upon which this one depends. */
 Hellfrost.getPlugins = function() {
-  var result = [this.basePlugin].concat(this.basePlugin.getPlugins());
+  let result = [this.basePlugin].concat(this.basePlugin.getPlugins());
   return result;
 };
 
