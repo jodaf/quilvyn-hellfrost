@@ -99,6 +99,22 @@ function Hellfrost(baseRules) {
     Hellfrost.POWERS = Hellfrost.SWD2SWADE(Hellfrost.POWERS);
     Hellfrost.RACES = Hellfrost.SWD2SWADE(Hellfrost.RACES);
     Hellfrost.SKILLS = Hellfrost.SWD2SWADE(Hellfrost.SKILLS);
+    for(let a in Hellfrost.ARMORS) {
+      if(a in SWADE.ARMORS)
+        Hellfrost.ARMORS[a] += ' ' + SWADE.ARMORS[a];
+      else if(!a.match(/Robes|None/)) {
+        // SWADE general boosts armor by 1
+        let m = Hellfrost.ARMORS[a].match(/Armor=(\d+)/);
+        if(m)
+          Hellfrost.ARMORS[a] += ' Armor=' + (m[1] - 0 + 1);
+      }
+    }
+    for(let s in Hellfrost.SHIELDS)
+      if(s in SWADE.SHIELDS)
+        Hellfrost.SHIELDS[s] += ' ' + SWADE.SHIELDS[s];
+    for(let w in Hellfrost.WEAPONS)
+      if(w in SWADE.WEAPONS)
+        Hellfrost.WEAPONS[w] += ' ' + SWADE.WEAPONS[w];
   }
 
   Hellfrost.attributeRules(rules);
@@ -116,7 +132,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.5';
+Hellfrost.VERSION = '2.3.1.6';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
