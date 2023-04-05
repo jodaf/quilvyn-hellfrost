@@ -132,7 +132,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.6';
+Hellfrost.VERSION = '2.3.1.7';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -3097,7 +3097,18 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
  */
 Hellfrost.arcanaRules = function(rules, name, skill, powers) {
   rules.basePlugin.arcanaRules(rules, name, skill);
-  // No changes needed to the rules defined by base method
+  if(name.match(/Elementalism/)) {
+    // Override computation of arcaneSkill for Elementalism, since Hellfrost
+    // defines a single Arcane Background (Elementalism), rather than one for
+    // each element
+    let compactName = name.replaceAll(' ', '');
+    rules.defineRule('arcaneSkill' + compactName,
+      'features.Arcane Background (' + name + ')', '+', '0',
+      'features.Arcane Background (Elementalism)', '?', null,
+      'features.' + name, '?', null,
+      'skills.' + skill, '=', null
+    );
+  }
 };
 
 /* Defines in #rules# the rules associated with area #name#. */
