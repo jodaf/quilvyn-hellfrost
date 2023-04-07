@@ -2474,9 +2474,9 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=spirit ' +
     'Description="Self can cast spell used by another while maintained"',
-  'Mind Reading': // ref Mind Rider
+  'Mind Reading': // ref Mind Reading
     'Advances=4 ' +
-    'PowerPoints=3 ' +
+    'PowerPoints=2 ' +
     'Range=smarts*2 ' +
     'Description="Self reads target surface thoughts; may probe for deeper thoughts (Spirit neg; Raise learns secrets)"',
   'Mind Rider':
