@@ -62,14 +62,12 @@ function Hellfrost(baseRules) {
   Hellfrost.ARCANAS =
     Object.assign({}, rules.basePlugin.ARCANAS, Hellfrost.ARCANAS_ADDED);
   delete Hellfrost.ARCANAS.Magic;
-  delete Hellfrost.ARCANAS.Psionics;
   delete Hellfrost.ARCANAS['Super Powers'];
   delete Hellfrost.ARCANAS['Weird Science'];
   Hellfrost.EDGES =
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
   delete Hellfrost.EDGES.Ace;
   delete Hellfrost.EDGES['Arcane Background (Magic)'];
-  delete Hellfrost.EDGES['Arcane Background (Psionics)'];
   delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
   delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
   Hellfrost.FEATURES =
@@ -85,7 +83,6 @@ function Hellfrost(baseRules) {
   delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
   delete Hellfrost.SKILLS['Language (%language)'];
   delete Hellfrost.SKILLS.Piloting;
-  delete Hellfrost.SKILLS.Psionics;
   delete Hellfrost.SKILLS['Weird Science'];
 
   if(useSwade) {
@@ -132,7 +129,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.1.7';
+Hellfrost.VERSION = '2.3.2.0';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -418,6 +415,15 @@ Hellfrost.ARCANAS_ADDED = {
       'Confusion,Deflection,Detect/Conceal,Entangle,Fear,Lock,Puppet,' +
       'Sanctuary,Sentry,Silence,Slumber,"Speak Language",Speed,' +
       '"Summon Herald",Teleport,"Summon Spirit"',
+  'Psionics':
+    'Skill=Psionics ' +
+    'Powers=' +
+      '"Analyze Foe","Beast Friend",Bolt,"Boost/Lower Trait",Burst,' +
+      '"Charismatic Aura",Deflection,Detect/Conceal,"Energy Immunity",' +
+      '"Environmental Protection",Farsight,Fatigue,Fear,Healing,Leaping,' +
+      'Mimic,"Mind Reading",Precognition,Puppet,Quickness,Smite,' +
+      '"Speak Language",Speed,Stun,Succor,Telekinesis,"Voice On The Wind",' +
+      '"Wandering Senses","Weapon Immunity"',
   'Rune Magic (Armor-Rune)':
     'Skill=Armor-Rune ' +
     'Powers=Armor,Bladebreaker,"Weapon Immunity"',
@@ -504,7 +510,6 @@ Hellfrost.ARCANAS_ADDED = {
 };
 Hellfrost.ARCANAS = Object.assign({}, SWD.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS.Magic;
-delete Hellfrost.ARCANAS.Psionics;
 delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
 Hellfrost.AREAS = {
@@ -666,6 +671,10 @@ Hellfrost.CONCEPTS = {
     'Edge="Arcane Background (Miracles)" ' +
     'Attribute=Spirit ' +
     'Skill=Faith',
+  'Puppeteer':
+    'Edge="Arcane Background (Psionics)" ' +
+    'Attribute=Smarts ' +
+    'Skill=Psionics',
   'Ranger': // Estimated related features
     'Attribute=Agility,Smarts ' +
     'Skill=Fighting,Survival',
@@ -1614,7 +1623,6 @@ Hellfrost.EDGES_ADDED = {
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES.Ace;
 delete Hellfrost.EDGES['Arcane Background (Magic)'];
-delete Hellfrost.EDGES['Arcane Background (Psionics)'];
 delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
 delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
 // Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
@@ -1919,7 +1927,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="May use adjacent ally\'s combat edge 1/rd"',
   'One Step One Kill':
     'Section=combat ' +
-    'Note="May move 1\\" w/out triggering first strike; may spend Benny for the Drop"',
+    'Note="May move 1\\" w/out triggering first strike; may spend Benny for The Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
@@ -2466,6 +2474,11 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=spirit ' +
     'Description="Self can cast spell used by another while maintained"',
+  'Mind Reading': // ref Mind Rider
+    'Advances=4 ' +
+    'PowerPoints=3 ' +
+    'Range=smarts*2 ' +
+    'Description="Self reads target surface thoughts; may probe for deeper thoughts (Spirit neg; Raise learns secrets)"',
   'Mind Rider':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -2848,7 +2861,6 @@ delete Hellfrost.SKILLS.Driving;
 delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
 delete Hellfrost.SKILLS['Language (%language)'];
 delete Hellfrost.SKILLS.Piloting;
-delete Hellfrost.SKILLS.Psionics;
 delete Hellfrost.SKILLS['Weird Science'];
 Hellfrost.WEAPONS = {
   'Unarmed':'Damage=Str+d0 Weight=0 Category=Un',
