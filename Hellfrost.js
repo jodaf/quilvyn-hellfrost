@@ -129,7 +129,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.2.0';
+Hellfrost.VERSION = '2.3.2.1';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -705,6 +705,10 @@ Hellfrost.CONCEPTS = {
     'Edge="Arcane Background (Soul Binding)" ' +
     'Attribute=Smarts ' +
     'Skill="Soul Binding"',
+  'Thief':
+    'Edge=Thief ' +
+    'Attribute=Agility ' +
+    'Skill=Climbing,Lockpicking,Stealth',
   'Trapper': // Estimated related features
     'Attribute=Smarts ' +
     'Skill=Survival',
