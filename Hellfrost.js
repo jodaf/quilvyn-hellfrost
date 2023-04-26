@@ -56,7 +56,7 @@ function Hellfrost(baseRules) {
   );
   rules.defineChoice('preset',
     'race:Race,select-one,races', 'advances:Advances,text,4',
-    'concept:Concept,select-one,concepts', 'deity:Deity,select-one,deitys'
+    'concepts:Concepts,set,concepts', 'deity:Deity,select-one,deitys'
   );
 
   Hellfrost.ARCANAS =
@@ -129,7 +129,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.2.1';
+Hellfrost.VERSION = '2.3.2.2';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
