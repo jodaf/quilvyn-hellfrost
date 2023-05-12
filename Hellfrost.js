@@ -67,9 +67,15 @@ function Hellfrost(baseRules) {
   Hellfrost.EDGES =
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
   delete Hellfrost.EDGES.Ace;
+  delete Hellfrost.EDGES.Gadgeteer;
   delete Hellfrost.EDGES['Arcane Background (Magic)'];
   delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
   delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
+  delete Hellfrost.EDGES['Double Tap'];
+  delete Hellfrost.EDGES['Improved Rapid Fire'];
+  delete Hellfrost.EDGES['Rapid Fire'];
+  delete Hellfrost.EDGES['Rock And Roll'];
+  delete Hellfrost.EDGES['Two-Gun Kid'];
   Hellfrost.FEATURES =
     Object.assign({}, rules.basePlugin.FEATURES, Hellfrost.FEATURES_ADDED);
   Hellfrost.GOODIES = Object.assign({}, rules.basePlugin.GOODIES);
@@ -80,6 +86,8 @@ function Hellfrost(baseRules) {
   Hellfrost.SKILLS =
     Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
   delete Hellfrost.SKILLS.Driving;
+  delete Hellfrost.SKILLS.Electronics;
+  delete Hellfrost.SKILLS.Hacking;
   delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
   delete Hellfrost.SKILLS['Language (%language)'];
   delete Hellfrost.SKILLS.Piloting;
@@ -100,7 +108,7 @@ function Hellfrost(baseRules) {
       if(a in SWADE.ARMORS)
         Hellfrost.ARMORS[a] += ' ' + SWADE.ARMORS[a];
       else if(!a.match(/Robes|None/)) {
-        // SWADE general boosts armor by 1
+        // SWADE generally boosts armor by 1
         let m = Hellfrost.ARMORS[a].match(/Armor=(\d+)/);
         if(m)
           Hellfrost.ARMORS[a] += ' Armor=' + (m[1] - 0 + 1);
@@ -129,7 +137,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.3.2.2';
+Hellfrost.VERSION = '2.3.2.3';
 
 Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -1626,9 +1634,15 @@ Hellfrost.EDGES_ADDED = {
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
 delete Hellfrost.EDGES.Ace;
+delete Hellfrost.EDGES.Gadgeteer;
 delete Hellfrost.EDGES['Arcane Background (Magic)'];
 delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
 delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
+delete Hellfrost.EDGES['Double Tap'];
+delete Hellfrost.EDGES['Improved Rapid Fire'];
+delete Hellfrost.EDGES['Rapid Fire'];
+delete Hellfrost.EDGES['Rock And Roll'];
+delete Hellfrost.EDGES['Two-Gun Kid'];
 // Power Points, Rapid Recharge, Wizard, and Soul Drain allowed
 Hellfrost.FEATURES_ADDED = {
 
@@ -1702,13 +1716,13 @@ Hellfrost.FEATURES_ADDED = {
   'Censure Demons':
     'Section=combat ' +
     'Note="Has Champion and Holy Warrior features vs. Demons"',
-  'Charge':'Section=combat Note="Free melee attack after run"',
+  'Charge':'Section=combat Note="May make free melee attack after run"',
   'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
-    'Note="R%{commandRange}\\" Simultaneous ranged attacks by commanded at single target gain +2 attack per person"',
+    'Note="R%{commandRange}\\" Simultaneous ranged attacks by commanded at a single target gain +2 attack per person"',
   'Cry Havoc!':
     'Section=combat ' +
     'Note="May charge during Battle roll 1/mass battle; success removes extra foe token"',
@@ -1716,7 +1730,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Deathdealer':
     'Section=combat ' +
-    'Note="Free attack on adjacent undead after slaying undead 1/rd"',
+    'Note="May make free attack on adjacent undead after slaying undead 1/rd"',
   'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rds"',
   'Disciple Of Dargar':
     'Section=combat ' +
@@ -1748,22 +1762,22 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute,combat ' +
     'Note=' +
       '"+2 Vigor (resist heat)",' +
-      '"+4 Armor vs. heat damage, may magically heat metal weapon for +2 damage vs. cold resistant and +4 vs cold immune"',
+      '"+4 Armor vs. heat damage/May magically heat metal weapon for +2 damage vs. cold resistant and +4 vs cold immune"',
   'Disciple Of Maera':
-    'Section=arcana Note="May cast off-list spell at -2, +2 <i>Dispel</i>"',
+    'Section=arcana Note="May cast off-list spell at -2/+2 <i>Dispel</i>"',
   'Disciple Of Nauthiz':
     'Section=skill ' +
     'Note="May reroll 1s on Gambling, Stealth, and Lockpicking; suffers fatigue for 1 dy if reroll is 1"',
   'Disciple Of Neorthe':
     'Section=feature ' +
-    'Note="Survives on half water; survives drowning for %{vigor} rd"',
+    'Note="Survives on half water and survives drowning for %{vigor} rd"',
   'Disciple Of Niht':
     'Section=feature ' +
     'Note="No penalty in dim and dark illumination, -2 in pitch dark"',
   'Disciple Of The Norns':'Section=arcana Note="May spend Benny for augury"',
   'Disciple Of Rigr':
     'Section=feature ' +
-    'Note="Needs only 3 hrs sleep, suffers half penalty for missed sleep, counts as active guard when asleep"',
+    'Note="Needs only 3 hrs sleep, suffers half penalty for missed sleep, and counts as active guard when asleep"',
   'Disciple Of Scaetha':
     'Section=arcana,combat ' +
     'Note="+1 casting vs. undead",' +
@@ -1782,10 +1796,10 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana Note="More effective casting in cold environment"',
   'Disciple Of Thunor':
     'Section=attribute ' +
-    'Note="+1 Vigor (resist hot and cold), suffers half falling damage"',
+    'Note="+1 Vigor (resist hot and cold)/Suffers half falling damage"',
   'Disciple Of Tiw':
     'Section=arcana,feature ' +
-    'Note="May cast and attack in single action",' +
+    'Note="May cast and attack as a single action",' +
          '"+1 Rank for acquiring combat edges"',
   'Disciple Of Ullr':
     'Section=combat,skill ' +
@@ -1802,7 +1816,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="May sling two stones simultaneously%1"',
   'Dragon Guard':
     'Section=feature ' +
-    'Note="Arcane Resistance, Favored Foe, and Giant Killer features with marsh dragons and marsh orms"',
+    'Note="Has Arcane Resistance, Favored Foe, and Giant Killer features with marsh dragons and marsh orms"',
   'Drop!':
     'Section=combat Note="May give one commanded medium ranged cover 1/rd"',
   'Dungeon Crawler':
@@ -1819,14 +1833,15 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="R%{commandRange}\\" Commanded +2 vs fear, -2 fear table"',
   'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
-  'Fast Mount':'Section=combat Note="Mount and dismount as free actions 1/rd"',
+  'Fast Mount':
+    'Section=combat Note="May mount and dismount as free actions 1/rd"',
   'Favored Foe':
     'Section=combat ' +
     'Note="+1 Parry and d8 extra damage on attack Raise against chosen creature type"',
   'Fighting Withdrawal':'Section=combat Note="May Defend while running and move full Pace during Full Defense"',
   'Focus':
     'Section=arcana ' +
-    'Note="Immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
+    'Note="May take immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
   'Forced March':'Section=combat Note="Commanded allies may share running die"',
   'Giant Blood':
     'Section=attribute,combat,description,feature ' +
@@ -1864,10 +1879,10 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Commanded ally may step in front of attack on self 1/rd"',
   'Holy/Unholy Warrior':
     'Section=arcana ' +
-    'Note="R%{spirit}\\" Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2), destroyed or wounded on critical failure"',
+    'Note="R%{spirit}\\" Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2); destroyed or wounded on critical failure"',
   'Horse Lord':
     'Section=skill ' +
-    'Note="d8 Wild Die with Riding; mount shares Parry and resistance"',
+    'Note="d8 Wild Die with Riding/Mount shares Parry and resistance"',
   'Hrosmark Huscarl':
     'Section=combat Note="Gains Steady Hands feature and may Aim when mounted"',
   'Huscarl Of Hammerhand':
@@ -1885,13 +1900,13 @@ Hellfrost.FEATURES_ADDED = {
   'Improved Snow Walker':'Section=combat Note="Increased Snow Walker effects"',
   'Improved Sunder':'Section=combat Note="Increased Sunder effects"',
   'Instinctive Dispel':
-    'Section=arcana Note="Free <i>Dispel</i> of spell that effects self 1/rd"',
+    'Section=arcana Note="May make free <i>Dispel</i> of spell that effects self 1/rd"',
   'Iron Guild Mercenary':
     'Section=combat,feature ' +
     'Note="Member of Iron Guild mercenary company","+1 using Gang Up"',
   'Knight Hrafn':
     'Section=feature,skill ' +
-    'Note="+%V Command range; ignores rank requirement for leadership edges",' +
+    'Note="+%V Command range/Ignores rank requirement for leadership edges",' +
          '"+1 Knowledge (Battle)"',
   'Large Family':'Section=feature Note="+2 Kinship results"',
   'Legendary Storyteller':
@@ -1901,16 +1916,18 @@ Hellfrost.FEATURES_ADDED = {
   'Lorekeeper':
     'Section=skill ' +
     'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
-  'Lurker':'Section=combat Note="Parry %V while using Full Defense"',
+  'Lurker':
+    'Section=combat ' +
+    'Note="%V Parry (Stealth instead of Fighting) during Full Defense"',
   'Master Bludgeoner':
     'Section=combat ' +
     'Note="Sling inflicts Str+d8 (short range) or Str+d6 (medium range)"',
   'Master Mariner':
     'Section=skill ' +
-    'Note="Ignores 2 penalty points on Boating; may spend Benny to Soak boat damage; boat +1 top speed"',
+    'Note="Ignores 2 penalty points on Boating/May spend Benny to Soak boat damage/Boat +1 top speed"',
   'Master Storyteller':
     'Section=feature ' +
-    'Note="Story subjects use d8%1 for Glory awards, no penalty for critical failure"',
+    'Note="Story subjects use d8%1 for Glory awards and suffer no penalty for critical failure"',
   'Merman Blood':
     'Section=combat,skill Note="Swim Pace %{pace}\\"","+2 Swimming"',
   'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
@@ -1919,19 +1936,19 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+1 thrown weapon range/+1 Strength step for short throws"',
   'Mounted Combatant':
     'Section=skill ' +
-    'Note="Ignores 2 penalty points on Riding; successful Ride gives mount +2 Pace; may spend Benny to Soak mount damage"',
+    'Note="Ignores 2 penalty points on Riding/Successful Ride gives mount +2 Pace/May spend Benny to Soak mount damage"',
   'Necromantic Severing':
     'Section=combat Note="May make called shots vs. undead"',
   'New Rune':'Section=arcana Note="Knows spells from %V runes"',
   'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
   'Not Just A Sling':
-    'Section=combat Note="Never unarmed with sling, +2 Disarm and Grapple"',
+    'Section=combat Note="Never unarmed with sling/+2 Disarm and Grapple"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
   'One Of Thirteen':
     'Section=combat Note="May use adjacent ally\'s combat edge 1/rd"',
   'One Step One Kill':
     'Section=combat ' +
-    'Note="May move 1\\" w/out triggering first strike; may spend Benny for The Drop"',
+    'Note="May move 1\\" w/out triggering First Strike/May spend Benny for The Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
@@ -1939,8 +1956,8 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Allies may move through scouted difficult terrain at 2/3 Pace"',
   'Potent Magic':
     'Section=arcana ' +
-    'Note="Targets suffer -1 arcane resistance; others\' dispel attempts suffer -2"',
-  'Power Surge':'Section=combat Note="Dbl damage from arcane skill attack"',
+    'Note="Targets suffer -1 arcane resistance/Foe <i>Dispel</i> attempts suffer -2"',
+  'Power Surge':'Section=combat Note="Arcane skill attack inflicts dbl damage"',
   'Powerful Family':'Section=feature Note="+2 Kinship results"',
   'Protect The Cargo':
     'Section=combat ' +
@@ -1958,7 +1975,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/May use Knowledge (Arcana) to learn unattuned relic powers"',
   'Reliquary (Reliqus)':
     'Section=attribute,skill ' +
-    'Note="Test Agility-2 to avoid trap effects",' +
+    'Note="Successful Agility-2 avoids trap effects",' +
          '"+2 Notice (traps)/+2 disarm traps"',
   'Retributive Strike':
     'Section=combat Note="May make free melee attack upon incapacitation"',
@@ -1973,24 +1990,25 @@ Hellfrost.FEATURES_ADDED = {
   'Running Throw':
     'Section=combat Note="+2 thrown weapon range after moving half Pace"',
   'Salmon Leap':
-    'Section=combat,skill Note="Ignore 1 point of shield Parry","+1\\" jump"',
+    'Section=combat,skill Note="Ignores 1 point of shield Parry","+1\\" jump"',
   'Sanctuary':
     'Section=feature ' +
     'Note="Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days"',
   'Scamper':'Section=combat Note="Larger foes -1 attack"',
   'Sea Legs':
     'Section=combat ' +
-    'Note="No penalty for shot, reduce running shot penalty by 1, and +1 Parry while aboard ship"',
+    'Note="Suffers no penalty for shot, reduces running shot penalty by 1, and gains +1 Parry while aboard ship"',
   'Share Spell':
     'Section=arcana Note="Gains benefits of adjacent master\'s spells"',
   'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
-    'Note="-1 fortification siege bonus during mass battle, test Knowledge (Battle) for -2 (Raise -3)"',
-  'Siege Engineer':'Section=combat Note="Siege weapons +50% range and +2 AP"',
+    'Note="-1 fortification siege bonus during mass battle; test Knowledge (Battle) for -2 (Raise -3)"',
+  'Siege Engineer':
+    'Section=combat Note="Siege weapons gain +50% range and +2 AP"',
   'Siege Mentality':
     'Section=combat ' +
-    'Note="+1 fortification siege bonus during mass battle, test Knowledge (Battle) for +2 (Raise +3)"',
+    'Note="+1 fortification siege bonus during mass battle; test Knowledge (Battle) for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Sister Superior':
     'Section=skill ' +
@@ -1998,15 +2016,15 @@ Hellfrost.FEATURES_ADDED = {
   'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
   'Spear Catch':
     'Section=combat ' +
-    'Note="Successful Agility test catches thrown spear (Raise returns throw) 1/rd"',
+    'Note="Successful Agility catches thrown spear (Raise allows return throw) 1/rd"',
   'Spear Twist':
     'Section=combat Note="Thrown spear does +1 Strength step damage"',
   'Speed Rider':
     'Section=skill ' +
-    'Note="Mount +2 Pace, may trade mount fatigue for dbl running dice"',
+    'Note="Mount +2 Pace/May suffer mount fatigue to gain dbl running dice"',
   'Spell Finesse (Altered Range)':
     'Section=arcana ' +
-    'Note="Increase range of chosen touch spell to %{smarts>?spirit}\\" or ranged spell to 12\\""',
+    'Note="Increases range of chosen touch spell to %{smarts>?spirit}\\" or ranged spell to 12\\""',
   'Spell Finesse (Arcane)':
     'Section=arcana Note="+1 Wild Die step on chosen spell skill"',
   'Spell Finesse (Armor Penetration)':
@@ -2025,7 +2043,7 @@ Hellfrost.FEATURES_ADDED = {
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
-    'Note="R%{commandRange}\\" Make Knowledge (Battle) test before combat, receive 1 Action Card per success and raise to distribute to commanded extras"',
+    'Note="R%{commandRange}\\" Successful Knowledge (Battle) before combat gives 1 Action Card per success and raise to distribute to commanded extras"',
   'Take Aim':
     'Section=combat ' +
     'Note="Commanded gain +1 shooting and throwing damage (1d6+1 with Coordinated Firepower)"',
@@ -2034,11 +2052,10 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May make free melee attack upon adjacent ally incapacitation"',
   'Veteran Dragon Guard':
     'Section=feature ' +
-    'Note="Champion features and +2 vs. paralysis with marsh dragons and marsh orms"',
+    'Note="Has Champion features and +2 vs. paralysis with marsh dragons and marsh orms"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
-    'Section=combat ' +
-    'Note="May make Intimidation test against all in 3\\" radius"',
+    'Section=combat Note="May use Intimidation against all in 3\\" radius"',
   'Warm Blooded':'Section=attribute Note="+2 Vigor (cold weather effects)"',
   'Watcher Of The Black Gate':'Section=combat Note="+2 vs. demon powers"',
   'Wood Warden':
@@ -2046,7 +2063,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="Can speak with normal beasts, cast <i>Beast Friend</i> at +2"',
   'World-Wise':
     'Section=skill ' +
-    'Note="+5 Skill Points (Knowledge (3+ areas))/May make unskilled area knowledge rolls"',
+    'Note="+5 Skill Points (Knowledge (3+ areas))/May make unskilled Knowledge (area) rolls"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
@@ -2098,10 +2115,11 @@ Hellfrost.FEATURES_ADDED = {
 
   // Races
   'Diverse':'Section=description Note="+2 Improvement Points (edge or skills)"',
-  'Forest-Born':'Section=combat Note="No difficult terrain penalty in forests"',
+  'Forest-Born':
+    'Section=combat Note="Suffers no difficult terrain penalty in forests"',
   'Frigid Form':
     'Section=arcana ' +
-    'Note="Innate casting on self of cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i>"',
+    'Note="May cast cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i> on self at will"',
   'Heat Lethargy':
     'Section=attribute,skill ' +
     'Note="-1 attribute rolls at temperatures above 52",' +
@@ -2109,7 +2127,8 @@ Hellfrost.FEATURES_ADDED = {
   'Insular':'Section=skill Note="-2 Charisma (other races)"',
   'Luck (Engro)':'Section=feature Note="+1 Benny each session"',
   'Mountain-Born':
-    'Section=combat Note="No difficult terrain penalty in hills and mountains"',
+    'Section=combat ' +
+    'Note="Suffers no difficult terrain penalty in hills and mountains"',
   'Natural Realms':'Section=feature Note="Treats Elfhomes as wilds"',
   'Small (Engro)':'Section=combat,description Note="-1 Toughness","-1 Size"',
   'Sneaky':
@@ -2862,6 +2881,8 @@ Hellfrost.SKILLS_ADDED = {
 };
 Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
 delete Hellfrost.SKILLS.Driving;
+delete Hellfrost.SKILLS.Electronics;
+delete Hellfrost.SKILLS.Hacking;
 delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
 delete Hellfrost.SKILLS['Language (%language)'];
 delete Hellfrost.SKILLS.Piloting;
@@ -2903,6 +2924,10 @@ Hellfrost.SWD2SWADE = function(table) {
     // Special for Roadwarden
     'skills.Survival.*skills.Tracking':'skills.Survival',
     '.2 Survival/.2 Tracking':'+2 Survival',
+    // Special for Wizard
+    'features.Arcane Background \\(Magic\\)':'features.Arcane Background (Druidism) || features.Arcane Background (Elementalism) || features.Arcane Background (Heahwisardry) || features.Arcane Background (Hrimwisardry) || features.Arcane Background (Rune Magic) || features.Arcane Background (Solar Magic) || features.Arcane Background (Song Magic)',
+    // Edges
+    'Aristocrat':'Noble',
     // Skills
     'Charisma\\b':'Persuasion',
     'Climbing':'Athletics',
@@ -2915,7 +2940,9 @@ Hellfrost.SWD2SWADE = function(table) {
     'Knowledge \\(Language \\((.*)\\)\\)':'Language ($1)',
     'Knowledge \\(Science\\)':'Science',
     'Lockpicking':'Thievery',
-    'Streetwise':'Common Knowledge',
+    // Avoid translating the SWADE Streetwise edge
+    '\\.Streetwise':'.Common Knowledge',
+    ' Streetwise':' Common Knowledge',
     'Swimming':'Athletics',
     'Throwing':'Athletics',
     'Tracking':'Survival'
@@ -3669,7 +3696,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
     choices = [];
     let allAreas = this.getChoices('areas');
     for(attr in this.getChoices('skills')) {
-      matchInfo = attr.match(/^Knowlege .(.*).$/);
+      matchInfo = attr.match(/^Knowledge .(.*).$/);
       if(!matchInfo || !(matchInfo[1] in allAreas))
         continue;
       choices.push(attr);
@@ -3786,7 +3813,7 @@ Hellfrost.ruleNotes = function() {
     '    Quilvyn calculates and reports Power Points for those who want to\n' +
     '    use the power mechanics from the base rules. Edges that affect\n' +
     '    power points (Rapid Recharge, Soul Drain, etc.) are also available.\n'+
-    '    Power Point costs of Hellfrost spells are assigned by comparison\n' +
+    '    Power Point costs of Hellfrost spells are estimated by comparison\n' +
     '    with spells of similar power from the base rules.\n' +
     '  </li><li>\n' +
     '    The SWADE Hellfrost implementation uses a simple transition of SWD\n' +
