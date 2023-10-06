@@ -33,15 +33,25 @@ function Hellfrost(baseRules) {
   let useSwade =
     baseRules && !baseRules.match(/deluxe|swd/i) && window.SWADE != null;
 
+  if(window.SWADE == null) {
+    alert('The Hellfrost module requires use of the SWADE module');
+    return;
+  } else if(!useSwade && window.SWD == null) {
+    alert('The Hellfrost module requires use of the SWD module');
+    return;
+  }
+
   let rules = new QuilvynRules(
     'Hellfrost - SW' + (useSwade ? 'ADE' : 'D'), Hellfrost.VERSION
   );
+  rules.plugin = Hellfrost;
   Hellfrost.rules = rules;
   rules.basePlugin = useSwade ? SWADE : SWD;
 
   rules.defineChoice('choices', Hellfrost.CHOICES);
   rules.choiceEditorElements = Hellfrost.choiceEditorElements;
   rules.choiceRules = Hellfrost.choiceRules;
+  rules.removeChoice = SWADE.removeChoice;
   rules.editorElements = rules.basePlugin.initialEditorElements();
   rules.getFormats = rules.basePlugin.getFormats;
   rules.getPlugins = Hellfrost.getPlugins;
@@ -50,7 +60,7 @@ function Hellfrost(baseRules) {
   rules.defineChoice('random', Hellfrost.RANDOMIZABLE_ATTRIBUTES);
   rules.ruleNotes = Hellfrost.ruleNotes;
 
-  rules.basePlugin.createViewers(rules, rules.basePlugin.VIEWERS);
+  SWADE.createViewers(rules, rules.basePlugin.VIEWERS);
   rules.defineChoice('extras',
     'edges', 'edgePoints', 'hindrances', 'sanityNotes', 'validationNotes'
   );
@@ -83,20 +93,15 @@ function Hellfrost(baseRules) {
     Object.assign({}, rules.basePlugin.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
   Hellfrost.POWERS =
     Object.assign({}, rules.basePlugin.POWERS, Hellfrost.POWERS_ADDED);
-  Hellfrost.SKILLS =
-    Object.assign({}, rules.basePlugin.SKILLS, Hellfrost.SKILLS_ADDED);
-  delete Hellfrost.SKILLS.Driving;
-  delete Hellfrost.SKILLS.Electronics;
-  delete Hellfrost.SKILLS.Hacking;
+  Hellfrost.SKILLS = Object.assign(Object.fromEntries(Object.entries(rules.basePlugin.SKILLS).filter(([k, v]) => !v.includes('Era') || v.match(/Era=[\w,]*Medieval/))), Hellfrost.SKILLS_ADDED);
   delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
   delete Hellfrost.SKILLS['Language (%language)'];
-  delete Hellfrost.SKILLS.Piloting;
   delete Hellfrost.SKILLS['Weird Science'];
 
   if(useSwade) {
     Hellfrost.ARCANAS = Hellfrost.SWD2SWADE(Hellfrost.ARCANAS);
     Hellfrost.CONCEPTS = Hellfrost.SWD2SWADE(Hellfrost.CONCEPTS);
-    Hellfrost.DEITIES = Hellfrost.SWD2SWADE(Hellfrost.DEITIES);
+    Hellfrost.DEITYS = Hellfrost.SWD2SWADE(Hellfrost.DEITYS);
     Hellfrost.EDGES = Hellfrost.SWD2SWADE(Hellfrost.EDGES);
     Hellfrost.FEATURES = Hellfrost.SWD2SWADE(Hellfrost.FEATURES);
     Hellfrost.GOODIES = Hellfrost.SWD2SWADE(Hellfrost.GOODIES);
@@ -128,20 +133,20 @@ function Hellfrost(baseRules) {
   Hellfrost.arcaneRules(rules, Hellfrost.ARCANAS, Hellfrost.POWERS);
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
-     Hellfrost.HINDRANCES, Hellfrost.LANGUAGES, Hellfrost.SKILLS,
-     Hellfrost.GLORYS, Hellfrost.AREAS);
+     Hellfrost.HINDRANCES, Hellfrost.SKILLS, Hellfrost.LANGUAGES,
+     Hellfrost.GLORYS);
   Hellfrost.identityRules
-    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITIES);
+    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITYS);
 
   Quilvyn.addRuleSet(rules);
 
 }
 
-Hellfrost.VERSION = '2.3.2.3';
+Hellfrost.VERSION = '2.4.1.0';
 
-Hellfrost.CHOICES = ['Area', 'Glory'].concat(SWADE.CHOICES);
+Hellfrost.CHOICES = ['Glory', 'Language'].concat(SWADE.CHOICES);
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
-  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['glories', 'languages']);
+  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['glorys', 'languages']);
 
 /*
  * Spell list changes from errata:
@@ -520,63 +525,6 @@ Hellfrost.ARCANAS = Object.assign({}, SWD.ARCANAS, Hellfrost.ARCANAS_ADDED);
 delete Hellfrost.ARCANAS.Magic;
 delete Hellfrost.ARCANAS['Super Powers'];
 delete Hellfrost.ARCANAS['Weird Science'];
-Hellfrost.AREAS = {
-  // Regions
-  'Hearthlands':'',
-  'Hellfrost':'',
-  'High Winterlands':'',
-  'Low Winterlands':'',
-  'Outer Hellfrost':'',
-  // Individual entities
-  'Alantaris Isle':'',
-  'Angarion':'',
-  'Angmark':'',
-  'Aspiria':'',
-  'The Battlelands':'',
-  'Barony Of Blackstone':'',
-  'The Borderlands':'',
-  'Cairn Lands':'',
-  'Chalis':'',
-  'Coglelund':'',
-  'Crystalflow Confederacy':'',
-  'Barony Of Cul':'',
-  'Drachenlands':'',
-  'Dwarf Cities':'',
-  'Freelands':'',
-  'Freetown':'',
-  'Frozen Forest':'',
-  "Giant's Throne":'',
-  'Glittersands':'',
-  'The Great Swamp':'',
-  'Heldalund':'',
-  'Heligioland':'',
-  'Hrimthyr Isle':'',
-  'Icedale Freeholds':'',
-  'Isle Of The Seareavers':'',
-  'Lakeland':'',
-  'Liche Lands Of Old':'',
-  'The Magocracy':'',
-  'Midmark':'',
-  'The Mistlands':'',
-  'Nerenel':'',
-  'Nordmark':'',
-  'Orcmark':'',
-  'Ostmark':'',
-  'Rimeholm':'',
-  'Royalmark':'',
-  'Seithrby':'',
-  'Shattered Moor':'',
-  'Sunken Realm':'',
-  'Sutmark':'',
-  'Tethilin':'',
-  'Barony Of Trond':'',
-  'Unclaimed Lands':'',
-  'The Vale':'',
-  'Veermark':'',
-  'Vestmark':'',
-  'Witchwood':'',
-  'Withered Lands':''
-};
 // MinStr values taken/extrapolated from SWADE rules
 Hellfrost.ARMORS = {
   'None':'Area=Body Armor=0 Weight=0 MinStr=0',
@@ -728,7 +676,7 @@ Hellfrost.CONCEPTS = {
     'Attribute=Spirit ' +
     'Skill=Survival'
 };
-Hellfrost.DEITIES = {
+Hellfrost.DEITYS = {
   'None':'',
   'Dargar':'',
   'Eira':'',
@@ -2201,6 +2149,35 @@ Hellfrost.HINDRANCES_ADDED = {
 };
 Hellfrost.HINDRANCES =
   Object.assign({}, SWD.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
+Hellfrost.LANGUAGES = {
+  'Anari':'',
+  'Arboreal':'',
+  'Aspirian':'',
+  'Auld Saxa':'',
+  'Battletongue':'',
+  'Beastspeech':'',
+  'Black Tongue':'',
+  'Chalcian':'',
+  'Classical Anari':'',
+  'Draketongue':'',
+  'Dwarven':'',
+  'Earthtongue':'',
+  'Engrosi':'',
+  'Fey':'',
+  'Fingerspeak':'',
+  'Finnari':'',
+  'Frosttongue':'',
+  'Giant':'',
+  'Hearth Elven':'',
+  'Orcish':'',
+  'Saxa':'',
+  'Selari':'',
+  'Taiga Elven':'',
+  'Tuomi':'',
+  'Trader':'',
+  'Vendahl':'',
+  'Vindari':''
+};
 Hellfrost.POWERS_ADDED = {
   // Note that "half powers" are included here where some arcana power list
   // includes a restricted version of the spell (e.g. Corporealness and
@@ -2790,36 +2767,7 @@ Hellfrost.RACES = {
     'Features=' +
       'Agile,"All Thumbs","Forest-Born","Heat Lethargy",Insular,' +
       '"Low Light Vision","Natural Realms","Winter Soul" ' +
-    'Languages="Tanari Elven"'
-};
-Hellfrost.LANGUAGES = {
-  'Anari':'',
-  'Arboreal':'',
-  'Aspirian':'',
-  'Auld Saxa':'',
-  'Battletongue':'',
-  'Beastspeech':'',
-  'Black Tongue':'',
-  'Chalcian':'',
-  'Classical Anari':'',
-  'Draketongue':'',
-  'Dwarven':'',
-  'Earthtongue':'',
-  'Engrosi':'',
-  'Fey':'',
-  'Fingerspeak':'',
-  'Finnari':'',
-  'Frosttongue':'',
-  'Giant':'',
-  'Hearth Elven':'',
-  'Orcish':'',
-  'Saxa':'',
-  'Selari':'',
-  'Taiga Elven':'',
-  'Tuomi':'',
-  'Trader':'',
-  'Vendahl':'',
-  'Vindari':''
+    'Languages="Taiga Elven"'
 };
 // MinStr values taken from SWADE rules
 Hellfrost.SHIELDS = {
@@ -2829,94 +2777,146 @@ Hellfrost.SHIELDS = {
   'Large Shield':'Parry=2 Cover=2 Weight=20 MinStr=8'
 };
 Hellfrost.SKILLS_ADDED = {
-  'Druidism':'Attribute=smarts',
-  'Elementalism':'Attribute=smarts',
-  'Glamour':'Attribute=smarts',
-  'Heahwisardry':'Attribute=smarts',
-  'Hrimwisardry':'Attribute=smarts',
-  'Armor-Rune':'Attribute=smarts',
-  'Arrow-Rune':'Attribute=smarts',
-  'Battle-Rune':'Attribute=smarts',
-  'Beast-Rune':'Attribute=smarts',
-  'Blessing-Rune':'Attribute=smarts',
-  'Calming-Rune':'Attribute=smarts',
-  'Change-Rune':'Attribute=smarts',
-  'Charm-Rune':'Attribute=smarts',
-  'Coldfire-Rune':'Attribute=smarts',
-  'Curse-Rune':'Attribute=smarts',
-  'Cut-Rune':'Attribute=smarts',
-  'Dispel-Rune':'Attribute=smarts',
-  'Earth-Rune':'Attribute=smarts',
-  'Elemental-Rune':'Attribute=smarts',
-  'Glow-Rune':'Attribute=smarts',
-  'Healing-Rune':'Attribute=smarts',
-  'Secret-Rune':'Attribute=smarts',
-  'Shield-Rune':'Attribute=smarts',
-  'Tongue-Rune':'Attribute=smarts',
-  'Travel-Rune':'Attribute=smarts',
-  'Weather-Rune':'Attribute=smarts',
-  'Song Magic':'Attribute=smarts',
-  'Solar Magic':'Attribute=smarts',
-  'Soul Binding':'Attribute=smarts',
-  'Knowledge (Alchemy)':'Attribute=smarts',
-  'Knowledge (Craft (Carpentry))':'Attribute=smarts',
-  'Knowledge (Craft (Pottery))':'Attribute=smarts',
-  'Knowledge (Craft (Smithing))':'Attribute=smarts',
-  'Knowledge (Craft (Weaving))':'Attribute=smarts',
-  'Knowledge (Folklore)':'Attribute=smarts',
-  'Knowledge (Heraldry)':'Attribute=smarts',
-  'Knowledge (History)':'Attribute=smarts',
-  'Knowledge (Law)':'Attribute=smarts',
-  'Knowledge (Monsters (Demons))':'Attribute=smarts',
-  'Knowledge (Monsters (Fey))':'Attribute=smarts',
-  'Knowledge (Monsters (Giants))':'Attribute=smarts',
-  'Knowledge (Monsters (Golems))':'Attribute=smarts',
-  'Knowledge (Monsters (Orcs))':'Attribute=smarts',
-  'Knowledge (Monsters (Undead))':'Attribute=smarts',
-  'Knowledge (Religion)':'Attribute=smarts',
-  'Knowledge (Riddles)':'Attribute=smarts',
-  'Knowledge (Siege Artillery)':'Attribute=smarts',
-  'Knowledge (The Seas)':'Attribute=smarts',
-  'Knowledge (%area)':'Attribute=smarts'
+  'Druidism':'Attribute=Smarts',
+  'Elementalism':'Attribute=Smarts',
+  'Glamour':'Attribute=Smarts',
+  'Heahwisardry':'Attribute=Smarts',
+  'Hrimwisardry':'Attribute=Smarts',
+  'Armor-Rune':'Attribute=Smarts',
+  'Arrow-Rune':'Attribute=Smarts',
+  'Battle-Rune':'Attribute=Smarts',
+  'Beast-Rune':'Attribute=Smarts',
+  'Blessing-Rune':'Attribute=Smarts',
+  'Calming-Rune':'Attribute=Smarts',
+  'Change-Rune':'Attribute=Smarts',
+  'Charm-Rune':'Attribute=Smarts',
+  'Coldfire-Rune':'Attribute=Smarts',
+  'Curse-Rune':'Attribute=Smarts',
+  'Cut-Rune':'Attribute=Smarts',
+  'Dispel-Rune':'Attribute=Smarts',
+  'Earth-Rune':'Attribute=Smarts',
+  'Elemental-Rune':'Attribute=Smarts',
+  'Glow-Rune':'Attribute=Smarts',
+  'Healing-Rune':'Attribute=Smarts',
+  'Secret-Rune':'Attribute=Smarts',
+  'Shield-Rune':'Attribute=Smarts',
+  'Tongue-Rune':'Attribute=Smarts',
+  'Travel-Rune':'Attribute=Smarts',
+  'Weather-Rune':'Attribute=Smarts',
+  'Song Magic':'Attribute=Smarts',
+  'Solar Magic':'Attribute=Smarts',
+  'Soul Binding':'Attribute=Smarts',
+  'Knowledge (Alchemy)':'Attribute=Smarts',
+  'Knowledge (Craft (Carpentry))':'Attribute=Smarts',
+  'Knowledge (Craft (Pottery))':'Attribute=Smarts',
+  'Knowledge (Craft (Smithing))':'Attribute=Smarts',
+  'Knowledge (Craft (Weaving))':'Attribute=Smarts',
+  'Knowledge (Folklore)':'Attribute=Smarts',
+  'Knowledge (Heraldry)':'Attribute=Smarts',
+  'Knowledge (History)':'Attribute=Smarts',
+  'Knowledge (Law)':'Attribute=Smarts',
+  'Knowledge (Monsters (Demons))':'Attribute=Smarts',
+  'Knowledge (Monsters (Fey))':'Attribute=Smarts',
+  'Knowledge (Monsters (Giants))':'Attribute=Smarts',
+  'Knowledge (Monsters (Golems))':'Attribute=Smarts',
+  'Knowledge (Monsters (Orcs))':'Attribute=Smarts',
+  'Knowledge (Monsters (Undead))':'Attribute=Smarts',
+  'Knowledge (Religion)':'Attribute=Smarts',
+  'Knowledge (Riddles)':'Attribute=Smarts',
+  'Knowledge (Siege Artillery)':'Attribute=Smarts',
+  'Knowledge (The Seas)':'Attribute=Smarts',
+  // Regions
+  'Knowledge (Hearthlands)':'Attribute=Smarts',
+  'Knowledge (Hellfrost)':'Attribute=Smarts',
+  'Knowledge (High Winterlands)':'Attribute=Smarts',
+  'Knowledge (Low Winterlands)':'Attribute=Smarts',
+  'Knowledge (Outer Hellfrost)':'Attribute=Smarts',
+  /*
+  // Knowledge skills for individual areas below? Seems like clutter.
+  'Knowledge (Alantaris Isle)':'Attribute=Smarts',
+  'Knowledge (Angarion)':'Attribute=Smarts',
+  'Knowledge (Angmark)':'Attribute=Smarts',
+  'Knowledge (Aspiria)':'Attribute=Smarts',
+  'Knowledge (The Battlelands)':'Attribute=Smarts',
+  'Knowledge (Barony Of Blackstone)':'Attribute=Smarts',
+  'Knowledge (The Borderlands)':'Attribute=Smarts',
+  'Knowledge (Cairn Lands)':'Attribute=Smarts',
+  'Knowledge (Chalis)':'Attribute=Smarts',
+  'Knowledge (Coglelund)':'Attribute=Smarts',
+  'Knowledge (Crystalflow Confederacy)':'Attribute=Smarts',
+  'Knowledge (Barony Of Cul)':'Attribute=Smarts',
+  'Knowledge (Drachenlands)':'Attribute=Smarts',
+  'Knowledge (Dwarf Cities)':'Attribute=Smarts',
+  'Knowledge (Freelands)':'Attribute=Smarts',
+  'Knowledge (Freetown)':'Attribute=Smarts',
+  'Knowledge (Frozen Forest)':'Attribute=Smarts',
+  "Knowledge (Giant's Throne)":'Attribute=Smarts',
+  'Knowledge (Glittersands)':'Attribute=Smarts',
+  'Knowledge (The Great Swamp)':'Attribute=Smarts',
+  'Knowledge (Heldalund)':'Attribute=Smarts',
+  'Knowledge (Heligioland)':'Attribute=Smarts',
+  'Knowledge (Hrimthyr Isle)':'Attribute=Smarts',
+  'Knowledge (Icedale Freeholds)':'Attribute=Smarts',
+  'Knowledge (Isle Of The Seareavers)':'Attribute=Smarts',
+  'Knowledge (Lakeland)':'Attribute=Smarts',
+  'Knowledge (Liche Lands Of Old)':'Attribute=Smarts',
+  'Knowledge (The Magocracy)':'Attribute=Smarts',
+  'Knowledge (Midmark)':'Attribute=Smarts',
+  'Knowledge (The Mistlands)':'Attribute=Smarts',
+  'Knowledge (Nerenel)':'Attribute=Smarts',
+  'Knowledge (Nordmark)':'Attribute=Smarts',
+  'Knowledge (Orcmark)':'Attribute=Smarts',
+  'Knowledge (Ostmark)':'Attribute=Smarts',
+  'Knowledge (Rimeholm)':'Attribute=Smarts',
+  'Knowledge (Royalmark)':'Attribute=Smarts',
+  'Knowledge (Seithrby)':'Attribute=Smarts',
+  'Knowledge (Shattered Moor)':'Attribute=Smarts',
+  'Knowledge (Sunken Realm)':'Attribute=Smarts',
+  'Knowledge (Sutmark)':'Attribute=Smarts',
+  'Knowledge (Tethilin)':'Attribute=Smarts',
+  'Knowledge (Barony Of Trond)':'Attribute=Smarts',
+  'Knowledge (Unclaimed Lands)':'Attribute=Smarts',
+  'Knowledge (The Vale)':'Attribute=Smarts',
+  'Knowledge (Veermark)':'Attribute=Smarts',
+  'Knowledge (Vestmark)':'Attribute=Smarts',
+  'Knowledge (Witchwood)':'Attribute=Smarts',
+  'Knowledge (Withered Lands)':'Attribute=Smarts'
+  */
 };
-Hellfrost.SKILLS = Object.assign({}, SWD.SKILLS, Hellfrost.SKILLS_ADDED);
-delete Hellfrost.SKILLS.Driving;
-delete Hellfrost.SKILLS.Electronics;
-delete Hellfrost.SKILLS.Hacking;
+Hellfrost.SKILLS = Object.assign(Object.fromEntries(Object.entries(SWD.SKILLS).filter(([k, v]) => !v.includes('Era') || v.match(/Era=[\w,]*Medieval/))), Hellfrost.SKILLS_ADDED);
 delete Hellfrost.SKILLS['Knowledge (Language (%language))'];
 delete Hellfrost.SKILLS['Language (%language)'];
-delete Hellfrost.SKILLS.Piloting;
 delete Hellfrost.SKILLS['Weird Science'];
 Hellfrost.WEAPONS = {
-  'Unarmed':'Damage=Str+d0 Weight=0 Category=Un',
-  'Antler Staff':'Damage=Str+d6 Weight=10 Category=2h Parry=1',
-  'Bear Claw':'Damage=Str+d4 Weight=8 Category=1h Parry=1',
-  'Double Toothpick':'Damage=Str+d6 Weight=5 Category=1h',
-  'Twin Toothpick':'Damage=Str+d8 Weight=5 Category=1h',
-  'Boot Spikes':'Damage=Str+d4 Weight=3 Category=Un',
-  'Dagger':'Damage=Str+d4 Weight=1 Category=1h',
-  'Flail':'Damage=Str+d6 Weight=8 Category=1h',
-  'Great Sword':'Damage=Str+d10 Weight=12 Category=2h Parry=-1',
-  'Long Sword':'Damage=Str+d8 Weight=8 Category=1h',
-  'Short Sword':'Damage=Str+d6 Weight=4 Category=1h',
-  'Axe':'Damage=Str+d6 Weight=2 Category=1h',
-  'Battle Axe':'Damage=Str+d8 Weight=10 Category=1h',
-  'Great Axe':'Damage=Str+d10 Weight=15 Category=2h Parry=-1',
-  'Mace':'Damage=Str+d6 Weight=4 Category=1h',
-  'Maul':'Damage=Str+d8 Weight=20 Category=2h Parry=-1 AP=2',
-  'Warhammer':'Damage=Str+d6 Weight=8 Category=1h AP=1',
-  'Halberd':'Damage=Str+d8 Weight=15 Category=2h',
-  'Lance':'Damage=Str+d8 Weight=10 Category=2h AP=2',
-  'Pike':'Damage=Str+d8 Weight=25 Category=2h',
-  'Long Spear':'Damage=Str+d6 Weight=5 Category=2h Parry=1',
-  'Short Spear':'Damage=Str+d6 Weight=3 Category=1h Range=3',
-  'Staff':'Damage=Str+d4 Weight=8 Category=2h Parry=1',
-  'Throwing Axe':'Damage=Str+d6 Weight=2 Category=1h Range=3',
-  'Bow':'Damage=2d6 MinStr=6 Weight=3 Category=R Range=12',
-  'Long Bow':'Damage=2d6 MinStr=8 Weight=5 Category=R Range=15',
-  'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=R Range=15 AP=2',
-  'Sling':'Damage=Str+d4 Weight=1 Category=1h Range=4',
-  'Throwing Knife':'Damage=Str+d4 Weight=1 Category=1h Range=3'
+  'Unarmed':'Damage=Str+d0 Weight=0 Category=Unarmed',
+  'Antler Staff':'Damage=Str+d6 Weight=10 Category=Two-Handed Parry=1',
+  'Bear Claw':'Damage=Str+d4 Weight=8 Category=One-Handed Parry=1',
+  'Double Toothpick':'Damage=Str+d6 Weight=5 Category=One-Handed',
+  'Twin Toothpick':'Damage=Str+d8 Weight=5 Category=One-Handed',
+  'Boot Spikes':'Damage=Str+d4 Weight=3 Category=Unarmed',
+  'Dagger':'Damage=Str+d4 Weight=1 Category=One-Handed',
+  'Flail':'Damage=Str+d6 Weight=8 Category=One-Handed',
+  'Great Sword':'Damage=Str+d10 Weight=12 Category=Two-Handed Parry=-1',
+  'Long Sword':'Damage=Str+d8 Weight=8 Category=One-Handed',
+  'Short Sword':'Damage=Str+d6 Weight=4 Category=One-Handed',
+  'Axe':'Damage=Str+d6 Weight=2 Category=One-Handed',
+  'Battle Axe':'Damage=Str+d8 Weight=10 Category=One-Handed',
+  'Great Axe':'Damage=Str+d10 Weight=15 Category=Two-Handed Parry=-1',
+  'Mace':'Damage=Str+d6 Weight=4 Category=One-Handed',
+  'Maul':'Damage=Str+d8 Weight=20 Category=Two-Handed Parry=-1 AP=2',
+  'Warhammer':'Damage=Str+d6 Weight=8 Category=One-Handed AP=1',
+  'Halberd':'Damage=Str+d8 Weight=15 Category=Two-Handed',
+  'Lance':'Damage=Str+d8 Weight=10 Category=Two-Handed AP=2',
+  'Pike':'Damage=Str+d8 Weight=25 Category=Two-Handed',
+  'Long Spear':'Damage=Str+d6 Weight=5 Category=Two-Handed Parry=1',
+  'Short Spear':'Damage=Str+d6 Weight=3 Category=One-Handed Range=3',
+  'Staff':'Damage=Str+d4 Weight=8 Category=Two-Handed Parry=1',
+  'Throwing Axe':'Damage=Str+d6 Weight=2 Category=One-Handed Range=3',
+  'Bow':'Damage=2d6 MinStr=6 Weight=3 Category=Ranged Range=12',
+  'Long Bow':'Damage=2d6 MinStr=8 Weight=5 Category=Ranged Range=15',
+  'Crossbow':'Damage=2d6 MinStr=6 Weight=10 Category=Ranged Range=15 AP=2',
+  'Sling':'Damage=Str+d4 Weight=1 Category=One-Handed Range=4',
+  'Throwing Knife':'Damage=Str+d4 Weight=1 Category=One-Handed Range=3'
 };
 
 Hellfrost.SWD2SWADE = function(table) {
@@ -2960,6 +2960,12 @@ Hellfrost.SWD2SWADE = function(table) {
   return result;
 };
 
+/* Defines rules related to powers. */
+Hellfrost.arcaneRules = function(rules, arcanas, powers) {
+  rules.basePlugin.arcaneRules(rules, arcanas, powers);
+  // No changes needed to the rules defined by base method
+};
+
 /* Defines the rules related to character attributes and description. */
 Hellfrost.attributeRules = function(rules) {
   rules.basePlugin.attributeRules(rules);
@@ -2974,32 +2980,32 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 
 /* Defines rules related to basic character identity. */
 Hellfrost.identityRules = function(rules, races, concepts, deities) {
-  rules.basePlugin.identityRules(rules, races, {}, concepts, deities);
-  // No changes needed to the rules defined by base method
-};
-
-/* Defines rules related to powers. */
-Hellfrost.arcaneRules = function(rules, arcanas, powers) {
-  rules.basePlugin.arcaneRules(rules, arcanas, powers);
-  // No changes needed to the rules defined by base method
+  rules.basePlugin.identityRules(rules, {}, {}, concepts);
+  QuilvynUtils.checkAttrTable(deities, []);
+  QuilvynUtils.checkAttrTable(races, ['Requires', 'Features', 'Languages']);
+  for(let d in deities) {
+    rules.choiceRules(rules, 'Deity', d, deities[d]);
+  }
+  for(let r in races) {
+    rules.choiceRules(rules, 'Race', r, races[r]);
+  }
+  rules.defineEditorElement
+    ('deity', 'Deity', 'select-one', 'deity', 'origin');
+  rules.defineSheetElement('Deity', 'Origin', '<b>Deity</b>: %V');
 };
 
 /* Defines rules related to character aptitudes. */
 Hellfrost.talentRules = function(
-  rules, edges, features, goodies, hindrances, languages, skills, glorys,
-  areas
+  rules, edges, features, goodies, hindrances, skills, languages, glories
 ) {
-  // Need to define areas before skills for expansion of Knowledge (%area)
-  QuilvynUtils.checkAttrTable(areas, []);
-  for(let area in areas) {
-    rules.choiceRules(rules, 'Area', area, areas[area]);
+  rules.basePlugin.talentRules(rules, edges, features, goodies, hindrances, skills);
+  QuilvynUtils.checkAttrTable(glories, ['Require']);
+  QuilvynUtils.checkAttrTable(languages, []);
+  for(let g in glories) {
+    rules.choiceRules(rules, 'Glory', g, glories[g]);
   }
-  rules.basePlugin.talentRules
-    (rules, edges, features, goodies, hindrances, languages, skills);
-  // No changes needed to the rules defined by base method
-  QuilvynUtils.checkAttrTable(glorys, ['Require']);
-  for(let glory in glorys) {
-    rules.choiceRules(rules, 'Glory', glory, glorys[glory]);
+  for(let l in languages) {
+    rules.choiceRules(rules, 'Language', l, languages[l]);
   }
   rules.defineRule('gloryPoints', 
     'glory', '=', 'source >= 20 ? Math.floor(source / 20) : null'
@@ -3018,7 +3024,7 @@ Hellfrost.talentRules = function(
   QuilvynRules.validAllocationRules
     (rules, 'gloryBenefit', 'gloryPoints', 'Sum "^glorys\\."');
   rules.defineEditorElement
-    ('languages', 'Languages', 'set', 'languages', 'deity');
+    ('languages', 'Languages', 'set', 'languages', 'origin');
   rules.defineSheetElement('Languages', 'Skills+', null, '; ');
 };
 
@@ -3032,8 +3038,6 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'Skill'),
       QuilvynUtils.getAttrValueArray(attrs, 'Powers')
     );
-  else if(type == 'Area')
-    Hellfrost.areaRules(rules, name);
   else if(type == 'Armor')
     Hellfrost.armorRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Area'),
@@ -3126,11 +3130,9 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     console.log('Unknown choice type "' + type + '"');
     return;
   }
-  if(type != 'Feature') {
-    type =
-      type.charAt(0).toLowerCase() + type.substring(1).replaceAll(' ', '') + 's';
-    rules.addChoice(type, name, attrs);
-  }
+  type =
+    type.charAt(0).toLowerCase() + type.substring(1).replaceAll(' ', '') + 's';
+  rules.addChoice(type, name, attrs);
 };
 
 /*
@@ -3154,15 +3156,6 @@ Hellfrost.arcanaRules = function(rules, name, skill, powers) {
   }
 };
 
-/* Defines in #rules# the rules associated with area #name#. */
-Hellfrost.areaRules = function(rules, name) {
-  if(!name) {
-    console.log('Empty area name');
-    return;
-  }
-  // No rules pertain to area
-};
-
 /*
  * Defines in #rules# the rules associated with armor #name#, which covers the
  * body areas listed in #areas#, adds #armor# to the character's Toughness,
@@ -3173,7 +3166,6 @@ Hellfrost.armorRules = function(rules, name, areas, armor, minStr, weight) {
     minStr = 0;
   rules.basePlugin.armorRules
     (rules, name, ['Medieval'], areas, armor, minStr, weight);
-  // No changes needed to the rules defined by base method
   rules.defineChoice('notes',
     'sanityNotes.blessedArmor:' +
       'Blessed Armor benefits require Arcane Background (Miracles)',
@@ -3205,8 +3197,6 @@ Hellfrost.conceptRules = function(rules, name, attributes, edges, skills) {
 
 /* Defines in #rules# the rules associated with deity #name#. */
 Hellfrost.deityRules = function(rules, name) {
-  rules.basePlugin.deityRules(rules, name);
-  // No changes needed to the rules defined by base method
   if(name != 'None') {
     rules.defineRule('features.Arcane Background (Miracles (' + name + '))',
       'features.Arcane Background (Miracles)', '?', null,
@@ -3222,8 +3212,7 @@ Hellfrost.deityRules = function(rules, name) {
  */
 Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
   rules.basePlugin.edgeRules(rules, name, requires, implies, types);
-  // No changes needed to the rules defined by base method
-  // Add backdoor to allow testing multiple disciple edges w/1 character
+  // Add a backdoor to allow testing multiple disciple edges w/1 character
   if(requires.filter(x => x.includes('deity')).length > 0) {
     let note = 'validationNotes.' + name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Edge';
     rules.defineRule(note,
@@ -3363,7 +3352,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     let allWeapons = rules.getChoices('weapons');
     for(let w in allWeapons) {
       if(allWeapons[w].includes('Range') &&
-         !allWeapons[w].includes('Category=R'))
+         !allWeapons[w].includes('Category=Ranged'))
         rules.defineRule
           ('weapons.' + w + '.6', 'combatNotes.mightyThrow', '+', '1');
     }
@@ -3397,12 +3386,12 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
       'combatNotes.improvedSunder', '+', '1'
     );
   } else if(name == 'Tactician') {
-    // empty; overrides basePlugin computation
+    // empty; overrides plugin computation
   } else if(name == 'Wood Warden') {
     rules.defineRule('powers.Beast Friend', 'features.Wood Warden', '=', '1');
   } else if(name == 'World-Wise') {
     rules.defineRule('skillPoints', 'skillNotes.world-Wise', '+', '5');
-  } else {
+  } else if(rules.basePlugin.edgeRulesExtra) {
     rules.basePlugin.edgeRulesExtra(rules, name);
   }
 };
@@ -3506,14 +3495,18 @@ Hellfrost.hindranceRules = function(rules, name, requires, severity) {
  * derived directly from the attributes passed to hindranceRules.
  */
 Hellfrost.hindranceRulesExtra = function(rules, name) {
-  rules.basePlugin.hindranceRulesExtra(rules, name);
+  if(rules.basePlugin.hindranceRulesExtra)
+    rules.basePlugin.hindranceRulesExtra(rules, name);
   // No changes needed to the rules defined by base method
 };
 
 /* Defines in #rules# the rules associated with language #name#. */
 Hellfrost.languageRules = function(rules, name) {
-  rules.basePlugin.languageRules(rules, name);
-  // No changes needed to the rules defined by base method
+  if(!name) {
+    console.log('Empty language name');
+    return;
+  }
+  // No rules pertain to language
 };
 
 /*
@@ -3538,14 +3531,10 @@ Hellfrost.powerRules = function(
  * #languages# any automatic languages.
  */
 Hellfrost.raceRules = function(rules, name, requires, features, languages) {
-  rules.basePlugin.raceRules(rules, name, requires, features, []);
-  // No changes needed to the rules defined by base method
+  rules.basePlugin.raceRules(rules, name, requires, features);
   let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   let raceAdvances = prefix + 'Advances';
-  for(let i = 0; i < languages.length; i++) {
-    rules.defineRule('languages.' + languages[i], raceAdvances, '=', '1');
-  }
 };
 
 /*
@@ -3579,7 +3568,7 @@ Hellfrost.shieldRules = function(rules, name, parry, cover, minStr, weight) {
  * #attribute# (one of 'agility', 'spirit', etc.).
  */
 Hellfrost.skillRules = function(rules, name, attribute, core) {
-  rules.basePlugin.skillRules(rules, name, attribute, core, []);
+  rules.basePlugin.skillRules(rules, name, ['Medieval'], attribute, core);
   // No changes needed to the rules defined by base method
 };
 
@@ -3610,10 +3599,10 @@ Hellfrost.weaponRules = function(
  * item to #rules#.
  */
 Hellfrost.choiceEditorElements = function(rules, type) {
-  if(type == 'Area')
-    return [];
-  else if(type == 'Glory')
+  if(type == 'Glory')
     return [['Require', 'Prerequisites', 'text', [40]]];
+  else if(type == 'Language')
+    return [];
   else
     return rules.basePlugin.choiceEditorElements(rules, type);
 };
@@ -3629,16 +3618,27 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   let matchInfo;
 
   if(attribute == 'languages') {
-    howMany = attrs.smarts / 2;
-    if(attrs['features.Linguist'])
-      howMany = attrs.smarts;
+    howMany =
+      attrs['features.Linguist'] ? attrs.smarts : Math.floor(attrs.smarts / 2);
     choices = [];
-    for(attr in this.getChoices('languages')) {
-      if('languages.' + attr in attrs)
+    for(let l in this.getChoices('languages')) {
+      if('languages.' + l in attrs)
         howMany--;
       else
-        choices.push(attr);
+        choices.push(l);
     }
+    let allRaces = this.getChoices('races');
+    let racialLanguages = [];
+    if(allRaces && attrs.race && allRaces[attrs.race])
+      racialLanguages =
+        QuilvynUtils.getAttrValueArray(allRaces[attrs.race], 'Languages');
+    racialLanguages.forEach(l => {
+      if(howMany > 0 && choices.includes(l)) {
+        attributes['languages.' + l] = 1;
+        howMany--;
+        choices = choices.filter(x => x != l);
+      }
+    });
     while(howMany > 0) {
       i = QuilvynUtils.random(0, choices.length - 1);
       attributes['languages.' + choices[i]] = 1;
@@ -3694,12 +3694,7 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   if(attribute == 'skills' && attrs['features.World-Wise'] != null) {
     howMany = 5;
     choices = [];
-    let allAreas = this.getChoices('areas');
     for(attr in this.getChoices('skills')) {
-      matchInfo = attr.match(/^Knowledge .(.*).$/);
-      if(!matchInfo || !(matchInfo[1] in allAreas))
-        continue;
-      choices.push(attr);
       if(('skillAllocation.' + attr) in attributes)
         howMany -= attributes['skillAllocation.' + attr];
     }
@@ -3810,20 +3805,23 @@ Hellfrost.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '    Quilvyn calculates and reports Power Points for those who want to\n' +
-    '    use the power mechanics from the base rules. Edges that affect\n' +
-    '    power points (Rapid Recharge, Soul Drain, etc.) are also available.\n'+
-    '    Power Point costs of Hellfrost spells are estimated by comparison\n' +
-    '    with spells of similar power from the base rules.\n' +
+    '  Quilvyn calculates and reports Power Points for those who want to' +
+    '  use the power mechanics from the base rules. Edges that affect' +
+    '  power points (Rapid Recharge, Soul Drain, etc.) are also available.'+
+    '  Power Point costs of Hellfrost spells are estimated by comparison' +
+    '  with spells of similar power from the base rules.\n' +
     '  </li><li>\n' +
-    '    The SWADE Hellfrost implementation uses a simple transition of SWD\n' +
-    '    rules to SWADE rules, largely limited to a translation of skills.\n' +
-    '    It will be replaced once an official adaptation of Hellfrost to\n' +
-    '    SWADE becomes available.\n' +
+    '  The SWADE Hellfrost implementation uses a simple transition of SWD' +
+    '  rules to SWADE rules, largely limited to a translation of skills.' +
+    '  It will be replaced once an official adaptation of Hellfrost to' +
+    '  SWADE becomes available.\n' +
     '  </li><li>\n' +
-    '    Instead of using the New Power edge with rune magic, Quilvyn\n' +
-    '    defines a separate New Rune edge that gives rune mages access to\n' +
-    '    additional runes.\n' +
+    '  Instead of using the New Power edge with rune magic, Quilvyn' +
+    '  defines a separate New Rune edge that gives rune mages access to' +
+    '  additional runes.\n' +
+    '  </li><li>\n' +
+    '  Discussion of adding different types of homebrew options to the' +
+    '  Hellfrost rule set can be found in <a href="plugins/homebrew-hellfrost.html">Hellfrost Homebrew Examples</a>.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
