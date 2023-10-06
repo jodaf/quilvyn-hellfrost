@@ -88,6 +88,10 @@ function Hellfrost(baseRules) {
   delete Hellfrost.EDGES['Two-Gun Kid'];
   Hellfrost.FEATURES =
     Object.assign({}, rules.basePlugin.FEATURES, Hellfrost.FEATURES_ADDED);
+  Hellfrost.FEATURES['Arcane Background (Miracles)'] =
+    Hellfrost.FEATURES['Arcane Background (Miracles)'].
+      replace('Section=', 'Section=feature,').
+      replace('Note=', 'Note="Has Connections and Orders features",');
   Hellfrost.GOODIES = Object.assign({}, rules.basePlugin.GOODIES);
   Hellfrost.HINDRANCES =
     Object.assign({}, rules.basePlugin.HINDRANCES, Hellfrost.HINDRANCES_ADDED);
@@ -1640,12 +1644,14 @@ Hellfrost.FEATURES_ADDED = {
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
-    'Section=combat Note="Staff inflicts d%{strength}%1+d%2 damage w/AP %3"',
+    'Section=combat ' +
+    'Note="Staff inflicts d%{strength}%{strengthModifier>0?\'+\'+strengthModifier:strengthModifier<0?strengthModifier:\'\'}+d%{$\'features.Augment Staff (Damage)\'*2+4} damage w/AP %{$\'features.Augment Staff (Damage)\'}"',
   'Augment Staff (Deflect)':
-    'Section=combat Note="Foes suffer %1 ranged attacks"',
+    'Section=combat ' +
+    'Note="Foes suffer -%{$\'features.Augment Staff (Deflect)\'} ranged attacks"',
   'Augment Staff (Spell Store)':
     'Section=arcana ' +
-    'Note="Staff can store %1 known spell that may be cast at +2"',
+    'Note="Staff can store %{$\'features.Augment Staff (Spell Store)\'} known spell that may be cast at +2"',
   'Bastion Of Strength':
     'Section=combat ' +
     'Note="Adjacent allies share Censure Demons and Watcher Of The Black Gate features and Spirit resistance vs. demon fear and Intimidation"',
@@ -1658,7 +1664,7 @@ Hellfrost.FEATURES_ADDED = {
   'Bludgeoner':'Section=combat,combat,skill ' +
     'Note=' +
       '"+%V sling range",' +
-      '"Sling inflicts d%{strength}%1+d6 damage at short range",' +
+      '"Sling inflicts d%{strength}%{strengthModifier>0?\'+\'+strengthModifier:strengthModifier<0?strengthModifier:\'\'}+d6 damage at short range",' +
       '"+1 Charisma (engros)"',
   'Bodyguard':'Section=combat Note="May share Parry with adjacent ally"',
   'Born In Battle':
@@ -1676,7 +1682,9 @@ Hellfrost.FEATURES_ADDED = {
   'Courageous':
     'Section=attribute Note="+2 vs. fear and -2 on fear table rolls"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
-  'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
+  'Concentration':
+    'Section=arcana ' +
+    'Note="+%{arcanaNotes.improvedConcentration?4:2} to resist spell disruption"',
   'Coordinated Firepower':
     'Section=combat ' +
     'Note="R%{commandRange}\\" Simultaneous ranged attacks by commanded at a single target gain +2 attack per person"',
@@ -1784,9 +1792,9 @@ Hellfrost.FEATURES_ADDED = {
   'Doomsman':
     'Section=skill ' +
     'Note="+2 Charisma (community)/+2 Knowledge (Law) (evidence)/+2 Smarts (evidence)"',
-  'Double Shot':'Section=combat Note="May fire two arrows at one target%1"',
+  'Double Shot':'Section=combat Note="May fire two arrows at one target%{combatNotes.improvedDoubleShot?\'\':\' at -2 attack\'}"',
   'Double The Load':
-    'Section=combat Note="May sling two stones simultaneously%1"',
+    'Section=combat Note="May sling two stones simultaneously%{combatNotes.improvedDoubleTheLoad?\'\':\' at -2 attack\'}"',
   'Dragon Guard':
     'Section=feature ' +
     'Note="Has Arcane Resistance, Favored Foe, and Giant Killer features with marsh dragons and marsh orms"',
@@ -1797,7 +1805,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="+1 Climbing (underground)/+1 Stealthy (underground)/+1 Survival (underground)/-1 Size for squeezing into tight spaces"',
   'Elemental Mastery':
     'Section=arcana ' +
-    'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
+    'Note="Knows spells from %V Elementalism disciplines, casts at -%{$\'edges.Elemental Mastery\'!=3?$\'edges.Elemental Mastery\':0}"',
   'Elite Huscarl Of Hammerhand':
     'Section=combat Note="May throw a warhammer to strike all in a 1\\" line"',
   'Enhanced Maintenance':
@@ -1817,7 +1825,7 @@ Hellfrost.FEATURES_ADDED = {
     'Note="May run during Defend and move full Pace during Full Defense"',
   'Focus':
     'Section=arcana ' +
-    'Note="May attempt an immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
+    'Note="May attempt an immediate Spirit%{arcanaNotes.improvedFocus?\'\':-2} roll to recover from Shaken due to spell failure or siphoning"',
   'Forced March':'Section=combat Note="May share running die w/commanded"',
   'Giant Blood':
     'Section=attribute,combat,description,feature ' +
@@ -1890,7 +1898,7 @@ Hellfrost.FEATURES_ADDED = {
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
   'Library':'Section=skill Note="+%V Skill Points (choice of Knowledge)"',
-  'Linguist':'Section=skill Note="Knows %V languages"',
+  'Linguist':'Section=skill Note="Knows %{smarts} languages"',
   'Lorekeeper':
     'Section=skill ' +
     'Note="May attempt untrained Knowledge skills at d4-2 and other untrained Smarts skills at d4"',
@@ -1907,7 +1915,7 @@ Hellfrost.FEATURES_ADDED = {
       '"Ignores 2 penalty points on Boating"',
   'Master Storyteller':
     'Section=feature ' +
-    'Note="Story subjects use d8%1 for Glory awards and suffer no penalty for critical failure"',
+    'Note="Story subjects use d8%{featureNotes.legendaryStoryteller?\' (Raise +1d8 each)\':\'\'} for Glory awards and suffer no penalty for critical failure"',
   'Merman Blood':
     'Section=combat,skill ' +
     'Note=' +
@@ -1978,7 +1986,8 @@ Hellfrost.FEATURES_ADDED = {
       '"+2 Survival/+2 Tracking",' +
       '"+2 Notice (wilderness ambushes, traps, and concealed weapons)"',
   'Runic Insight':
-    'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
+    'Section=arcana ' +
+    'Note="+1 casting on spells of %{$\'features.Runic Insight\'} chosen runes"',
   'Running Throw':
     'Section=combat Note="+2 thrown weapon range after moving half Pace"',
   'Salmon Leap':
@@ -2008,7 +2017,9 @@ Hellfrost.FEATURES_ADDED = {
   'Sister Superior':
     'Section=skill ' +
     'Note="Successful Healing-2 immediately after an allied Extra takes a wound reduces it to Shaken"',
-  'Snow Walker':'Section=combat Note="May move %V over snow and ice"',
+  'Snow Walker':
+    'Section=combat ' +
+    'Note="May move %{combatNotes.improvedSnowWalker?\'full\':\'2/3\'} Pace over snow and ice"',
   'Spear Catch':
     'Section=combat ' +
     'Note="Successful Agility catches thrown spear (Raise allows return throw) 1/rd"',
@@ -2035,7 +2046,7 @@ Hellfrost.FEATURES_ADDED = {
   'Steal Away':
     'Section=combat Note="Successful Stealth allows withdrawal without attack"',
   'Styrimathr':'Section=feature Note="Owns a Smabyrding"',
-  'Sunder':'Section=combat Note="+%V AP with any weapon"',
+  'Sunder':'Section=combat Note="+%{combatNotes.improvedSunder?2:1} AP with any weapon"',
   'Tactician':
     'Section=combat ' +
     'Note="R%{commandRange}\\" Successful Knowledge (Battle) before combat gives 1 Action Card per success and Raise to distribute to commanded extras"',
@@ -2057,8 +2068,10 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Can speak with normal animals/Casts <i>Beast Friend</i> at +2"',
   'World-Wise':
-    'Section=skill ' +
-    'Note="+5 Skill Points (Knowledge (3+ areas))/May attempt unskilled Knowledge (area) rolls"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+5 Skill Points (Knowledge (3+ areas))",' +
+      '"May attempt unskilled Knowledge (area) rolls"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
@@ -2145,6 +2158,10 @@ Hellfrost.FEATURES_ADDED = {
 
 };
 Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
+Hellfrost.FEATURES['Arcane Background (Miracles)'] =
+  Hellfrost.FEATURES['Arcane Background (Miracles)'].
+    replace('Section=', 'Section=feature,').
+    replace('Note=', 'Note="Has Connections and Orders features",');
 Hellfrost.GLORYS = {
   'Combat Prowess':'Require="glory >= 40"',
   'Connections':'Require="glory >= 20"',
@@ -3291,77 +3308,31 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule('edgePoints', 'elementalismCount', '+', null);
   } else if(name == 'Arcane Background (Miracles)') {
     rules.defineRule('features.Connections',
-      'features.Arcane Background (Miracles)', '=', '1'
+      'featureNotes.arcaneBackground(Miracles)', '=', '1'
     );
     rules.defineRule
-      ('features.Orders', 'features.Arcane Background (Miracles)', '=', '1');
+      ('features.Orders', 'featureNotes.arcaneBackground(Miracles)', '=', '1');
   } else if(name == 'Arcane Background (Rune Magic)') {
     rules.defineRule
       ('runeCount', 'arcanaNotes.arcaneBackground(RuneMagic)', '=', '1');
     rules.defineRule('edgePoints', 'runeCount', '+', null);
-  } else if(name == 'Augment Staff (Damage)') {
-    rules.defineRule('combatNotes.augmentStaff(Damage).1',
-      'features.Augment Staff (Damage)', '?', null,
-      'strengthModifier', '=', 'source<0 ? source : source>0 ? "+" + source : ""'
-    );
-    rules.defineRule('combatNotes.augmentStaff(Damage).2',
-      'features.Augment Staff (Damage)', '=', '4 + source * 2'
-    );
-    rules.defineRule('combatNotes.augmentStaff(Damage).3',
-      'features.Augment Staff (Damage)', '=', null
-    );
-  } else if(name == 'Augment Staff (Deflect)') {
-    rules.defineRule('combatNotes.augmentStaff(Deflect).1',
-      'features.Augment Staff (Deflect)', '=', '-source'
-    );
-  } else if(name == 'Augment Staff (Spell Store)') {
-    rules.defineRule('arcanaNotes.augmentStaff(SpellStore).1',
-      'features.Augment Staff (Spell Store)', '=', null
-    );
   } else if(name == 'Bludgeoner') {
     rules.defineRule
       ('combatNotes.bludgeoner', 'advances', '=', 'Math.floor(source/4) + 1');
-    rules.defineRule('combatNotes.bludgeoner-1.1',
-      'features.Bludgeoner', '?', null,
-      'strengthModifier', '=', 'source<0 ? source : source>0 ? "+"+source : ""'
-    );
     rules.defineRule('range.Sling', 'combatNotes.bludgeoner', '+', null);
-  } else if(name == 'Concentration') {
-    rules.defineRule('arcanaNotes.concentration',
-      '', '=', '2',
-      'arcanaNotes.improvedConcentration', '+', '2'
-    );
   } else if(name == 'Disciple Of Eostre Animalmother') {
     rules.defineRule('features.Beast Master',
-      'features.Disciple Of Eostre Animalmother', '=', '1'
-    );
-  } else if(name == 'Double Shot') {
-    rules.defineRule('combatNotes.doubleShot.1',
-      'features.Double Shot', '=', '" at -2 attack"',
-      'combatNotes.improvedDoubleShot', '=', '""'
-    );
-  } else if(name == 'Double The Load') {
-    rules.defineRule('combatNotes.doubleTheLoad.1',
-      'features.Double The Load', '=', '" at -2 attack"',
-      'combatNotes.improvedDoubleTheLoad', '=', '""'
+      'featureNotes.discipleOfEostreAnimalmother', '=', '1'
     );
   } else if(name == 'Elemental Mastery') {
     rules.defineRule('arcanaNotes.elementalMastery',
       'edges.Elemental Mastery', '=', 'source + 1'
-    );
-    rules.defineRule('arcanaNotes.elementalMastery.1',
-      'edges.Elemental Mastery', '=', 'source == 3 ? "-0" : -source'
     );
     rules.defineRule
       ('elementalismCount', 'arcanaNotes.elementalMastery', '+', 'source - 1');
   } else if((matchInfo = name.match(/Elementalism \((.*)\)/)) != null) {
     rules.defineRule('features.Arcane Background (' + name + ')',
       'features.' + name, '=', '1'
-    );
-  } else if(name == 'Focus') {
-    rules.defineRule('arcanaNotes.focus.1',
-      'features.Focus', '=', '"-2 "',
-      'arcanaNotes.improvedFocus', '=', '""'
     );
   } else if(name == 'Giant Blood') {
     rules.defineRule('features.Mean', 'featureNotes.giantBlood', '=', '1');
@@ -3373,13 +3344,6 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule
       ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
     rules.defineRule('skillPoints', 'skillNotes.library', '+', null);
-  } else if(name == 'Linguist') {
-    rules.defineRule('skillNotes.linguist', 'smarts', '=', null);
-  } else if(name == 'Master Storyteller') {
-    rules.defineRule('featureNotes.masterStoryteller.1',
-      'features.Master Storyteller', '=', '""',
-      'featureNotes.legendaryStoryteller', '=', '" (Raise +1d8 each)"'
-    );
   } else if(name == 'Lurker') {
     rules.defineRule('combatNotes.lurker.1',
       'features.Lurker', '?', null,
@@ -3428,26 +3392,12 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     let runePowers = QuilvynUtils.getAttrValueArray(rules.getChoices('arcanas')[name], 'Powers');
     runePowers.forEach
       (x => rules.defineRule('powers.' + x, 'features.' + name, '=', '1'));
-  } else if(name == 'Runic Insight') {
-    rules.defineRule('arcanaNotes.runicInsight.1',
-      'features.Runic Insight', '=', null
-    );
-  } else if(name == 'Snow Walker') {
-    rules.defineRule('combatNotes.snowWalker',
-      '', '=', '"2/3 speed"',
-      'combatNotes.improvedSnowWalker', '=', '"full speed"'
-    );
-  } else if(name == 'Sunder') {
-    rules.defineRule('combatNotes.sunder',
-      '', '=', '1',
-      'combatNotes.improvedSunder', '+', '1'
-    );
-  } else if(name == 'Tactician') {
-    // empty; overrides plugin computation
   } else if(name == 'Wood Warden') {
     rules.defineRule('powers.Beast Friend', 'features.Wood Warden', '=', '1');
   } else if(name == 'World-Wise') {
     rules.defineRule('skillPoints', 'skillNotes.world-Wise', '+', '5');
+  } else if(name == 'Linguist' || name == 'Tactician') {
+    // empty; overrides base plugin computation
   } else if(rules.basePlugin.edgeRulesExtra) {
     rules.basePlugin.edgeRulesExtra(rules, name);
   }
