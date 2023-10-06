@@ -1600,11 +1600,12 @@ Hellfrost.FEATURES_ADDED = {
   'Alchemy':'Section=arcana Note="May create arcane devices for known spells"',
   'Ancestral Guardian':
     'Section=arcana ' +
-    'Note="May spend Benny to cast <i>Aim</i>, <i>Boost Trait</i>, <i>Deflection</i>, <i>Environmental Protection</i>, <i>Farsight</i>, or <i>Warrior\'s Gift</i> on self"',
+    'Note="May spend a Benny to cast <i>Aim</i>, <i>Boost Trait</i>, <i>Deflection</i>, <i>Environmental Protection</i>, <i>Farsight</i>, or <i>Warrior\'s Gift</i> on self"',
   'Arcane Background (Druidism)':
     'Section=arcana,skill ' +
-    'Note="3 Powers/10 Power Points",' +
-         '"+1 Druidism in natural environments, -1 in urban environments"',
+    'Note=' +
+      '"3 Powers/10 Power Points",' +
+      '"+1 Druidism in natural environments, -1 in urban environments"',
   'Arcane Background (Elementalism)':
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Finnar Wind Priest)':
@@ -1613,13 +1614,15 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Heahwisardry)':
     'Section=arcana,skill ' +
-    'Note="3 Powers/10 Power Points",' +
-         '"-2 arcane skill, +1 per extra round taken (+%{smarts//2} max)"',
+    'Note=' +
+      '"3 Powers/10 Power Points",' +
+      '"-2 arcane skill, +1 per extra round taken (+%{smarts//2} max)"',
   'Arcane Background (Hrimwisardry)':
     'Section=arcana,combat,skill ' +
-    'Note="2 Powers/10 Power Points",' +
-         '"-4 damage from cold, +4 from heat",' +
-         '"-2 Charisma (civilized races)/Arcane skill modified by temperature"',
+    'Note=' +
+      '"2 Powers/10 Power Points",' +
+      '"-4 damage from cold, +4 from heat",' +
+      '"-2 Charisma (civilized races)/Hrimwisardry is affected by temperature"',
   'Arcane Background (Rune Magic)':
     'Section=arcana Note="0 Powers/10 Power Points"',
   'Arcane Background (Solar Magic)':
@@ -1628,44 +1631,50 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana Note="3 Powers/10 Power Points"',
   'Arcane Background (Song Magic)':
     'Section=arcana,skill ' +
-    'Note="3 Powers/10 Power Points",' +
-         '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (Folklore)/+1 Knowledge (History)/+1 Knowledge (Riddles)"',
+    'Note=' +
+      '"3 Powers/10 Power Points",' +
+      '"+1 Common Knowledge/+1 Charisma/+1 Knowledge (Folklore)/+1 Knowledge (History)/+1 Knowledge (Riddles)"',
   'Arcane Hand':
     'Section=combat Note="May interrupt foe spellcasting (+2 if on Hold)"',
   'Armor Piercing Shot':'Section=combat Note="+2 AP with bows"',
   'Augment Staff (Aura)':
     'Section=skill Note="Staff gives +2 Intimidation or +2 Persuasion"',
   'Augment Staff (Damage)':
-    'Section=combat Note="Staff does d%{strength}%1+d%2 damage and AP %3"',
+    'Section=combat Note="Staff inflicts d%{strength}%1+d%2 damage w/AP %3"',
   'Augment Staff (Deflect)':
     'Section=combat Note="Foes suffer %1 ranged attacks"',
   'Augment Staff (Spell Store)':
-    'Section=arcana Note="Staff can store %1 known spell(s), cast at +2"',
+    'Section=arcana ' +
+    'Note="Staff can store %1 known spell that may be cast at +2"',
   'Bastion Of Strength':
     'Section=combat ' +
-    'Note="Adjacent allies share Censure Demons and Watcher Of The Black Gate features and Spirit resistance vs. Demon fear and Intimidation"',
+    'Note="Adjacent allies share Censure Demons and Watcher Of The Black Gate features and Spirit resistance vs. demon fear and Intimidation"',
   'Bladedancer':
     'Section=combat ' +
-    'Note="May make -2 attack on every creature adjacent to running path"',
+    'Note="May make a -2 attack on every creature adjacent to running path"',
   'Blood And Guts':
     'Section=combat ' +
-    'Note="Halves negative difference between tokens when attacking in mass battle"',
-  'Bludgeoner':'Section=combat,skill ' +
+    'Note="Suffers half normal negative difference between tokens when attacking in a mass battle"',
+  'Bludgeoner':'Section=combat,combat,skill ' +
     'Note=' +
-      '"+%V sling range/Sling does d%{strength}%1+d6 damage at short range",' +
+      '"+%V sling range",' +
+      '"Sling inflicts d%{strength}%1+d6 damage at short range",' +
       '"+1 Charisma (engros)"',
   'Bodyguard':'Section=combat Note="May share Parry with adjacent ally"',
   'Born In Battle':
-    'Section=skill ' +
-    'Note="+2 Common Knowledge (military)/+2 Knowledge (Battle)"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+2 Knowledge (Battle)",' +
+      '"+2 Common Knowledge (military)"',
   'Brothers-In-Arms':
     'Section=combat ' +
-    'Note="Takes -1 damage per each Iron Guildsman w/in 6\\" (-4 max)"',
+    'Note="Suffers -1 damage per each Iron Guildsman w/in 6\\" (-4 max)"',
   'Censure Demons':
     'Section=combat ' +
-    'Note="Has Champion and Holy Warrior features vs. Demons"',
-  'Charge':'Section=combat Note="May make free melee attack after run"',
-  'Courageous':'Section=attribute Note="+2 Spirit vs. fear, -2 fear table roll"',
+    'Note="Has Champion and Holy Warrior features vs. demons"',
+  'Charge':'Section=combat Note="May make a free melee attack after a run"',
+  'Courageous':
+    'Section=attribute Note="+2 vs. fear and -2 on fear table rolls"',
   'Combine Spells':'Section=arcana Note="May cast two spells simultaneously"',
   'Concentration':'Section=arcana Note="+%V to resist spell disruption"',
   'Coordinated Firepower':
@@ -1678,16 +1687,19 @@ Hellfrost.FEATURES_ADDED = {
     'Section=attribute Note="+2 Spirit (mass battle morale)"',
   'Deathdealer':
     'Section=combat ' +
-    'Note="May make free attack on adjacent undead after slaying undead 1/rd"',
+    'Note="May make a free attack on adjacent undead after slaying undead 1/rd"',
   'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rds"',
   'Disciple Of Dargar':
     'Section=combat ' +
-    'Note="Single blow that incapacitates foe makes adjacent foes Shaken (Spirit neg)"',
+    'Note="Incapacitating a foe w/a single blow inflicts Shaken on adjacent foes (Spirit neg)"',
   'Disciple Of Eira':
-    'Section=skill Note="+2 Healing/5 companions +2 natural Healing"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+2 Healing",' +
+      '"5 companions gain +2 natural Healing"',
   'Disciple Of Eostre Animalmother':
     'Section=feature ' +
-    'Note="Has Beast Master feature with Wild Card companion animal"',
+    'Note="Has Beast Master feature with a Wild Card companion animal"',
   'Disciple Of Eostre Plantmother':
     'Section=combat,feature,skill ' +
     'Note=' +
@@ -1695,67 +1707,80 @@ Hellfrost.FEATURES_ADDED = {
       '"May use Champion and Holy Warrior edges with plant creatures",' +
       '"+1 Faith (vegetated areas)"',
   'Disciple Of Ertha':
-    'Section=combat,skill Note="+1 Toughness","+2 Survival (underground)"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"+1 Toughness",' +
+      '"+2 Survival (underground)"',
   'Disciple Of Freo':
     'Section=combat Note="Treats all terrain as normal ground"',
   'Disciple Of Hela':
     'Section=arcana,skill ' +
-    'Note="Dbl Raise on <i>Zombie</i> creates permanent undead",' +
-         '"+1 Faith (graveyards)"',
+    'Note=' +
+      '"Dbl Raise on <i>Zombie</i> creates permanent undead",' +
+      '"+1 Faith (graveyards)"',
   'Disciple Of Hoenir':
-    'Section=skill ' +
-    'Note="+1 Common Knowledge/+1 all Knowledge/May make untrained Knowledge rolls"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+1 Common Knowledge/+1 all Knowledge",' +
+      '"May attempt untrained Knowledge rolls"',
   'Disciple Of Hothar':'Section=attribute Note="+2 vs. mind effects"',
   'Disciple Of Kenaz':
     'Section=attribute,combat ' +
     'Note=' +
       '"+2 Vigor (resist heat)",' +
-      '"+4 Armor vs. heat damage/May magically heat metal weapon for +2 damage vs. cold resistant and +4 vs cold immune"',
+      '"+4 Armor vs. heat damage/May magically heat a metal weapon for +2 damage vs. cold resistant and +4 vs. cold immune"',
   'Disciple Of Maera':
-    'Section=arcana Note="May cast off-list spell at -2/+2 <i>Dispel</i>"',
+    'Section=arcana ' +
+    'Note="May cast any off-list spell at -2/+2 casting on <i>Dispel</i>"',
   'Disciple Of Nauthiz':
     'Section=skill ' +
     'Note="May reroll 1s on Gambling, Stealth, and Lockpicking; suffers fatigue for 1 dy if reroll is 1"',
   'Disciple Of Neorthe':
     'Section=feature ' +
-    'Note="Survives on half water and survives drowning for %{vigor} rd"',
+    'Note="May survive on half water and survives drowning for %{vigor} rd"',
   'Disciple Of Niht':
     'Section=feature ' +
     'Note="No penalty in dim and dark illumination, -2 in pitch dark"',
-  'Disciple Of The Norns':'Section=arcana Note="May spend Benny for augury"',
+  'Disciple Of The Norns':
+    'Section=arcana Note="May spend a Benny for an augury"',
   'Disciple Of Rigr':
     'Section=feature ' +
-    'Note="Needs only 3 hrs sleep, suffers half penalty for missed sleep, and counts as active guard when asleep"',
+    'Note="Needs only 3 hrs sleep, suffers half penalty for missed sleep, and counts as an active guard when asleep"',
   'Disciple Of Scaetha':
     'Section=arcana,combat ' +
-    'Note="+1 casting vs. undead",' +
-         '"+2 damage vs. undead"',
+    'Note=' +
+      '"+1 casting vs. undead",' +
+      '"+2 damage vs. undead"',
   'Disciple Of Sigel':
     'Section=combat,feature,skill ' +
-    'Note="+2 vs. invisible foes",' +
-         '"Halves illumination penalty vs. heat-producing foes",' +
-         '"+2 Notice (detect hidden objects and creatures)"',
+    'Note=' +
+      '"+2 vs. invisible foes",' +
+      '"Suffers half normal illumination penalty vs. heat-producing foes",' +
+      '"+2 Notice (detect hidden objects and creatures)"',
   'Disciple Of The Unknowable One':
-    'Section=combat,skill ' +
+    'Section=combat,skill,skill ' +
     'Note=' +
       '"+1 on Tricks/+1 vs. Tricks",' +
-      '"+1 Taunt/+1 vs. Taunt"',
+      '"+1 Taunt",' +
+      '"+1 vs. Taunt"',
   'Disciple Of Thrym':
-    'Section=arcana Note="More effective casting in cold environment"',
+    'Section=arcana Note="Casts more effectively in cold environments"',
   'Disciple Of Thunor':
     'Section=attribute ' +
-    'Note="+1 Vigor (resist hot and cold)/Suffers half falling damage"',
+    'Note="+1 Vigor (resist hot and cold)/Suffers half normal falling damage"',
   'Disciple Of Tiw':
     'Section=arcana,feature ' +
-    'Note="May cast and attack as a single action",' +
-         '"+1 Rank for acquiring combat edges"',
+    'Note=' +
+      '"May cast and attack as a single action",' +
+      '"+1 Rank for acquiring combat edges"',
   'Disciple Of Ullr':
     'Section=combat,skill ' +
-    'Note="May move half Pace before using Marksman with bow",' +
-         '"+2 Stealth (wilderness)/+2 Tracking (wilderness)"',
+    'Note=' +
+      '"May move half Pace before using Marksman with a bow",' +
+      '"+2 Stealth (wilderness)/+2 Tracking (wilderness)"',
   'Disciple Of Vali':'Section=feature Note="Immune to disease and poison"',
   'Disciple Of Var':
-    'Section=feature Note="May sell goods at 50% price (Raise 75%)"',
+    'Section=feature Note="May sell goods at 50% cost (Raise 75%)"',
   'Doomsman':
     'Section=skill ' +
     'Note="+2 Charisma (community)/+2 Knowledge (Law) (evidence)/+2 Smarts (evidence)"',
@@ -1774,27 +1799,30 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="Knows spells from %V Elementalism disciplines, casts at %1"',
   'Elite Huscarl Of Hammerhand':
-    'Section=combat Note="Thrown warhammer strikes all in 1\\" line"',
+    'Section=combat Note="May throw a warhammer to strike all in a 1\\" line"',
   'Enhanced Maintenance':
-    'Section=arcana Note="May maintain spell while asleep"',
+    'Section=arcana Note="May maintain a spell while asleep"',
   'Fanaticism':
     'Section=combat ' +
-    'Note="R%{commandRange}\\" Commanded +2 vs fear, -2 fear table"',
-  'Fast And Silent':'Section=skill Note="No penalty for running Stealth"',
+    'Note="R%{commandRange}\\" Commanded gain +2 vs. fear and -2 on fear table rolls"',
+  'Fast And Silent':
+    'Section=skill Note="Suffers no penalty for running Stealth"',
   'Fast Mount':
     'Section=combat Note="May mount and dismount as free actions 1/rd"',
   'Favored Foe':
     'Section=combat ' +
-    'Note="+1 Parry and d8 extra damage on attack Raise against chosen creature type"',
-  'Fighting Withdrawal':'Section=combat Note="May Defend while running and move full Pace during Full Defense"',
+    'Note="Attack Raise against chosen creature type gives +1 Parry and d8 extra damage"',
+  'Fighting Withdrawal':
+    'Section=combat ' +
+    'Note="May run during Defend and move full Pace during Full Defense"',
   'Focus':
     'Section=arcana ' +
-    'Note="May take immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
-  'Forced March':'Section=combat Note="Commanded allies may share running die"',
+    'Note="May attempt an immediate %1Spirit roll to recover from Shaken due to spell failure or siphoning"',
+  'Forced March':'Section=combat Note="May share running die w/commanded"',
   'Giant Blood':
     'Section=attribute,combat,description,feature ' +
     'Note=' +
-      '"May spend Benny to gain +2 Strength step for %{vigor//2} rd",' +
+      '"May spend a Benny to gain +2 Strength step for %{vigor//2} rd",' +
       '"+1 Toughness",' +
       '"+1 Size",' +
       '"Has Mean feature"',
@@ -1802,18 +1830,19 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="+2 resistance vs. undead abilities and necromantic spells"',
   'Gray Legionary':
-    'Section=feature,skill ' +
-    'Note="Member of Gray Legionary mercenary company",' +
-         '"Immune to Intimidation and fear"',
+    'Section=combat,feature ' +
+    'Note=' +
+      '"Member of the Gray Legionary mercenary company",' +
+      '"Immune to Intimidation and fear"',
   'Guild Thief':
     'Section=skill ' +
-    'Note="+2 Streetwise (home country)/d8 Wild Die on choice of Climbing, Stealth (urban), or Lockpicking"',
+    'Note="+2 Streetwise (home country)/Uses d8 Wild Die on choice of Climbing, Stealth (urban), or Lockpicking"',
   'Hearth Knight':
     'Section=combat,skill ' +
     'Note=' +
       '"+2 Survival (freezing environments)",' +
       '"+1 Parry and +2 called shots vs. cold-resistant and -immune creatures"',
-  'Hedge Magic':'Section=skill Note="Can identify plants for herbal remedies"',
+  'Hedge Magic':'Section=skill Note="May identify plants for herbal remedies"',
   'Hellfreeze':
     'Section=arcana ' +
     'Note="Cold spells do normal damage to resistant, half to immune, dbl to vulnerable, and dbl+4 to targets with weakness"',
@@ -1821,16 +1850,14 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="+2 Armor and Trait rolls vs. cold damage and powers"',
   'Hellfrost Hardy':
     'Section=combat ' +
-    'Note="Second Shaken condition from cold does not cause wound"',
-  'Help Me!':
-    'Section=combat ' +
-    'Note="Commanded ally may step in front of attack on self 1/rd"',
+    'Note="Does not suffer a Wound from a second cold Shaken result"',
+  'Help Me!':'Section=combat Note="Commanded may suffer attack on self 1/rd"',
   'Holy/Unholy Warrior':
     'Section=arcana ' +
-    'Note="R%{spirit}\\" Evil/good target Shaken (Spirit vs. Faith neg, multiple targets Faith -2); destroyed or wounded on critical failure"',
+    'Note="R%{spirit}\\" Evil/good target Shaken (Spirit vs. Faith neg (multiple targets Faith -2); critical failure destroys or wounds)"',
   'Horse Lord':
     'Section=skill ' +
-    'Note="d8 Wild Die with Riding/Mount shares Parry and resistance"',
+    'Note="Uses d8 Wild Die with Riding/Mount shares Parry and resistance"',
   'Hrosmark Huscarl':
     'Section=combat Note="Gains Steady Hands feature and may Aim when mounted"',
   'Huscarl Of Hammerhand':
@@ -1848,14 +1875,17 @@ Hellfrost.FEATURES_ADDED = {
   'Improved Snow Walker':'Section=combat Note="Increased Snow Walker effects"',
   'Improved Sunder':'Section=combat Note="Increased Sunder effects"',
   'Instinctive Dispel':
-    'Section=arcana Note="May make free <i>Dispel</i> of spell that effects self 1/rd"',
+    'Section=arcana ' +
+    'Note="May attempt a free <i>Dispel</i> of a spell that effects self 1/rd"',
   'Iron Guild Mercenary':
     'Section=combat,feature ' +
-    'Note="Member of Iron Guild mercenary company","+1 using Gang Up"',
+    'Note="Member of the Iron Guild mercenary company","+1 using Gang Up"',
   'Knight Hrafn':
-    'Section=feature,skill ' +
-    'Note="+%V Command range/Ignores rank requirement for leadership edges",' +
-         '"+1 Knowledge (Battle)"',
+    'Section=combat,feature,skill ' +
+    'Note=' +
+      '"+%V Command range",' +
+      '"Ignores rank requirement for leadership edges",' +
+      '"+1 Knowledge (Battle)"',
   'Large Family':'Section=feature Note="+2 Kinship results"',
   'Legendary Storyteller':
     'Section=feature Note="Increased Master Storyteller effects"',
@@ -1863,40 +1893,51 @@ Hellfrost.FEATURES_ADDED = {
   'Linguist':'Section=skill Note="Knows %V languages"',
   'Lorekeeper':
     'Section=skill ' +
-    'Note="May roll untrained Smarts skills at d4, untrained Knowledge at d4-2"',
+    'Note="May attempt untrained Knowledge skills at d4-2 and other untrained Smarts skills at d4"',
   'Lurker':
     'Section=combat ' +
-    'Note="%V Parry (Stealth instead of Fighting) during Full Defense"',
+    'Note="%V Parry (uses Stealth instead of Fighting) during Full Defense"',
   'Master Bludgeoner':
     'Section=combat ' +
     'Note="Sling inflicts Str+d8 (short range) or Str+d6 (medium range)"',
   'Master Mariner':
-    'Section=skill ' +
-    'Note="Ignores 2 penalty points on Boating/May spend Benny to Soak boat damage/Boat +1 top speed"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"May spend a Benny to Soak boat damage/+1 boat maximum speed",' +
+      '"Ignores 2 penalty points on Boating"',
   'Master Storyteller':
     'Section=feature ' +
     'Note="Story subjects use d8%1 for Glory awards and suffer no penalty for critical failure"',
   'Merman Blood':
-    'Section=combat,skill Note="Swim Pace %{pace}\\"","+2 Swimming"',
-  'Mighty Shot':'Section=combat Note="Bow does %V%1+d6 damage"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Swim Pace %{pace}\\"",' +
+      '"+2 Swimming"',
+  'Mighty Shot':'Section=combat Note="Bow inflicts %V%1+d6 damage"',
   'Mighty Throw':
     'Section=combat ' +
     'Note="+1 thrown weapon range/+1 Strength step for short throws"',
   'Mounted Combatant':
-    'Section=skill ' +
-    'Note="Ignores 2 penalty points on Riding/Successful Ride gives mount +2 Pace/May spend Benny to Soak mount damage"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"May spend a Benny to Soak mount damage",' +
+      '"Ignores 2 penalty points on Riding/Successful Ride gives mount +2 Pace"',
   'Necromantic Severing':
-    'Section=combat Note="May make called shots vs. undead"',
+    'Section=combat Note="May attempt called shots vs. undead"',
   'New Rune':'Section=arcana Note="Knows spells from %V runes"',
-  'Noble':'Section=feature,skill Note="Has Rich feature","+2 Charisma"',
+  'Noble':
+    'Section=feature,skill ' +
+    'Note=' +
+      '"Has Rich feature",' +
+      '"+2 Charisma"',
   'Not Just A Sling':
-    'Section=combat Note="Never unarmed with sling/+2 Disarm and Grapple"',
+    'Section=combat Note="Never unarmed with a sling/+2 Disarm and Grapple"',
   'Old Family':'Section=skill Note="+2 Knowledge (Arcana)"',
   'One Of Thirteen':
-    'Section=combat Note="May use adjacent ally\'s combat edge 1/rd"',
+    'Section=combat Note="May use an adjacent ally\'s combat edge 1/rd"',
   'One Step One Kill':
     'Section=combat ' +
-    'Note="May move 1\\" w/out triggering First Strike/May spend Benny for The Drop"',
+    'Note="May move 1\\" w/out triggering First Strike/May spend a Benny to gain The Drop"',
   'Oversized Weapon Master':
     'Section=combat Note="May use two-handed weapons with one hand"',
   'Pathfinder':
@@ -1914,54 +1955,60 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="May take limited actions when surprised"',
   'Ranger':
     'Section=skill ' +
-    'Note="Trackers -2 Tracking/d8 Wild Die with choice of Stealth, Survival, or Tracking"',
+    'Note="Trackers suffer -2 Tracking/Uses d8 Wild Die with choice of Stealth, Survival, or Tracking"',
   'Reflect Spell':
     'Section=arcana ' +
-    'Note="Raise on <i>Dispel</i> allows turning spell back on caster"',
+    'Note="Raise on <i>Dispel</i> allows turning a spell back on the caster"',
   'Reliquary (Arcanologist)':
     'Section=skill ' +
     'Note="+2 Common Knowledge (relics)/+2 Knowledge (relics)/May use Knowledge (Arcana) to learn unattuned relic powers"',
   'Reliquary (Reliqus)':
     'Section=attribute,skill ' +
-    'Note="Successful Agility-2 avoids trap effects",' +
-         '"+2 Notice (traps)/+2 disarm traps"',
+    'Note=' +
+      '"Successful Agility-2 avoids trap effects",' +
+      '"+2 Notice (traps)/+2 to disarm traps"',
   'Retributive Strike':
-    'Section=combat Note="May make free melee attack upon incapacitation"',
+    'Section=combat Note="May make a free melee attack upon incapacitation"',
   'Righteous Miracles':
     'Section=arcana ' +
     'Note="Demon targets suffer +2 power damage and -2 Trait rolls"',
   'Roadwarden':
-    'Section=skill ' +
-    'Note="+2 Survival/+2 Tracking/+2 Notice (wilderness ambushes, traps, and concealed weapons)"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+2 Survival/+2 Tracking",' +
+      '"+2 Notice (wilderness ambushes, traps, and concealed weapons)"',
   'Runic Insight':
     'Section=arcana Note="+1 casting on spells of %1 chosen runes"',
   'Running Throw':
     'Section=combat Note="+2 thrown weapon range after moving half Pace"',
   'Salmon Leap':
-    'Section=combat,skill Note="Ignores 1 point of shield Parry","+1\\" jump"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Ignores 1 point of shield Parry",' +
+      '"+1\\" jump"',
   'Sanctuary':
     'Section=feature ' +
     'Note="Prepared location grants +2 Will, +2 vs. Fear, and +1 Healing after four days"',
-  'Scamper':'Section=combat Note="Larger foes -1 attack"',
+  'Scamper':'Section=combat Note="Larger foes suffer -1 attack"',
   'Sea Legs':
     'Section=combat ' +
-    'Note="Suffers no penalty for shot, reduces running shot penalty by 1, and gains +1 Parry while aboard ship"',
+    'Note="While aboard a ship, suffers no penalty on shots, reduces running shot penalty by 1, and gains +1 Parry"',
   'Share Spell':
     'Section=arcana Note="Gains benefits of adjacent master\'s spells"',
   'Shieldwall':'Section=combat Note="Shield benefit applies to adjacent ally"',
   'Siege Breaker':
     'Section=combat ' +
-    'Note="-1 fortification siege bonus during mass battle; test Knowledge (Battle) for -2 (Raise -3)"',
+    'Note="-1 fortification siege bonus during a mass battle; may attempt Knowledge (Battle) for -2 (Raise -3)"',
   'Siege Engineer':
     'Section=combat Note="Siege weapons gain +50% range and +2 AP"',
   'Siege Mentality':
     'Section=combat ' +
-    'Note="+1 fortification siege bonus during mass battle; test Knowledge (Battle) for +2 (Raise +3)"',
+    'Note="+1 fortification siege bonus during a mass battle; may attempt Knowledge (Battle) for +2 (Raise +3)"',
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Sister Superior':
     'Section=skill ' +
-    'Note="Successful Healing-2 on allied Extra immediately after wound reduces to Shaken"',
-  'Snow Walker':'Section=combat Note="Moves %V over snow and ice"',
+    'Note="Successful Healing-2 immediately after an allied Extra takes a wound reduces it to Shaken"',
+  'Snow Walker':'Section=combat Note="May move %V over snow and ice"',
   'Spear Catch':
     'Section=combat ' +
     'Note="Successful Agility catches thrown spear (Raise allows return throw) 1/rd"',
@@ -1969,7 +2016,7 @@ Hellfrost.FEATURES_ADDED = {
     'Section=combat Note="Thrown spear does +1 Strength step damage"',
   'Speed Rider':
     'Section=skill ' +
-    'Note="Mount +2 Pace/May suffer mount fatigue to gain dbl running dice"',
+    'Note="Mount gains +2 Pace/May suffer mount fatigue to gain dbl running dice"',
   'Spell Finesse (Altered Range)':
     'Section=arcana ' +
     'Note="Increases range of chosen touch spell to %{smarts>?spirit}\\" or ranged spell to 12\\""',
@@ -1978,9 +2025,9 @@ Hellfrost.FEATURES_ADDED = {
   'Spell Finesse (Armor Penetration)':
     'Section=arcana Note="Chosen spell has AP 2"',
   'Spell Finesse (Heavy Weapon)':
-    'Section=arcana Note="Chosen spell counts as heavy weapon"',
+    'Section=arcana Note="Chosen spell counts as a heavy weapon"',
   'Spell Finesse (Range)':
-    'Section=arcana Note="Chosen spell has extended range"',
+    'Section=arcana Note="Chosen spell has an extended range"',
   'Spell Finesse (Selective)':
     'Section=arcana ' +
     'Note="May exclude %{arcaneSkill//2} creatures from effects of chosen area spell"',
@@ -1991,68 +2038,74 @@ Hellfrost.FEATURES_ADDED = {
   'Sunder':'Section=combat Note="+%V AP with any weapon"',
   'Tactician':
     'Section=combat ' +
-    'Note="R%{commandRange}\\" Successful Knowledge (Battle) before combat gives 1 Action Card per success and raise to distribute to commanded extras"',
+    'Note="R%{commandRange}\\" Successful Knowledge (Battle) before combat gives 1 Action Card per success and Raise to distribute to commanded extras"',
   'Take Aim':
     'Section=combat ' +
     'Note="Commanded gain +1 shooting and throwing damage (1d6+1 with Coordinated Firepower)"',
   'Vengeful Strike':
     'Section=combat ' +
-    'Note="May make free melee attack upon adjacent ally incapacitation"',
+    'Note="May make a free melee attack when an adjacent ally becomes incapacitated"',
   'Veteran Dragon Guard':
     'Section=feature ' +
     'Note="Has Champion features and +2 vs. paralysis with marsh dragons and marsh orms"',
   'Wall Of Steel':'Section=combat Note="Foes gain no Gang Up bonus"',
   'War Cry':
-    'Section=combat Note="May use Intimidation against all in 3\\" radius"',
+    'Section=combat Note="May use Intimidation against all in a 3\\" radius"',
   'Warm Blooded':'Section=attribute Note="+2 Vigor (cold weather effects)"',
   'Watcher Of The Black Gate':'Section=combat Note="+2 vs. demon powers"',
   'Wood Warden':
     'Section=arcana ' +
-    'Note="Can speak with normal beasts, cast <i>Beast Friend</i> at +2"',
+    'Note="Can speak with normal animals/Casts <i>Beast Friend</i> at +2"',
   'World-Wise':
     'Section=skill ' +
-    'Note="+5 Skill Points (Knowledge (3+ areas))/May make unskilled Knowledge (area) rolls"',
+    'Note="+5 Skill Points (Knowledge (3+ areas))/May attempt unskilled Knowledge (area) rolls"',
 
   // Glory Benefits
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
   'Favored':'Section=feature Note="+1 Benny each session"',
   'Heroic Aura':'Section=combat Note="+%V Toughness in no armor"',
   'Heroic Status':
-    'Section=skill ' +
-    'Note="+%V Reaction table/+%V Intimidation/+%V Persuasion/+%V Streetwise"',
-  'Immortalized In Song':'Section=feature Note="Dbl number of followers"',
+    'Section=skill,skill ' +
+    'Note=' +
+      '"+%V Intimidation/+%V Persuasion/+%V Streetwise",' +
+      '"+%V Reaction table"',
+  'Immortalized In Song':
+    'Section=feature Note="Has dbl normal number of followers"',
   'Leader Of Men':'Section=feature Note="+%V Edge Points (leadership)"',
 
   // Hindrances
   'Apprentice/Novitiate':
-    'Section=skill Note="Maximum starting arcane skill d6"',
+    'Section=skill Note="Maximum starting arcane skill is d6"',
   'Apprentice/Novitiate+':
     'Section=arcana,skill ' +
-    'Note="-1 Power Count","Maximum starting arcane skill d6"',
+    'Note="-1 Power Count","Maximum starting arcane skill is d6"',
   'Black Sheep':
     'Section=feature,skill ' +
-    'Note="Ostracized by magocratic nobility",' +
-         '"-2 Charisma (heahwisards)"',
+    'Note=' +
+      '"Ostracized by magocratic nobility",' +
+      '"-2 Charisma (heahwisards)"',
   'Blood Feud':'Section=skill Note="-2 Charisma (rival family)"',
   'Blood Feud+':'Section=skill Note="-4 Charisma (rival family)"',
   'City Dweller':
     'Section=skill ' +
     'Note="-2 Common Knowledge (country life)/-2 Stealth (wilderness)/-2 Survival (wilderness)"',
   'Cold Blooded':'Section=attribute Note="-2 Vigor (cold weather effects)"',
-  'Disowned':'Section=feature Note="Outcast from family"',
+  'Disowned':'Section=feature Note="Cast out from family"',
   'God Cursed+':
     'Section=feature ' +
-    'Note="Beneficial spells from god\'s cleric fail, harmful spells do +2 damage and negate arcane resistance"',
-  'Leysingi':'Section=feature Note="Former thrall"',
+    'Note="Beneficial spells from chosen god\'s cleric fail, harmful spells do +2 damage and negate arcane resistance"',
+  'Leysingi':'Section=feature Note="Formerly a thrall"',
   'Magic Forbiddance+':
     'Section=feature Note="Cannot use or detect magic items"',
   'Necromantic Weakness':'Section=attribute Note="-2 vs. undead effects"',
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
-  'Orders':'Section=feature Note="Takes orders from outside power"',
+  'Orders':'Section=feature Note="Takes orders from an outside power"',
   'Outlaw+':
     'Section=feature Note="-20 Glory/Cannot use Kinship/May be killed legally"',
-  'Sea Fear':'Section=feature Note="Fears presence of large bodies of water"',
-  'Sea Fear+':'Section=feature Note="Fears presence of large bodies of water"',
+  'Sea Fear':
+    'Section=feature Note="Fears the presence of large bodies of water"',
+  'Sea Fear+':
+    'Section=feature Note="Fears the presence of large bodies of water"',
   'Short-Lived Magic':
     'Section=arcana ' +
     'Note="Maintained spells end after 1 hr, devices after 30 min"',
@@ -2069,22 +2122,26 @@ Hellfrost.FEATURES_ADDED = {
     'Section=arcana ' +
     'Note="May cast cold <i>Armor</i>, <i>Environmental Protection</i>, <i>Smite</i>, and <i>Speed</i> on self at will"',
   'Heat Lethargy':
-    'Section=attribute,skill ' +
-    'Note="-1 attribute rolls at temperatures above 52",' +
-         '"-1 skill rolls at temperatures above 52"',
+    'Section=feature ' +
+    'Note="Suffers -1 Trait rolls at temperatures above 52F"',
   'Insular':'Section=skill Note="-2 Charisma (other races)"',
   'Luck (Engro)':'Section=feature Note="+1 Benny each session"',
   'Mountain-Born':
     'Section=combat ' +
     'Note="Suffers no difficult terrain penalty in hills and mountains"',
-  'Natural Realms':'Section=feature Note="Treats Elfhomes as wilds"',
-  'Small (Engro)':'Section=combat,description Note="-1 Toughness","-1 Size"',
+  'Natural Realms':'Section=feature Note="Treats elfhomes as wilds"',
+  'Small (Engro)':
+    'Section=combat,description ' +
+    'Note=' +
+      '"-1 Toughness",' +
+      '"-1 Size"',
   'Sneaky':
     'Section=skill Note="+2 Skill Points (choice of Stealth or Lockpicking)"',
   'Winter Soul':
     'Section=attribute,combat ' +
-    'Note="+2 Vigor (resist cold)",' +
-         '"+2 Armor vs. cold attacks"'
+    'Note=' +
+      '"+2 Vigor (resist cold)",' +
+      '"+2 Armor vs. cold attacks"'
 
 };
 Hellfrost.FEATURES = Object.assign({}, SWD.FEATURES, Hellfrost.FEATURES_ADDED);
@@ -3264,7 +3321,7 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
   } else if(name == 'Bludgeoner') {
     rules.defineRule
       ('combatNotes.bludgeoner', 'advances', '=', 'Math.floor(source/4) + 1');
-    rules.defineRule('combatNotes.bludgeoner.1',
+    rules.defineRule('combatNotes.bludgeoner-1.1',
       'features.Bludgeoner', '?', null,
       'strengthModifier', '=', 'source<0 ? source : source>0 ? "+"+source : ""'
     );
@@ -3310,8 +3367,8 @@ Hellfrost.edgeRulesExtra = function(rules, name) {
     rules.defineRule('features.Mean', 'featureNotes.giantBlood', '=', '1');
   } else if(name == 'Knight Hrafn') {
     rules.defineRule
-      ('featureNotes.knightHrafn', 'advances', '=', 'Math.floor(source/4) + 1');
-    rules.defineRule('commandRange', 'featureNotes.knightHrafn', '+', null);
+      ('combatNotes.knightHrafn', 'advances', '=', 'Math.floor(source/4) + 1');
+    rules.defineRule('commandRange', 'combatNotes.knightHrafn', '+', null);
   } else if(name == 'Library') {
     rules.defineRule
       ('skillNotes.library', 'smarts', '=', 'Math.floor(source / 2)');
@@ -3450,10 +3507,12 @@ Hellfrost.gloryRulesExtra = function(rules, name) {
       'combatNotes.heroicAura', '=', null
     );
     rules.defineRule('toughness', 'combatNotes.heroicAura.1', '+', null);
-  } else if(name == 'Heroic Status')
+  } else if(name == 'Heroic Status') {
     rules.defineRule
       ('skillNotes.heroicStatus', 'glorys.Heroic Status', '=', null);
-  else if(name == 'Leader Of Men') {
+    rules.defineRule
+      ('skillNotes.heroicStatus-1', 'glorys.Heroic Status', '=', null);
+  } else if(name == 'Leader Of Men') {
     rules.defineRule
       ('featureNotes.leaderOfMen', 'glorys.Leader Of Men', '=', null);
     rules.defineRule('edgePoints', 'featureNotes.leaderOfMen', '+', null);
