@@ -138,7 +138,7 @@ function Hellfrost(baseRules) {
   Hellfrost.talentRules
     (rules, Hellfrost.EDGES, Hellfrost.FEATURES, Hellfrost.GOODIES,
      Hellfrost.HINDRANCES, Hellfrost.SKILLS, Hellfrost.LANGUAGES,
-     Hellfrost.GLORYS);
+     Hellfrost.GLORY_REWARDS);
   Hellfrost.identityRules
     (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITYS);
 
@@ -148,9 +148,9 @@ function Hellfrost(baseRules) {
 
 Hellfrost.VERSION = '2.4.1.0';
 
-Hellfrost.CHOICES = ['Glory', 'Language'].concat(SWADE.CHOICES);
+Hellfrost.CHOICES = ['Deity', 'Glory Reward', 'Language'].concat(SWADE.CHOICES.filter(x => x != 'Era'));
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
-  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['glorys', 'languages']);
+  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['deity', 'glory rewards', 'languages']);
 
 /*
  * Spell list changes from errata:
@@ -1915,7 +1915,7 @@ Hellfrost.FEATURES_ADDED = {
       '"Ignores 2 penalty points on Boating"',
   'Master Storyteller':
     'Section=feature ' +
-    'Note="Story subjects use d8%{featureNotes.legendaryStoryteller?\' (Raise +1d8 each)\':\'\'} for Glory awards and suffer no penalty for critical failure"',
+    'Note="Story subjects use d8%{featureNotes.legendaryStoryteller?\' (Raise +1d8 each)\':\'\'} for glory rewards and suffer no penalty for critical failure"',
   'Merman Blood':
     'Section=combat,skill ' +
     'Note=' +
@@ -2073,7 +2073,7 @@ Hellfrost.FEATURES_ADDED = {
       '"+5 Skill Points (Knowledge (3+ areas))",' +
       '"May attempt unskilled Knowledge (area) rolls"',
 
-  // Glory Benefits
+  // Glory Rewards
   'Combat Prowess':'Section=feature Note="+%V Edge Points (combat)"',
   'Favored':'Section=feature Note="+1 Benny each session"',
   'Heroic Aura':'Section=combat Note="+%V Toughness in no armor"',
@@ -2114,7 +2114,10 @@ Hellfrost.FEATURES_ADDED = {
   'Necromantic Weakness+':'Section=attribute Note="-4 vs. undead effects"',
   'Orders':'Section=feature Note="Takes orders from an outside power"',
   'Outlaw+':
-    'Section=feature Note="-20 Glory/Cannot use Kinship/May be killed legally"',
+    'Section=feature,feature ' +
+    'Note=' +
+      '"-20 Glory",' +
+      '"Cannot use Kinship/May be killed legally"',
   'Sea Fear':
     'Section=feature Note="Fears the presence of large bodies of water"',
   'Sea Fear+':
@@ -2162,7 +2165,7 @@ Hellfrost.FEATURES['Arcane Background (Miracles)'] =
   Hellfrost.FEATURES['Arcane Background (Miracles)'].
     replace('Section=', 'Section=feature,').
     replace('Note=', 'Note="Has Connections and Orders features",');
-Hellfrost.GLORYS = {
+Hellfrost.GLORY_REWARDS = {
   'Combat Prowess':'Require="glory >= 40"',
   'Connections':'Require="glory >= 20"',
   'Favored':'Require="glory >= 60"',
@@ -2500,7 +2503,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target remains invisibile to infravision while maintained"',
+    'Description="Target remains invisible to infravision while maintained"',
   'Insight': // ref Object reading
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -3070,13 +3073,14 @@ Hellfrost.identityRules = function(rules, races, concepts, deities) {
 
 /* Defines rules related to character aptitudes. */
 Hellfrost.talentRules = function(
-  rules, edges, features, goodies, hindrances, skills, languages, glories
+  rules, edges, features, goodies, hindrances, skills, languages, gloryRewards
 ) {
-  rules.basePlugin.talentRules(rules, edges, features, goodies, hindrances, skills);
-  QuilvynUtils.checkAttrTable(glories, ['Require']);
+  rules.basePlugin.talentRules
+    (rules, edges, features, goodies, hindrances, skills);
+  QuilvynUtils.checkAttrTable(gloryRewards, ['Require']);
   QuilvynUtils.checkAttrTable(languages, []);
-  for(let g in glories) {
-    rules.choiceRules(rules, 'Glory', g, glories[g]);
+  for(let g in gloryRewards) {
+    rules.choiceRules(rules, 'Glory Reward', g, gloryRewards[g]);
   }
   for(let l in languages) {
     rules.choiceRules(rules, 'Language', l, languages[l]);
@@ -3087,16 +3091,16 @@ Hellfrost.talentRules = function(
   rules.defineEditorElement
     ('glory', 'Glory', 'text', [10, '\\+?\\d+'], 'notes');
   rules.defineEditorElement
-    ('glorys', 'Glory Benefits', 'bag', 'glorys', 'notes');
+    ('gloryRewards', 'Glory Rewards', 'bag', 'gloryRewards', 'notes');
   rules.defineSheetElement('Glory', 'Improvement Points Allocation+');
   rules.defineSheetElement('GloryPart', 'Hindrances+', null, ' ');
   rules.defineSheetElement('GloryStats', 'GloryPart/', null, '');
   rules.defineSheetElement
-    ('Glory Points', 'GloryStats/', '<b>Glory Benefits</b> (%V points):');
-  rules.defineSheetElement('Glorys', 'GloryPart/', '%V', '; ');
-  rules.defineChoice('extras', 'Glory Benefits');
+    ('Glory Points', 'GloryStats/', '<b>Glory Rewards</b> (%V points):');
+  rules.defineSheetElement('Glory Rewards', 'GloryPart/', '%V', '; ');
+  rules.defineChoice('extras', 'Glory Rewards');
   QuilvynRules.validAllocationRules
-    (rules, 'gloryBenefit', 'gloryPoints', 'Sum "^glorys\\."');
+    (rules, 'gloryRewards', 'gloryPoints', 'Sum "^gloryRewards\\."');
   rules.defineEditorElement
     ('languages', 'Languages', 'set', 'languages', 'origin');
   rules.defineSheetElement('Languages', 'Skills+', null, '; ');
@@ -3139,11 +3143,11 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Section'),
       QuilvynUtils.getAttrValueArray(attrs, 'Note')
     );
-  else if(type == 'Glory') {
-    Hellfrost.gloryRules(rules, name,
+  else if(type == 'Glory Reward') {
+    Hellfrost.gloryRewardRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Require')
     );
-    Hellfrost.gloryRulesExtra(rules, name);
+    Hellfrost.gloryRewardRulesExtra(rules, name);
   } else if(type == 'Goody')
     Hellfrost.goodyRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Pattern'),
@@ -3414,34 +3418,36 @@ Hellfrost.featureRules = function(rules, name, sections, notes) {
 };
 
 /*
- * Defines in #rules# the rules associated with glory benefit #name#, which has
+ * Defines in #rules# the rules associated with glory reward #name#, which has
  * the list of hard prerequisites #requires#.
  */
-Hellfrost.gloryRules = function(rules, name, requires) {
+Hellfrost.gloryRewardRules = function(rules, name, requires) {
   if(!name) {
-    console.log('Empty glory name');
+    console.log('Empty glory reward name');
     return;
   }
   if(!Array.isArray(requires)) {
-    console.log('Bad requires list "' + requires + '" for glory ' + name);
+    console.log
+      ('Bad requires list "' + requires + '" for glory reward ' + name);
     return;
   }
   let prefix =
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
   if(requires.length > 0)
     QuilvynRules.prerequisiteRules
-      (rules, 'validation', prefix + 'Glory', 'glorys.' + name, requires);
-  rules.defineRule('features.' + name, 'glorys.' + name, '=', null);
+      (rules, 'validation', prefix + 'GloryReward', 'gloryRewards.' + name,
+       requires);
+  rules.defineRule('features.' + name, 'gloryRewards.' + name, '=', null);
 };
 
 /*
- * Defines in #rules# the rules associated with glory #name# that cannot be
- * derived directly from the attributes passed to gloryRules.
+ * Defines in #rules# the rules associated with glory reward #name# that cannot
+ * be derived directly from the attributes passed to gloryRewardRules.
  */
-Hellfrost.gloryRulesExtra = function(rules, name) {
+Hellfrost.gloryRewardRulesExtra = function(rules, name) {
   if(name == 'Combat Prowess') {
     rules.defineRule
-      ('featureNotes.combatProwess', 'glorys.Combat Prowess', '=', null);
+      ('featureNotes.combatProwess', 'gloryRewards.Combat Prowess', '=', null);
     rules.defineRule('edgePoints', 'featureNotes.combatProwess', '+', null);
   } else if(name == 'Heroic Aura') {
     let allArmors = rules.getChoices('armors');
@@ -3451,7 +3457,7 @@ Hellfrost.gloryRulesExtra = function(rules, name) {
     for(let armor in allArmors)
       rules.defineRule('wearingArmor', 'armor.' + armor, '+', '1');
     rules.defineRule
-      ('combatNotes.heroicAura', 'glorys.Heroic Aura', '=', null);
+      ('combatNotes.heroicAura', 'gloryRewards.Heroic Aura', '=', null);
     rules.defineRule('combatNotes.heroicAura.1',
       'wearingArmor', '?', 'source == 0',
       'combatNotes.heroicAura', '=', null
@@ -3459,12 +3465,12 @@ Hellfrost.gloryRulesExtra = function(rules, name) {
     rules.defineRule('toughness', 'combatNotes.heroicAura.1', '+', null);
   } else if(name == 'Heroic Status') {
     rules.defineRule
-      ('skillNotes.heroicStatus', 'glorys.Heroic Status', '=', null);
+      ('skillNotes.heroicStatus', 'gloryRewards.Heroic Status', '=', null);
     rules.defineRule
-      ('skillNotes.heroicStatus-1', 'glorys.Heroic Status', '=', null);
+      ('skillNotes.heroicStatus-1', 'gloryRewards.Heroic Status', '=', null);
   } else if(name == 'Leader Of Men') {
     rules.defineRule
-      ('featureNotes.leaderOfMen', 'glorys.Leader Of Men', '=', null);
+      ('featureNotes.leaderOfMen', 'gloryRewards.Leader Of Men', '=', null);
     rules.defineRule('edgePoints', 'featureNotes.leaderOfMen', '+', null);
   }
 };
@@ -3541,9 +3547,7 @@ Hellfrost.powerRules = function(
  */
 Hellfrost.raceRules = function(rules, name, requires, features, languages) {
   rules.basePlugin.raceRules(rules, name, requires, features);
-  let prefix =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '');
-  let raceAdvances = prefix + 'Advances';
+  // No changes needed to the rules defined by base method
 };
 
 /*
@@ -3608,8 +3612,10 @@ Hellfrost.weaponRules = function(
  * item to #rules#.
  */
 Hellfrost.choiceEditorElements = function(rules, type) {
-  if(type == 'Glory')
-    return [['Require', 'Prerequisites', 'text', [40]]];
+  if(type == 'Deity')
+    return [];
+  else if(type == 'Glory Reward')
+    return [['Require', 'Prerequisite', 'text', [40]]];
   else if(type == 'Language')
     return [];
   else
@@ -3624,7 +3630,6 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
   let choices;
   let howMany;
   let i;
-  let matchInfo;
 
   if(attribute == 'languages') {
     howMany =
@@ -3814,23 +3819,27 @@ Hellfrost.ruleNotes = function() {
     '<h3>Usage Notes</h3>\n' +
     '<ul>\n' +
     '  <li>\n' +
-    '  Quilvyn calculates and reports Power Points for those who want to' +
-    '  use the power mechanics from the base rules. Edges that affect' +
-    '  power points (Rapid Recharge, Soul Drain, etc.) are also available.'+
-    '  Power Point costs of Hellfrost spells are estimated by comparison' +
-    '  with spells of similar power from the base rules.\n' +
+    '  Quilvyn calculates and reports Power Points for those who want to use' +
+    '  the power mechanics from the base rules. Edges that affect power' +
+    '  points (Rapid Recharge, Soul Drain, etc.) are also available. Power'+
+    '  Point costs of Hellfrost spells are estimated by comparison with' +
+    '  spells of similar power from the base rules.\n' +
     '  </li><li>\n' +
     '  The SWADE Hellfrost implementation uses a simple transition of SWD' +
-    '  rules to SWADE rules, largely limited to a translation of skills.' +
-    '  It will be replaced once an official adaptation of Hellfrost to' +
-    '  SWADE becomes available.\n' +
+    '  rules to SWADE rules, largely limited to a translation of skills. This' +
+    '  will be replaced if an official adaptation of Hellfrost to SWADE' +
+    '  becomes available.\n' +
     '  </li><li>\n' +
-    '  Instead of using the New Power edge with rune magic, Quilvyn' +
-    '  defines a separate New Rune edge that gives rune mages access to' +
-    '  additional runes.\n' +
+    '  Instead of using the New Power edge with rune magic, Quilvyn defines a' +
+    '  separate New Rune edge that gives rune mages access to additional' +
+    '  runes.\n' +
     '  </li><li>\n' +
-    '  Discussion of adding different types of homebrew options to the' +
-    '  Hellfrost rule set can be found in <a href="plugins/homebrew-hellfrost.html">Hellfrost Homebrew Examples</a>.\n' +
+    '  The Hellfrost rule set supports all the homebrew types discussed in' +
+    '  the <a href="homebrew-swade.html">SWADE Homebrew Examples document</a>' +
+    '  other than Era. In addition, Hellfrost allows you to add homebrew' +
+    '  deities, languages, and glory rewards. Adding a homebrew deity or' +
+    '  language requires only giving the name; glory rewards also allow' +
+    '  specifying prerequisites for obtaining the reward.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
