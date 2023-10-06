@@ -2016,7 +2016,7 @@ Hellfrost.FEATURES_ADDED = {
   'Sister Of Mercy':'Section=skill Note="+2 Healing/+1 Charisma"',
   'Sister Superior':
     'Section=skill ' +
-    'Note="Successful Healing-2 immediately after an allied Extra takes a wound reduces it to Shaken"',
+    'Note="Successful Healing-2 immediately after an allied Extra takes a Wound reduces it to Shaken"',
   'Snow Walker':
     'Section=combat ' +
     'Note="May move %{combatNotes.improvedSnowWalker?\'full\':\'2/3\'} Pace over snow and ice"',
@@ -2267,19 +2267,19 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target gains Infravision or Low Light Vision (Raise both) while maintained"',
+      '"Target gains Infravision or Low Light Vision feature (Raise both) while maintained"',
   'Analyze Foe':
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=sight ' +
     'Description=' +
-      '"Self knows number of edges and highest attack skill of target (Raise names of edges and attack skill dice)"',
+      '"Self knows the number of edges and highest attack skill of target (Raise names of edges and attack skill dice)"',
   'Animate War Tree':
     'Advances=12 ' +
     'PowerPoints=8 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target 30\' tree animates (Raise as Wild Card) while maintained"',
+      '"Target 30\'-high tree animates (Raise as Wild Card) while maintained"',
   'Arcane Resistance': // ref Arcane Protection
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -2304,7 +2304,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=2 ' +
     'Description=' +
-      '"Creatures in range gain Berserk features (Spirit neg) while maintained"',
+      '"Creatures in range gain Berserk feature (Spirit neg) while maintained"',
   'Becalm':
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -2326,13 +2326,13 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=1 ' +
     'Range=spirit ' +
     'Description=' +
-      '"Allies in range gain +2 Spirit vs. fear (Raise +4) while maintained"',
+      '"Allies in range gain +2 vs. fear (Raise +4) while maintained"',
   'Panic':
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=spirit ' +
     'Description=' +
-      '"Foes in range suffer -2 Spirit vs. fear (Raise -4) while maintained"',
+      '"Foes in range suffer -2 vs. fear (Raise -4) while maintained"',
   'Bodyguard': // ref Summon Ally
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -2341,12 +2341,12 @@ Hellfrost.POWERS_ADDED = {
       '"+1 PP Servant can bite/claw for Str+d6 damage",' +
       '"+2 PP Servant has fly Pace 12",' +
       '"+1 PP Self can use servant\'s senses" ' +
-    'Description="Creates obedient servant until wounded"',
+    'Description="Creates an obedient servant until wounded"',
   'Boost Trait':
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
-    'Description="Target gains +1 trait step (Raise +2) for 5 rd"',
+    'Description="Target gains +1 Trait step (Raise +2) for 5 rd"',
   'Bridge': // ref Barrier
     'Advances=4 ' +
     'PowerPoints=1/Section ' +
@@ -2358,7 +2358,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=self ' +
     'Description=' +
-      '"Gives target Champion or Holy Warrior features while maintained"',
+      '"Target gains Champion or Holy Warrior feature while maintained"',
   'Charismatic Aura':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -2386,7 +2386,7 @@ Hellfrost.POWERS_ADDED = {
       '"+1/+2 PP 2\\"/3\\" radius",' +
       '"+1 PP <i>Detect</i>-2" ' +
     'Description=' +
-      '"Target can detect supernatural effects or conceals target aura while maintained"',
+      '"Target can detect the presence of supernatural effects or conceals target aura while maintained"',
   'Detect':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2394,7 +2394,7 @@ Hellfrost.POWERS_ADDED = {
     'Modifier=' +
       '"+1 PP/additional target" ' +
     'Description=' +
-      '"Target can detect supernatural effects while maintained"',
+      '"Target can detect the presence of supernatural effects while maintained"',
   'Conceal':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2404,12 +2404,12 @@ Hellfrost.POWERS_ADDED = {
       '"+1/+2 PP 2\\"/3\\" radius",' +
       '"+1 PP <i>Detect</i>-2" ' +
     'Description=' +
-      '"Conceals target aura while maintained"',
+      '"Conceals target aura (<i>Detect</i> neg) while maintained"',
   'Disease':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=spirit ' +
-    'Description="Target suffers disease and fatigue, may die (Vigor neg)"',
+    'Description="Target suffers disease and fatigue; may die (Vigor neg)"',
   'Elemental Form':
     'Advances=8 ' +
     'PowerPoints=5 ' +
@@ -2426,25 +2426,25 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Undead targets gain advance benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)"',
+      '"Undead targets gain advancement benefit for 1 hr (Raise 6 hr; 2 Raises 1 dy)"',
   'Etherealness/Corporealness': // ref Intangibility
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Target becomes unaffected by physical world or ethereal creature becomes effected (Spirit neg) while maintained"',
+      '"Target becomes unaffected by physical world or ethereal creature becomes affected (Spirit neg) while maintained"',
   'Etherealness':
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Target becomes unaffected by physical world while maintained"',
+      '"Target becomes unaffected by physical world (Spirit neg) while maintained"',
   'Corporealness':
     'Advances=4 ' +
     'PowerPoints=5 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Target ethereal creature becomes effected by physical world (Spirit neg) while maintained"',
+      '"Target ethereal creature becomes affected by physical world (Spirit neg) while maintained"',
   'Farsight': // ref Farsight
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -2452,7 +2452,7 @@ Hellfrost.POWERS_ADDED = {
     'Modifier=' +
       '"+1 PP/additional target" ' +
     'Description=' +
-      '"Target gains +2 Notice within %{smarts*2}\\" and see 5 miles while maintained"',
+      '"Target gains +2 Notice within %{smarts*2}\\" and sees up to 5 miles while maintained"',
   'Fatigue':
     'Advances=4 ' +
     'PowerPoints=3 ' +
@@ -2480,7 +2480,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target gains leadership edge features (Raise 2 edges) while maintained"',
+      '"Target gains choice of leadership edge (Raise 2 edges) while maintained"',
   'Glyph':
     'Advances=8 ' +
     'PowerPoints=4 ' +
@@ -2490,7 +2490,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
-    'Description="Target gains ability to ask spirit %{spirit} questions"',
+    'Description="Target may ask a spirit %{spirit} questions"',
   'Greater Zombie': // ref Zombie
     'Advances=12 ' +
     'PowerPoints=4 ' +
@@ -2500,13 +2500,13 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target gains invisibility to infravision while maintained"',
+    'Description="Target remains invisibile to infravision while maintained"',
   'Insight': // ref Object reading
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target sees 1 event that occurred recently to touched object"',
+      '"Self sees 1 event that occurred recently to touched object"',
   'Knockdown':
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -2536,13 +2536,13 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Target takes the best/worst of two trait rolls while maintained"',
+      '"Target takes the better/worse of two Trait rolls while maintained"',
   'Mend':
     'Advances=8 ' +
     'PowerPoints=3 ' +
     'Range=touch ' +
     'Description=' +
-      '"Repairs 1 wound (Raise 2) inflicted to target wooden vehicle w/in past hr"',
+      '"Target wooden vehicle recovers 1 Wound (Raise 2) suffered in the past hr"',
   'Mimic':
     'Advances=0 ' +
     'PowerPoints=3 ' +
@@ -2568,7 +2568,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=self ' +
     'Description=' +
-      '"Target w/in %{smarts} miles loses benefit of sleep, becomes frightened (Spirit neg)"',
+      '"Target w/in %{smarts} miles loses benefits of sleep and becomes frightened (Spirit neg)"',
   'Precognition':
     'Advances=8 ' +
     'PowerPoints=2 ' +
@@ -2590,7 +2590,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=3 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Creates 10\'x6\' shelter that gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
+      '"Creates a 10\'x6\' shelter that gives +2 Vigor vs. cold (Raise +4) for 12 hr"',
   'Regenerate':
     'Advances=12 ' +
     'PowerPoints=3 ' +
@@ -2606,12 +2606,12 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=3 ' +
     'Range=self ' +
-    'Description="Teleports to safe location"',
+    'Description="Teleports to a safe location"',
   'Sentry':
     'Advances=4 ' +
     'PowerPoints=3 ' +
     'Range=smarts*2 ' +
-    'Description="Creates overnight ghostly sentry or object alarm"',
+    'Description="Creates an overnight ghostly sentry or object alarm"',
   'Silence': // ref Sound/Silence
     'Advances=4 ' +
     'PowerPoints=1 ' +
@@ -2625,7 +2625,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
     'Description=' +
-      '"Target draws 1 fewer Action Card or takes the worst of 2 cards (Spirit neg) while maintained"',
+      '"Target draws 1 fewer Action Card or takes the lower of 2 cards (Spirit neg) while maintained"',
   'Slumber': // ref Slumber
     'Advances=4 ' +
     'PowerPoints=2 ' +
@@ -2638,7 +2638,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=4 ' +
     'Range=smarts ' +
     'Description=' +
-      '"1\\" sphere around target inflicts -1 attacks (Raise -2), attacks as d%{arcaneSkill} Fighting doing d%{arcaneSkill}+d4 damage (Raise d%{arcaneSkill}+d8) while maintained"',
+      '"1\\" sphere around target inflicts -1 attacks (Raise -2) and attacks as d%{arcaneSkill} in Fighting, inflicting d%{arcaneSkill}+d4 damage (Raise d%{arcaneSkill}+d8) while maintained"',
   'Storm':
     'Advances=4 ' +
     'PowerPoints=5 ' +
@@ -2650,17 +2650,17 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=4 ' +
     'Range=touch ' +
     'Description=' +
-      '"Self mimics undead target\'s trait or special ability (Raise 2) while maintained"',
+      '"Self mimics undead target\'s Trait or special ability (Raise 2) while maintained"',
   'Succor': // ref Succor
     'Advances=0 ' +
     'PowerPoints=1 ' +
     'Range=touch ' +
-    'Description="Target regains 1 level of fatigue (Raise 2 levels)"',
+    'Description="Target recovers from 1 level of fatigue (Raise 2 levels)"',
   'Summon Beast':
     'Advances=8 ' +
     'PowerPoints=2+ ' +
     'Range=spirit*5 ' +
-    'Description="Self controls summoned beast\'s actions while maintained"',
+    'Description="Self controls summoned animal\'s actions while maintained"',
   'Summon Demon':
     'Advances=8 ' +
     'PowerPoints=5+ ' +
@@ -2681,7 +2681,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
-    'Description="Transforms target weapon into viper while maintained"',
+    'Description="Transforms target weapon into a viper while maintained"',
   'Voice On The Wind':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2695,7 +2695,7 @@ Hellfrost.POWERS_ADDED = {
     'Modifier=' +
       '"+1 PP/additional target" ' +
     'Description=' +
-      '"Target moves at full Pace on vertical and inverted surfaces while maintained"',
+      '"Target may move at full Pace on vertical and inverted surfaces while maintained"',
   'Wandering Senses':
     'Advances=0 ' +
     'PowerPoints=2 ' +
@@ -2714,7 +2714,7 @@ Hellfrost.POWERS_ADDED = {
     'Modifier=' +
       '"+1 PP/additional target" ' +
     'Description=' +
-      '"Target gains ability to traverse calm water while maintained"',
+      '"Target may traverse calm water while maintained"',
   'Weaken Undead':
     'Advances=8 ' +
     'PowerPoints=3 ' +
@@ -2734,7 +2734,7 @@ Hellfrost.POWERS_ADDED = {
     'Modifier=' +
       '"+1 PP 3\\" radius",' +
       '"+1 PP Strength-2" ' +
-    'Description="Knocks prone creatures in 2\\" radius (Strength neg)"',
+    'Description="2\\" radius knocks prone (Strength neg)"',
   'Wilderness Step':
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -2744,7 +2744,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=self ' +
-    'Description="Creates moderate wind while maintained"',
+    'Description="Creates a moderate wind while maintained"',
 
   // SWD spells copied to make available w/SWADE
   'Armor': // ref Arcane Protection
@@ -2753,39 +2753,39 @@ Hellfrost.POWERS_ADDED = {
     'Range=touch ' +
     'Modifier=' +
       '"+1 PP/additional target" ' +
-    'Description="Gives +2 Armor (Raise +4) while maintained"',
+    'Description="Target gains +2 Armor (Raise +4) while maintained"',
   'Greater Healing':
     'Advances=8 ' +
     'PowerPoints=10 ' +
     'Range=touch ' +
     'Description=' +
-      '"Restores 1 wound (Raise 2 wounds) w/out time limit or removes poison, disease, or sickness"',
+      '"Restores 1 Wound (Raise 2 Wounds) w/out a time limit or removes poison, disease, or sickness"',
   'Light': // ref Light/Darkness
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
     'Modifier=' +
       '"+1 PP Attaches to object or moves effect %{arcaneSkill}\\"/rd" ' +
-    'Description="Creates 3\\" radius bright light for 30 min"',
+    'Description="Creates a 3\\" radius of bright light for 30 min"',
   'Obscure': // ref Light/Darkness
     'Advances=0 ' +
     'PowerPoints=2 ' +
     'Range=smarts ' +
     'Modifier=' +
       '"+1 PP Attaches to object or moves effect %{arcaneSkill}\\"/rd" ' +
-    'Description="Creates 3\\" radius darkness for 3 rd"',
+    'Description="Creates a 3\\" radius of darkness for 3 rd"',
   'Quickness':
     'Advances=4 ' +
     'PowerPoints=4 ' +
     'Range=touch ' +
-    'Description' +
-      '="Target gains second action (Raise also redraw Action Cards below 8) while maintained"',
+    'Description=' +
+      '"Target gains an additional action (Raise also redraw Action Cards below 8) while maintained"',
   'Slow':
     'Advances=4 ' +
     'PowerPoints=2 ' +
     'Range=smarts*2 ' +
     'Description=' +
-      '"Target move counts as action (Raise also redraw Action Cards above 10) (Spirit neg) while maintained"',
+      '"Target move counts as an action (Raise also must redraw Action Cards above 10) (Spirit neg) while maintained"',
   'Speed': // ref Sloth/Speed
     'Advances=0 ' +
     'PowerPoints=1 ' +
@@ -2794,7 +2794,7 @@ Hellfrost.POWERS_ADDED = {
       '"+1 PP/additional target",' +
       '"+2 PP Reduces target multi-action penalty by 2" ' +
     'Description=' +
-      '"Target dbl Pace (Raise also Run as free action) while maintained"',
+      '"Target gains dbl Pace (Raise also Run as a free action) while maintained"',
 
   // SWADE powers that are split in a Hellfrost spell list
   'Shrink': // ref Growth/Shrink
@@ -2802,7 +2802,7 @@ Hellfrost.POWERS_ADDED = {
     'PowerPoints=2 ' +
     'Range=smarts ' +
     'Description=' +
-      '"Target loses Toughness and Strength step (Spirit neg) for 5 rd"',
+      '"Target loses Toughness and 1 Strength step (Spirit neg) for 5 rd"',
 
   // Rassilon Expansion II
   'Hamper Movement':
@@ -2814,7 +2814,7 @@ Hellfrost.POWERS_ADDED = {
     'Advances=8 ' +
     'PowerPoints=4 ' + // ref Summon Elemental
     'Range=smarts ' +
-    'Description="Summons spirit to possess target"'
+    'Description="Summons a spirit to possess target"'
 
 };
 Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
