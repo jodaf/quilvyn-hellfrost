@@ -2823,25 +2823,25 @@ Hellfrost.POWERS_ADDED = {
 Hellfrost.POWERS = Object.assign({}, SWD.POWERS, Hellfrost.POWERS_ADDED);
 Hellfrost.RACES = {
   'Engro':
-    'Features="Luck (Engro)",Outsider,"Small (Engro)",Sneaky,Spirited ' +
+    'Abilities="Luck (Engro)",Outsider,"Small (Engro)",Sneaky,Spirited ' +
     'Languages=Engrosi',
   'Frost Dwarf':
-    'Features=' +
+    'Abilities=' +
       '"Heat Lethargy",Insular,"Low Light Vision",Mountain-Born,Slow,' +
       'Tough,"Winter Soul" ' +
     'Languages=Dwarven',
   'Frostborn':
-    'Features="Frigid Form","Heat Lethargy",Outsider,"Winter Soul"',
+    'Abilities="Frigid Form","Heat Lethargy",Outsider,"Winter Soul"',
   'Hearth Elf':
-    'Features=' +
+    'Abilities=' +
       'Agile,"All Thumbs","Forest-Born","Low Light Vision","Natural Realms" ' +
     'Languages="Hearth Elven"',
-  'Anari Human':'Features=Diverse Languages=Anari',
-  'Finnar Human':'Features=Diverse Languages=Finnari',
-  'Saxa Human':'Features=Diverse Languages=Saxa',
-  'Tuomi Human':'Features=Diverse Languages=Tuomi',
+  'Anari Human':'Abilities=Diverse Languages=Anari',
+  'Finnar Human':'Abilities=Diverse Languages=Finnari',
+  'Saxa Human':'Abilities=Diverse Languages=Saxa',
+  'Tuomi Human':'Abilities=Diverse Languages=Tuomi',
   'Taiga Elf':
-    'Features=' +
+    'Abilities=' +
       'Agile,"All Thumbs","Forest-Born","Heat Lethargy",Insular,' +
       '"Low Light Vision","Natural Realms","Winter Soul" ' +
     'Languages="Taiga Elven"'
@@ -3059,7 +3059,7 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 Hellfrost.identityRules = function(rules, races, concepts, deities) {
   rules.basePlugin.identityRules(rules, {}, {}, concepts);
   QuilvynUtils.checkAttrTable(deities, []);
-  QuilvynUtils.checkAttrTable(races, ['Requires', 'Features', 'Languages']);
+  QuilvynUtils.checkAttrTable(races, ['Requires', 'Abilities', 'Languages']);
   for(let d in deities) {
     rules.choiceRules(rules, 'Deity', d, deities[d]);
   }
@@ -3177,7 +3177,7 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
   else if(type == 'Race') {
     Hellfrost.raceRules(rules, name,
       QuilvynUtils.getAttrValueArray(attrs, 'Require'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Features'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Abilities'),
       QuilvynUtils.getAttrValueArray(attrs, 'Languages')
     );
     Hellfrost.raceRulesExtra(rules, name);
@@ -3542,11 +3542,11 @@ Hellfrost.powerRules = function(
 
 /*
  * Defines in #rules# the rules associated with race #name#, which has the list
- * of hard prerequisites #requires#. #features# list associated features and
+ * of hard prerequisites #requires#. #abilities# list associated abilities and
  * #languages# any automatic languages.
  */
-Hellfrost.raceRules = function(rules, name, requires, features, languages) {
-  rules.basePlugin.raceRules(rules, name, requires, features);
+Hellfrost.raceRules = function(rules, name, requires, abilities, languages) {
+  rules.basePlugin.raceRules(rules, name, requires, abilities);
   // No changes needed to the rules defined by base method
 };
 
