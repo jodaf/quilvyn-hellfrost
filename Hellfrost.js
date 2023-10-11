@@ -713,134 +713,134 @@ Hellfrost.EDGES_ADDED = {
   // Player's Guide
   // Background
   'Arcane Background (Druidism)':
-    'Type=background Require="race =~ \'Engro|Elf|Dwarf\'"',
+    'Type=Background Require="race =~ \'Engro|Elf|Dwarf\'"',
   'Arcane Background (Elementalism)':
-    'Type=background ' +
+    'Type=Background ' +
     'Require="edges.Elementalism (Eir) || edges.Elementalism (Ertha) || ' +
              'edges.Elementalism (Fyr) || edges.Elementalism (Waeter)"',
-  'Arcane Background (Heahwisardry)':'Type=background Require=features.Noble',
-  'Arcane Background (Hrimwisardry)':'Type=background',
+  'Arcane Background (Heahwisardry)':'Type=Background Require=features.Noble',
+  'Arcane Background (Hrimwisardry)':'Type=Background',
   'Arcane Background (Rune Magic)':
-    'Type=background Require="race == \'Frost Dwarf\'"',
-  'Arcane Background (Soul Binding)':'Type=background',
-  'Arcane Background (Song Magic)':'Type=background',
+    'Type=Background Require="race == \'Frost Dwarf\'"',
+  'Arcane Background (Soul Binding)':'Type=Background',
+  'Arcane Background (Song Magic)':'Type=Background',
   'Library':
-    'Type=background ' +
+    'Type=Background ' +
     'Require="features.Rich || features.Lorekeeper","features.Illiterate == 0"',
-  'Linguist':'Type=background Require="smarts >= 6","features.Illiterate == 0"',
-  'Noble':'Type=background',
+  'Linguist':'Type=Background Require="smarts >= 6","features.Illiterate == 0"',
+  'Noble':'Type=Background',
   'Old Family':
-    'Type=background Require="features.Arcane Background (Heahwisardry)"',
-  'Styrimathr':'Type=background Require="skills.Boating >= 8"',
+    'Type=Background Require="features.Arcane Background (Heahwisardry)"',
+  'Styrimathr':'Type=Background Require="skills.Boating >= 8"',
   'Warm Blooded':
-    'Type=background Require="race =~ \'Engro|Hearth Elf|Human\'","vigor >= 8"',
+    'Type=Background Require="race =~ \'Engro|Hearth Elf|Human\'","vigor >= 8"',
   // Combat
   'Blood And Guts':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 8",' +
       '"skills.Fighting>=10 || skills.Shooting>=10 || skills.Throwing>=10"',
-  'Courageous':'Type=combat Require="spirit >= 8"',
+  'Courageous':'Type=Combat Require="spirit >= 8"',
   'Double Shot':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 4","race =~ \'Elf\'","skills.Shooting >= 8"',
   'Improved Double Shot':
-    'Type=combat Require="advances >= 12","features.Double Shot"',
+    'Type=Combat Require="advances >= 12","features.Double Shot"',
   'Favored Foe':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
       '"skills.Fighting >= 8 || skills.Shooting >= 8 || skills.Throwing >= 8"',
   'Improved Giant Killer':
-    'Type=combat Require="advances >= 12","features.Giant Killer"',
+    'Type=Combat Require="advances >= 12","features.Giant Killer"',
   'Mighty Shot':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 8","strength >= 8","skills.Shooting >= 10"',
   'Mighty Throw':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 8","strength >= 8","skills.Throwing >= 10"',
   'Necromantic Severing':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 8","spirit >= 8","skills.Fighting >= 10"',
   'Oversized Weapon Master':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 8",' +
       '"strength >= 10",' +
       '"skills.Fighting >= 10",' +
       '"size >= 0"',
   'Rune Magic (Armor-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Arrow-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Battle-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Beast-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Blessing-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Calming-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Change-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Charm-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Coldfire-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Curse-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Cut-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Dispel-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Earth-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Elemental-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Glow-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Healing-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Secret-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Shield-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Tongue-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Travel-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Rune Magic (Weather-Rune)':
-    'Type=power Require="features.Arcane Background (Rune Magic)"',
+    'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Scamper':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 4","race == \'Engro\'","agility >= 8"',
   'Shieldwall':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 4",features.Block,"shield =~ \'Medium|Large\'"',
-  'Snow Walker':'Type=combat Require="agility >= 6"',
+  'Snow Walker':'Type=Combat Require="agility >= 6"',
   'Improved Snow Walker':
-    'Type=combat Require="advances >= 4","features.Snow Walker"',
+    'Type=Combat Require="advances >= 4","features.Snow Walker"',
   'Sunder':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 4","race == \'Frost Dwarf\'","strength >= 8"',
-  'Improved Sunder':'Type=combat Require="advances >= 8",features.Sunder',
+  'Improved Sunder':'Type=Combat Require="advances >= 8",features.Sunder',
   'Wall Of Steel':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 8",' +
       '"agility >= 8",' +
       '"skills.Fighting >= 8",' +
       '"skills.Notice >= 8"',
   'War Cry':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 4",' +
       '"race =~ \'Frost Dwarf|Saxa\' || features.Disciple Of Dargar",' +
       '"skills.Intimidation >= 8"',
   // Disciple
   'Disciple Of Dargar':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -850,7 +850,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Intimidation >= 8",' +
       '"deity == \'Dargar\'"',
   'Disciple Of Eira':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -859,7 +859,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Healing >= 6",' +
       '"deity == \'Eira\'"',
   'Disciple Of Eostre Animalmother':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -868,7 +868,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Beast Bond",' +
       '"deity == \'Eostre\'"',
   'Disciple Of Eostre Plantmother':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -878,7 +878,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Eostre\'"',
   'Disciple Of Ertha':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -888,7 +888,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Survival >= 6",' +
       '"deity == \'Ertha\'"',
   'Disciple Of Freo':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -897,7 +897,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Freo\'"',
   'Disciple Of Hela':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -905,7 +905,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Hela\'"',
   'Disciple Of Hoenir':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -914,7 +914,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Scholar || Sum \'features.Scholar\' > 0",' +
       '"deity == \'Hoenir\'"',
   'Disciple Of Hothar':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -924,7 +924,7 @@ Hellfrost.EDGES_ADDED = {
       'features.Investigator,' +
       '"deity == \'Hothar\'"',
   'Disciple Of Kenaz':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -932,7 +932,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Kenaz\'"',
   'Disciple Of Maera':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -941,7 +941,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Maera\'"',
   'Disciple Of Nauthiz':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -951,7 +951,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Thief",' +
       '"deity == \'Nauthiz\'"',
   'Disciple Of Neorthe':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -961,7 +961,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Swimming >= 6",' +
       '"deity == \'Neorthe\'"',
   'Disciple Of Niht':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -970,7 +970,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Stealth >= 8",' +
       '"deity == \'Niht\'"',
   'Disciple Of The Norns':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -978,7 +978,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'The Norns\'"',
   'Disciple Of Rigr':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -988,7 +988,7 @@ Hellfrost.EDGES_ADDED = {
       'features.Alertness,' +
       '"deity == \'Rigr\'"',
   'Disciple Of Scaetha':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -997,7 +997,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Fighting >= 8",' +
       '"deity == \'Scaetha\'"',
   'Disciple Of Sigel':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1012,7 +1012,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Thrym\'"',
   'Disciple Of Thunor':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1020,7 +1020,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Thunor\'"',
   'Disciple Of Tiw':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1030,7 +1030,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Fighting >= 10",' +
       '"deity == \'Tiw\'"',
   'Disciple Of Ullr':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1041,7 +1041,7 @@ Hellfrost.EDGES_ADDED = {
       'features.Marksman,' +
       '"deity == \'Ullr\'"',
   'Disciple Of The Unknowable One':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1051,7 +1051,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Taunt >= 8",' +
       '"deity == \'The Unknowable One\'"',
   'Disciple Of Vali':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1059,7 +1059,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Faith >= 8",' +
       '"deity == \'Vali\'"',
   'Disciple Of Var':
-    'Type=disciple ' +
+    'Type=Disciple ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1069,7 +1069,7 @@ Hellfrost.EDGES_ADDED = {
       '"deity == \'Var\'"',
   // Leadership
   'A Few Good Men':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 12",' +
       '"smarts >= 8",' +
@@ -1077,7 +1077,7 @@ Hellfrost.EDGES_ADDED = {
       'features.Command,' +
       'features.Inspire',
   'Coordinated Firepower':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 8",' +
       '"smarts >= 6",' +
@@ -1085,7 +1085,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Throwing >= 8",' +
       'features.Command',
   'Cry Havoc!':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 8",' +
       '"spirit >= 8",' +
@@ -1093,7 +1093,7 @@ Hellfrost.EDGES_ADDED = {
       'features.Command,' +
       'features.Fervor',
   'Death Before Dishonor':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 8",' +
       '"spirit >= 8",' +
@@ -1101,15 +1101,15 @@ Hellfrost.EDGES_ADDED = {
       'features.Command,' +
       '"features.Hold The Line!"',
   'Fanaticism':
-    'Type=leadership Require="advances >= 4",features.Command,features.Fervor',
+    'Type=Leadership Require="advances >= 4",features.Command,features.Fervor',
   'Siege Breaker':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require="advances >= 4","smarts >= 8","skills.Knowledge (Battle) >= 8"',
   'Siege Mentality':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require="advances >= 4","smarts >= 8","skills.Knowledge (Battle) >= 8"',
   'Tactician':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
@@ -1117,49 +1117,49 @@ Hellfrost.EDGES_ADDED = {
       'features.Command',
   // Power
   'Alchemy':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       'powerCount,' +
       '"arcaneSkill >= 6",' +
       '"skills.Knowledge (Alchemy) >= 6"',
   'Augment Staff (Aura)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
       '"skills.Heahwisardry >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Damage)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
       '"skills.Heahwisardry >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Deflect)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
       '"skills.Heahwisardry >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Augment Staff (Spell Store)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Heahwisardry)",' +
       '"skills.Heahwisardry >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Combine Spells':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
        '"advances >= 12",' +
        'powerCount,' +
        '"arcaneSkill >= 10",' +
        '"skills.Knowledge (Arcana) >= 10"',
   'Concentration':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       'powerCount,' +
@@ -1167,62 +1167,62 @@ Hellfrost.EDGES_ADDED = {
       '"spirit >= 6",' +
       '"vigor >= 6"',
   'Improved Concentration':
-    'Type=power Require="advances >= 8",features.Concentration',
+    'Type=Power Require="advances >= 8",features.Concentration',
   'Elemental Mastery':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Elementalism)"',
   'Elementalism (Eir)':
-    'Type=power Require="features.Arcane Background (Elementalism)"',
+    'Type=Power Require="features.Arcane Background (Elementalism)"',
   'Elementalism (Ertha)':
-    'Type=power Require="features.Arcane Background (Elementalism)"',
+    'Type=Power Require="features.Arcane Background (Elementalism)"',
   'Elementalism (Fyr)':
-    'Type=power Require="features.Arcane Background (Elementalism)"',
+    'Type=Power Require="features.Arcane Background (Elementalism)"',
   'Elementalism (Waeter)':
-    'Type=power Require="features.Arcane Background (Elementalism)"',
+    'Type=Power Require="features.Arcane Background (Elementalism)"',
   'Focus':
-    'Type=power ' +
+    'Type=Power ' +
     'Require="advances >= 4",powerCount,"spirit >= 6","arcaneSkill >= 8"',
-  'Improved Focus':'Type=power Require="advances >= 12",features.Focus',
+  'Improved Focus':'Type=Power Require="advances >= 12",features.Focus',
   'Hellfreeze':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 8",' +
       'powerCount,' +
       '"arcaneSkill >= 10",' +
       '"skills.Knowledge (Arcana) >= 10"',
-  'New Rune':'Type=power Require="features.Arcane Background (Rune Magic)"',
+  'New Rune':'Type=Power Require="features.Arcane Background (Rune Magic)"',
   'Power Surge':
-    'Type=power Require="advances >= 4",powerCount,"arcaneSkill >= 10"',
+    'Type=Power Require="advances >= 4",powerCount,"arcaneSkill >= 10"',
   'Runic Insight':
-    'Type=power ' +
+    'Type=Power ' +
     'Require="features.Arcane Background (Rune Magic)","arcaneSkill >= 8"',
   'Spell Finesse (Arcane)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Armor Penetration)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Heavy Weapon)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Range)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   'Spell Finesse (Selective)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   // Professional
   'Bladedancer':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"race =~ \'Elf\'",' +
       '"agility >= 8",' +
       '"skills.Fighting >= 8",' +
       '"features.Two-Fisted"',
   'Bludgeoner':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"race == \'Engro\'",' +
       '"spirit >= 8",' +
@@ -1230,17 +1230,17 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Intimidation >= 6",' +
       '"skills.Shooting >= 8"',
   'Gray Legionary':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"spirit >= 8",' +
       '"skills.Fighting >= 8",' +
       '"skills.Shooting >= 6 || skills.Throwing >= 6"',
   'Guild Thief':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"features.Thief"',
   'Hearth Knight':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"spirit >= 8",' +
       '"vigor >= 8",' +
@@ -1248,25 +1248,25 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Riding >= 6",' +
       '"skills.Survival >= 8"',
   'Hedge Magic':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"smarts >= 8",' +
       '"skills.Knowledge (Alchemy) >= 6",' +
       '"skills.Survival >= 6"',
   'Holy/Unholy Warrior':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"features.Arcane Background (Miracles)",' +
       '"spirit >= 8",' +
       '"skills.Faith >= 6"',
   'Iron Guild Mercenary':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"strength >= 8",' +
       '"spirit >= 6",' +
       '"skills.Fighting >= 6"',
   'Knight Hrafn':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"smarts >= 6",' +
       '"spirit >= 6",' +
@@ -1274,26 +1274,26 @@ Hellfrost.EDGES_ADDED = {
       'features.Command,' +
       '"leadershipEdgeCount >= 2"',
   'Lorekeeper':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"smarts >= 8",' +
       '"skills.Investigation >= 6",' +
       '"features.Illiterate == 0"',
   'Reliquary (Arcanologist)':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"smarts >= 8",' +
       '"skills.Knowledge (Arcana) >= 8",' +
       // Updated from skills.Notice by RE II
       '"skills.Investigation >= 6"',
   'Reliquary (Reliqus)':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"agility >= 8",' +
       '"skills.Lockpicking >= 6",' +
       '"skills.Notice >= 6"',
   'Roadwarden':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"vigor >= 6",' +
       '"skills.Fighting >= 8",' +
@@ -1301,54 +1301,54 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Survival >= 6",' +
       '"skills.Tracking >= 6"',
   'Sister Of Mercy':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"skills.Healing >= 8",' +
       '"gender == \'Female\'",' +
       '"hindrances.Pacifist || hindrances.Pacifist+"',
   'Wood Warden':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"skills.Shooting >= 8",' +
       '"features.Arcane Background (Druidism) || features.Woodsman"',
   // Social
   'Master Storyteller':
-    'Type=background ' +
+    'Type=Background ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
       '"skills.Knowledge (Folklore) >= 8",' +
       '"skills.Persuasion >= 8"',
   'Legendary Storyteller':
-    'Type=background Require="advances >= 12","features.Master Storyteller"',
+    'Type=Background Require="advances >= 12","features.Master Storyteller"',
 
   // Rassilon Expansion I
   // Background
   'Ancestral Guardian':
-    'Type=background ' +
+    'Type=Background ' +
     'Require="spirit >= 8"',
   'Giant Blood':
-    'Type=background ' +
+    'Type=Background ' +
     'Require="strength >= 8","vigor >= 6","race =~ \'Human\'"',
-  'Large Family':'Type=background',
-  'Powerful Family':'Type=background',
-  'World-Wise':'Type=background Require="smarts >= 8"',
+  'Large Family':'Type=Background',
+  'Powerful Family':'Type=Background',
+  'World-Wise':'Type=Background Require="smarts >= 8"',
   // Combat
-  'Fast And Silent':'Type=combat Require="agility >= 8","skills.Stealth >= 8"',
-  'One Step One Kill':'Type=combat Require="advances >= 8","agility >= 8"',
+  'Fast And Silent':'Type=Combat Require="agility >= 8","skills.Stealth >= 8"',
+  'One Step One Kill':'Type=Combat Require="advances >= 8","agility >= 8"',
   'Retributive Strike':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="advances >= 8","agility >= 8","skills.Fighting >= 8"',
   'Vengeful Strike':
-    'Type=combat Require="advances >= 12","features.Retributive Strike"',
+    'Type=Combat Require="advances >= 12","features.Retributive Strike"',
   'Salmon Leap':
-    'Type=combat Require="advances >= 4","agility >= 8","strength >= 8"',
+    'Type=Combat Require="advances >= 4","agility >= 8","strength >= 8"',
   'Spear Catch':
-    'Type=combat Require="advances >= 8","agility >= 8","skills.Throwing >= 6"',
+    'Type=Combat Require="advances >= 8","agility >= 8","skills.Throwing >= 6"',
   'Spear Twist':
-    'Type=combat Require="advances >= 4","agility >= 8","skills.Throwing >= 8"',
+    'Type=Combat Require="advances >= 4","agility >= 8","skills.Throwing >= 8"',
   'Steady Feet':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"advances >= 12",' +
       '"agility >= 8",' +
@@ -1356,7 +1356,7 @@ Hellfrost.EDGES_ADDED = {
       '"features.Giant Killer"',
   // Leadership
   'Born In Battle':
-    'Type=leadership ' +
+    'Type=Leadership ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
@@ -1364,34 +1364,34 @@ Hellfrost.EDGES_ADDED = {
       '"features.Command"',
   // Power
   'Enhanced Maintenance':
-    'Type=power ' +
+    'Type=Power ' +
     'Require="advances >= 8","spirit >= 8","vigor >= 8","arcaneSkill >= 8"',
   'Instinctive Dispel':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 8",' +
       '"arcaneSkill >= 8",' +
       '"skills.Knowledge (Arcana) >= 10",' +
       'powers.Dispel',
   'Spell Finesse (Altered Range)':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=powerCount,"arcaneSkill >= 8","skills.Knowledge (Arcana) >= 8"',
   // Professional
   'Arcane Hand':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"skills.Healing >= 6",' +
       '"skills.Knowledge (Arcana) >= 6",' +
       '"skills.Notice >= 6"',
   'Dungeon Crawler':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"agility >= 8",' +
       '"skills.Climbing >= 6",' +
       '"skills.Stealth >= 6",' +
       '"skills.Survival >= 6"',
   'Huscarl Of Hammerhand':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"race == \'Frost Dwarf\'",' +
       '"strength >= 8",' +
@@ -1401,64 +1401,64 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Throwing >= 8",' +
       '"features.Vow"',
   'Elite Huscarl Of Hammerhand':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 12",' +
       '"skills.Throwing >= 10",' +
       '"features.Huscarl Of Hammerhand"',
   'One Of Thirteen':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"agility >= 6",' +
       '"smarts >= 6",' +
       '"skills.Fighting >= 8",' +
       '"combatEdgeCount >= 2"',
-  'Ranger':'Type=professional Require="advances >= 4","features.Woodsman"',
+  'Ranger':'Type=Professional Require="advances >= 4","features.Woodsman"',
   'Siege Engineer':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 4",' +
       '"smarts >= 8",' +
       '"skills.Knowledge (Siege Artillery) >= 8"',
   'Watcher Of The Black Gate':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"spirit >= 8",' +
       '"vigor >= 6",' +
       '"skills.Fighting >= 8"',
   // Social
-  'Sanctuary':'Type=social',
+  'Sanctuary':'Type=Social',
 
   // Rassilon Expansion II
   // Background
   'Arcane Background (Finnar Wind Priest)':
-    'Type=background Require="race =~ \'Finnar Human\'"',
-  'Arcane Background (Glamour)':'Type=background Require="race =~ \'Elf\'"',
-  'Arcane Background (Solar Magic)':'Type=background',
-  'Gravetouched':'Type=background Require="spirit >= 8","vigor >= 6"',
-  'Merman Blood':'Type=background',
+    'Type=Background Require="race =~ \'Finnar Human\'"',
+  'Arcane Background (Glamour)':'Type=Background Require="race =~ \'Elf\'"',
+  'Arcane Background (Solar Magic)':'Type=Background',
+  'Gravetouched':'Type=Background Require="spirit >= 8","vigor >= 6"',
+  'Merman Blood':'Type=Background',
   // Combat
   'Armor Piercing Shot':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require="agility >= 8","skills.Shooting >= 8","race =~ \'Elf\'"',
   'Charge':
-    'Type=combat Require="advances >= 4","vigor >= 8","skills.Fighting >= 8"',
-  'Fast Mount':'Type=combat Require="agility >= 8","skills.Riding >= 6"',
+    'Type=Combat Require="advances >= 4","vigor >= 8","skills.Fighting >= 8"',
+  'Fast Mount':'Type=Combat Require="agility >= 8","skills.Riding >= 6"',
   'Fighting Withdrawal':
-    'Type=combat Require="advances >= 8","agility >= 8","skills.Fighting >= 8"',
-  'Lurker':'Type=combat Require="agility >= 8","skills.Stealth >= 6"',
-  'Mounted Combatant':'Type=combat Require="skills.Riding >= 8"',
+    'Type=Combat Require="advances >= 8","agility >= 8","skills.Fighting >= 8"',
+  'Lurker':'Type=Combat Require="agility >= 8","skills.Stealth >= 6"',
+  'Mounted Combatant':'Type=Combat Require="skills.Riding >= 8"',
   'Pathfinder':
-    'Type=combat ' +
+    'Type=Combat ' +
     'Require=' +
       '"agility >= 6",' +
       '"smarts >= 6",' +
       '"skills.Notice >= 6",' +
       '"skills.Survival >= 6"',
-  'Quick Reactions':'Type=combat Require="agility >= 6 || smarts >= 6"',
+  'Quick Reactions':'Type=Combat Require="agility >= 6 || smarts >= 6"',
   'Running Throw':
-    'Type=combat Require="agility >= 6","strength >= 8","skills.Throwing >= 8"',
-  'Steal Away':'Type=combat Require="agility >= 8","skills.Stealth >= 6"',
+    'Type=Combat Require="agility >= 6","strength >= 8","skills.Throwing >= 8"',
+  'Steal Away':'Type=Combat Require="agility >= 8","skills.Stealth >= 6"',
   // Leadership
   'Drop!':
     'Type=Leadership ' +
@@ -1471,21 +1471,21 @@ Hellfrost.EDGES_ADDED = {
     'Type=Leadership Require="advances >= 8","spirit >= 8",features.Command',
   // Power
   'Delay Spell':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 8",' +
       'powerCount,' +
       '"arcaneSkill >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Potent Magic':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 8",' +
       'powerCount,' +
       '"arcaneSkill >= 8",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Reflect Spell':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"spirit >= 8",' +
@@ -1494,7 +1494,7 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Knowledge (Arcana) >= 8",' +
       'powers.Dispel',
   'Righteous Miracles':
-    'Type=power ' +
+    'Type=Power ' +
     'Require=' +
       '"advances >= 4",' +
       '"features.Arcane Background (Miracles)",' +
@@ -1503,55 +1503,55 @@ Hellfrost.EDGES_ADDED = {
       '"features.Watcher Of The Black Gate"',
   // Professional
   'Bastion Of Strength':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"spirit >= 10",' +
       '"features.Censure Demons",' +
       '"features.Watcher Of The Black Gate"',
   'Bodyguard':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 12",' +
       '"agility >= 8",' +
       'features.Shieldwall,' +
       '"skills.Notice >= 8"',
   'Brothers-In-Arms':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 4",' +
       '"skills.Fighting >= 8",' +
       '"features.Iron Guild Mercenary"',
   'Censure Demons':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 8",' +
       '"strength >= 6",' +
       '"vigor >= 8",' +
       '"features.Watcher Of The Black Gate"',
   'Deathdealer':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       'features.Gravetouched,' +
       '"skills.Fighting >= 6",' +
       '"deity == \'Scaetha\'"',
   'Doomsman':
-    'Type=professional Require="smarts >= 8","skills.Knowledge (Law) >= 8"',
-  'Double The Load':'Type=professional Require=features.Bludgeoner',
+    'Type=Professional Require="smarts >= 8","skills.Knowledge (Law) >= 8"',
+  'Double The Load':'Type=Professional Require=features.Bludgeoner',
   'Improved Double The Load':
-     'Type=professional Require="advances >= 12","features.Double The Load"',
+     'Type=Professional Require="advances >= 12","features.Double The Load"',
   'Dragon Guard':
-    'Type=professional Require="spirit >= 8","skills.Fighting >= 8"',
+    'Type=Professional Require="spirit >= 8","skills.Fighting >= 8"',
   'Veteran Dragon Guard':
-    'Type=professional Require="advances >= 8","features.Dragon Guard"',
+    'Type=Professional Require="advances >= 8","features.Dragon Guard"',
   'Hellfrost Hardened':
-    'Type=professional Require="advances >= 8","features.Hearth Knight"',
+    'Type=Professional Require="advances >= 8","features.Hearth Knight"',
   'Hellfrost Hardy':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require="advances >= 8","features.Hellfrost Hardened","vigor >= 10"',
   'Horse Lord':
-    'Type=professional Require="advances >= 8","features.Hrosmark Huscarl"',
+    'Type=Professional Require="advances >= 8","features.Hrosmark Huscarl"',
   'Hrosmark Huscarl':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"race == \'Saxa Human\'",' +
       '"agility >= 8",' +
@@ -1559,29 +1559,29 @@ Hellfrost.EDGES_ADDED = {
       '"skills.Riding >= 6",' +
       '"skills.Shooting >= 8"',
   'Master Bludgeoner':
-    'Type=professional Require="advances >= 8",features.Bludgeoner',
+    'Type=Professional Require="advances >= 8",features.Bludgeoner',
   'Master Mariner':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 8",' +
       '"smarts >= 8",' +
       '"skills.Boating >= 8",' +
       '"skills.Knowledge (The Seas) >= 8"',
   'Not Just A Sling':
-    'Type=professional Require="advances >= 4",features.Bludgeoner',
+    'Type=Professional Require="advances >= 4",features.Bludgeoner',
   'Protect The Cargo':
-    'Type=professional Require="advances >= 8","features.Iron Guild Mercenary"',
-  'Sea Legs':'Type=professional Require="agility >= 8"',
+    'Type=Professional Require="advances >= 8","features.Iron Guild Mercenary"',
+  'Sea Legs':'Type=Professional Require="agility >= 8"',
   'Share Spell':
-    'Type=professional ' +
+    'Type=Professional ' +
     'Require=' +
       '"advances >= 8",' +
       '"features.Arcane Hand",' +
       '"skills.Knowledge (Arcana) >= 8"',
   'Sister Superior':
-    'Type=professional Require="advances >= 4","features.Sister Of Mercy"',
+    'Type=Professional Require="advances >= 4","features.Sister Of Mercy"',
   'Speed Rider':
-    'Type=professional Require="advances >= 4","features.Hrosmark Huscarl"',
+    'Type=Professional Require="advances >= 4","features.Hrosmark Huscarl"',
 
 };
 Hellfrost.EDGES = Object.assign({}, SWD.EDGES, Hellfrost.EDGES_ADDED);
@@ -3612,14 +3612,20 @@ Hellfrost.weaponRules = function(
  * item to #rules#.
  */
 Hellfrost.choiceEditorElements = function(rules, type) {
+  let result;
   if(type == 'Deity')
-    return [];
-  else if(type == 'Glory Reward')
-    return [['Require', 'Prerequisite', 'text', [40]]];
+    result = [];
+  else if(type == 'Edge') {
+    result = SWADE.choiceEditorElements(rules, 'Edge');
+    let typeIndex = result.findIndex(x => x[0] == 'Type');
+    result[typeIndex][3] = result[typeIndex][3].concat('Disciple').sort();
+  } else if(type == 'Glory Reward')
+    result = [['Require', 'Prerequisite', 'text', [40]]];
   else if(type == 'Language')
-    return [];
+    result = [];
   else
-    return rules.basePlugin.choiceEditorElements(rules, type);
+    result = rules.basePlugin.choiceEditorElements(rules, type);
+  return result;
 };
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
