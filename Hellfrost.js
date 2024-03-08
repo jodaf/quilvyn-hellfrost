@@ -46,7 +46,7 @@ function Hellfrost(baseRules) {
   );
   rules.plugin = Hellfrost;
   Hellfrost.rules = rules;
-  rules.basePlugin = useSwade ? SWADE : SWD;
+  rules.basePlugin = useSwade ? window.SWADE : window.SWD;
 
   rules.defineChoice('choices', Hellfrost.CHOICES);
   rules.choiceEditorElements = Hellfrost.choiceEditorElements;
@@ -3171,8 +3171,8 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValue(attrs, 'PowerPoints'),
       QuilvynUtils.getAttrValue(attrs, 'Range'),
       QuilvynUtils.getAttrValue(attrs, 'Description'),
-      QuilvynUtils.getAttrValue(attrs, 'School'),
-      QuilvynUtils.getAttrValueArray(attrs, 'Modifier')
+      QuilvynUtils.getAttrValueArray(attrs, 'Modifier'),
+      QuilvynUtils.getAttrValue(attrs, 'BasedOn')
     );
   else if(type == 'Race') {
     Hellfrost.raceRules(rules, name,
@@ -3528,15 +3528,22 @@ Hellfrost.languageRules = function(rules, name) {
  * Defines in #rules# the rules associated with power #name#, which may be
  * acquired only after #advances# advances, requires #powerPoints# Power Points
  * to use, and can be cast at range #range#. #description# is a concise
- * description of the power's effects and #school#, if defined, is the magic
- * school that defines the power, and #modifiers# lists the power point cost
- * and effects of any power-specific modifiers.
+ * description of the power's effects. #modifiers# lists specific modifications
+ * that may be applied when using this power. #basedOn#, if defined, is an
+ * existing power that this power adapts; other undefined parameters are copied
+ * from the attributes of this power.
  */
 Hellfrost.powerRules = function(
-  rules, name, advances, powerPoints, range, description, school, modifiers
+  rules, name, advances, powerPoints, range, description, modifiers, adapts
 ) {
-  rules.basePlugin.powerRules
-    (rules, name, advances, powerPoints, range, description, school, modifiers);
+  if(rules.basePlugin == window.SWD)
+    rules.basePlugin.powerRules(
+      rules, name, advances, powerPoints, range, description, adapts
+    );
+  else
+    rules.basePlugin.powerRules(
+      rules, name, advances, powerPoints, range, description, modifiers, adapts
+    );
   // No changes needed to the rules defined by base method
 };
 
