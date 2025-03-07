@@ -78,6 +78,7 @@ function Hellfrost(baseRules) {
     Object.assign({}, rules.basePlugin.EDGES, Hellfrost.EDGES_ADDED);
   delete Hellfrost.EDGES.Ace;
   delete Hellfrost.EDGES.Gadgeteer;
+  delete Hellfrost.EDGES['Arcane Background (Gifted)'];
   delete Hellfrost.EDGES['Arcane Background (Magic)'];
   delete Hellfrost.EDGES['Arcane Background (Super Powers)'];
   delete Hellfrost.EDGES['Arcane Background (Weird Science)'];
@@ -146,7 +147,7 @@ function Hellfrost(baseRules) {
 
 }
 
-Hellfrost.VERSION = '2.4.1.0';
+Hellfrost.VERSION = '2.4.1.1';
 
 Hellfrost.CHOICES = ['Deity', 'Glory Reward', 'Language'].concat(SWADE.CHOICES.filter(x => x != 'Era'));
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
@@ -716,8 +717,9 @@ Hellfrost.EDGES_ADDED = {
     'Type=Background Require="race =~ \'Engro|Elf|Dwarf\'"',
   'Arcane Background (Elementalism)':
     'Type=Background ' +
-    'Require="edges.Elementalism (Eir) || edges.Elementalism (Ertha) || ' +
-             'edges.Elementalism (Fyr) || edges.Elementalism (Waeter)"',
+    'Require=' +
+      '"edges.Elementalism (Eir) || edges.Elementalism (Ertha) || ' +
+       'edges.Elementalism (Fyr) || edges.Elementalism (Waeter)"',
   'Arcane Background (Heahwisardry)':'Type=Background Require=features.Noble',
   'Arcane Background (Hrimwisardry)':'Type=Background',
   'Arcane Background (Rune Magic)':
@@ -1432,7 +1434,7 @@ Hellfrost.EDGES_ADDED = {
   // Rassilon Expansion II
   // Background
   'Arcane Background (Finnar Wind Priest)':
-    'Type=Background Require="race =~ \'Finnar Human\'"',
+    'Type=Background Require="race == \'Finnar Human\'"',
   'Arcane Background (Glamour)':'Type=Background Require="race =~ \'Elf\'"',
   'Arcane Background (Solar Magic)':'Type=Background',
   'Gravetouched':'Type=Background Require="spirit >= 8","vigor >= 6"',
@@ -1696,7 +1698,7 @@ Hellfrost.FEATURES_ADDED = {
   'Deathdealer':
     'Section=combat ' +
     'Note="May make a free attack on adjacent undead after slaying undead 1/rd"',
-  'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rds"',
+  'Delay Spell':'Section=arcana Note="May postpone spell effect 1 - 6 rd"',
   'Disciple Of Dargar':
     'Section=combat ' +
     'Note="Incapacitating a foe w/a single blow inflicts Shaken on adjacent foes (Spirit neg)"',
@@ -3085,7 +3087,7 @@ Hellfrost.talentRules = function(
   for(let l in languages) {
     rules.choiceRules(rules, 'Language', l, languages[l]);
   }
-  rules.defineRule('gloryPoints', 
+  rules.defineRule('gloryPoints',
     'glory', '=', 'source >= 20 ? Math.floor(source / 20) : null'
   );
   rules.defineEditorElement
@@ -3305,6 +3307,17 @@ Hellfrost.edgeRules = function(rules, name, requires, implies, types) {
  */
 Hellfrost.edgeRulesExtra = function(rules, name) {
   let matchInfo;
+  if((matchInfo = name.match(/^Arcane Background \((.*)\)$/)) != null &&
+     matchInfo[1] != 'Hrimwisardry' && matchInfo[1] != 'Miracles') {
+    let note = 'validationNotes.' + name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'EdgeFrostborn';
+    rules.defineChoice('notes',
+      note + ':' + 'Frostborn may only take Hrimwisardry and Miracles Arcane Background edges'
+    );
+    rules.defineRule(note,
+      'race', '=', 'source=="Frostborn" ? 0 : null',
+      'edges.' + name, '+', '1'
+    );
+  }
   if(name == 'Arcane Background (Elementalism)') {
     rules.defineRule('elementalismCount',
       'arcanaNotes.arcaneBackground(Elementalism)', '=', '1'
@@ -3635,8 +3648,246 @@ Hellfrost.choiceEditorElements = function(rules, type) {
   return result;
 };
 
+Hellfrost.NAMES = {
+  Engro: {
+    Male: [
+      'Bertrem', 'Jym', 'Odbert', 'Oxbow', 'Rodgar',
+      '%{Syllables}',
+      // Behind the Name Germanic
+      'Adalfar', 'Aldwin', 'Alfbern', 'Anzo', 'Baldo', 'Bodo', 'Colobert',
+      'Faramund', 'Filibert', 'Haimo', 'Humbert', 'Pepin', 'Rocco', 'Waldo'
+    ],
+    Female: [
+      'Daisy', 'Foxglove', 'Petunia', 'Rose',
+      '%{Syllables}',
+      // Wikipedia "County flowers of the United Kingdom"
+      'Heather', 'Primrose', 'Poppy', 'Daffodil', 'Violet', 'Holly', 'Crocus',
+      'Rosemary', 'Pansy', 'Iris', 'Lily'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // Nature-based English and Germanic
+      'Alba', 'Asco', 'Ash', 'Cherry', 'Engel', 'Goda', 'Isa', 'Ivo',
+      'Leutwin', 'River', 'Wido', 'Wina'
+    ],
+    Surname: [] // PG: Engro use no surname
+  },
+  'Frost Dwarf': {
+    Male: [
+      'Ari', 'Bardi', 'Geirstein', 'Hord', 'Ljot', 'Olvir',
+      '%{Syllables}',
+      // Behind the Name Old Norse
+      'Agnarr', 'Hallbjorn', 'Herleifr', 'Magni', 'Steinunn'
+    ],
+    Female: [
+      'Asleif', 'Herdis', 'Svala', 'Thyra',
+      '%{Syllables}',
+      // Behind the Name Old Norse
+      'Asta', 'Brynja', 'Eydis', 'Ingunn', 'Ragna', 'Saldis'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // Behind the Name Old Norse
+      'Authr', 'Herleif', 'Baggi', 'Somerled', 'Stigr'
+    ],
+    Surname: ['%{Adjective}%{Noun}'],
+    Adjective: [
+      'Bright', 'Foe', 'Gold', 'Steel',
+      // Add some others
+      'Bold', 'Sure', 'True', 'Swift', 'Sharp', 'Stout'
+    ],
+    Noun: [
+      'hammer', 'axe', 'beard', 'hand',
+      // Add some others
+      'helm', 'fist', 'forge', 'shield', 'horn', 'hall'
+    ]
+  },
+  Frostborn: {
+    Male: ['%{Cold}%{Noun}'],
+    Female: ['%{Cold}%{Noun}'],
+    Nonbinary: ['%{Cold}%{Noun}'],
+    Surname: [], // PG: Frostborn use no surname
+    Cold: [
+      'Frost', 'Ice', 'Rime', 'Snow',
+      // Add some others
+      'Chill', 'Winter', 'Cold', 'Winter', 'Sleet', 'Wind', 'White'
+    ],
+    Noun: [
+      'mane', 'razor', 'hand', 'walker',
+      // Add some others
+      'foot', 'gaze', 'breath', 'brow', 'glider', 'spear'
+    ]
+  },
+  'Hearth Elf': {
+    Male: [
+      'Ailinnil', 'Elleneirlir', 'Melasion', 'Nielian', 'Sinrilli',
+      '%{Syllables}',
+      // Quilvyn random elf names
+      'Quoyalci', 'Fefylesefimi', 'Esmypmy', 'Mylvhefsa', 'Mallosep',
+      'Lymyemyas', 'Ilemelm', 'Quaali', 'Pellee', 'Plami'
+    ],
+    Female: [
+      'Ailinnil', 'Elleneirlir', 'Melasion', 'Nielian', 'Sinrilli',
+      '%{Syllables}',
+      // Quilvyn random elf names
+      'Quoyalci', 'Fefylesefimi', 'Esmypmy', 'Mylvhefsa', 'Mallosep',
+      'Lymyemyas', 'Ilemelm', 'Quaali', 'Pellee', 'Plami'
+    ],
+    Nonbinary: [
+      'Ailinnil', 'Elleneirlir', 'Melasion', 'Nielian', 'Sinrilli',
+      '%{Syllables}',
+      // Quilvyn random elf names
+      'Quoyalci', 'Fefylesefimi', 'Esmypmy', 'Mylvhefsa', 'Mallosep',
+      'Lymyemyas', 'Ilemelm', 'Quaali', 'Pellee', 'Plami'
+    ],
+    Surname: ['%{Nature}%{Noun}'],
+    Nature: [
+      'Bough', 'Leaf', 'Morning', 'Sharp',
+      // Add some others
+      'Bog', 'Vale', 'Hill', 'Rill', 'Glen', 'Twig', 'Evening'
+    ],
+    Noun: [
+      'runner', 'rustle', 'mist', 'whistle',
+      // Add some others
+      'friend', 'breeze', 'shadow', 'moon', 'spirit', 'dew'
+    ]
+  },
+  'Taiga Elf': {
+    Male: ['%{Cold}%{Noun}'],
+    Female: ['%{Cold}%{Noun}'],
+    Nonbinary: ['%{Cold}%{Noun}'],
+    Surname: [], // PG: Taiga Elves use no surname
+    Cold: [
+      'Flake', 'Frost', 'Ice', 'Night', 'Shadow', 'Snow',
+      // Add some others
+      'Dark', 'Winter', 'Cold', 'Star', 'Stone', 'Moon'
+    ],
+    Noun: [
+      'rider', 'man', 'gleam', 'eyes', 'weaver', 'runner',
+      // Add some others
+      'master', 'speaker', 'reach', 'grip', 'water', 'maker'
+    ]
+  },
+  'Anari Human': {
+    Male: [
+      'Argius', 'Bron', 'Bovert', 'Delbaeth', 'Emeric', 'Gaidon', 'Garth',
+      'Howel', 'Patris', 'Rochad', 'Serin', 'Thosa',
+      '%{Syllables}',
+      // Behind the Name Old Celtic
+      'Berach', 'Brychan', 'Cadoc', 'Cathal', 'Cian', 'Fergal', 'Iorwerth',
+      'Mathgamain', 'Ronan', 'Taran'
+    ],
+    Female: [
+      'Aife', 'Armide', 'Branwen', 'Elianor', 'Emer', 'Liaze', 'Lusiane',
+      'Tangwenn', 'Ursanne',
+      '%{Syllables}',
+      // Behind the Name Old Celtic
+      'Aine', 'Angharad', 'Bebinn', 'Eithne', 'Grainne', 'Ite', 'Mairenn',
+      'Muadnat', 'Ordanat', 'Orlaith'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // Behind the Name Old Celtic
+      'Ailbe', 'Ciar', 'Feidlimid', 'Flann', 'Slaine'
+    ],
+    Surname: [
+      'ap-%{Male}', '%{Trade}', '%{Syllables}',
+      // Add matrilineal
+      'ap-%{Female}'
+    ],
+    Trade: [
+      'Smith', 'Tailor', 'Weaver',
+      // Add some others
+      'Carter', 'Cooper', 'Mason', 'Thatcher', 'Fletcher', 'Baker', 'Brewer',
+      'Miller', 'Slater', 'Dyer'
+    ]
+  },
+  'Finnar Human': {
+    Male: [
+      'Arto', 'Kaiju', 'Konsta', 'Taneli', 'Tove', 'Vilho',
+      // Behind the Name Finnish
+      'Aulis', 'Eero', 'Ensio', 'Jalmari', 'Kalervo', 'Keijo',
+      'Maija', 'Niilo', 'Olavi', 'Paavo', 'Seppo'
+    ],
+    Female: [
+      'Esko', 'Hannu', 'Kaari', 'Merja', 'Pirkka', 'Tyko',
+      // Behind the Name Finnish
+      'Aamu', 'Ansa', 'Eija', 'Eila', 'Hannele', 'Hertta',
+      'Ilma', 'Ilta', 'Katja', 'Maija', 'Orvokki', 'Ritva'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // Behind the Name Finnish
+      'Ale', 'Manu', 'Maria', 'Vieno'
+    ],
+    Surname: [
+      'Aho', 'Hietanen', 'Jarnefelt', 'Paatalo', 'Petelius', 'Stenvall',
+      'Utrio', 'Waltari',
+      // Behind the Name Finnish
+      'Aalto', 'Honkanen', 'Jokela', 'Karppinen', 'Laaksonen',
+      'Mustonen', 'Nurmi', 'Ojala', 'Peltola', 'Turunen'
+    ]
+  },
+  'Saxa Human': {
+    Male: [
+      'Agdi', 'Cynric', 'Edwin', 'Gaurek', 'Leofric', 'Penda', 'Runolf',
+      'Seaxwulf', 'Skuli', 'Wiglaf',
+      // Behind the Name Anglo-Saxon
+      'Aethelred', 'Botwulf', 'Dunstan', 'Hereward', 'Osgar', 'Waermund'
+    ],
+    Female: [
+      'Aalfwynn', 'Eadgifu', 'Gytha', 'Isgerrd', 'Skjalf', 'Thorgerd',
+      'Wulfwynn', 'Yrsa',
+      // Behind the Name Anglo-Saxon
+      'Bealdhild', 'Mildburg', 'Wassa', 'Cyneburg', 'Hild', 'Wihtburg'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // Behind the Name Anglo-Saxon
+      'Leofdaeg', 'Puck', 'Cola', 'Doerwine', 'Heard', 'Tata', 'Wine'
+    ],
+    Surname: [
+      '%{Male}s%{Parentage}',
+      // Add matrilineal
+      '%{Female}s%{Parentage}'
+    ],
+    Parentage: {
+      Male: 'unu', Female: 'dohtor', Nonbinary: 'bearn'
+    }
+  },
+  'Tuomi Human': {
+    Male: [
+      'Achivir', 'Arcois', 'Bili', 'Brude', 'Canaul', 'Gart', 'Volas',
+      // Wikipedia List of legendary kings of Pictland
+      'Cruithne', 'Fidach', 'Cait', 'Circin', 'Wurget', 'Urgant'
+    ],
+    Female: [
+      'Aniel', 'Bannatia', 'Breth', 'Cailis', 'Ila', 'Olfinecta', 'Tamia',
+      // https://eithni.com/pictish-names/
+      'Coblaith', 'Derile', 'Domelch', 'Eithne', 'Nadbroicc'
+    ],
+    Nonbinary: [
+      '%{Syllables}',
+      // https://eithni.com/pictish-names/
+      'Nectudad', 'Feidelm', 'Fina', 'Fotla', 'Luan'
+    ],
+    Surname: [
+      'Argentocoxus', 'Bliesblituth', 'Canutulachama', 'Deocilunon',
+      'Muircholaich', 'Tolarggan',
+      '%{Syllables}',
+      // Wikipedia List of legendary kings of Pictland
+      'Usconbuts', 'Dectotric', 'Tharain', 'Cimoiod', 'Moreleo'
+    ]
+  }
+};
+
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
+
+  /* Returns a random element from the array #list#. */
+  function randomElement(list) {
+    return list.length>0 ? list[QuilvynUtils.random(0, list.length - 1)] : '';
+  }
 
   let attr;
   let attrs = this.applyRules(attributes);
@@ -3672,6 +3923,34 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
       choices.splice(i, 1);
       howMany--;
     }
+    return;
+  } else if(attribute == 'name') {
+    let race = attributes.race || 'Anari Human';
+    let swadeRace = race == 'Engro' ? 'Half-folk' : race;
+    let raceNames = Hellfrost.NAMES[race];
+    let gender = attributes.gender;
+    if(!(gender+'').match(/^(Female|Male)$/))
+      gender = 'Nonbinary';
+    choices = raceNames[gender] || ['%{Syllables}'];
+    attr = randomElement(choices);
+    choices = raceNames.Surname;
+    if(choices && choices.length > 0)
+      attr += ' ' + randomElement(choices);
+    let matchInfo;
+    while((matchInfo = attr.match(/%{(\w+)}/)) != null) {
+      if(matchInfo[1] in raceNames) {
+        choices = raceNames[matchInfo[1]];
+        if(Array.isArray(choices))
+          attr = attr.replace(matchInfo[0], randomElement(choices));
+        else if(gender in choices)
+          attr = attr.replace(matchInfo[0], choices[gender]);
+        else
+          attr = attr.replace(matchInfo[0], SWADE.randomName(swadeRace));
+      } else {
+        attr = attr.replace(matchInfo[0], SWADE.randomName(swadeRace));
+      }
+    }
+    attributes.name = attr;
     return;
   }
 
@@ -3853,6 +4132,12 @@ Hellfrost.ruleNotes = function() {
     '  deities, languages, and glory rewards. Adding a homebrew deity or' +
     '  language requires only giving the name; glory rewards also allow' +
     '  specifying prerequisites for obtaining the reward.\n' +
+    '  </li><li>\n' +
+    '  Many of the random names Quilvyn uses when generating characters are' +
+    '  taken from the medieval name lists on the' +
+    '  <a href="https://www.behindthename.com/">Behind the Name website</a>.' +
+    '  Tuomi names are taken from Wikipedia\'s' +
+    '  <a href="https://en.wikipedia.org/wiki/List_of_legendary_kings_of_Pictland">list of Pictish kings</a> and the website <a href="https://eithni.com/pictish-names/">Eithni\'s Keep</a>.\n' +
     '  </li>\n' +
     '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
