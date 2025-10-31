@@ -141,17 +141,19 @@ function Hellfrost(baseRules) {
      Hellfrost.HINDRANCES, Hellfrost.SKILLS, Hellfrost.LANGUAGES,
      Hellfrost.GLORY_REWARDS);
   Hellfrost.identityRules
-    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITYS);
+    (rules, Hellfrost.RACES, Hellfrost.CONCEPTS, Hellfrost.DEITYS,
+     Hellfrost.PLACES);
 
   Quilvyn.addRuleSet(rules);
 
 }
 
-Hellfrost.VERSION = '2.4.1.1';
+Hellfrost.VERSION = '2.4.1.2';
 
 Hellfrost.CHOICES = ['Deity', 'Glory Reward', 'Language'].concat(SWADE.CHOICES.filter(x => x != 'Era'));
 Hellfrost.RANDOMIZABLE_ATTRIBUTES =
-  SWADE.RANDOMIZABLE_ATTRIBUTES.concat(['deity', 'glory rewards', 'languages']);
+  SWADE.RANDOMIZABLE_ATTRIBUTES.concat
+    (['deity', 'glory rewards', 'languages', 'origin']);
 
 /*
  * Spell list changes from errata:
@@ -2257,6 +2259,342 @@ Hellfrost.LANGUAGES = {
   'Vendahl':'',
   'Vindari':''
 };
+Hellfrost.PLACES = {
+  'Alantaris Isle':
+    'Population=110840 ' +
+    'Distribution=' +
+      '"83% Anari","5% Saxa","5% Dwarves","3% Elves","2% Engro","2% Frostborn"',
+      'Imperial City':'Land="Alantaris Isle" Population=32600',
+      'Port':'Land="Alantaris Isle" Population=3153',
+  'Angarion':
+    'Population=23048 ' +
+    'Distribution="99% Hearth Elves","1% Engro"',
+      'Dale':'Land=Angarion Population=1305 Distribution="100% Saxa"',
+  'Angmark':
+    'Population=53458 ' +
+    'Distribution="84% Saxa","10% Anari","5% Engro","1% Frostborn"',
+      'Estvik':'Land=Angmark Population=3640',
+      'Leirvik':'Land=Angmark Population=8123',
+      'Odda':'Land=Angmark Population=3675',
+      'Rindal':'Land=Angmark Population=4146',
+  'Aspiria':
+    'Population=264755 ' +
+    'Distribution=' +
+      '"75% Anari","10% Dwarves","8% Taiga Elves","5% Engro","2% Frostborn"',
+      'Asper':'Land=Aspiria Population=6569',
+      'Glassport':'Land=Aspiria Population=10634',
+      'Kingsmead':'Land=Aspiria Population=5556',
+      'New Asper':'Land=Aspiria Population=28567',
+      'Vergo':'Land=Aspiria Population=3789',
+  'The Battlelands':
+    'Population=39046 ' +
+    'Distribution="69% Tuomi","11% Anari","10% Frostborn","8% Saxa","2% Engro"',
+      'Calivar':'Land="The Battlelands" Population=3657',
+      'Jotungraef':'Land="The Battlelands" Population=4340',
+  'Barony Of Blackstone':
+    'Population=12248 ' +
+    'Distribution="75% Anari","20% Saxa","3% Engro","2% Frostborn"',
+      'Blackstone':'Land="Barony Of Blackstone" Population=7641',
+  'The Borderlands':
+    'Population=40489 ' +
+    'Distribution=' +
+      '"35% Tuomi","25% Anari","10% Saxa","10% Dwarves","10% Frostborn",' +
+      '"5% Taiga Elves","3% Hearth Elves","2% Engro"',
+      'Giantwatch':'Land="The Borderlands" Population=1704',
+      'Hjorn':'Land="The Borderlands" Population=940',
+      'Ludogov':'Land="The Borderlands" Population=2735',
+      'Melitel':'Land="The Borderlands" Population=2603',
+      'Pohst':'Land="The Borderlands" Population=1676',
+      'Scale':'Land="The Borderlands" Population=700',
+  'Cairn Lands':
+    'Population=25346 ' +
+    'Distribution="70% Saxa","15% Hearth Elves","10% Anari","5% Engro"',
+      'Hergist':'Land="Cairn Lands" Population=3404',
+  'Chalcis':
+    'Population=88637 ' +
+    'Distribution=' +
+      '"65% Anari","13% Saxa","12% Hearth Elves","6% Frost Dwarves",' +
+      '"3% Frostborn","1% Engro"',
+      'Deepdale':'Land=Chalcis Population=2650',
+      'Deepdale Fort':'Land=Chalcis Population=120',
+      'Highmoor':'Land=Chalcis Population=9756',
+      'Sacros':'Land=Chalcis Population=2469',
+      'Shapryr':'Land=Chalcis Population=5965',
+  'Coglelund':
+    'Population=39431 ' +
+    'Distribution="71% Anari","25% Saxa","4% Engro"',
+      'Halfway':'Land=Coglelund Population=23688',
+  'Crystalflow Confederacy':
+    'Population=107330 ' +
+    // Reduced from book's 35% Saxa to sum to 100%
+    'Distribution="62% Anari","30% Saxa","5% Engro","3% Frostborn"',
+      'Barge Court':'Land="Crystalflow Confederacy" Population=432',
+      'Bridgewater':'Land="Crystalflow Confederacy" Population=17692',
+      'Drakeport':'Land="Crystalflow Confederacy" Population=47283',
+      'Rushton':'Land="Crystalflow Confederacy" Population=7113',
+      'Scathmoor':'Land="Crystalflow Confederacy" Population=4204',
+  'Barony Of Cul':
+    'Population=14048 ' +
+    // Reduced from book's 25% Anari 18% Saxa to sum to 100%
+    'Distribution="65% Frostborn","20% Anari","13% Saxa","2% Engro"',
+      'Cul':'Land="Barony Of Cul" Population=4346',
+  'Drachenlands':
+    'Population=76500 ' +
+    'Distribution=' +
+      '"75% Tuomi","10% Saxa","10% Frostborn","3% Taiga Elves","2% Engro"',
+      'Angrad':'Land=Drachenlands Population=3665',
+  'Karad Azgul':
+    'Population=26582 ' +
+    'Distribution="100% Dwarves"',
+  'Karad Dahn':
+    'Population=100 ' +
+    'Distribution="100% Dwarves"',
+  'Karad Iarn':
+    'Population=11874 ' +
+    'Distribution="100% Dwarves"',
+  'Karad Khan':
+    'Population=0 ' + // assumed
+    'Distribution="100% Dwarves"',
+  'Karad Marn':
+    'Population=17915 ' + // plus orcs and goblins
+    'Distribution="100% Dwarves"',
+  'Karad Noshrek':
+    'Population=0 ' + // assumed
+    'Distribution="100% Dwarves"',
+  'Karad Zor':
+    'Population=36336 ' +
+    'Distribution="100% Dwarves"',
+  'Freelands':
+    'Population=149492 ' +
+    'Distribution=' +
+      '"45% Anari","28% Saxa","12% Dwarves","10% Hearth Elves","3% Engro",' +
+      '"2% Frostborn"',
+      'The Stone Forest':
+        'Land=Freelands ' +
+        'Population=4000 ' +
+        'Distribution="90% Hearth Elves","8% Saxa","2% Engro"',
+      'Aslov':'Land=Freelands Population=28519',
+      'The Citadel':'Land=Freelands Population=526',
+      'Crase':'Land=Freelands Population=2916',
+      'Deathwatch':'Land=Freelands Population=1949',
+      'Lower Guard':'Land=Freelands Population=200',
+      'Upper Guard':'Land=Freelands Population=200',
+      'Nara':'Land=Freelands Population=9494',
+      'Sanctuary':'Land=Freelands Population=1760',
+      'Spyre':'Land=Freelands Population=18725',
+  'Freetown':
+    'Population=7987 ' +
+    'Distribution="65% Anari","30% Saxa","5% Others"',
+  'Frozen Forest':
+    'Population=0', // Frost wights and ice mummies
+  "Giant's Throne":
+    'Population=0', // Frost giants, orcs, and goblins
+  'Glittersands':
+    'Population=2468 ' +
+    'Distribution="70% Anari","25% Frostborn","5% Saxa"',
+      'Glaston':'Land=Glittersands Population=1546',
+  'The Great Swamp':
+    'Population=0', // Lizardmen, Gatormen, and Bufomi
+  'Heldalund':
+    'Population=24063 ' +
+    'Distribution="82% Saxa","11% Anari","6% Frostborn","1% Engro"',
+      'Held':
+        'Land=Heldalund ' +
+        'Population=2846 ' + // not including the orcs
+        'Distribution="64% Saxa","36% Anari"',
+      'Norvik':'Land=Heldalund Population=5790',
+  'Heligioland':
+    'Population=65630 ' +
+    'Distribution=' +
+      '"50% Saxa","15% Taiga Elves","15% Dwarves","9% Anari","8% Frostborn",' +
+      '"2% Engro","1% Finnar"',
+      'Icebarrier Mountains':
+        'Land=Heligioland ' +
+        'Population=8000 ' +
+        'Distribution="95% Dwarves","5% Others"',
+      'Brae':'Land=Heligioland Population=4446',
+      'Eastwatch Fort':'Land=Heligioland Population=120',
+      'Hellfrost Keep':'Land=Heligioland Population=3000',
+      'Icewatch Fort':'Land=Heligioland Population=120',
+      'Myre':'Land=Heligioland Population=6524',
+      'Watchgap Fort':'Land=Heligioland Population=120',
+  'The Hellfrost':
+    'Population=0', // Frost giants, orcs, frostborn mercenaries
+  'Hrimthyr Isle':
+    'Population=0', // nasties only
+    'Jarlshof':'Land="Hrimthyr Isle" Population=0',
+    'Thrymsport':'Land="Hrimthyr Isle" Population=0',
+  'Icedale Freeholds':
+    'Population=31697 ' +
+    'Distribution=' +
+      '"50% Finnar","20% Saxa","10% Anari","13% Frostborn","7% Taiga Elves"',
+      'Icedale':'Land="Icedale Freeholds" Population=4376',
+      'Iceport':'Land="Icedale Freeholds" Population=3993',
+      'The Icicle':'Land="Icedale Freeholds" Population=125',
+  'Isles Of The Seareavers':
+    'Population=3356 ' +
+    'Distribution="50% Anari","30% Saxa","12% Frostborn","8% Others"',
+      'Bloodport':'Land="Isles Of The Seareavers" Population=579',
+  'Lakeland':
+    'Population=14649 ' +
+    'Distribution="45% Finnar","30% Saxa","20% Frostborn","5% Anari"',
+      'Mere':'Land=Lakeland Population=1674',
+      'Othicus':'Land=Lakeland Population=1073',
+      'Vimmar':'Land=Lakeland Population=2066',
+  'Liche Lands Of Old':
+    'Population=0', // undead
+  'The Magocracy':
+    'Population=377000 ' +
+    'Distribution=' +
+      '"79% Anari","12% Saxa","4% Hearth Elves","3% Dwarves","1% Frostborn",' +
+      '"1% Engro"',
+      'Barony Of Galmoor':'Land="The Magocracy" Population=8742',
+      'Barony Of Norwick':'Land="The Magocracy" Population=9584',
+      'Barony Of Zandor':'Land="The Magocracy" Population=8846',
+        'Weisdale':'Land="Barony Of Zandor" Population=1656',
+      'County Of Kerenil':'Land="The Magocracy" Population=13402',
+        'Kirk':'Land="County Of Kerenil" Population=4794',
+      'County Of Llan':'Land="The Magocracy" Population=15424',
+        'Llan':'Land="County Of Llan" Population=2659',
+      'County Of Morrow':'Land="The Magocracy" Population=14120',
+        'Woodkeep':'Land="County Of Morrow" Population=1724',
+      'County Of Wyse':'Land="The Magocracy" Population=15279',
+        'Aranor':'Land="County Of Wyse" Population=3904',
+      'Dukedom Of Eastheath':'Land="The Magocracy" Population=23673',
+        'Heath':'Land="Dukedom Of Eastheath" Population=5474',
+      'Dukedom Of Haldir':'Land="The Magocracy" Population=24545',
+        'Haldness':'Land="Dukedom Of Haldir" Population=5987',
+      'Kinshall':'Land="The Magocracy" Population=1603',
+      'Principality Of Bremen':'Land="The Magocracy" Population=37567',
+        'Serlana':'Land="Principality Of Bremen" Population=5942',
+      'Principality Of Darovia':'Land="The Magocracy" Population=30545',
+        'Dargon':'Land="Principality Of Darovia" Population=5734',
+      'Principality Of Dragomilov':'Land="The Magocracy" Population=41561',
+        'Dragomir':'Land="Principality Of Dragomilov" Population=11900',
+      'Principality Of Hergenald':'Land="The Magocracy" Population=30854',
+        'Port Helgen':'Land="Principality Of Hergenald" Population=9984',
+      'Principality Of Sethnor':'Land="The Magocracy" Population=30922',
+        'Brigeton':'Land="Principality Of Sethnor" Population=1679',
+        'Sethnor City':'Land="Principality Of Sethnor" Population=8909',
+      'Principality Of Tharkness':'Land="The Magocracy" Population=36437',
+        'Tharkness':'Land="Principality Of Tharkness" Population=7490',
+  'Midmark':
+    'Population=75274 ' +
+    'Distribution=' +
+      '"80% Saxa","10% Hearth Elves","5% Anari","3% Engro","2% Frostborn"',
+      'Aith':'Land=Midmark Population=8654',
+      'Hamna':'Land=Midmark Population=13654',
+      'Marshwatch':'Land=Midmark Population=6352',
+      'Wald':'Land=Midmark Population=3778',
+  'The Mistlands':
+    'Population=0',
+  'Nerenel':
+    'Population=12569 ' +
+    'Distribution="91% Taiga Elves","9% Saxa"',
+      'Town Of Nerenel':
+        'Land=Nerenel Population=7245 Distribution="100% Taiga Elves"',
+  'Nordmark':
+    'Population=73274 ' +
+    'Distribution=' +
+      '"75% Saxa","10% Anari","9% Dwarves","4% Engro","2% Hearth Elves"',
+      'Ramberry':'Land=Nordmark Population=5217',
+      'The Refuge':'Land=Nordmark Population=4492',
+      'Yorvik':'Land=Nordmark Population=12556',
+      'Norvold':'Land=Nordmark Population=4015',
+  'Orcmark':
+    'Population=21500 ' + // not including orcs
+    'Distribution="93% Saxa","7% Hearth Elves"',
+      'Dorvik':'Land=Orcmark Population=3000 Distribution="100% Saxa"',
+      'Nard':'Land=Orcmark Population=5700',
+      'Ostersund':
+        'Land=Orcmark Population=8000 Distribution="85% Saxa","15% Anari"',
+      'Yetland':'Land=Orcmark Population=2000',
+  'Ostmark':
+    'Population=72824 ' +
+    'Distribution=' +
+      '"70% Saxa","15% Hearth Elves","5% Anari","5% Dwarves","4% Engro",' +
+      '"1% Frostborn"',
+      'Iarnsburg':'Land=Ostmark Population=4864',
+      'Lieksa':'Land=Ostmark Population=9872',
+      'Lokka':'Land=Ostmark Population=4060',
+      'Sandvik':'Land=Ostmark Population=18924',
+      'Teuvia':
+        'Land=Ostmark Population=3697 Distribution="80% Engro","20% Others"',
+  'Rimeholm':
+    'Population=19531 ' +
+    'Distribution="100% Taiga Elves"',
+      'City Of Rimeholm':'Population=10944',
+  'Royalmark':
+    'Population=119547 ' +
+    'Distribution=' +
+      '"84% Saxa","10% Anari","4% Hearth Elves","1% Engro","1% Frostborn"',
+      'Hereford':'Land=Royalmark Population=4187',
+      'Moot Hill':'Land=Royalmark Population=400',
+      'Ravensburg':'Land=Royalmark Population=22024',
+      'Ridderhil':'Land=Royalmark Population=536',
+      'Salnorr':'Land=Royalmark Population=3871',
+  'Seithrby':
+    'Population=19086 ' +
+    'Distribution="68% Saxa","30% Anari","2% Engro"',
+      'Murton':'Land=Seithrby Population=774',
+      'Ryhoepe':'Land=Seithrby Population=884',
+      'Seaton':'Land=Seithrby Population=539',
+      'Seithrby City':'Land=Seithrby Population=2625',
+      'Wulfcestre':'Land=Seithrby Population=340',
+  'Shattered Moor':
+    'Population=12075 ' +
+    'Distribution="50% Anari","40% Saxa","9% Frostborn","1% Others"',
+      'Far Reach':'Land="Shattered Moor" Population=3858',
+      'Occitan':'Land="Shattered Moor" Population=385',
+      'Velhem Fort':'Land="Shattered Moor" Population=350',
+  'Sunken Realm':
+    'Population=0', // baddies only
+  'Sutmark':
+    'Population=47076 ' +
+    'Distribution="90% Saxa","6% Hearth Elves","3% Engro","1% Others"',
+      'Dusthall':'Land=Sutmark Population=3906',
+      'Ostvik':'Land=Sutmark Population=7340',
+      'Vidlin':'Land=Sutmark Population=5568',
+      'Whitehall':'Land=Sutmark Population=5034',
+  'Tethilin':
+    'Population=7642 ' +
+    'Distribution="100% Taiga Elves"',
+  'Barony Of Trond':
+    'Population=18395 ' +
+    'Distribution="45% Anari","40% Saxa","15% Frostborn"',
+      'Trondavoe':'Land="Barony Of Trond" Population=5734',
+      'Vox':'Land="Barony Of Trond" Population=1695',
+  'Unclaimed Lands':
+    'Population=100000 ' +
+    'Distribution=' +
+      '"55% Finnar","15% Dwarves","15% Tuomi","10% Taiga Elves","3% Saxa",' +
+      '"2% Anari"',
+  'The Vale':
+    'Population=32347 ' +
+    'Distribution="65% Anari","20% Saxa","15% Engro"',
+      'Easton':'Land="The Vale" Population=2924',
+      'Weem':'Land="The Vale" Population=5395',
+      'Weston':'Land="The Vale" Population=1571',
+  'Veermark':
+    'Population=46577 ' +
+    'Distribution="84% Saxa","7% Hearth Elves","6% Anari","3% Engro"',
+      'The Grasslands':'Land=Veermark Population=20000',
+      'Holm':'Land=Veermark Population=6007',
+      'Veergarth':'Land=Veermark Population=300',
+      'Weatherly':'Land=Veermark Population=3578',
+  'Vestmark':
+    'Population=51676 ' +
+    'Distribution="75% Saxa","15% Anari","8% Hearth Elves","2% Engro"',
+      'Castle Hrafn':'Land=Vestmark Population=489',
+      'Elverun':'Land=Vestmark Population=4957',
+      'Skei':'Land=Vestmark Population=5957',
+      'Tarn':'Land=Vestmark Population=3496',
+      'Tingvoll':'Land=Vestmark Population=8700',
+  'Witchwood':
+    'Population=0', // unknown # of taiga elves, frostborn, and hrimwisards
+  'Withered Lands':
+    'Population=0' // baddies only
+};
 Hellfrost.POWERS_ADDED = {
   // Note that "half powers" are included here where some arcana power list
   // includes a restricted version of the spell (e.g. Corporealness and
@@ -2920,7 +3258,7 @@ Hellfrost.SKILLS_ADDED = {
   'Knowledge (Barony Of Blackstone)':'Attribute=Smarts',
   'Knowledge (The Borderlands)':'Attribute=Smarts',
   'Knowledge (Cairn Lands)':'Attribute=Smarts',
-  'Knowledge (Chalis)':'Attribute=Smarts',
+  'Knowledge (Chalcis)':'Attribute=Smarts',
   'Knowledge (Coglelund)':'Attribute=Smarts',
   'Knowledge (Crystalflow Confederacy)':'Attribute=Smarts',
   'Knowledge (Barony Of Cul)':'Attribute=Smarts',
@@ -3058,15 +3396,19 @@ Hellfrost.combatRules = function(rules, armors, shields, weapons) {
 };
 
 /* Defines rules related to basic character identity. */
-Hellfrost.identityRules = function(rules, races, concepts, deities) {
+Hellfrost.identityRules = function(rules, races, concepts, deities, places) {
   rules.basePlugin.identityRules(rules, {}, {}, concepts);
   QuilvynUtils.checkAttrTable(deities, []);
   QuilvynUtils.checkAttrTable(races, ['Requires', 'Abilities', 'Languages']);
+  QuilvynUtils.checkAttrTable(places, ['Land', 'Population', 'Distribution']);
   for(let d in deities) {
     rules.choiceRules(rules, 'Deity', d, deities[d]);
   }
   for(let r in races) {
     rules.choiceRules(rules, 'Race', r, races[r]);
+  }
+  for(let p in places) {
+    rules.choiceRules(rules, 'Place', p, places[p]);
   }
   rules.defineEditorElement
     ('deity', 'Deity', 'select-one', 'deity', 'origin');
@@ -3167,6 +3509,12 @@ Hellfrost.choiceRules = function(rules, type, name, attrs) {
     Hellfrost.hindranceRulesExtra(rules, name);
   } else if(type == 'Language')
     Hellfrost.languageRules(rules, name);
+  else if(type == 'Place')
+    Hellfrost.placeRules(rules, name,
+      QuilvynUtils.getAttrValue(attrs, 'Land'),
+      QuilvynUtils.getAttrValue(attrs, 'Population'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Distribution')
+    );
   else if(type == 'Power')
     Hellfrost.powerRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Advances'),
@@ -3535,6 +3883,44 @@ Hellfrost.languageRules = function(rules, name) {
     return;
   }
   // No rules pertain to language
+};
+
+/* Defines in #rules# the rules associated with place #name#. */
+Hellfrost.placeRules = function(rules, name, land, population, distribution) {
+  if(!name) {
+    console.log('Empty place name');
+    return;
+  }
+  if(land && typeof land != 'string') {
+    console.log('Bad land "' + land + '" for place ' + name);
+    return;
+  }
+  if(land && rules.getChoices('places') && !(land in rules.getChoices('places'))) {
+    console.log('Unknown land "' + land + '" for place ' + name);
+    return;
+  }
+  if(typeof population != 'number') {
+    console.log('Bad population "' + population + '" for place ' + name);
+    return;
+  }
+  if(!Array.isArray(distribution)) {
+    console.log('Bad distribution ' + distribution + ' for place ' + name);
+    return;
+  }
+  if(distribution.length > 0) {
+    let totalDist = 0;
+    distribution.forEach(d => {
+      if(!d.match(/^\d+% (Anari|Engro|(Frost\s)?Dwarves|((Hearth|Taiga)\s)?Elves|Finnar|Frostborn|Others|Saxa|Tuomi)$/)) {
+        console.log('Bad distribution entry ' + d + ' for place ' + name);
+      } else {
+        totalDist += +d.replace(/%.*/, '');
+      }
+    });
+    if(totalDist != 100) {
+      console.log('Bad distribution sum ' + totalDist + ' for place ' + name);
+    }
+  }
+  // No rules pertain to place
 };
 
 /*
@@ -3951,6 +4337,48 @@ Hellfrost.randomizeOneAttribute = function(attributes, attribute) {
       }
     }
     attributes.name = attr;
+    return;
+  } else if(attribute == 'origin') {
+    let allPlaces = this.getChoices('places');
+    let race = attributes.race || 'Anari Human';
+    let racePat = new RegExp(
+      '^\\d+%\\s' +
+      (race.includes('Human') ? race.replace(' Human', '') :
+       race == 'Frost Dwarf' ? '(Frost\\s)?Dwarves' :
+       race == 'Hearth Elf' ?  '(Hearth\\s)?Elves' :
+       race == 'Taiga Elf' ?  '(Taiga\\s)?Elves' :
+       race) +
+      '$'
+    );
+    let percentages = {};
+    let populations = {};
+    for(let p in allPlaces) {
+      let land = QuilvynUtils.getAttrValueArray(allPlaces[p], 'Land');
+      let dist = QuilvynUtils.getAttrValueArray(allPlaces[p], 'Distribution');
+      if(dist.length == 0 && land && land in allPlaces)
+        dist = QuilvynUtils.getAttrValueArray(allPlaces[land],'Distribution');
+      let placePop = QuilvynUtils.getAttrValue(allPlaces[p], 'Population') || 0;
+      populations[p] = placePop;
+      if(land && land in populations)
+        populations[land] -= placePop;
+      let racePct = dist.filter(x => x.match(racePat));
+      if(racePct.length > 0)
+        percentages[p] = +racePct[0].replace(/%.*/, '');
+    }
+    choices = {};
+    let totalPop = 0;
+    for(let p in percentages) {
+      choices[p] = Math.trunc(populations[p] * percentages[p] / 100);
+      totalPop += choices[p];
+    }
+    let i = QuilvynUtils.random(0, totalPop - 1);
+    for(let p in choices) {
+      i -= choices[p];
+      if(i < 0) {
+        attributes.origin = p;
+        break;
+      }
+    }
     return;
   }
 
